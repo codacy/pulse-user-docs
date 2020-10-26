@@ -6,8 +6,8 @@ The API key identifies your organization and authorizes you to push events to Pu
 
 ## Pushing Data
 
-Currently we support two ways to push data.
-A CLI and a HTTP POST request.
+Currently, we support two ways to push data.
+A CLI and an HTTP POST request.
 
 ### CLI
 
@@ -61,7 +61,7 @@ we also support pushing events through an HTTP POST endpoint.
 **We advise to only use this method of pushing events if the others are not possible.**
 If you require to push events in this way, please contact us first so we can configure it with you.
 
-This might be usefull for sending data from providers that only support webhooks.
-You can setup you provider to send a webhook to the following URL:
+This might be useful for sending data from providers that only support webhooks.
+You can set up your provider to send a webhook to the following URL:
 
 `https://ingestion.acceleratedevops.net/v1/ingestion/<provider>?api_key=<API-KEY>`
