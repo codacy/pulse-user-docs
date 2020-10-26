@@ -6,26 +6,40 @@ The API key identifies your organization and authorizes you to push events to Pu
 
 ## Pushing Data
 
-Currently, we support two ways to push data.
-A CLI and an HTTP POST request.
+Currently, we support two ways to push data: a CLI and a HTTP API.
 
 ### CLI
 
 #### Install
 
 The CLI is distributed in a binary format (for multiple operating systems and architectures)
-that you can download [here](https://dl.bintray.com/codacy/pulse/event-cli/).
-
-Example for linux (replace version):
+that you can download:
 
 ```sh
-curl -fsSL "https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_amd64/pulse-event-cli" -o event-cli
+curl -fsSL "https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/<ARCH>/pulse-event-cli" -o event-cli
+```
+
+Use the latest version to replace `<VERSION>`: ![Bintray](https://img.shields.io/bintray/v/codacy/pulse/event-cli?label=latest%20version)
+
+Supported operating systems and architectures to replace `<ARCH>`:
+- pulse-event-cli_darwin_amd64
+- pulse-event-cli_linux_386
+- pulse-event-cli_linux_amd64
+- pulse-event-cli_windows_386
+- pulse-event-cli_windows_amd64
+
+Don't forget to make the binary executable and check that it works:
+
+```sh
 chmod +x event-cli
+./event-cli help
 ```
 
 #### Run
 
 ##### Deployments
+For Cloud SaaS, make sure to push when deploying to production.
+For Self-hosted, a better option might be to push when you have a valid artifact ready to be delivered to any user.
 
 ```sh
 ./event-cli push deployment \
@@ -54,15 +68,12 @@ chmod +x event-cli
     --timestampResolved "<UNIX epoch timestamp in seconds>"
 ```
 
-### HTTP POST
+### HTTP API
 
-Since it might be difficult to use the CLI to send some types of events (like incidents),
-we also support pushing events through an HTTP POST endpoint.
+Since it might be difficult to use the CLI to send some types of events (like changes or incidents),
+we also support pushing events to a HTTP POST endpoint.
 
-**We advise to only use this method of pushing events if the others are not possible.**
-If you require to push events in this way, please contact us first so we can configure it with you.
-
-This might be useful for sending data from providers that only support webhooks.
-You can set up your provider to send a webhook to the following URL:
-
+This might be useful for sending data from providers that only support webhooks. You can set up your provider to send a webhook to the following URL:
 `https://ingestion.acceleratedevops.net/v1/ingestion/<provider>?api_key=<API-KEY>`
+
+There is no specified format for events sent to this endpoint. Although, make sure to they include all the fields documented above. If you are planning to push events this way, please let us know. Data will not be immediately available in your dashboard as we'll need to process it on our side.
