@@ -19,7 +19,8 @@ that you can download [here](https://dl.bintray.com/codacy/pulse/event-cli/).
 Example for linux (replace version):
 
 ```sh
-curl -fsSL "https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_amd64/:pulse-event-cli" -o event-cli
+curl -fsSL "https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_amd64/pulse-event-cli" -o event-cli
+chmod +x event-cli
 ```
 
 #### Run
