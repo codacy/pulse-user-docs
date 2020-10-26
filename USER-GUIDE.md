@@ -2,9 +2,7 @@
 
 ## API Key
 
-This is your organization's identification API key: `API-KEY`
-
-It will allow you to push events to Pulse.
+The API key identifies your organization and authorizes you to push events to Pulse.
 
 ## Pushing Data
 
