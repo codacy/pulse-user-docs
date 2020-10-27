@@ -1,6 +1,16 @@
 # Integration Guide
 
-## API Key
+## Concepts
+
+### System
+
+A system is a partition of your organization.
+Depending on your use case it can be a service, a repository or any other entity or group of entities in your organization.
+
+Currently Pulse does not use this information,
+but as we develop new features this will be used to show scoped views of your organization's data.
+
+### API Key
 
 The API key identifies your organization and authorizes you to push events to Pulse.
 
@@ -43,6 +53,7 @@ For Cloud SaaS, make sure to push when deploying to production. For Self-hosted,
 
 | Field      | Description                                            | Format                                   |
 | ---------- | ------------------------------------------------------ | ---------------------------------------- |
+| system     | Name of the system the data refers to                  | String [Optional]                        |
 | identifier | A version or other unique identifier of the deployment | String                                   |
 | timestamp  | Time the deployment was completed                      | Number (UNIX epoch timestamp in seconds) |
 |            | Commits being deployed in the deployment               | String (space separated list)            |
@@ -50,6 +61,7 @@ For Cloud SaaS, make sure to push when deploying to production. For Self-hosted,
 ```sh
 ./event-cli push deployment \
     --api-key "<API-KEY>" \
+    --system "<name of the system the data refers to>" \
     --identifier "<deployment identifier>" \
     --timestamp "<UNIX epoch timestamp in seconds>" \
     <space separated list of change identifiers>
@@ -60,12 +72,14 @@ A commit pushed to a Git.
 
 | Field      | Description                                        | Format                                   |
 | ---------- | -------------------------------------------------- | ---------------------------------------- |
+| system     | Name of the system the data refers to              | String [Optional]                        |
 | identifier | The commit hash                                    | String                                   |
 | timestamp  | Time the commit was first pushed to the repository | Number (UNIX epoch timestamp in seconds) |
 
 ```sh
 ./event-cli push change \
     --api-key "<API-KEY>" \
+    --system "<name of the system the data refers to>" \
     --identifier "<change identifier>" \
     --timestamp "<UNIX epoch timestamp in seconds>"
 ```
@@ -75,6 +89,7 @@ A change to production or release to users that resulted in degraded service (e.
 
 | Field             | Description                               | Format                                   |
 | ----------------- | ----------------------------------------- | ---------------------------------------- |
+| system            | Name of the system the data refers to     | String [Optional]                        |
 | identifier        | A unique identifier of the incident       | String                                   |
 | timestampCreated  | Time the incident started or was detected | Number (UNIX epoch timestamp in seconds) |
 | timestampResolved | Time the incident was resolved            | Number (UNIX epoch timestamp in seconds) |
@@ -82,6 +97,7 @@ A change to production or release to users that resulted in degraded service (e.
 ```sh
 ./event-cli push incident \
     --api-key "<API-KEY>" \
+    --system "<name of the system the data refers to>" \
     --identifier "<incident identifier>" \
     --timestampCreated "<UNIX epoch timestamp in seconds>" \
     --timestampResolved "<UNIX epoch timestamp in seconds>"
@@ -96,7 +112,7 @@ Since it might be difficult to use the CLI to send some types of events (like ch
 we also support pushing events to an HTTP POST endpoint.
 
 This might be useful for sending data from providers that only support webhooks. You can set up your provider to send a webhook to the following URL:
-`https://ingestion.acceleratedevops.net/v1/ingestion/<provider>?api_key=<API-KEY>`
+`https://ingestion.acceleratedevops.net/v1/ingestion/<provider>?api_key=<API-KEY>[&system=<system name>]`
 
 There is no specified format for events sent to this endpoint. Although, make sure to include all the fields documented above. If you are planning to push events this way, please let us know. Data will not be immediately available in your dashboard as we'll need to process it on our side.
 
