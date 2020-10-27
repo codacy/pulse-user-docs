@@ -1,0 +1,26 @@
+strict: true
+
+# Project information
+site_name: Pulse documentation
+site_url: https://docs.acceleratedevops.net/
+
+# Configuration
+theme:
+  name: "material"
+  palette:
+    scheme: slate
+    primary: "teal"
+    accent: "teal"
+  # feature:
+  #   tabs: true
+
+google_analytics: ["UA-180967824-1", "acceleratedevops.net"]
+
+# Extensions
+markdown_extensions:
+  - toc:
+      permalink: true
+  - admonition
+  - codehilite:
+      linenums: True
+  - meta
