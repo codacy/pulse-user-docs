@@ -24,3 +24,4 @@ markdown_extensions:
   - codehilite:
       linenums: True
   - meta
+  - footnotes
