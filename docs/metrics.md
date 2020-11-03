@@ -1,21 +1,21 @@
 # Calculated Metrics
 
-These metrics are calculated using stricly `changes`, `deployments` and `incidents` for a rolling window of the last 90 days.
+These metrics are calculated using strictly `changes`, `deployments` and `incidents` for a rolling window of the last 90 days.
 
 ## Deployment Frequency
 
 The most specific that applies:
 
-| Deployment Frequency | Value                                                                                                                                                                                       |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| On-demand            | Median of more than one `deployments` per day (i.e. more than 50% of the days have more than one deployment.)                                                                               |
-| Daily                | Median of three or more days with `deployments` in a calendar week             (i.e. more than 50% of weeks have 3 or more days with deployments.)                                          |
-| Weekly               | Median of one or more `deployments` in a calendar week                              (i.e. more than 50% of weeks have at least one deployment.)                                             |
-| Monthly              | Median of one or more `deployments` in a calendar month                                                                        (i.e. more than 50% of months have at least one deployment.) |
-| Yearly               | None of the above                                                                                                                                                                           |
+| Deployment Frequency | Value                                                                                                                                  |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| On-demand            | Median of more than one `deployments` per day (i.e. more than 50% of the days have more than one deployment.)                          |
+| Daily                | Median of three or more days with `deployments` in a calendar week (i.e. more than 50% of weeks have 3 or more days with deployments.) |
+| Weekly               | Median of one or more `deployments` in a calendar week (i.e. more than 50% of weeks have at least one deployment.)                     |
+| Monthly              | Median of one or more `deployments` in a calendar month (i.e. more than 50% of months have at least one deployment.)                   |
+| Yearly               | None of the above                                                                                                                      |
 
 !!! note
-    The value above is used to determine your Perfomance level. The numeric value displayed as Deployment Frequency is the number of `deployments` per day.
+    The value above is used to determine your Performance level. The numeric value displayed as Deployment Frequency is the number of `deployments` per day.
 
 When we aggregate Deployment Frequency we use the average of a period of time.
 
@@ -23,7 +23,7 @@ When we aggregate Deployment Frequency we use the average of a period of time.
 | --------------------- | ------------------------------------------------------------------ |
 | Low                   | Monthly or Yearly (Between once per month and once every 6 months) |
 | Medium                | Weekly (Between once per week and once per month)                  |
-| High                  | Daily (Between once per day and once once per week)                |
+| High                  | Daily (Between once per day and once per week)                     |
 | Elite                 | On-demand (Multiple deployments per day)                           |
 
 
