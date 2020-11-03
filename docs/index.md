@@ -174,7 +174,8 @@ do
     deployment_date=$(git log --format="%at" ${deployment_sha} | head -n 1)
 
     # Skip deployments before date
-    if [ ${deployment_date} -lt $(date -jf "%b %d %Y" "Oct 01 2020" +%s) ]
+    # If you are on MacOS you need to use $(date -jf "%b %d %Y" "Oct 01 2020" +%s) instead
+    if [ ${deployment_date} -lt $(date -d "Oct 01 2020" +%s) ]
     then
         continue
     fi
