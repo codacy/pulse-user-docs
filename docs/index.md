@@ -101,48 +101,11 @@ This might be useful for sending data from providers that only support webhooks.
 There is no specified format for events sent to this endpoint. Although, make sure to include all the fields documented above. If you are planning to push events this way, please let us know. Data will not be immediately available in your dashboard as we'll need to process it on our side.
 
 ## Examples
+
 Some examples that we used to quickly populate our dashboard with historical data.
 
-### Using the CLI to push historic incidents
-In this example we used the CLI to push past incidents from the Codacy status page API into Pulse.
-
-```py
-# incidents.py
-
-import requests
-import subprocess
-from datetime import datetime, timezone
-
-url = 'https://status.codacy.com/api/incidents'
-
-resp = requests.get(url=url)
-data = resp.json()
-
-def convert_to_unix_epoch(date_time_str):
-    return str(int(datetime.strptime(date_time_str, '%Y-%m-%dT%H:%M:%S.%fZ').replace(tzinfo=timezone.utc).timestamp()))
-
-for incident in data:
-    id = incident['incidentID']
-    created = convert_to_unix_epoch(incident['createdAt'])
-    updated = convert_to_unix_epoch(incident['updatedAt'])
-
-    if incident['status'] == 'Resolved':
-        print(f'Pushing incident {id} created in {created} and resolved at {updated}')
-        print(created)
-        print(updated)
-        bashCmd = ["./event-cli", "push", "incident",
-        "--api-key", "xxx",
-        "--identifier", id,
-        "--timestampCreated", created,
-        "--timestampResolved", updated
-        ]
-        process = subprocess.Popen(bashCmd, stdout=subprocess.PIPE)
-        output, error = process.communicate()
-    else:
-        print(f"Skipping incident {id} . Because it was not resolved")
-```
-
 ### Using the CLI to push historic changes and deployments
+
 In this example we used the CLI to push past changes and deployments from a git repository into Pulse. Deployments are identified using semantic version git tags. Changes are the commits included in those deployments.
 
 ```sh
@@ -214,4 +177,44 @@ do
         previous_deployment="${deployment_sha}"
     fi
 done
+```
+
+### Using the CLI to push historic incidents
+
+In this example we used the CLI to push past incidents from the Codacy status page API into Pulse.
+
+```py
+# incidents.py
+
+import requests
+import subprocess
+from datetime import datetime, timezone
+
+url = 'https://status.codacy.com/api/incidents'
+
+resp = requests.get(url=url)
+data = resp.json()
+
+def convert_to_unix_epoch(date_time_str):
+    return str(int(datetime.strptime(date_time_str, '%Y-%m-%dT%H:%M:%S.%fZ').replace(tzinfo=timezone.utc).timestamp()))
+
+for incident in data:
+    id = incident['incidentID']
+    created = convert_to_unix_epoch(incident['createdAt'])
+    updated = convert_to_unix_epoch(incident['updatedAt'])
+
+    if incident['status'] == 'Resolved':
+        print(f'Pushing incident {id} created in {created} and resolved at {updated}')
+        print(created)
+        print(updated)
+        bashCmd = ["./event-cli", "push", "incident",
+        "--api-key", "xxx",
+        "--identifier", id,
+        "--timestampCreated", created,
+        "--timestampResolved", updated
+        ]
+        process = subprocess.Popen(bashCmd, stdout=subprocess.PIPE)
+        output, error = process.communicate()
+    else:
+        print(f"Skipping incident {id} . Because it was not resolved")
 ```
