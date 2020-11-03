@@ -1,44 +1,72 @@
-# Integration Guide
+# Integration guide
 
-## API Key
+<!-- TODO
+     The intro must explain the overall process for feeding data to pulse
+     (essentially, customers must send events with data at several stages of their
+     software development workflow) -->
 
 The API key identifies your organization and authorizes you to push events to Pulse.
 
-## Pushing Data
-
 Currently, we support two ways to push data: a CLI and an HTTP API.
 
-### CLI
+## 1. Installing the Pulse CLI
 
-#### Install
+<!-- TODO
+     Clean up and simplify the installation procedure -->
 
-The CLI is distributed in a binary format (for multiple operating systems and architectures)
-that you can download:
+The CLI is distributed in a binary format (for multiple operating systems and architectures).
 
-```sh
-curl -fsSL "https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/<ARCH>/pulse-event-cli" -o event-cli
-```
+1.  Download the Pulse CLI:
 
-Use the latest version to replace `<VERSION>`: [ ![Download](https://api.bintray.com/packages/codacy/pulse/event-cli/images/download.svg)](https://bintray.com/codacy/pulse/event-cli/_latestVersion)
+    ```sh
+    curl -fsSL "https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/<ARCH>/pulse-event-cli" -o event-cli
+    ```
 
-Supported operating systems and architectures to replace `<ARCH>`:
+    Use the latest version to replace `<VERSION>`: [ ![Download](https://api.bintray.com/packages/codacy/pulse/event-cli/images/download.svg)](https://bintray.com/codacy/pulse/event-cli/_latestVersion)
 
--  pulse-event-cli_darwin_amd64
--  pulse-event-cli_linux_386
--  pulse-event-cli_linux_amd64
--  pulse-event-cli_windows_386
--  pulse-event-cli_windows_amd64
+    Supported operating systems and architectures to replace `<ARCH>`:
 
-Don't forget to make the binary executable and check that it works:
+    -  pulse-event-cli_darwin_amd64
+    -  pulse-event-cli_linux_386
+    -  pulse-event-cli_linux_amd64
+    -  pulse-event-cli_windows_386
+    -  pulse-event-cli_windows_amd64
 
-```sh
-chmod +x event-cli && \
-./event-cli help
-```
+2.  Make the binary executable and check that it works:
 
-#### Run
+    ```sh
+    chmod +x event-cli && \
+    ./event-cli help
+    ```
 
-##### Deployments
+### Using the HTTP API
+
+<!-- TODO
+     Figure out what is the best place to introduce the HTTP API as an alternative to the CLI -->
+
+Since it might be difficult to use the CLI to send some types of events (like changes or incidents),
+we also support pushing events to an HTTP POST endpoint.
+
+This might be useful for sending data from providers that only support webhooks. You can set up your provider to send a webhook to the following URL:
+
+`https://ingestion.acceleratedevops.net/v1/ingestion/<provider>?api_key=<API-KEY>`
+
+There is no specified format for events sent to this endpoint. Although, make sure to include all the fields documented above. If you are planning to push events this way, please let us know. Data will not be immediately available in your dashboard as we'll need to process it on our side.
+
+## 2. Pushing data to Pulse
+
+<!-- TODO
+     Write an introduction for this section that further expands on the decisions involved in sending the events at the correct points in the software development workflow -->
+
+-  [Deployments](#deployments)
+-  [Changes](#changes)
+-  [Incidents](#incidents)
+
+!!! tip
+    You can get the UNIX epoch timestamp in seconds with `date +%s`.
+
+### Deployments
+
 For Cloud SaaS, make sure to push when deploying to production. For Self-hosted, a better option might be to push when you have a valid artifact ready to be delivered to any user.
 
 | Field      | Description                                            | Format                                   |
@@ -55,7 +83,11 @@ For Cloud SaaS, make sure to push when deploying to production. For Self-hosted,
     <space separated list of change identifiers>
 ```
 
-##### Changes
+<!-- IDEA
+     Consider including example snippets for the webhook -->
+
+### Changes
+
 A commit pushed to a Git.
 
 | Field      | Description                                        | Format                                   |
@@ -70,7 +102,8 @@ A commit pushed to a Git.
     --timestamp "<UNIX epoch timestamp in seconds>"
 ```
 
-##### Incidents
+### Incidents
+
 A change to production or release to users that resulted in degraded service (e.g., lead to service impairment or service outage) and subsequently require remediation (e.g., require a hotfix, rollback, fix forward, patch)
 
 | Field             | Description                               | Format                                   |
@@ -86,19 +119,6 @@ A change to production or release to users that resulted in degraded service (e.
     --timestampCreated "<UNIX epoch timestamp in seconds>" \
     --timestampResolved "<UNIX epoch timestamp in seconds>"
 ```
-
-!!! tip
-    You can get the UNIX epoch timestamp in seconds with `date +%s`.
-
-### HTTP API
-
-Since it might be difficult to use the CLI to send some types of events (like changes or incidents),
-we also support pushing events to an HTTP POST endpoint.
-
-This might be useful for sending data from providers that only support webhooks. You can set up your provider to send a webhook to the following URL:
-`https://ingestion.acceleratedevops.net/v1/ingestion/<provider>?api_key=<API-KEY>`
-
-There is no specified format for events sent to this endpoint. Although, make sure to include all the fields documented above. If you are planning to push events this way, please let us know. Data will not be immediately available in your dashboard as we'll need to process it on our side.
 
 ## Examples
 
