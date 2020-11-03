@@ -45,7 +45,7 @@ For Cloud SaaS, make sure to push when deploying to production. For Self-hosted,
 | ---------- | ------------------------------------------------------ | ---------------------------------------- |
 | identifier | A version or other unique identifier of the deployment | String                                   |
 | timestamp  | Time the deployment was completed                      | Number (UNIX epoch timestamp in seconds) |
-|            | Commits being deployed in the deployment               | String (space separated list)            |
+|            | Commits being deployed in the deployment               | String (space-separated list)            |
 
 ```sh
 ./event-cli push deployment \
