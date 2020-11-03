@@ -174,7 +174,7 @@ do
     deployment_date=$(git log --format="%at" ${deployment_sha} | head -n 1)
 
     # Skip deployments before date
-    if [ ${deployment_date} -lt $(date -d "Oct 01 2020" +%s) ]
+    if [ ${deployment_date} -lt $(date -jf "%b %d %Y" "Oct 01 2020" +%s) ]
     then
         continue
     fi
@@ -200,7 +200,7 @@ do
 
             for deployment_change in "${deployment_changes[@]}"
             do
-                deployment_change_date=$(git log --format="%at" ${deployment_change} | head -n 1)
+                deployment_change_date=$(git log --format="%at" ${deployment_change} --max-count=1)
 
                 echo "Pushing changes ${deployment_change} with date ${deployment_change_date}"
                 ./event-cli push change \
