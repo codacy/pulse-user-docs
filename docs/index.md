@@ -19,7 +19,7 @@ that you can download:
 curl -fsSL "https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/<ARCH>/pulse-event-cli" -o event-cli
 ```
 
-Use the latest version to replace `<VERSION>`: ![Bintray](https://img.shields.io/bintray/v/codacy/pulse/event-cli?label=latest%20version)
+Use the latest version to replace `<VERSION>`: [ ![Download](https://api.bintray.com/packages/codacy/pulse/event-cli/images/download.svg)](https://bintray.com/codacy/pulse/event-cli/_latestVersion)
 
 Supported operating systems and architectures to replace `<ARCH>`:
 
