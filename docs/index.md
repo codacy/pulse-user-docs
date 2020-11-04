@@ -1,13 +1,23 @@
 # Integration guide
 
-<!-- TODO
-     The intro must explain the overall process for feeding data to pulse
-     (essentially, customers must send events with data at several stages of their
-     software development workflow) -->
+Pulse displays metrics that provide insights about the current and historic performance of your software delivery process. To calculate these metrics, Pulse must collect information from key events of your particular software development workflow.
 
-The API key identifies your organization and authorizes you to push events to Pulse.
+Currently, the recommended way of integrating your workflow with Pulse is by using a CLI to send the necessary data to Pulse. Alternatively, you may also use a webhook for the same purpose.
 
-Currently, we support two ways to push data: a CLI and an HTTP API.
+!!! important
+    Before setting up the integration with Pulse, make sure that you have an API key that identifies your organization and authorizes you to send data to Pulse.
+
+To set up the integration with Pulse you must complete these main steps:
+
+1.  **Install the Pulse CLI**
+
+    Download the latest version of the CLI.
+
+1.  **Push data to Pulse**
+
+    Send information about key events of your software development process using either the CLI or the webhook.
+
+The next sections include detailed instructions on how to complete each step of the integration setup process.
 
 ## 1. Installing the Pulse CLI
 
@@ -51,7 +61,7 @@ This might be useful for sending data from providers that only support webhooks.
 
 `https://ingestion.acceleratedevops.net/v1/ingestion/<provider>?api_key=<API-KEY>`
 
-There is no specified format for events sent to this endpoint. Although, make sure to include all the fields documented above. If you are planning to push events this way, please let us know. Data will not be immediately available in your dashboard as we'll need to process it on our side.
+There is no specified format for events sent to this endpoint. Although, make sure to include all the fields documented below. If you are planning to push events this way, please let us know. Data will not be immediately available in your dashboard as we'll need to process it on our side.
 
 ## 2. Pushing data to Pulse
 
