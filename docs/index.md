@@ -30,7 +30,7 @@ Download the latest version of the CLI for your operating system and make sure t
 1.  Run the command to download the correct binary for your operating system, changing `<VERSION>` to the latest version obtained on the previous step:
 
     | Operating system | Command to download the binary |
-    |------------------|--------------------------------|
+    | ---------------- | ------------------------------ |
     | macOS            | `curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_darwin_amd64/pulse-event-cli` |
     | Linux 32-bit     | `curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_386/pulse-event-cli` |
     | Linux 64-bit     | `curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_amd64/pulse-event-cli` |
@@ -69,32 +69,30 @@ There is no specified format for sending events using this webhook. However, mak
 
 ## 2. Pushing data to Pulse
 
-<!-- TODO
-     Write an introduction for this section that further expands on the decisions involved in sending the events at the correct points in the software development workflow -->
+You must send information to Pulse about the following key events whenever they happen in your software delivery workflow:
 
 -  [Deployments](#deployments)
 -  [Changes](#changes)
 -  [Incidents](#incidents)
 
-!!! tip
-    You can get the UNIX epoch timestamp in seconds with `date +%s`.
-
 ### Deployments
 
-For Cloud SaaS, make sure to push when deploying to production. For Self-hosted, a better option might be to push when you have a valid artifact ready to be delivered to any user.
+**For SaaS applications,** send information to Pulse whenever you deploy to production.
 
-| Field      | Description                                            | Format                                   |
-| ---------- | ------------------------------------------------------ | ---------------------------------------- |
-| identifier | A version or other unique identifier of the deployment | String                                   |
-| timestamp  | Time the deployment was completed                      | Number (UNIX epoch timestamp in seconds) |
-|            | Commits being deployed in the deployment               | String (space-separated list)            |
+**For self-hosted applications,** a better option might be to send information to Pulse whenever you have a valid artifact ready to be delivered to any user.
+
+| Field      | Description                                            | Format                                       |
+| ---------- | ------------------------------------------------------ | -------------------------------------------- |
+| identifier | Version or another unique identifier of the deployment | String                                       |
+| timestamp  | Time when the deployment finished                      | Number<br/>(Unix epoch timestamp in seconds) |
+|            | Commit identifiers included in the deployment          | String<br/>(space-separated list)            |
 
 ```sh
 ./event-cli push deployment \
-    --api-key "<API-KEY>" \
+    --api-key "<API KEY>" \
     --identifier "<deployment identifier>" \
-    --timestamp "<UNIX epoch timestamp in seconds>" \
-    <space separated list of change identifiers>
+    --timestamp "$(date +%s)" \
+    <space-separated list of commit identifiers>
 ```
 
 <!-- IDEA
@@ -102,36 +100,36 @@ For Cloud SaaS, make sure to push when deploying to production. For Self-hosted,
 
 ### Changes
 
-A commit pushed to a Git.
+Send information to Pulse whenever a commit is pushed to a repository.
 
-| Field      | Description                                        | Format                                   |
-| ---------- | -------------------------------------------------- | ---------------------------------------- |
-| identifier | The commit hash                                    | String                                   |
-| timestamp  | Time the commit was first pushed to the repository | Number (UNIX epoch timestamp in seconds) |
+| Field      | Description                                             | Format                                       |
+| ---------- | ------------------------------------------------------- | -------------------------------------------- |
+| identifier | The commit identifier                                   | String                                       |
+| timestamp  | Time when the commit was first pushed to the repository | Number<br/>(Unix epoch timestamp in seconds) |
 
 ```sh
 ./event-cli push change \
-    --api-key "<API-KEY>" \
-    --identifier "<change identifier>" \
-    --timestamp "<UNIX epoch timestamp in seconds>"
+    --api-key "<API KEY>" \
+    --identifier "<commit identifier>" \
+    --timestamp "<Unix epoch timestamp in seconds>"
 ```
 
 ### Incidents
 
-A change to production or release to users that resulted in degraded service (e.g., lead to service impairment or service outage) and subsequently require remediation (e.g., require a hotfix, rollback, fix forward, patch)
+Send information to Pulse whenever there is a change to production or a release to users that resulted in degraded service (e.g., service impairment or service outage) and subsequently required remediation (e.g., hotfix, rollback, fix forward, patch).
 
-| Field             | Description                               | Format                                   |
-| ----------------- | ----------------------------------------- | ---------------------------------------- |
-| identifier        | A unique identifier of the incident       | String                                   |
-| timestampCreated  | Time the incident started or was detected | Number (UNIX epoch timestamp in seconds) |
-| timestampResolved | Time the incident was resolved            | Number (UNIX epoch timestamp in seconds) |
+| Field             | Description                                    | Format                                       |
+| ----------------- | ---------------------------------------------- | -------------------------------------------- |
+| identifier        | A unique identifier of the incident            | String                                       |
+| timestampCreated  | Time when the incident started or was detected | Number<br/>(Unix epoch timestamp in seconds) |
+| timestampResolved | Time when the incident was resolved            | Number<br/>(Unix epoch timestamp in seconds) |
 
 ```sh
 ./event-cli push incident \
-    --api-key "<API-KEY>" \
+    --api-key "<API KEY>" \
     --identifier "<incident identifier>" \
-    --timestampCreated "<UNIX epoch timestamp in seconds>" \
-    --timestampResolved "<UNIX epoch timestamp in seconds>"
+    --timestampCreated "<Unix epoch timestamp in seconds>" \
+    --timestampResolved "<Unix epoch timestamp in seconds>"
 ```
 
 ## Examples
