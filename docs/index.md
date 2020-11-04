@@ -49,19 +49,23 @@ Download the latest version of the CLI for your operating system and make sure t
     event-cli.exe help
     ```
 
-### Using the HTTP API
+### Using the webhook
 
 <!-- TODO
-     Figure out what is the best place to introduce the HTTP API as an alternative to the CLI -->
+     Figure out what is the best place to introduce the webhook as an alternative to the CLI -->
 
-Since it might be difficult to use the CLI to send some types of events (like changes or incidents),
-we also support pushing events to an HTTP POST endpoint.
+In some scenarios it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are sending data from providers that only support webhooks.
 
-This might be useful for sending data from providers that only support webhooks. You can set up your provider to send a webhook to the following URL:
+For these situations, we provide an HTTP POST webhook on the following URL:
 
-`https://ingestion.acceleratedevops.net/v1/ingestion/<provider>?api_key=<API-KEY>`
+`https://ingestion.acceleratedevops.net/v1/ingestion/<PROVIDER>?api_key=<API KEY>`
 
-There is no specified format for events sent to this endpoint. Although, make sure to include all the fields documented below. If you are planning to push events this way, please let us know. Data will not be immediately available in your dashboard as we'll need to process it on our side.
+There is no specified format for sending events using this webhook. However, make sure to include all the fields documented below.
+
+!!! important
+    If you are planning on pushing events to Pulse using the webhook, please let us know.
+    
+    The results will not be available immediately on your dashboard since we'll need to process them on our side.
 
 ## 2. Pushing data to Pulse
 
