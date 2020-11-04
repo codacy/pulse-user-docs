@@ -21,32 +21,32 @@ The next sections include detailed instructions on how to complete each step of 
 
 ## 1. Installing the Pulse CLI
 
-<!-- TODO
-     Clean up and simplify the installation procedure -->
+Download the latest version of the CLI for your operating system and make sure that you're able to run the binary.
 
-The CLI is distributed in a binary format (for multiple operating systems and architectures).
+1.  Take note of the latest version of the CLI:
 
-1.  Download the Pulse CLI:
+    [![Download](https://api.bintray.com/packages/codacy/pulse/event-cli/images/download.svg)](https://bintray.com/codacy/pulse/event-cli/_latestVersion)
+
+1.  Run the command to download the correct binary for your operating system, changing `<VERSION>` to the latest version obtained on the previous step:
+
+    | Operating system | Command to download the binary |
+    |------------------|--------------------------------|
+    | macOS            | `curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_darwin_amd64/pulse-event-cli` |
+    | Linux 32-bit     | `curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_386/pulse-event-cli` |
+    | Linux 64-bit     | `curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_amd64/pulse-event-cli` |
+    | Windows 32-bit   | `curl -fsSL -o event-cli.exe https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_386/pulse-event-cli.exe` |
+    | Windows 64-bit   | `curl -fsSL -o event-cli.exe https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_amd64/pulse-event-cli.exe` |
+
+1.  **On macOS and Linux,** make the binary executable and test if you can run the CLI:
 
     ```sh
-    curl -fsSL "https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/<ARCH>/pulse-event-cli" -o event-cli
+    chmod +x event-cli && ./event-cli help
     ```
 
-    Use the latest version to replace `<VERSION>`: [ ![Download](https://api.bintray.com/packages/codacy/pulse/event-cli/images/download.svg)](https://bintray.com/codacy/pulse/event-cli/_latestVersion)
-
-    Supported operating systems and architectures to replace `<ARCH>`:
-
-    -  pulse-event-cli_darwin_amd64
-    -  pulse-event-cli_linux_386
-    -  pulse-event-cli_linux_amd64
-    -  pulse-event-cli_windows_386
-    -  pulse-event-cli_windows_amd64
-
-2.  Make the binary executable and check that it works:
+    **On Windows,** test if you can run the CLI:
 
     ```sh
-    chmod +x event-cli && \
-    ./event-cli help
+    event-cli.exe help
     ```
 
 ### Using the HTTP API
