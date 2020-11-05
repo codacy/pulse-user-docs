@@ -6,16 +6,12 @@ Pulse displays metrics that provide insights about the current and historic perf
 
 Currently, the recommended way of integrating your workflow with Pulse is by using a CLI to send the necessary data to Pulse.
 
-However, in some scenarios it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are sending data from providers that only support webhooks. For these situations, we provide an HTTP POST webhook on the following URL:
+However, in some scenarios it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are sending data from providers that only support webhooks. For these situations, you can call an HTTP POST webhook, for example:
 
 `https://ingestion.acceleratedevops.net/v1/ingestion/<PROVIDER>?api_key=<API KEY>`
 
-There is no specified format for sending events using this webhook. However, make sure to include all the fields for the events documented below.
-
 !!! important
-    If you are planning on pushing events to Pulse using the webhook, please let us know.
-    
-    The results will not be available immediately on your dashboard since we'll need to process them on our side.
+    **Please let us know if you are planning on pushing events to Pulse using the webhook** so we can give you more detailed instructions on how to use it.
 
 The next sections include detailed instructions on how to complete the integration setup process.
 
