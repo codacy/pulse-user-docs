@@ -18,10 +18,14 @@ google_analytics: ["UA-180967824-1", "acceleratedevops.net"]
 
 # Extensions
 markdown_extensions:
-  - toc:
-      permalink: true
   - admonition
   - codehilite:
-      linenums: True
-  - meta
+      guess_lang: false
+      linenums: true
   - footnotes
+  - meta
+  - pymdownx.superfences
+  - pymdownx.striphtml:
+      strip_comments: true
+  - toc:
+      permalink: true

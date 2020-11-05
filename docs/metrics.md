@@ -1,12 +1,12 @@
-# Calculated Metrics
+# Calculated metrics
 
 These metrics are calculated using strictly `changes`, `deployments` and `incidents` for a rolling window of the last 90 days.
 
-## Deployment Frequency
+## Deployment frequency
 
 The most specific that applies:
 
-| Deployment Frequency | Value                                                                                                                                  |
+| Deployment frequency | Value                                                                                                                                  |
 | -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | On-demand            | Median of more than one `deployments` per day (i.e. more than 50% of the days have more than one deployment.)                          |
 | Daily                | Median of three or more days with `deployments` in a calendar week (i.e. more than 50% of weeks have 3 or more days with deployments.) |
@@ -29,7 +29,9 @@ When we aggregate Deployment Frequency we use the average of a period of time.
 
 ## Lead time for changes
 
-Median of `deployments` time created - `changes` time created
+Median of `deployments` time created - `changes` time created.
+
+The time of `changes` is when code is actually checked into a repository.
 
 When we aggregate Lead time for changes we use the maximum of a period of time.
 
@@ -43,7 +45,7 @@ When we aggregate Lead time for changes we use the maximum of a period of time.
 
 ## Median time to recover
 
-Median of `incidents` time resolved - `incidents` time created
+Median of `incidents` time resolved - `incidents` time created.
 
 When we aggregate Median time to recover we use the maximum of a period of time.
 
@@ -57,7 +59,7 @@ When we aggregate Median time to recover we use the maximum of a period of time.
 
 ## Change failure rate
 
-Number of `deployments` that caused `incidents` / Number of `deployments`
+Number of `deployments` that caused `incidents` / Number of `deployments`.
 
 `deployments` that caused `incidents` is defined as the closest deployment before the incident start. A deployment might be responsible for multiple incidents.
 
