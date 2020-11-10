@@ -47,14 +47,32 @@ Download the latest version of the CLI for your operating system and make sure t
 
 To measure the performance of your team, you must send information to Pulse about the following key events whenever they happen in your software delivery workflow:
 
--  [Deployments](#deployments)
 -  [Changes](#changes)
+-  [Deployments](#deployments)
 -  [Incidents](#incidents)
 
 !!! important
     Before setting up the integration with Pulse, make sure that you have an API key provided by Pulse to identify your organization and authorize you to send data to Pulse.
 
+### Changes
+
+Send information to Pulse whenever a commit is pushed to a repository.
+
+| Field      | Description                                             | Format                                       |
+| ---------- | ------------------------------------------------------- | -------------------------------------------- |
+| identifier | The commit identifier                                   | String                                       |
+| timestamp  | Time when the commit was first pushed to the repository | Number<br/>(Unix epoch timestamp in seconds) |
+
+```sh
+./event-cli push change \
+    --api-key "<API KEY>" \
+    --identifier "<commit identifier>" \
+    --timestamp "<Unix epoch timestamp in seconds>"
+```
+
 ### Deployments
+
+<!-- TODO Relate each event to the metrics that they will help to calculate -->
 
 **For SaaS applications,** send information to Pulse whenever you deploy to production.
 
@@ -76,22 +94,6 @@ To measure the performance of your team, you must send information to Pulse abou
 
 <!-- IDEA
      Consider including example snippets for the webhook -->
-
-### Changes
-
-Send information to Pulse whenever a commit is pushed to a repository.
-
-| Field      | Description                                             | Format                                       |
-| ---------- | ------------------------------------------------------- | -------------------------------------------- |
-| identifier | The commit identifier                                   | String                                       |
-| timestamp  | Time when the commit was first pushed to the repository | Number<br/>(Unix epoch timestamp in seconds) |
-
-```sh
-./event-cli push change \
-    --api-key "<API KEY>" \
-    --identifier "<commit identifier>" \
-    --timestamp "<Unix epoch timestamp in seconds>"
-```
 
 ### Incidents
 
