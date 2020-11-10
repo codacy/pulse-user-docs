@@ -87,19 +87,20 @@ curl -X POST https://ingestion.acceleratedevops.net/v1/ingestion/<PROVIDER>
 
 ### Deployments
 
-**For SaaS applications,** send information to Pulse whenever you deploy to production.
+Report an event to Pulse whenever your team deploys code to production:
 
-**For self-hosted applications,** a better option might be to send information to Pulse whenever you have a valid artifact ready to be delivered to any user.
+-   **For SaaS applications,** report on each deployment to your production environment.
+-   **For self-hosted applications,** a better option is to report the event each time you make an artifact available to any user of your application, such as when you release new binaries or upload a new version to an app store.
 
 Pulse uses these reports to calculate the metrics [Lead time for changes](metrics.md#lead-time-for-changes) and [Deployment frequency](metrics.md#deployment-frequency).
 
 You must send the following information when reporting deployments to Pulse:
 
-| Field      | Description                                            | Format                                       |
-| ---------- | ------------------------------------------------------ | -------------------------------------------- |
-| identifier | Version or another unique identifier of the deployment | String                                       |
-| timestamp  | Time when the deployment finished                      | Number<br/>(Unix epoch timestamp in seconds) |
-|            | Commit identifiers included in the deployment          | String<br/>(space-separated list)            |
+| Field      | Description                                                   | Format                                       |
+| ---------- | ------------------------------------------------------------- | -------------------------------------------- |
+| identifier | Version number or another unique identifier of the deployment | String                                       |
+| timestamp  | Time when the deployment finished                             | Number<br/>(Unix epoch timestamp in seconds) |
+|            | Commit identifiers included in the deployment                 | String<br/>(space-separated list)            |
 
 Using the Pulse CLI:
 
@@ -123,7 +124,12 @@ curl -X POST https://ingestion.acceleratedevops.net/v1/ingestion/<PROVIDER>
 
 ### Incidents
 
-Send information to Pulse whenever there is a change to production or a release to users that resulted in degraded service (e.g., service impairment or service outage) and subsequently required remediation (e.g., hotfix, rollback, fix forward, patch).
+Report an event to Pulse whenever there is a software release or infrastructure configuration change to production that results in degraded service and subsequently required remediation:
+
+-   The incident is **created** when you detect a service impairment or service outage in production.
+-   The incident is **resolved** when you apply a hotfix or patch, or when you rollback the changes to restore the service in production.
+
+Typically, it's possible to keep track of this information using your monitoring infrastructure or your ticketing system.
 
 Pulse uses these reports to calculate the metrics [Median time to recovery](metrics.md#median-time-to-recover) and [Change failure rate](metrics.md#change-failure-rate).
 
@@ -152,7 +158,7 @@ curl -X POST https://ingestion.acceleratedevops.net/v1/ingestion/<PROVIDER>
     -d "api_key=<API KEY>"
     -d "identifier=<incident identifier>"
     -d "timestampCreated=<timestampCreated>"
-    -d "timestampCreated=<timestampResolved>"
+    -d "timestampResolved=<timestampResolved>"
 ```
 
 ## Examples
