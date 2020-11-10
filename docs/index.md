@@ -1,12 +1,10 @@
-# Integration guide
+# Integrating with Pulse
 
 Pulse displays metrics that provide insights about the current and historic performance of your software delivery process. To calculate these metrics, Pulse must collect information from key events of your particular software development workflow.
 
-## Integrating with Pulse
-
 Currently, the recommended way of integrating your workflow with Pulse is by using a CLI to send the necessary data to Pulse.
 
-However, in some scenarios it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are sending data from providers that only support webhooks. For these situations, you can call an HTTP POST webhook, for example:
+However, in some scenarios it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are sending data from providers that only support webhooks. For these situations, you can call an HTTP POST webhook instead. For example:
 
 `https://ingestion.acceleratedevops.net/v1/ingestion/<PROVIDER>?api_key=<API KEY>`
 
@@ -15,7 +13,7 @@ However, in some scenarios it may not be feasible to use the CLI to send data to
 
 The next sections include detailed instructions on how to complete the integration setup process.
 
-### 1. Installing the Pulse CLI
+## 1. Installing the Pulse CLI
 
 Download the latest version of the CLI for your operating system and make sure that you're able to run the binary.
 
@@ -45,7 +43,7 @@ Download the latest version of the CLI for your operating system and make sure t
     event-cli.exe help
     ```
 
-### 2. Pushing data to Pulse
+## 2. Pushing data to Pulse
 
 You must use the CLI or the webhook to send information to Pulse about the following key events whenever they happen in your software delivery workflow:
 
@@ -56,7 +54,7 @@ You must use the CLI or the webhook to send information to Pulse about the follo
 !!! important
     Before setting up the integration with Pulse, make sure that you have an API key that identifies your organization and authorizes you to send data to Pulse.
 
-#### Deployments
+### Deployments
 
 **For SaaS applications,** send information to Pulse whenever you deploy to production.
 
@@ -79,7 +77,7 @@ You must use the CLI or the webhook to send information to Pulse about the follo
 <!-- IDEA
      Consider including example snippets for the webhook -->
 
-#### Changes
+### Changes
 
 Send information to Pulse whenever a commit is pushed to a repository.
 
@@ -95,7 +93,7 @@ Send information to Pulse whenever a commit is pushed to a repository.
     --timestamp "<Unix epoch timestamp in seconds>"
 ```
 
-#### Incidents
+### Incidents
 
 Send information to Pulse whenever there is a change to production or a release to users that resulted in degraded service (e.g., service impairment or service outage) and subsequently required remediation (e.g., hotfix, rollback, fix forward, patch).
 
