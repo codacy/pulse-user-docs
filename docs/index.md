@@ -56,24 +56,34 @@ To measure the performance of your team, you must send information to Pulse abou
 
 ### Changes
 
-Send information to Pulse whenever a commit is pushed to a repository.
+Report an event to Pulse whenever your team commits a change to a repository.
 
-Pulse uses this event to calculate the metric [Lead time for changes](metrics.md#lead-time-for-changes).
+Pulse uses these reports to calculate the metric [Lead time for changes](metrics.md#lead-time-for-changes).
+
+You must send the following information when reporting changes to Pulse:
 
 | Field      | Description                                             | Format                                       |
 | ---------- | ------------------------------------------------------- | -------------------------------------------- |
 | identifier | The commit identifier                                   | String                                       |
 | timestamp  | Time when the commit was first pushed to the repository | Number<br/>(Unix epoch timestamp in seconds) |
 
+Using the Pulse CLI:
+
 ```sh
 ./event-cli push change \
     --api-key "<API KEY>" \
-    --identifier "<commit identifier>" \
-    --timestamp "<Unix epoch timestamp in seconds>"
+    --identifier "<change identifier>" \
+    --timestamp "<timestamp>"
 ```
 
-<!-- IDEA
-     Consider including example snippets for the webhook -->
+Using the webhook:
+
+```sh
+curl -X POST https://ingestion.acceleratedevops.net/v1/ingestion/<PROVIDER>
+    -d "api_key=<API KEY>"
+    -d "identifier=<change identifier>"
+    -d "timestamp=<timestamp>"
+```
 
 ### Deployments
 
@@ -81,7 +91,9 @@ Pulse uses this event to calculate the metric [Lead time for changes](metrics.md
 
 **For self-hosted applications,** a better option might be to send information to Pulse whenever you have a valid artifact ready to be delivered to any user.
 
-Pulse uses this event to calculate the metrics [Lead time for changes](metrics.md#lead-time-for-changes) and [Deployment frequency](metrics.md#deployment-frequency).
+Pulse uses these reports to calculate the metrics [Lead time for changes](metrics.md#lead-time-for-changes) and [Deployment frequency](metrics.md#deployment-frequency).
+
+You must send the following information when reporting deployments to Pulse:
 
 | Field      | Description                                            | Format                                       |
 | ---------- | ------------------------------------------------------ | -------------------------------------------- |
@@ -89,19 +101,33 @@ Pulse uses this event to calculate the metrics [Lead time for changes](metrics.m
 | timestamp  | Time when the deployment finished                      | Number<br/>(Unix epoch timestamp in seconds) |
 |            | Commit identifiers included in the deployment          | String<br/>(space-separated list)            |
 
+Using the Pulse CLI:
+
 ```sh
 ./event-cli push deployment \
     --api-key "<API KEY>" \
     --identifier "<deployment identifier>" \
-    --timestamp "$(date +%s)" \
+    --timestamp "<timestamp>" \
     <space-separated list of commit identifiers>
+```
+
+Using the webhook:
+
+```sh
+curl -X POST https://ingestion.acceleratedevops.net/v1/ingestion/<PROVIDER>
+    -d "api_key=<API KEY>"
+    -d "identifier=<deployment identifier>"
+    -d "timestamp=<timestamp>"
+    -d "<space-separated list of commit identifiers>"
 ```
 
 ### Incidents
 
 Send information to Pulse whenever there is a change to production or a release to users that resulted in degraded service (e.g., service impairment or service outage) and subsequently required remediation (e.g., hotfix, rollback, fix forward, patch).
 
-Pulse uses this event to calculate the metrics [Median time to recovery](metrics.md#median-time-to-recover) and [Change failure rate](metrics.md#change-failure-rate).
+Pulse uses these reports to calculate the metrics [Median time to recovery](metrics.md#median-time-to-recover) and [Change failure rate](metrics.md#change-failure-rate).
+
+You must send the following information when reporting incidents to Pulse:
 
 | Field             | Description                                    | Format                                       |
 | ----------------- | ---------------------------------------------- | -------------------------------------------- |
@@ -109,12 +135,24 @@ Pulse uses this event to calculate the metrics [Median time to recovery](metrics
 | timestampCreated  | Time when the incident started or was detected | Number<br/>(Unix epoch timestamp in seconds) |
 | timestampResolved | Time when the incident was resolved            | Number<br/>(Unix epoch timestamp in seconds) |
 
+Using the Pulse CLI:
+
 ```sh
 ./event-cli push incident \
     --api-key "<API KEY>" \
     --identifier "<incident identifier>" \
-    --timestampCreated "<Unix epoch timestamp in seconds>" \
-    --timestampResolved "<Unix epoch timestamp in seconds>"
+    --timestampCreated "<timestampCreated>" \
+    --timestampResolved "<timestampResolved>"
+```
+
+Using the webhook:
+
+```sh
+curl -X POST https://ingestion.acceleratedevops.net/v1/ingestion/<PROVIDER>
+    -d "api_key=<API KEY>"
+    -d "identifier=<incident identifier>"
+    -d "timestampCreated=<timestampCreated>"
+    -d "timestampCreated=<timestampResolved>"
 ```
 
 ## Examples
