@@ -45,7 +45,7 @@ Download the latest version of the CLI for your operating system and make sure t
 
 ## 2. Pushing data to Pulse
 
-To measure the performance of your team, you must send information to Pulse about the following key events whenever they happen in your software delivery workflow:
+To measure the performance of your team, you must send information to Pulse about the following key events whenever they happen in the software delivery workflow of your primary application or service:
 
 -  [Changes](#changes)
 -  [Deployments](#deployments)
