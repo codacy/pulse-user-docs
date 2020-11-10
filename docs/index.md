@@ -45,14 +45,14 @@ Download the latest version of the CLI for your operating system and make sure t
 
 ## 2. Pushing data to Pulse
 
-You must use the CLI or the webhook to send information to Pulse about the following key events whenever they happen in your software delivery workflow:
+To measure the performance of your team, you must send information to Pulse about the following key events whenever they happen in your software delivery workflow:
 
 -  [Deployments](#deployments)
 -  [Changes](#changes)
 -  [Incidents](#incidents)
 
 !!! important
-    Before setting up the integration with Pulse, make sure that you have an API key that identifies your organization and authorizes you to send data to Pulse.
+    Before setting up the integration with Pulse, make sure that you have an API key provided by Pulse to identify your organization and authorize you to send data to Pulse.
 
 ### Deployments
 
