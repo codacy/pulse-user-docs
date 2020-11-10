@@ -58,6 +58,8 @@ To measure the performance of your team, you must send information to Pulse abou
 
 Send information to Pulse whenever a commit is pushed to a repository.
 
+Pulse uses this event to calculate the metric [Lead time for changes](metrics.md#lead-time-for-changes).
+
 | Field      | Description                                             | Format                                       |
 | ---------- | ------------------------------------------------------- | -------------------------------------------- |
 | identifier | The commit identifier                                   | String                                       |
@@ -70,13 +72,16 @@ Send information to Pulse whenever a commit is pushed to a repository.
     --timestamp "<Unix epoch timestamp in seconds>"
 ```
 
-### Deployments
+<!-- IDEA
+     Consider including example snippets for the webhook -->
 
-<!-- TODO Relate each event to the metrics that they will help to calculate -->
+### Deployments
 
 **For SaaS applications,** send information to Pulse whenever you deploy to production.
 
 **For self-hosted applications,** a better option might be to send information to Pulse whenever you have a valid artifact ready to be delivered to any user.
+
+Pulse uses this event to calculate the metrics [Lead time for changes](metrics.md#lead-time-for-changes) and [Deployment frequency](metrics.md#deployment-frequency).
 
 | Field      | Description                                            | Format                                       |
 | ---------- | ------------------------------------------------------ | -------------------------------------------- |
@@ -92,12 +97,11 @@ Send information to Pulse whenever a commit is pushed to a repository.
     <space-separated list of commit identifiers>
 ```
 
-<!-- IDEA
-     Consider including example snippets for the webhook -->
-
 ### Incidents
 
 Send information to Pulse whenever there is a change to production or a release to users that resulted in degraded service (e.g., service impairment or service outage) and subsequently required remediation (e.g., hotfix, rollback, fix forward, patch).
+
+Pulse uses this event to calculate the metrics [Median time to recovery](metrics.md#median-time-to-recover) and [Change failure rate](metrics.md#change-failure-rate).
 
 | Field             | Description                                    | Format                                       |
 | ----------------- | ---------------------------------------------- | -------------------------------------------- |
