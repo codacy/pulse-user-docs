@@ -67,22 +67,13 @@ You must send the following information when reporting changes to Pulse:
 | identifier | The commit identifier                                   | String                                       |
 | timestamp  | Time when the commit was first pushed to the repository | Number<br/>(Unix epoch timestamp in seconds) |
 
-Using the Pulse CLI:
+Run the following command to report each change:
 
 ```sh
 ./event-cli push change \
     --api-key "<API KEY>" \
     --identifier "<change identifier>" \
     --timestamp "<timestamp>"
-```
-
-Using the webhook:
-
-```sh
-curl -X POST https://ingestion.acceleratedevops.net/v1/ingestion/<PROVIDER>
-    -d "api_key=<API KEY>"
-    -d "identifier=<change identifier>"
-    -d "timestamp=<timestamp>"
 ```
 
 ### Deployments
@@ -102,7 +93,7 @@ You must send the following information when reporting deployments to Pulse:
 | timestamp  | Time when the deployment finished                             | Number<br/>(Unix epoch timestamp in seconds) |
 |            | Commit identifiers included in the deployment                 | String<br/>(space-separated list)            |
 
-Using the Pulse CLI:
+Run the following command to report each deployment:
 
 ```sh
 ./event-cli push deployment \
@@ -110,16 +101,6 @@ Using the Pulse CLI:
     --identifier "<deployment identifier>" \
     --timestamp "<timestamp>" \
     <space-separated list of commit identifiers>
-```
-
-Using the webhook:
-
-```sh
-curl -X POST https://ingestion.acceleratedevops.net/v1/ingestion/<PROVIDER>
-    -d "api_key=<API KEY>"
-    -d "identifier=<deployment identifier>"
-    -d "timestamp=<timestamp>"
-    -d "<space-separated list of commit identifiers>"
 ```
 
 ### Incidents
@@ -141,7 +122,7 @@ You must send the following information when reporting incidents to Pulse:
 | timestampCreated  | Time when the incident started or was detected | Number<br/>(Unix epoch timestamp in seconds) |
 | timestampResolved | Time when the incident was resolved            | Number<br/>(Unix epoch timestamp in seconds) |
 
-Using the Pulse CLI:
+Run the following command to report each incident:
 
 ```sh
 ./event-cli push incident \
@@ -149,16 +130,6 @@ Using the Pulse CLI:
     --identifier "<incident identifier>" \
     --timestampCreated "<timestampCreated>" \
     --timestampResolved "<timestampResolved>"
-```
-
-Using the webhook:
-
-```sh
-curl -X POST https://ingestion.acceleratedevops.net/v1/ingestion/<PROVIDER>
-    -d "api_key=<API KEY>"
-    -d "identifier=<incident identifier>"
-    -d "timestampCreated=<timestampCreated>"
-    -d "timestampResolved=<timestampResolved>"
 ```
 
 ## Examples
