@@ -54,7 +54,9 @@ To measure the performance of your team, you must send information to Pulse abou
 !!! important
     Before setting up the integration with Pulse, make sure that you have an API key provided by Pulse to identify your organization and authorize you to send data to Pulse.
 
-### Changes
+### Events
+
+#### Changes
 
 Report an event to Pulse whenever your team commits a change to a repository.
 
@@ -76,7 +78,7 @@ Run the following command to report each change:
     --timestamp "<timestamp>"
 ```
 
-### Deployments
+#### Deployments
 
 Report an event to Pulse whenever your team deploys code to production:
 
@@ -103,7 +105,7 @@ Run the following command to report each deployment:
     <space-separated list of commit identifiers>
 ```
 
-### Incidents
+#### Incidents
 
 Report an event to Pulse whenever there is a software release or infrastructure configuration change to production that results in degraded service and subsequently required remediation:
 
@@ -130,6 +132,33 @@ Run the following command to report each incident:
     --identifier "<incident identifier>" \
     --timestampCreated "<timestampCreated>" \
     --timestampResolved "<timestampResolved>"
+```
+
+### Events Helpers
+
+In order to simplify the integration process we have some helpers that you can use to push multiple events simultaneously:
+
+-   [Deployment + Changes (Git)](#deployment--changes-git)
+
+#### Deployment + Changes (Git)
+
+This command will infer the changes of the deployment being pushed based on git commits.
+It will consider all commits between the previous deployment and the HEAD of the given git repository as changes.
+
+| Field                   | Description                                                                   | Format                                       |
+| ----------------------- | ----------------------------------------------------------------------------- | -------------------------------------------- |
+| previous deployment ref | The git ref of the previous deployment. This can either be a tag or a commit. | String                                       |
+| identifier              | Version number or another unique identifier of the deployment                 | String                                       |
+| timestamp               | Time when the deployment finished                                             | Number<br/>(Unix epoch timestamp in seconds) |
+
+Run the following command to report a deployment and its changes:
+
+```sh
+./event-cli push git deployment \
+    --api-key "<API KEY>" \
+    --previous-deployment-ref "<previous deployment ref>" \
+    --identifier "<deployment identifier>" \
+    --timestamp "<timestamp>"
 ```
 
 ## Examples
