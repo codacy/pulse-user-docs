@@ -1,12 +1,10 @@
-# Integration guide
+# Integrating with Pulse
 
 Pulse displays metrics that provide insights about the current and historic performance of your software delivery process. To calculate these metrics, Pulse must collect information from key events of your particular software development workflow.
 
-## Integrating with Pulse
-
 Currently, the recommended way of integrating your workflow with Pulse is by using a CLI to send the necessary data to Pulse.
 
-However, in some scenarios it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are sending data from providers that only support webhooks. For these situations, you can call an HTTP POST webhook, for example:
+However, in some scenarios it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are sending data from providers that only support webhooks. For these situations, you can call an HTTP POST webhook instead. For example:
 
 `https://ingestion.acceleratedevops.net/v1/ingestion/<PROVIDER>?api_key=<API KEY>`
 
@@ -15,7 +13,7 @@ However, in some scenarios it may not be feasible to use the CLI to send data to
 
 The next sections include detailed instructions on how to complete the integration setup process.
 
-### 1. Installing the Pulse CLI
+## 1. Installing the Pulse CLI
 
 Download the latest version of the CLI for your operating system and make sure that you're able to run the binary.
 
@@ -45,59 +43,78 @@ Download the latest version of the CLI for your operating system and make sure t
     event-cli.exe help
     ```
 
-### 2. Pushing data to Pulse
+## 2. Pushing data to Pulse
 
-You must use the CLI or the webhook to send information to Pulse about the following key events whenever they happen in your software delivery workflow:
+To measure the performance of your team, you must send information to Pulse about the following key events whenever they happen in the software delivery workflow of your primary application or service:
 
--  [Deployments](#deployments)
 -  [Changes](#changes)
+-  [Deployments](#deployments)
 -  [Incidents](#incidents)
 
 !!! important
-    Before setting up the integration with Pulse, make sure that you have an API key that identifies your organization and authorizes you to send data to Pulse.
+    Before setting up the integration with Pulse, make sure that you have an API key provided by Pulse to identify your organization and authorize you to send data to Pulse.
 
-#### Deployments
+### Changes
 
-**For SaaS applications,** send information to Pulse whenever you deploy to production.
+Report an event to Pulse whenever your team commits a change to a repository.
 
-**For self-hosted applications,** a better option might be to send information to Pulse whenever you have a valid artifact ready to be delivered to any user.
+Pulse uses these reports to calculate the metric [Lead time for changes](metrics.md#lead-time-for-changes).
 
-| Field      | Description                                            | Format                                       |
-| ---------- | ------------------------------------------------------ | -------------------------------------------- |
-| identifier | Version or another unique identifier of the deployment | String                                       |
-| timestamp  | Time when the deployment finished                      | Number<br/>(Unix epoch timestamp in seconds) |
-|            | Commit identifiers included in the deployment          | String<br/>(space-separated list)            |
-
-```sh
-./event-cli push deployment \
-    --api-key "<API KEY>" \
-    --identifier "<deployment identifier>" \
-    --timestamp "$(date +%s)" \
-    <space-separated list of commit identifiers>
-```
-
-<!-- IDEA
-     Consider including example snippets for the webhook -->
-
-#### Changes
-
-Send information to Pulse whenever a commit is pushed to a repository.
+You must send the following information when reporting changes to Pulse:
 
 | Field      | Description                                             | Format                                       |
 | ---------- | ------------------------------------------------------- | -------------------------------------------- |
 | identifier | The commit identifier                                   | String                                       |
 | timestamp  | Time when the commit was first pushed to the repository | Number<br/>(Unix epoch timestamp in seconds) |
 
+Run the following command to report each change:
+
 ```sh
 ./event-cli push change \
     --api-key "<API KEY>" \
-    --identifier "<commit identifier>" \
-    --timestamp "<Unix epoch timestamp in seconds>"
+    --identifier "<change identifier>" \
+    --timestamp "<timestamp>"
 ```
 
-#### Incidents
+### Deployments
 
-Send information to Pulse whenever there is a change to production or a release to users that resulted in degraded service (e.g., service impairment or service outage) and subsequently required remediation (e.g., hotfix, rollback, fix forward, patch).
+Report an event to Pulse whenever your team deploys code to production:
+
+-   **For SaaS applications,** report on each deployment to your production environment.
+-   **For self-hosted applications,** a better option is to report the event each time you make an artifact available to any user of your application, such as when you release new binaries or upload a new version to an app store.
+
+Pulse uses these reports to calculate the metrics [Lead time for changes](metrics.md#lead-time-for-changes) and [Deployment frequency](metrics.md#deployment-frequency).
+
+You must send the following information when reporting deployments to Pulse:
+
+| Field      | Description                                                   | Format                                       |
+| ---------- | ------------------------------------------------------------- | -------------------------------------------- |
+| identifier | Version number or another unique identifier of the deployment | String                                       |
+| timestamp  | Time when the deployment finished                             | Number<br/>(Unix epoch timestamp in seconds) |
+|            | Commit identifiers included in the deployment                 | String<br/>(space-separated list)            |
+
+Run the following command to report each deployment:
+
+```sh
+./event-cli push deployment \
+    --api-key "<API KEY>" \
+    --identifier "<deployment identifier>" \
+    --timestamp "<timestamp>" \
+    <space-separated list of commit identifiers>
+```
+
+### Incidents
+
+Report an event to Pulse whenever there is a software release or infrastructure configuration change to production that results in degraded service and subsequently required remediation:
+
+-   The incident is **created** when you detect a service impairment or service outage in production.
+-   The incident is **resolved** when you apply a hotfix or patch, or when you rollback the changes to restore the service in production.
+
+Typically, it's possible to keep track of this information using your monitoring infrastructure or your ticketing system.
+
+Pulse uses these reports to calculate the metrics [Median time to recovery](metrics.md#median-time-to-recover) and [Change failure rate](metrics.md#change-failure-rate).
+
+You must send the following information when reporting incidents to Pulse:
 
 | Field             | Description                                    | Format                                       |
 | ----------------- | ---------------------------------------------- | -------------------------------------------- |
@@ -105,12 +122,14 @@ Send information to Pulse whenever there is a change to production or a release 
 | timestampCreated  | Time when the incident started or was detected | Number<br/>(Unix epoch timestamp in seconds) |
 | timestampResolved | Time when the incident was resolved            | Number<br/>(Unix epoch timestamp in seconds) |
 
+Run the following command to report each incident:
+
 ```sh
 ./event-cli push incident \
     --api-key "<API KEY>" \
     --identifier "<incident identifier>" \
-    --timestampCreated "<Unix epoch timestamp in seconds>" \
-    --timestampResolved "<Unix epoch timestamp in seconds>"
+    --timestampCreated "<timestampCreated>" \
+    --timestampResolved "<timestampResolved>"
 ```
 
 ## Examples
