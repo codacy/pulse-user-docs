@@ -21,17 +21,17 @@ Download the latest version of the CLI for your operating system and make sure t
 
     [![Download](https://api.bintray.com/packages/codacy/pulse/event-cli/images/download.svg)](https://bintray.com/codacy/pulse/event-cli/_latestVersion)
 
-1.  Run the command to download the correct binary for your operating system, changing `<VERSION>` to the latest version obtained on the previous step:
+2.  Run the command to download the correct binary for your operating system, changing `<VERSION>` to the latest version obtained on the previous step:
 
-    | Operating system | Command to download the binary |
-    | ---------------- | ------------------------------ |
-    | macOS            | `curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_darwin_amd64/pulse-event-cli` |
-    | Linux 32-bit     | `curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_386/pulse-event-cli` |
-    | Linux 64-bit     | `curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_amd64/pulse-event-cli` |
-    | Windows 32-bit   | `curl -fsSL -o event-cli.exe https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_386/pulse-event-cli.exe` |
+    | Operating system | Command to download the binary                                                                                                          |
+    | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+    | macOS            | `curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_darwin_amd64/pulse-event-cli`          |
+    | Linux 32-bit     | `curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_386/pulse-event-cli`             |
+    | Linux 64-bit     | `curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_amd64/pulse-event-cli`           |
+    | Windows 32-bit   | `curl -fsSL -o event-cli.exe https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_386/pulse-event-cli.exe`   |
     | Windows 64-bit   | `curl -fsSL -o event-cli.exe https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_amd64/pulse-event-cli.exe` |
 
-1.  **On macOS and Linux,** make the binary executable and test if you can run the CLI:
+3.  **On macOS and Linux,** make the binary executable and test if you can run the CLI:
 
     ```sh
     chmod +x event-cli && ./event-cli help
@@ -47,9 +47,9 @@ Download the latest version of the CLI for your operating system and make sure t
 
 To measure the performance of your team, you must send information to Pulse about the following key events whenever they happen in the software delivery workflow of your primary application or service:
 
--  [Changes](#changes)
--  [Deployments](#deployments)
--  [Incidents](#incidents)
+-   [Changes](#changes)
+-   [Deployments](#deployments)
+-   [Incidents](#incidents)
 
 !!! important
     Before setting up the integration with Pulse, make sure that you have an API key provided by Pulse to identify your organization and authorize you to send data to Pulse.
