@@ -21,7 +21,7 @@ Download the latest version of the CLI for your operating system and make sure t
 
     [![Download](https://api.bintray.com/packages/codacy/pulse/event-cli/images/download.svg)](https://bintray.com/codacy/pulse/event-cli/_latestVersion)
 
-2.  Run the command to download the correct binary for your operating system, changing `<VERSION>` to the latest version obtained on the previous step:
+1.  Run the command to download the correct binary for your operating system, changing `<VERSION>` to the latest version obtained on the previous step:
 
     | Operating system | Command to download the binary                                                                                                          |
     | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
@@ -31,7 +31,7 @@ Download the latest version of the CLI for your operating system and make sure t
     | Windows 32-bit   | `curl -fsSL -o event-cli.exe https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_386/pulse-event-cli.exe`   |
     | Windows 64-bit   | `curl -fsSL -o event-cli.exe https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_amd64/pulse-event-cli.exe` |
 
-3.  **On macOS and Linux,** make the binary executable and test if you can run the CLI:
+1.  **On macOS and Linux,** make the binary executable and test if you can run the CLI:
 
     ```sh
     chmod +x event-cli && ./event-cli help
