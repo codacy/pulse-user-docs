@@ -105,7 +105,7 @@ Run the following command to report each deployment:
 
 ### Incidents
 
-Report an event to Pulse whenever there is a software release or infrastructure configuration change to production that results in degraded service and subsequently required remediation:
+Report an event to Pulse whenever an incident resulting from a release or infrastructure configuration change to production is solved. Incidents are any form of degraded service that require remediation:
 
 -   The incident is **created** when you detect a service impairment or service outage in production.
 -   The incident is **resolved** when you apply a hotfix or patch, or when you rollback the changes to restore the service in production.
