@@ -47,65 +47,87 @@ Download the latest version of the CLI for your operating system and make sure t
 
 To measure the performance of your team, you must send information to Pulse about the following key events whenever they happen in the software delivery workflow of your primary application or service:
 
--   [Changes](#changes)
--   [Deployments](#deployments)
+-   [Changes and deployments](#changes-and-deployments)
 -   [Incidents](#incidents)
 
 !!! important
     Before setting up the integration with Pulse, make sure that you have an API key provided by Pulse to identify your organization and authorize you to send data to Pulse.
 
-### Events
+### Changes and deployments
 
-#### Changes
+Report an event to Pulse whenever your team deploys code to production, including the list of code changes included in that deployment:
 
-Report an event to Pulse whenever your team commits a change to a repository.
-
-Pulse uses these reports to calculate the metric [Lead time for changes](metrics.md#lead-time-for-changes).
-
-You must send the following information when reporting changes to Pulse:
-
-| Field      | Description                                             | Format                                       |
-| ---------- | ------------------------------------------------------- | -------------------------------------------- |
-| identifier | The commit identifier                                   | String                                       |
-| timestamp  | Time when the commit was first pushed to the repository | Number<br/>(Unix epoch timestamp in seconds) |
-
-Run the following command to report each change:
-
-```sh
-./event-cli push change \
-    --api-key "<API KEY>" \
-    --identifier "<change identifier>" \
-    --timestamp "<timestamp>"
-```
-
-#### Deployments
-
-Report an event to Pulse whenever your team deploys code to production:
-
--   **For SaaS applications,** report on each deployment to your production environment.
+-   **For SaaS applications,** report the event on each deployment to your production environment.
 -   **For self-hosted applications,** a better option is to report the event each time you make an artifact available to any user of your application, such as when you release new binaries or upload a new version to an app store.
 
 Pulse uses these reports to calculate the metrics [Lead time for changes](metrics.md#lead-time-for-changes) and [Deployment frequency](metrics.md#deployment-frequency).
 
-You must send the following information when reporting deployments to Pulse:
+#### Using Git
 
-| Field      | Description                                                   | Format                                       |
-| ---------- | ------------------------------------------------------------- | -------------------------------------------- |
-| identifier | Version number or another unique identifier of the deployment | String                                       |
-| timestamp  | Time when the deployment finished                             | Number<br/>(Unix epoch timestamp in seconds) |
-|            | Commit identifiers included in the deployment                 | String<br/>(space-separated list)            |
+If you're using Git, send the following information when reporting **changes and deployments** to Pulse:
 
-Run the following command to report each deployment:
+| Field                   | Description                                                                             | Format                                       |
+| ----------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------- |
+| previous deployment ref | Git reference of the previous deployment.<br/>This can be a tag or a commit identifier. | String                                       |
+| identifier              | Version number or another unique identifier of the deployment                           | String                                       |
+| timestamp               | Time when the deployment finished                                                       | Number<br/>(Unix epoch timestamp in seconds) |
+
+Run the following command to report a deployment and its changes:
 
 ```sh
-./event-cli push deployment \
-    --api-key "<API KEY>" \
+git clone <Git repository URL>
+cd <local Git repository directory>
+./event-cli push git deployment \
+    --api-key "<API key>" \
+    --previous-deployment-ref "<previous deployment ref>" \
     --identifier "<deployment identifier>" \
-    --timestamp "<timestamp>" \
-    <space-separated list of commit identifiers>
+    --timestamp "<timestamp>"
 ```
 
-#### Incidents
+The command automatically reports all commits done between the previous deployment and the `HEAD` of the Git repository as changes that belong to the deployment being reported.
+
+#### Without using Git
+
+If you don't use Git or prefer to have more fine-grained control over the information that you send when reporting changes and deployments, send separate reports for each change and deployment as described below.
+
+!!! tip
+    If you're using Git, it's simpler to [report changes and deployments](#using-git) together.
+
+1.  Send the following information when reporting **changes** to Pulse:
+
+    | Field      | Description                                             | Format                                       |
+    | ---------- | ------------------------------------------------------- | -------------------------------------------- |
+    | identifier | The commit identifier                                   | String                                       |
+    | timestamp  | Time when the commit was first pushed to the repository | Number<br/>(Unix epoch timestamp in seconds) |
+
+    Run the following command to report each change:
+
+    ```sh
+    ./event-cli push change \
+        --api-key "<API key>" \
+        --identifier "<change identifier>" \
+        --timestamp "<timestamp>"
+    ```
+
+1.  Send the following information when reporting **deployments** to Pulse:
+
+    | Field      | Description                                                   | Format                                       |
+    | ---------- | ------------------------------------------------------------- | -------------------------------------------- |
+    | identifier | Version number or another unique identifier of the deployment | String                                       |
+    | timestamp  | Time when the deployment finished                             | Number<br/>(Unix epoch timestamp in seconds) |
+    |            | Commit identifiers included in the deployment                 | String<br/>(space-separated list)            |
+
+    Run the following command to report each deployment:
+
+    ```sh
+    ./event-cli push deployment \
+        --api-key "<API key>" \
+        --identifier "<deployment identifier>" \
+        --timestamp "<timestamp>" \
+        <space-separated list of commit identifiers>
+    ```
+
+### Incidents
 
 Report an event to Pulse whenever there is a software release or infrastructure configuration change to production that results in degraded service and subsequently required remediation:
 
@@ -116,7 +138,7 @@ Typically, it's possible to keep track of this information using your monitoring
 
 Pulse uses these reports to calculate the metrics [Median time to recovery](metrics.md#median-time-to-recover) and [Change failure rate](metrics.md#change-failure-rate).
 
-You must send the following information when reporting incidents to Pulse:
+Send the following information when reporting **incidents** to Pulse:
 
 | Field             | Description                                    | Format                                       |
 | ----------------- | ---------------------------------------------- | -------------------------------------------- |
@@ -128,37 +150,10 @@ Run the following command to report each incident:
 
 ```sh
 ./event-cli push incident \
-    --api-key "<API KEY>" \
+    --api-key "<API key>" \
     --identifier "<incident identifier>" \
     --timestampCreated "<timestampCreated>" \
     --timestampResolved "<timestampResolved>"
-```
-
-### Events Helpers
-
-In order to simplify the integration process we have some helpers that you can use to push multiple events simultaneously:
-
--   [Deployment + Changes (Git)](#deployment--changes-git)
-
-#### Deployment + Changes (Git)
-
-This command will infer the changes of the deployment being pushed based on git commits.
-It will consider all commits between the previous deployment and the HEAD of the given git repository as changes.
-
-| Field                   | Description                                                                   | Format                                       |
-| ----------------------- | ----------------------------------------------------------------------------- | -------------------------------------------- |
-| previous deployment ref | The git ref of the previous deployment. This can either be a tag or a commit. | String                                       |
-| identifier              | Version number or another unique identifier of the deployment                 | String                                       |
-| timestamp               | Time when the deployment finished                                             | Number<br/>(Unix epoch timestamp in seconds) |
-
-Run the following command to report a deployment and its changes:
-
-```sh
-./event-cli push git deployment \
-    --api-key "<API KEY>" \
-    --previous-deployment-ref "<previous deployment ref>" \
-    --identifier "<deployment identifier>" \
-    --timestamp "<timestamp>"
 ```
 
 ## Examples
