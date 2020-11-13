@@ -81,7 +81,7 @@ cd <local Git repository directory>
     --api-key "<API key>" \
     --previous-deployment-ref "<previous deployment ref>" \
     --identifier "<deployment identifier>" \
-    --timestamp "<timestamp>"
+    --timestamp "$(date +%s)"
 ```
 
 The command automatically reports all commits done between the previous deployment and the `HEAD` of the Git repository as changes that belong to the deployment being reported.
@@ -106,7 +106,7 @@ If you don't use Git or prefer to have more fine-grained control over the inform
     ./event-cli push change \
         --api-key "<API key>" \
         --identifier "<change identifier>" \
-        --timestamp "<timestamp>"
+        --timestamp "$(date +%s)"
     ```
 
 1.  Send the following information when reporting **deployments** to Pulse:
@@ -123,13 +123,13 @@ If you don't use Git or prefer to have more fine-grained control over the inform
     ./event-cli push deployment \
         --api-key "<API key>" \
         --identifier "<deployment identifier>" \
-        --timestamp "<timestamp>" \
+        --timestamp "$(date +%s)" \
         <space-separated list of commit identifiers>
     ```
 
 ### Incidents
 
-Report an event to Pulse whenever there is a software release or infrastructure configuration change to production that results in degraded service and subsequently required remediation:
+Report an event to Pulse whenever an incident resulting from a release or infrastructure configuration change to production is solved. Incidents are any form of degraded service that require remediation:
 
 -   The incident is **created** when you detect a service impairment or service outage in production.
 -   The incident is **resolved** when you apply a hotfix or patch, or when you rollback the changes to restore the service in production.
@@ -153,7 +153,7 @@ Run the following command to report each incident:
     --api-key "<API key>" \
     --identifier "<incident identifier>" \
     --timestampCreated "<timestampCreated>" \
-    --timestampResolved "<timestampResolved>"
+    --timestampResolved "$(date +%s)"
 ```
 
 ## Examples
