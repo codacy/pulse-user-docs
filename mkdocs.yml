@@ -1,18 +1,20 @@
 strict: true
 
 # Project information
-site_name: Pulse documentation
+site_name: "Pulse documentation"
 site_url: https://docs.acceleratedevops.net/
 
 # Configuration
 theme:
   name: "material"
   palette:
-    scheme: slate
+    scheme: "slate"
     primary: "teal"
     accent: "teal"
   # feature:
   #   tabs: true
+  logo:
+    "assets/pulse-logo.png"
 
 google_analytics: ["UA-180967824-1", "acceleratedevops.net"]
 
