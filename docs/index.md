@@ -2,7 +2,7 @@
 
 Pulse displays metrics that provide insights about the current and historic performance of your software delivery process. To calculate these metrics, Pulse must collect information from key events of your particular software development workflow.
 
-Currently, the recommended way of integrating your workflow with Pulse is by using a CLI to send the necessary data to Pulse.
+Currently, Pulse supports a push-based integration with your workflow and the recommended way of sending the necessary data to Pulse is by using the Pulse CLI.
 
 However, in some scenarios it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are sending data from providers that only support webhooks. For these situations, you can call an HTTP POST webhook instead. For example:
 
