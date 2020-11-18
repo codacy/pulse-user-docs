@@ -27,6 +27,7 @@ markdown_extensions:
   - footnotes
   - meta
   - pymdownx.superfences
+  - pymdownx.tabbed
   - pymdownx.striphtml:
       strip_comments: true
   - toc:

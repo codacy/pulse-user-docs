@@ -23,25 +23,51 @@ Download the latest version of the CLI for your operating system and make sure t
 
 1.  Run the command to download the correct binary for your operating system, changing `<VERSION>` to the latest version obtained on the previous step:
 
-    | Operating system | Command to download the binary                                                                                                          |
-    | ---------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-    | macOS            | `curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_darwin_amd64/pulse-event-cli`          |
-    | Linux 32-bit     | `curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_386/pulse-event-cli`             |
-    | Linux 64-bit     | `curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_amd64/pulse-event-cli`           |
-    | Windows 32-bit   | `curl -fsSL -o event-cli.exe https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_386/pulse-event-cli.exe`   |
-    | Windows 64-bit   | `curl -fsSL -o event-cli.exe https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_amd64/pulse-event-cli.exe` |
+    === "Linux"
+        On 32-bit operating systems:
 
-1.  **On macOS and Linux,** make the binary executable and test if you can run the CLI:
+        ```sh
+        curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_386/pulse-event-cli && \
+        chmod +x event-cli
+        ```
 
-    ```sh
-    chmod +x event-cli && ./event-cli help
-    ```
+        On 64-bit operating systems:
+    
+        ```sh
+        curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_amd64/pulse-event-cli && \
+        chmod +x event-cli
+        ```
 
-    **On Windows,** test if you can run the CLI:
+    === "macOS"
+        ```sh
+        curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_darwin_amd64/pulse-event-cli && \
+        chmod +x event-cli
+        ```
 
-    ```sh
-    event-cli.exe help
-    ```
+    === "Windows"
+        On 32-bit operating systems:
+
+        ```
+        curl -fsSL -o event-cli.exe https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_386/pulse-event-cli.exe
+        ```
+    
+        On 64-bit operating systems:
+
+        ```
+        curl -fsSL -o event-cli.exe https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_amd64/pulse-event-cli.exe
+        ```
+
+1.  Test if you can run the CLI:
+
+    === "Linux and macOS"
+        ```sh
+        ./event-cli help
+        ```
+
+    === "Windows"
+        ```sh
+        event-cli.exe help
+        ```
 
 ## 2. Pushing data to Pulse
 
@@ -74,16 +100,27 @@ If you're using Git, send the following information when reporting **changes and
 
 Run the following command to report a deployment and its changes:
 
-```sh
-git clone <Git repository URL>
-cd <local Git repository directory>
-./event-cli push git deployment \
-    --api-key "<API key>" \
-    --previous-deployment-ref "<previous deployment ref>" \
-    --identifier "<deployment identifier>" \
-    --timestamp "$(date +%s)"
-```
+=== "Linux and macOS"
+    ```sh
+    git clone <Git repository URL>
+    cd <local Git repository directory>
+    ./event-cli push git deployment \
+        --api-key "<API key>" \
+        --previous-deployment-ref "<previous deployment ref>" \
+        --identifier "<deployment identifier>" \
+        --timestamp "$(date +%s)"
+    ```
 
+=== "Windows"
+    ```sh
+    git clone <Git repository URL>
+    cd <local Git repository directory>
+    event-cli.exe push git deployment \
+        --api-key "<API key>" \
+        --previous-deployment-ref "<previous deployment ref>" \
+        --identifier "<deployment identifier>" \
+        --timestamp "<timestamp>"
+    ```
 The command automatically reports all commits done between the previous deployment and the `HEAD` of the Git repository as changes that belong to the deployment being reported.
 
 #### Without using Git
@@ -102,12 +139,21 @@ If you don't use Git or prefer to have more fine-grained control over the inform
 
     Run the following command to report each change:
 
-    ```sh
-    ./event-cli push change \
-        --api-key "<API key>" \
-        --identifier "<change identifier>" \
-        --timestamp "$(date +%s)"
-    ```
+    === "Linux and macOS"
+        ```sh
+        ./event-cli push change \
+            --api-key "<API key>" \
+            --identifier "<change identifier>" \
+            --timestamp "$(date +%s)"
+        ```
+
+    === "Windows"
+        ```sh
+        event-cli.exe push change \
+            --api-key "<API key>" \
+            --identifier "<change identifier>" \
+            --timestamp "<timestamp>"
+        ```
 
 1.  Send the following information when reporting **deployments** to Pulse:
 
@@ -119,13 +165,23 @@ If you don't use Git or prefer to have more fine-grained control over the inform
 
     Run the following command to report each deployment:
 
-    ```sh
-    ./event-cli push deployment \
-        --api-key "<API key>" \
-        --identifier "<deployment identifier>" \
-        --timestamp "$(date +%s)" \
-        <space-separated list of commit identifiers>
-    ```
+    === "Linux and macOS"
+        ```sh
+        ./event-cli push deployment \
+            --api-key "<API key>" \
+            --identifier "<deployment identifier>" \
+            --timestamp "$(date +%s)" \
+            <space-separated list of commit identifiers>
+        ```
+
+    === "Windows"
+        ```sh
+        event-cli.exe push deployment \
+            --api-key "<API key>" \
+            --identifier "<deployment identifier>" \
+            --timestamp "<timestamp>" \
+            <space-separated list of commit identifiers>
+        ```
 
 ### Incidents
 
@@ -148,13 +204,23 @@ Send the following information when reporting **incidents** to Pulse:
 
 Run the following command to report each incident:
 
-```sh
-./event-cli push incident \
-    --api-key "<API key>" \
-    --identifier "<incident identifier>" \
-    --timestampCreated "<timestampCreated>" \
-    --timestampResolved "$(date +%s)"
-```
+=== "Linux and macOS"
+    ```sh
+    ./event-cli push incident \
+        --api-key "<API key>" \
+        --identifier "<incident identifier>" \
+        --timestampCreated "<timestampCreated>" \
+        --timestampResolved "$(date +%s)"
+    ```
+
+=== "Windows"
+    ```sh
+    event-cli.exe push incident \
+        --api-key "<API key>" \
+        --identifier "<incident identifier>" \
+        --timestampCreated "<timestampCreated>" \
+        --timestampResolved "<timestampResolved>"
+    ```
 
 ## Examples
 
