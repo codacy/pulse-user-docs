@@ -1,26 +1,34 @@
 strict: true
 
 # Project information
-site_name: Pulse documentation
+site_name: "Pulse documentation"
 site_url: https://docs.acceleratedevops.net/
 
 # Configuration
 theme:
   name: "material"
   palette:
-    scheme: slate
+    scheme: "slate"
     primary: "teal"
     accent: "teal"
   # feature:
   #   tabs: true
+  logo:
+    "assets/pulse-logo.png"
 
 google_analytics: ["UA-180967824-1", "acceleratedevops.net"]
 
 # Extensions
 markdown_extensions:
-  - toc:
-      permalink: true
   - admonition
   - codehilite:
-      linenums: True
+      guess_lang: false
+      linenums: true
+  - footnotes
   - meta
+  - pymdownx.superfences
+  - pymdownx.tabbed
+  - pymdownx.striphtml:
+      strip_comments: true
+  - toc:
+      permalink: true
