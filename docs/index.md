@@ -17,10 +17,10 @@ Consider the following before integrating your workflow with Pulse:
     !!! important
         **Please let us know if you are planning on reporting events to Pulse using the webhook** so we can give you more detailed instructions on how to use it.
 
--   When reporting events to Pulse you can associate each event with a **system**. Depending on your use case, the system can be a repository, an application or service, a product, or any other entity or group of entities in your organization.
+-   When reporting events to Pulse you can associate each event with a "system". Depending on your use case, the system can be a repository, an application or service, a product, or any other entity or group of entities in your organization.
 
     !!! important
-        Pulse does not use this information yet, but as we develop new features you will be able to use this information to view metrics for different scopes. This means that the way you group events in systems determines the most granular scope that you will be able to apply to your metrics on Pulse.
+        Pulse does not use this information yet, but as we develop new features you will be able to use this information to view metrics for different scopes. This means that the way you group events in systems **determines the most granular scope** that you will be able to apply to your metrics on Pulse.
 
 The next sections include detailed instructions on how to set up the integration with Pulse.
 
