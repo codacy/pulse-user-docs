@@ -99,7 +99,7 @@ If you're using Git, send the following information when reporting **changes and
 
 | Field                   | Description                                                                             | Format                                       |
 | ----------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------- |
-| system                  | Optional. Name of the system the data refers to.                                        | String                                       |
+| system                  | Optional. System to assign to this report.                                              | String                                       |
 | previous-deployment-ref | Git reference of the previous deployment.<br/>This can be a tag or a commit identifier. | String                                       |
 | identifier              | Version number or another unique identifier of the deployment.                          | String                                       |
 | timestamp               | Time when the deployment finished.                                                      | Number<br/>(Unix epoch timestamp in seconds) |
@@ -142,7 +142,7 @@ If you don't use Git or prefer to have more fine-grained control over the inform
 
     | Field      | Description                                              | Format                                       |
     | ---------- | -------------------------------------------------------- | -------------------------------------------- |
-    | system     | Optional. Name of the system the data refers to.         | String                                       |
+    | system     | Optional. System to assign to this report.               | String                                       |
     | identifier | The commit identifier.                                   | String                                       |
     | timestamp  | Time when the commit was first pushed to the repository. | Number<br/>(Unix epoch timestamp in seconds) |
 
@@ -170,7 +170,7 @@ If you don't use Git or prefer to have more fine-grained control over the inform
 
     | Field      | Description                                                    | Format                                       |
     | ---------- | -------------------------------------------------------------- | -------------------------------------------- |
-    | system     | Optional. Name of the system the data refers to.               | String                                       |
+    | system     | Optional. System to assign to this report.                     | String                                       |
     | identifier | Version number or another unique identifier of the deployment. | String                                       |
     | timestamp  | Time when the deployment finished.                             | Number<br/>(Unix epoch timestamp in seconds) |
     |            | Commit identifiers included in the deployment.                 | String<br/>(space-separated list)            |
@@ -212,7 +212,7 @@ Send the following information when reporting **incidents** to Pulse:
 
 | Field             | Description                                      | Format                                       |
 | ----------------- | ------------------------------------------------ | -------------------------------------------- |
-| system            | Optional. Name of the system the data refers to. | String                                       |
+| system            | Optional. System to assign to this report.       | String                                       |
 | identifier        | A unique identifier of the incident.             | String                                       |
 | timestampCreated  | Time when the incident started or was detected.  | Number<br/>(Unix epoch timestamp in seconds) |
 | timestampResolved | Time when the incident was resolved.             | Number<br/>(Unix epoch timestamp in seconds) |
