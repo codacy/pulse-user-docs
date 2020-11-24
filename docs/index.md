@@ -2,7 +2,7 @@
 
 Pulse displays metrics that provide insights about the current and historic performance of your software delivery process. To calculate these metrics, Pulse must collect information from key events of your particular software development workflow.
 
-A system is a partition of your organization. Depending on your use case it can be a service, a repository or any other entity or group of entities in your organization. Currently Pulse does not use this information, but as we develop new features this will be used to show scoped views of your organization's data.
+## Before you begin
 
 Currently, Pulse supports a push-based integration with your workflow and the recommended way of sending the necessary data to Pulse is by using the Pulse CLI.
 
@@ -12,6 +12,9 @@ However, in some scenarios it may not be feasible to use the CLI to send data to
 
 !!! important
     **Please let us know if you are planning on pushing events to Pulse using the webhook** so we can give you more detailed instructions on how to use it.
+
+<!-- TODO Best place to introduce and describe the concept of system? -->
+A system is a partition of your organization. Depending on your use case it can be a service, a repository or any other entity or group of entities in your organization. Currently Pulse does not use this information, but as we develop new features this will be used to show scoped views of your organization's data.
 
 The next sections include detailed instructions on how to complete the integration setup process.
 
@@ -96,10 +99,10 @@ If you're using Git, send the following information when reporting **changes and
 
 | Field                   | Description                                                                             | Format                                       |
 | ----------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------- |
-| previous deployment ref | Git reference of the previous deployment.<br/>This can be a tag or a commit identifier. | String                                       |
-| identifier              | Version number or another unique identifier of the deployment                           | String                                       |
-| timestamp               | Time when the deployment finished                                                       | Number<br/>(Unix epoch timestamp in seconds) |
-| system                  | Name of the system the data refers to                                                   | String [Optional]                            |
+| system                  | Optional. Name of the system the data refers to.                                        | String                                       |
+| previous-deployment-ref | Git reference of the previous deployment.<br/>This can be a tag or a commit identifier. | String                                       |
+| identifier              | Version number or another unique identifier of the deployment.                          | String                                       |
+| timestamp               | Time when the deployment finished.                                                      | Number<br/>(Unix epoch timestamp in seconds) |
 
 Run the following command to report a deployment and its changes:
 
@@ -109,10 +112,10 @@ Run the following command to report a deployment and its changes:
     cd <local Git repository directory>
     ./event-cli push git deployment \
         --api-key "<API key>" \
+        [--system "<name of the system the data refers to>"] \
         --previous-deployment-ref "<previous deployment ref>" \
         --identifier "<deployment identifier>" \
-        --timestamp "$(date +%s)" \
-        --system "<name of the system the data refers to>"
+        --timestamp "$(date +%s)"
     ```
 
 === "Windows"
@@ -121,10 +124,10 @@ Run the following command to report a deployment and its changes:
     cd <local Git repository directory>
     event-cli.exe push git deployment \
         --api-key "<API key>" \
+        [--system "<name of the system the data refers to>"] \
         --previous-deployment-ref "<previous deployment ref>" \
         --identifier "<deployment identifier>" \
-        --timestamp "<timestamp>" \
-        --system "<name of the system the data refers to>"
+        --timestamp "<timestamp>"
     ```
 The command automatically reports all commits done between the previous deployment and the `HEAD` of the Git repository as changes that belong to the deployment being reported.
 
@@ -137,11 +140,11 @@ If you don't use Git or prefer to have more fine-grained control over the inform
 
 1.  Send the following information when reporting **changes** to Pulse:
 
-    | Field      | Description                                             | Format                                       |
-    | ---------- | ------------------------------------------------------- | -------------------------------------------- |
-    | identifier | The commit identifier                                   | String                                       |
-    | timestamp  | Time when the commit was first pushed to the repository | Number<br/>(Unix epoch timestamp in seconds) |
-    | system     | Name of the system the data refers to                   | String [Optional]                            |
+    | Field      | Description                                              | Format                                       |
+    | ---------- | -------------------------------------------------------- | -------------------------------------------- |
+    | system     | Optional. Name of the system the data refers to.         | String                                       |
+    | identifier | The commit identifier.                                   | String                                       |
+    | timestamp  | Time when the commit was first pushed to the repository. | Number<br/>(Unix epoch timestamp in seconds) |
 
     Run the following command to report each change:
 
@@ -149,28 +152,28 @@ If you don't use Git or prefer to have more fine-grained control over the inform
         ```sh
         ./event-cli push change \
             --api-key "<API key>" \
+            [--system "<name of the system the data refers to>"] \
             --identifier "<change identifier>" \
-            --timestamp "$(date +%s)" \
-            --system "<name of the system the data refers to>"
+            --timestamp "$(date +%s)"
         ```
 
     === "Windows"
         ```sh
         event-cli.exe push change \
             --api-key "<API key>" \
+            [--system "<name of the system the data refers to>"] \
             --identifier "<change identifier>" \
-            --timestamp "<timestamp>" \
-            --system "<name of the system the data refers to>"
+            --timestamp "<timestamp>"
         ```
 
 1.  Send the following information when reporting **deployments** to Pulse:
 
-    | Field      | Description                                                   | Format                                       |
-    | ---------- | ------------------------------------------------------------- | -------------------------------------------- |
-    | identifier | Version number or another unique identifier of the deployment | String                                       |
-    | timestamp  | Time when the deployment finished                             | Number<br/>(Unix epoch timestamp in seconds) |
-    | system     | Name of the system the data refers to                         | String [Optional]                            |
-    |            | Commit identifiers included in the deployment                 | String<br/>(space-separated list)            |
+    | Field      | Description                                                    | Format                                       |
+    | ---------- | -------------------------------------------------------------- | -------------------------------------------- |
+    | system     | Optional. Name of the system the data refers to.               | String                                       |
+    | identifier | Version number or another unique identifier of the deployment. | String                                       |
+    | timestamp  | Time when the deployment finished.                             | Number<br/>(Unix epoch timestamp in seconds) |
+    |            | Commit identifiers included in the deployment.                 | String<br/>(space-separated list)            |
 
     Run the following command to report each deployment:
 
@@ -178,9 +181,9 @@ If you don't use Git or prefer to have more fine-grained control over the inform
         ```sh
         ./event-cli push deployment \
             --api-key "<API key>" \
+            [--system "<name of the system the data refers to>"] \
             --identifier "<deployment identifier>" \
             --timestamp "$(date +%s)" \
-            --system "<name of the system the data refers to>" \
             <space-separated list of commit identifiers>
         ```
 
@@ -188,9 +191,9 @@ If you don't use Git or prefer to have more fine-grained control over the inform
         ```sh
         event-cli.exe push deployment \
             --api-key "<API key>" \
+            [--system "<name of the system the data refers to>"] \
             --identifier "<deployment identifier>" \
             --timestamp "<timestamp>" \
-            --system "<name of the system the data refers to>" \
             <space-separated list of commit identifiers>
         ```
 
@@ -207,12 +210,12 @@ Pulse uses these reports to calculate the metrics [Median time to recovery](metr
 
 Send the following information when reporting **incidents** to Pulse:
 
-| Field             | Description                                    | Format                                       |
-| ----------------- | ---------------------------------------------- | -------------------------------------------- |
-| identifier        | A unique identifier of the incident            | String                                       |
-| timestampCreated  | Time when the incident started or was detected | Number<br/>(Unix epoch timestamp in seconds) |
-| timestampResolved | Time when the incident was resolved            | Number<br/>(Unix epoch timestamp in seconds) |
-| system            | Name of the system the data refers to          | String [Optional]                            |
+| Field             | Description                                      | Format                                       |
+| ----------------- | ------------------------------------------------ | -------------------------------------------- |
+| system            | Optional. Name of the system the data refers to. | String                                       |
+| identifier        | A unique identifier of the incident.             | String                                       |
+| timestampCreated  | Time when the incident started or was detected.  | Number<br/>(Unix epoch timestamp in seconds) |
+| timestampResolved | Time when the incident was resolved.             | Number<br/>(Unix epoch timestamp in seconds) |
 
 Run the following command to report each incident:
 
@@ -220,20 +223,20 @@ Run the following command to report each incident:
     ```sh
     ./event-cli push incident \
         --api-key "<API key>" \
+        [--system "<name of the system the data refers to>"] \
         --identifier "<incident identifier>" \
         --timestampCreated "<timestampCreated>" \
-        --timestampResolved "$(date +%s)" \
-        --system "<name of the system the data refers to>"
+        --timestampResolved "$(date +%s)"
     ```
 
 === "Windows"
     ```sh
     event-cli.exe push incident \
         --api-key "<API key>" \
+        [--system "<name of the system the data refers to>"] \
         --identifier "<incident identifier>" \
         --timestampCreated "<timestampCreated>" \
-        --timestampResolved "<timestampResolved>" \
-        --system "<name of the system the data refers to>"
+        --timestampResolved "<timestampResolved>"
     ```
 
 ## Examples
