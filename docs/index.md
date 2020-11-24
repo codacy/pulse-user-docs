@@ -2,21 +2,25 @@
 
 Pulse displays metrics that provide insights about the current and historic performance of your software delivery process. To calculate these metrics, Pulse must collect information from key events of your particular software development workflow.
 
-## Before you begin
+Currently, Pulse supports a push-based integration with your workflow and the recommended way of reporting the necessary events to Pulse is by using the Pulse CLI.
 
-Currently, Pulse supports a push-based integration with your workflow and the recommended way of sending the necessary data to Pulse is by using the Pulse CLI.
+Consider the following before integrating your workflow with Pulse:
 
-However, in some scenarios it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are sending data from providers that only support webhooks. For these situations, you can call an HTTP POST webhook instead. For example:
+-   In some scenarios, it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are reporting events from providers that only support webhooks. For these situations, you can call an HTTP POST webhook instead. For example:
 
-`https://ingestion.acceleratedevops.net/v1/ingestion/<PROVIDER>?api_key=<API KEY>`
+    ```test
+    https://ingestion.acceleratedevops.net/v1/ingestion/<PROVIDER>?api_key=<API KEY>
+    ```
 
-!!! important
-    **Please let us know if you are planning on pushing events to Pulse using the webhook** so we can give you more detailed instructions on how to use it.
+    !!! important
+        **Please let us know if you are planning on reporting events to Pulse using the webhook** so we can give you more detailed instructions on how to use it.
 
-<!-- TODO Best place to introduce and describe the concept of system? -->
-A system is a partition of your organization. Depending on your use case it can be a service, a repository or any other entity or group of entities in your organization. Currently Pulse does not use this information, but as we develop new features this will be used to show scoped views of your organization's data.
+-   When reporting events to Pulse you can associate each event with a **system**. Depending on your use case, the system can be a repository, an application or service, a product, or any other entity or group of entities in your organization.
 
-The next sections include detailed instructions on how to complete the integration setup process.
+    !!! important
+        Pulse does not use this information yet, but as we develop new features you will be able to use this information to view metrics for different scopes. This means that the way you group events in systems determines the most granular scope that you will be able to apply to your metrics on Pulse.
+
+The next sections include detailed instructions on how to set up the integration with Pulse.
 
 ## 1. Installing the Pulse CLI
 
