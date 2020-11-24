@@ -4,6 +4,8 @@ Pulse displays metrics that provide insights about the current and historic perf
 
 Currently, Pulse supports a push-based integration with your workflow and the recommended way of reporting the necessary events to Pulse is by using the Pulse CLI.
 
+## Before you begin
+
 Consider the following before integrating your workflow with Pulse:
 
 -   In some scenarios, it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are reporting events from providers that only support webhooks. For these situations, you can call an HTTP POST webhook instead. For example:
