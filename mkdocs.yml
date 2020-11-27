@@ -2,7 +2,7 @@ strict: true
 
 # Project information
 site_name: "Pulse documentation"
-site_url: https://docs.acceleratedevops.net/
+site_url: https://docs.pulse.codacy.com/
 
 # Configuration
 theme:
@@ -13,10 +13,9 @@ theme:
     accent: "teal"
   # feature:
   #   tabs: true
-  logo:
-    "assets/pulse-logo.png"
+  logo: "assets/pulse-logo.png"
 
-google_analytics: ["UA-180967824-1", "acceleratedevops.net"]
+google_analytics: ["UA-180967824-1", "pulse.codacy.com"]
 
 # Extensions
 markdown_extensions:
