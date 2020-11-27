@@ -105,10 +105,10 @@ If you're using Git, send the following information when reporting **changes and
 
 | Field                   | Description                                                                             | Format                                       |
 | ----------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------- |
-| system                  | Optional. System to assign to this report.                                              | String                                       |
 | previous-deployment-ref | Git reference of the previous deployment.<br/>This can be a tag or a commit identifier. | String                                       |
 | identifier              | Version number or another unique identifier of the deployment.                          | String                                       |
 | timestamp               | Time when the deployment finished.                                                      | Number<br/>(Unix epoch timestamp in seconds) |
+| system                  | Optional. System to assign to this event.                                               | String                                       |
 
 Run the following command to report a deployment and its changes:
 
@@ -118,10 +118,10 @@ Run the following command to report a deployment and its changes:
     cd <local Git repository directory>
     ./event-cli push git deployment \
         --api-key "<API key>" \
-        [--system "<name of the system the data refers to>"] \
         --previous-deployment-ref "<previous deployment ref>" \
         --identifier "<deployment identifier>" \
-        --timestamp "$(date +%s)"
+        --timestamp "$(date +%s)" \
+        [--system "<system>"]
     ```
 
 === "Windows"
@@ -130,10 +130,10 @@ Run the following command to report a deployment and its changes:
     cd <local Git repository directory>
     event-cli.exe push git deployment \
         --api-key "<API key>" \
-        [--system "<name of the system the data refers to>"] \
         --previous-deployment-ref "<previous deployment ref>" \
         --identifier "<deployment identifier>" \
-        --timestamp "<timestamp>"
+        --timestamp "<timestamp>" \
+        [--system "<system>"]
     ```
 The command automatically reports all commits done between the previous deployment and the `HEAD` of the Git repository as changes that belong to the deployment being reported.
 
@@ -148,9 +148,9 @@ If you don't use Git or prefer to have more fine-grained control over the inform
 
     | Field      | Description                                              | Format                                       |
     | ---------- | -------------------------------------------------------- | -------------------------------------------- |
-    | system     | Optional. System to assign to this report.               | String                                       |
     | identifier | The commit identifier.                                   | String                                       |
     | timestamp  | Time when the commit was first pushed to the repository. | Number<br/>(Unix epoch timestamp in seconds) |
+    | system     | Optional. System to assign to this event.                | String                                       |
 
     Run the following command to report each change:
 
@@ -158,27 +158,27 @@ If you don't use Git or prefer to have more fine-grained control over the inform
         ```sh
         ./event-cli push change \
             --api-key "<API key>" \
-            [--system "<name of the system the data refers to>"] \
             --identifier "<change identifier>" \
-            --timestamp "$(date +%s)"
+            --timestamp "$(date +%s)" \
+            [--system "<system>"]
         ```
 
     === "Windows"
         ```sh
         event-cli.exe push change \
             --api-key "<API key>" \
-            [--system "<name of the system the data refers to>"] \
             --identifier "<change identifier>" \
-            --timestamp "<timestamp>"
+            --timestamp "<timestamp>" \
+            [--system "<system>"]
         ```
 
 1.  Send the following information when reporting **deployments** to Pulse:
 
     | Field      | Description                                                    | Format                                       |
     | ---------- | -------------------------------------------------------------- | -------------------------------------------- |
-    | system     | Optional. System to assign to this report.                     | String                                       |
     | identifier | Version number or another unique identifier of the deployment. | String                                       |
     | timestamp  | Time when the deployment finished.                             | Number<br/>(Unix epoch timestamp in seconds) |
+    | system     | Optional. System to assign to this event.                      | String                                       |
     |            | Commit identifiers included in the deployment.                 | String<br/>(space-separated list)            |
 
     Run the following command to report each deployment:
@@ -187,9 +187,9 @@ If you don't use Git or prefer to have more fine-grained control over the inform
         ```sh
         ./event-cli push deployment \
             --api-key "<API key>" \
-            [--system "<name of the system the data refers to>"] \
             --identifier "<deployment identifier>" \
             --timestamp "$(date +%s)" \
+            [--system "<system>"] \
             <space-separated list of commit identifiers>
         ```
 
@@ -197,9 +197,9 @@ If you don't use Git or prefer to have more fine-grained control over the inform
         ```sh
         event-cli.exe push deployment \
             --api-key "<API key>" \
-            [--system "<name of the system the data refers to>"] \
             --identifier "<deployment identifier>" \
             --timestamp "<timestamp>" \
+            [--system "<system>"] \
             <space-separated list of commit identifiers>
         ```
 
@@ -218,10 +218,10 @@ Send the following information when reporting **incidents** to Pulse:
 
 | Field             | Description                                      | Format                                       |
 | ----------------- | ------------------------------------------------ | -------------------------------------------- |
-| system            | Optional. System to assign to this report.       | String                                       |
 | identifier        | A unique identifier of the incident.             | String                                       |
 | timestampCreated  | Time when the incident started or was detected.  | Number<br/>(Unix epoch timestamp in seconds) |
 | timestampResolved | Time when the incident was resolved.             | Number<br/>(Unix epoch timestamp in seconds) |
+| system            | Optional. System to assign to this event.        | String                                       |
 
 Run the following command to report each incident:
 
@@ -229,20 +229,20 @@ Run the following command to report each incident:
     ```sh
     ./event-cli push incident \
         --api-key "<API key>" \
-        [--system "<name of the system the data refers to>"] \
         --identifier "<incident identifier>" \
         --timestampCreated "<timestampCreated>" \
-        --timestampResolved "$(date +%s)"
+        --timestampResolved "$(date +%s)" \
+        [--system "<system>"]
     ```
 
 === "Windows"
     ```sh
     event-cli.exe push incident \
         --api-key "<API key>" \
-        [--system "<name of the system the data refers to>"] \
         --identifier "<incident identifier>" \
         --timestampCreated "<timestampCreated>" \
-        --timestampResolved "<timestampResolved>"
+        --timestampResolved "<timestampResolved>" \
+        [--system "<system>"]
     ```
 
 ## Examples
