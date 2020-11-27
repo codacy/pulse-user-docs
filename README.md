@@ -1,6 +1,6 @@
 # Pulse documentation
 
-<https://docs.acceleratedevops.net/>
+<https://docs.pulse.codacy.com/>
 
 ## Contributing to the documentation
 
