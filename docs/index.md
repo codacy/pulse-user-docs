@@ -17,10 +17,15 @@ Consider the following before integrating your workflow with Pulse:
     !!! important
         **Please let us know if you are planning on reporting events to Pulse using the webhook** so we can give you more detailed instructions on how to use it.
 
--   When reporting events to Pulse you can associate each event with a "system". Depending on your use case, the system can be a repository, an application or service, a product, or any other entity or group of entities in your organization.
+-   When reporting events to Pulse you can use the optional field `system` to associate each event with the corresponding CVS repository.
 
+    Pulse does not use this information yet, but as we develop new features you will be able to view metrics for different scopes such as repository, application or service, product, or any other entity or group of entities in your organization.
+    
     !!! important
-        Pulse does not use this information yet, but as we develop new features you will be able to use this information to view metrics for different scopes. This means that the way you group events in systems **determines the most granular scope** that you will be able to apply to your metrics on Pulse.
+        The information reported in the `system` will be the smallest unit that you can use to aggregate data. This means that **if you're using a mono repository pattern**, you should specify the service corresponding to each event in the `system` field instead of the repository.
+
+        The identifiers of the events that you report for each value of `system` must be unique.
+
 
 The next sections include detailed instructions on how to set up the integration with Pulse.
 
@@ -108,7 +113,7 @@ If you're using Git, send the following information when reporting **changes and
 | previous-deployment-ref | Git reference of the previous deployment.<br/>This can be a tag or a commit identifier. | String                                       |
 | identifier              | Version number or another unique identifier of the deployment.                          | String                                       |
 | timestamp               | Time when the deployment finished.                                                      | Number<br/>(Unix epoch timestamp in seconds) |
-| system                  | Optional. System to assign to this event.                                               | String                                       |
+| system                  | Optional. Repository or service to assign to this event.                                | String                                       |
 
 Run the following command to report a deployment and its changes:
 
@@ -150,7 +155,7 @@ If you don't use Git or prefer to have more fine-grained control over the inform
     | ---------- | -------------------------------------------------------- | -------------------------------------------- |
     | identifier | The commit identifier.                                   | String                                       |
     | timestamp  | Time when the commit was first pushed to the repository. | Number<br/>(Unix epoch timestamp in seconds) |
-    | system     | Optional. System to assign to this event.                | String                                       |
+    | system     | Optional. Repository or service to assign to this event. | String                                       |
 
     Run the following command to report each change:
 
@@ -178,7 +183,7 @@ If you don't use Git or prefer to have more fine-grained control over the inform
     | ---------- | -------------------------------------------------------------- | -------------------------------------------- |
     | identifier | Version number or another unique identifier of the deployment. | String                                       |
     | timestamp  | Time when the deployment finished.                             | Number<br/>(Unix epoch timestamp in seconds) |
-    | system     | Optional. System to assign to this event.                      | String                                       |
+    | system     | Optional. Repository or service to assign to this event.       | String                                       |
     |            | Commit identifiers included in the deployment.                 | String<br/>(space-separated list)            |
 
     Run the following command to report each deployment:
@@ -216,12 +221,12 @@ Pulse uses these reports to calculate the metrics [Median time to recovery](metr
 
 Send the following information when reporting **incidents** to Pulse:
 
-| Field             | Description                                      | Format                                       |
-| ----------------- | ------------------------------------------------ | -------------------------------------------- |
-| identifier        | A unique identifier of the incident.             | String                                       |
-| timestampCreated  | Time when the incident started or was detected.  | Number<br/>(Unix epoch timestamp in seconds) |
-| timestampResolved | Time when the incident was resolved.             | Number<br/>(Unix epoch timestamp in seconds) |
-| system            | Optional. System to assign to this event.        | String                                       |
+| Field             | Description                                              | Format                                       |
+| ----------------- | -------------------------------------------------------- | -------------------------------------------- |
+| identifier        | A unique identifier of the incident.                     | String                                       |
+| timestampCreated  | Time when the incident started or was detected.          | Number<br/>(Unix epoch timestamp in seconds) |
+| timestampResolved | Time when the incident was resolved.                     | Number<br/>(Unix epoch timestamp in seconds) |
+| system            | Optional. Repository or service to assign to this event. | String                                       |
 
 Run the following command to report each incident:
 
