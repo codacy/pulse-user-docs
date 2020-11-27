@@ -1,6 +1,6 @@
 # Pulse documentation
 
-<https://docs.acceleratedevops.net/>
+<https://docs.pulse.codacy.com/>
 
 ## Contributing to the documentation
 
@@ -13,7 +13,7 @@ See the following sections (from the CONTRIBUTING.md of codacy/docs) to:
 
 ## What is Pulse
 
-See [accelerateddevops.net](http://acceleratedevops.net/) for information on:
+See [pulse.codacy.com](https://pulse.codacy.com/) for information on:
 
 -   Getting visibility on your organization's performance
 -   Identify areas to improve
