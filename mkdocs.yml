@@ -11,11 +11,12 @@ theme:
     scheme: "slate"
     primary: "teal"
     accent: "teal"
-  # feature:
-  #   tabs: true
   logo: "assets/pulse-logo.png"
+  features:
+    - navigation.instant
+  custom_dir: overrides
 
-google_analytics: ["UA-180967824-1", "pulse.codacy.com"]
+google_analytics: ["G-B5Q5WTNDMD", "docs.pulse.codacy.com"]
 
 # Extensions
 markdown_extensions:
