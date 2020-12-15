@@ -8,15 +8,6 @@ Currently, Pulse supports a push-based integration with your workflow and the re
 
 Consider the following before integrating your workflow with Pulse:
 
--   In some scenarios, it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are reporting events from providers that only support webhooks. For these situations, you can call an HTTP POST webhook instead. For example:
-
-    ```test
-    https://ingestion.acceleratedevops.net/v1/ingestion/<PROVIDER>?api_key=<API KEY>
-    ```
-
-    !!! important
-        **Please let us know if you are planning on reporting events to Pulse using the webhook** so we can give you more detailed instructions on how to use it.
-
 -   When reporting events to Pulse you can use the optional field `system` to associate each event with the corresponding CVS repository.
 
     Pulse does not use this information yet, but as we develop new features you will be able to view metrics for different scopes such as repository, application or service, product, or any other entity or group of entities in your organization.
@@ -26,6 +17,14 @@ Consider the following before integrating your workflow with Pulse:
 
         The identifiers of the events that you report for each value of `system` must be unique.
 
+-   In some scenarios, it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are reporting events from providers that only support webhooks. For these situations, you can call an HTTP POST webhook instead. For example:
+
+    ```test
+    https://ingestion.acceleratedevops.net/v1/ingestion/<PROVIDER>?api_key=<API KEY>
+    ```
+
+    !!! important
+        **Please let us know if you are planning on reporting events to Pulse using the webhook** so we can give you more detailed instructions on how to use it.
 
 The next sections include detailed instructions on how to set up the integration with Pulse.
 
