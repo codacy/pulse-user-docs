@@ -8,14 +8,14 @@ Currently, Pulse supports a push-based integration with your workflow and the re
 
 Consider the following before integrating your workflow with Pulse:
 
--   When reporting events to Pulse you can use the optional field `system` to associate each event with the corresponding CVS repository.
+-   When reporting events to Pulse you should use the field `system` to associate each event with the **most granular unit** that you will use to filter and segment data on the Pulse dashboards, such as by application or service, product, team, or any other entity or group of entities in your organization.
 
-    Pulse does not use this information yet, but as we develop new features you will be able to view metrics for different scopes such as repository, application or service, product, or any other entity or group of entities in your organization.
-    
     !!! important
-        The information reported in the `system` will be the smallest unit that you can use to aggregate data. This means that **if you're using a mono repository pattern**, you should specify the service corresponding to each event in the `system` field instead of the repository.
+        Typically, the value of `system` should be the name of the CVS repository corresponding to the event.
 
-        The identifiers of the events that you report for each value of `system` must be unique.
+        However, if you're using a monorepo the value of `system` should be the name of the component in the repository instead.
+
+    Although the field `system` is optional, if you don't report this information you won't be able to filter the data on the Pulse dashboards.
 
 -   In some scenarios, it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are reporting events from providers that only support webhooks. For these situations, you can call an HTTP POST webhook instead. For example:
 
