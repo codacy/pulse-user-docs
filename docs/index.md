@@ -8,7 +8,7 @@ Currently, Pulse supports a push-based integration with your workflow and the re
 
 Consider the following before integrating your workflow with Pulse:
 
--   When reporting events to Pulse you should use the field `system` to associate each event with the **most granular unit** that you will use to filter and segment data on the Pulse dashboards, such as by application or service, product, team, or any other entity or group of entities in your organization.
+-   When reporting events to Pulse you should use the field `system` to associate each event with the **most granular unit** that you will use to filter data on the Pulse dashboards, such as by application or service, product, team, or any other entity or group of entities in your organization.
 
     !!! important
         Typically, the value of `system` should be the name of the CVS repository corresponding to the event.
