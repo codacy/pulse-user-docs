@@ -27,41 +27,41 @@ Download the latest version of the CLI for your operating system and make sure t
         On 32-bit operating systems:
 
         ```sh
-        curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_386/pulse-event-cli && \
-        chmod +x event-cli
+        curl -fsSL -o pulse-event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_386/pulse-event-cli && \
+        chmod +x pulse-event-cli
         ```
 
         On 64-bit operating systems:
     
         ```sh
-        curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_amd64/pulse-event-cli && \
-        chmod +x event-cli
+        curl -fsSL -o pulse-event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_amd64/pulse-event-cli && \
+        chmod +x pulse-event-cli
         ```
 
     === "macOS"
         ```sh
-        curl -fsSL -o event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_darwin_amd64/pulse-event-cli && \
-        chmod +x event-cli
+        curl -fsSL -o pulse-event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_darwin_amd64/pulse-event-cli && \
+        chmod +x pulse-event-cli
         ```
 
     === "Windows"
         On 32-bit operating systems:
 
         ```
-        curl -fsSL -o event-cli.exe https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_386/pulse-event-cli.exe
+        curl -fsSL -o pulse-event-cli.exe https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_386/pulse-event-cli.exe
         ```
     
         On 64-bit operating systems:
 
         ```
-        curl -fsSL -o event-cli.exe https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_amd64/pulse-event-cli.exe
+        curl -fsSL -o pulse-event-cli.exe https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_amd64/pulse-event-cli.exe
         ```
 
 1.  Test if you can run the CLI:
 
     === "Linux and macOS"
         ```sh
-        ./event-cli help
+        ./pulse-event-clihelp
         ```
 
     === "Windows"
@@ -104,7 +104,7 @@ Run the following command to report a deployment and its changes:
     ```sh
     git clone <Git repository URL>
     cd <local Git repository directory>
-    ./event-cli push git deployment \
+    ./pulse-event-clipush git deployment \
         --api-key "<API key>" \
         --previous-deployment-ref "<previous deployment ref>" \
         --identifier "<deployment identifier>" \
@@ -141,7 +141,7 @@ If you don't use Git or prefer to have more fine-grained control over the inform
 
     === "Linux and macOS"
         ```sh
-        ./event-cli push change \
+        ./pulse-event-clipush change \
             --api-key "<API key>" \
             --identifier "<change identifier>" \
             --timestamp "$(date +%s)"
@@ -167,7 +167,7 @@ If you don't use Git or prefer to have more fine-grained control over the inform
 
     === "Linux and macOS"
         ```sh
-        ./event-cli push deployment \
+        ./pulse-event-clipush deployment \
             --api-key "<API key>" \
             --identifier "<deployment identifier>" \
             --timestamp "$(date +%s)" \
@@ -206,7 +206,7 @@ Run the following command to report each incident:
 
 === "Linux and macOS"
     ```sh
-    ./event-cli push incident \
+    ./pulse-event-clipush incident \
         --api-key "<API key>" \
         --identifier "<incident identifier>" \
         --timestampCreated "<timestampCreated>" \
@@ -278,7 +278,7 @@ do
         if [ ${#deployment_changes[@]} -gt 0 ]
         then
             echo "Pushing deployment ${deployment_id} with changes [${deployment_changes[@]}]"
-            ./event-cli push deployment \
+            ./pulse-event-clipush deployment \
                 --api-key "${CREDENTIALS}" \
                 --identifier "${deployment_id}" \
                 --timestamp "${deployment_date}" \
@@ -289,7 +289,7 @@ do
                 deployment_change_date=$(git log --format="%at" ${deployment_change} --max-count=1)
 
                 echo "Pushing changes ${deployment_change} with date ${deployment_change_date}"
-                ./event-cli push change \
+                ./pulse-event-clipush change \
                     --api-key "${CREDENTIALS}" \
                     --identifier "${deployment_change}" \
                     --timestamp "${deployment_change_date}"
