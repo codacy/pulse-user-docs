@@ -61,7 +61,7 @@ Download the latest version of the CLI for your operating system and make sure t
 
     === "Linux and macOS"
         ```sh
-        ./pulse-event-clihelp
+        ./pulse-event-cli help
         ```
 
     === "Windows"
@@ -104,7 +104,7 @@ Run the following command to report a deployment and its changes:
     ```sh
     git clone <Git repository URL>
     cd <local Git repository directory>
-    ./pulse-event-clipush git deployment \
+    ./pulse-event-cli push git deployment \
         --api-key "<API key>" \
         --previous-deployment-ref "<previous deployment ref>" \
         --identifier "<deployment identifier>" \
@@ -141,7 +141,7 @@ If you don't use Git or prefer to have more fine-grained control over the inform
 
     === "Linux and macOS"
         ```sh
-        ./pulse-event-clipush change \
+        ./pulse-event-cli push change \
             --api-key "<API key>" \
             --identifier "<change identifier>" \
             --timestamp "$(date +%s)"
@@ -167,7 +167,7 @@ If you don't use Git or prefer to have more fine-grained control over the inform
 
     === "Linux and macOS"
         ```sh
-        ./pulse-event-clipush deployment \
+        ./pulse-event-cli push deployment \
             --api-key "<API key>" \
             --identifier "<deployment identifier>" \
             --timestamp "$(date +%s)" \
@@ -206,7 +206,7 @@ Run the following command to report each incident:
 
 === "Linux and macOS"
     ```sh
-    ./pulse-event-clipush incident \
+    ./pulse-event-cli push incident \
         --api-key "<API key>" \
         --identifier "<incident identifier>" \
         --timestampCreated "<timestampCreated>" \
@@ -278,7 +278,7 @@ do
         if [ ${#deployment_changes[@]} -gt 0 ]
         then
             echo "Pushing deployment ${deployment_id} with changes [${deployment_changes[@]}]"
-            ./pulse-event-clipush deployment \
+            ./pulse-event-cli push deployment \
                 --api-key "${CREDENTIALS}" \
                 --identifier "${deployment_id}" \
                 --timestamp "${deployment_date}" \
@@ -289,7 +289,7 @@ do
                 deployment_change_date=$(git log --format="%at" ${deployment_change} --max-count=1)
 
                 echo "Pushing changes ${deployment_change} with date ${deployment_change_date}"
-                ./pulse-event-clipush change \
+                ./pulse-event-cli push change \
                     --api-key "${CREDENTIALS}" \
                     --identifier "${deployment_change}" \
                     --timestamp "${deployment_change_date}"
