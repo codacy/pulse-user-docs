@@ -2,16 +2,31 @@
 
 Pulse displays metrics that provide insights about the current and historic performance of your software delivery process. To calculate these metrics, Pulse must collect information from key events of your particular software development workflow.
 
-Currently, Pulse supports a push-based integration with your workflow and the recommended way of sending the necessary data to Pulse is by using the Pulse CLI.
+Currently, Pulse supports a push-based integration with your workflow and the recommended way of reporting the necessary events to Pulse is by using the Pulse CLI.
 
-However, in some scenarios it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are sending data from providers that only support webhooks. For these situations, you can call an HTTP POST webhook instead. For example:
+## Before you begin
 
-`https://ingestion.pulse.codacy.com/v1/ingestion/<PROVIDER>?api_key=<API KEY>`
+Consider the following before integrating your workflow with Pulse:
 
-!!! important
-    **Please let us know if you are planning on pushing events to Pulse using the webhook** so we can give you more detailed instructions on how to use it.
+-   When reporting events to Pulse you should use the field `system` to associate each event with the **most granular unit** that you will use to filter data on the Pulse dashboards, such as by application or service, product, team, or any other entity or group of entities in your organization.
 
-The next sections include detailed instructions on how to complete the integration setup process.
+    !!! important
+        Typically, the value of `system` should be the name of the CVS repository corresponding to the event.
+
+        However, if you're using a monorepo the value of `system` should be the name of the component in the repository instead.
+
+    Although the field `system` is optional, if you don't report this information you won't be able to filter the data on the Pulse dashboards.
+
+-   In some scenarios, it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are reporting events from providers that only support webhooks. For these situations, you can call an HTTP POST webhook instead. For example:
+
+    ```test
+    https://ingestion.pulse.codacy.com/v1/ingestion/<PROVIDER>?api_key=<API KEY>
+    ```
+
+    !!! important
+        **Please let us know if you are planning on reporting events to Pulse using the webhook** so we can give you more detailed instructions on how to use it.
+
+The next sections include detailed instructions on how to set up the integration with Pulse.
 
 ## 1. Installing the Pulse CLI
 
@@ -94,9 +109,10 @@ If you're using Git, send the following information when reporting **changes and
 
 | Field                   | Description                                                                             | Format                                       |
 | ----------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------- |
-| previous deployment ref | Git reference of the previous deployment.<br/>This can be a tag or a commit identifier. | String                                       |
-| identifier              | Version number or another unique identifier of the deployment                           | String                                       |
-| timestamp               | Time when the deployment finished                                                       | Number<br/>(Unix epoch timestamp in seconds) |
+| previous-deployment-ref | Git reference of the previous deployment.<br/>This can be a tag or a commit identifier. | String                                       |
+| identifier              | Version number or another unique identifier of the deployment.                          | String                                       |
+| timestamp               | Time when the deployment finished.                                                      | Number<br/>(Unix epoch timestamp in seconds) |
+| system                  | Optional. Repository or component to assign to this event.                              | String                                       |
 
 Run the following command to report a deployment and its changes:
 
@@ -108,7 +124,8 @@ Run the following command to report a deployment and its changes:
         --api-key "<API key>" \
         --previous-deployment-ref "<previous deployment ref>" \
         --identifier "<deployment identifier>" \
-        --timestamp "$(date +%s)"
+        --timestamp "$(date +%s)" \
+        [--system "<system>"]
     ```
 
 === "Windows"
@@ -119,7 +136,8 @@ Run the following command to report a deployment and its changes:
         --api-key "<API key>" \
         --previous-deployment-ref "<previous deployment ref>" \
         --identifier "<deployment identifier>" \
-        --timestamp "<timestamp>"
+        --timestamp "<timestamp>" \
+        [--system "<system>"]
     ```
 The command automatically reports all commits done between the previous deployment and the `HEAD` of the Git repository as changes that belong to the deployment being reported.
 
@@ -132,10 +150,11 @@ If you don't use Git or prefer to have more fine-grained control over the inform
 
 1.  Send the following information when reporting **changes** to Pulse:
 
-    | Field      | Description                                             | Format                                       |
-    | ---------- | ------------------------------------------------------- | -------------------------------------------- |
-    | identifier | The commit identifier                                   | String                                       |
-    | timestamp  | Time when the commit was first pushed to the repository | Number<br/>(Unix epoch timestamp in seconds) |
+    | Field      | Description                                                | Format                                       |
+    | ---------- | ---------------------------------------------------------- | -------------------------------------------- |
+    | identifier | The commit identifier.                                     | String                                       |
+    | timestamp  | Time when the commit was first pushed to the repository.   | Number<br/>(Unix epoch timestamp in seconds) |
+    | system     | Optional. Repository or component to assign to this event. | String                                       |
 
     Run the following command to report each change:
 
@@ -144,7 +163,8 @@ If you don't use Git or prefer to have more fine-grained control over the inform
         ./pulse-event-cli push change \
             --api-key "<API key>" \
             --identifier "<change identifier>" \
-            --timestamp "$(date +%s)"
+            --timestamp "$(date +%s)" \
+            [--system "<system>"]
         ```
 
     === "Windows"
@@ -152,16 +172,18 @@ If you don't use Git or prefer to have more fine-grained control over the inform
         event-cli.exe push change \
             --api-key "<API key>" \
             --identifier "<change identifier>" \
-            --timestamp "<timestamp>"
+            --timestamp "<timestamp>" \
+            [--system "<system>"]
         ```
 
 1.  Send the following information when reporting **deployments** to Pulse:
 
-    | Field      | Description                                                   | Format                                       |
-    | ---------- | ------------------------------------------------------------- | -------------------------------------------- |
-    | identifier | Version number or another unique identifier of the deployment | String                                       |
-    | timestamp  | Time when the deployment finished                             | Number<br/>(Unix epoch timestamp in seconds) |
-    |            | Commit identifiers included in the deployment                 | String<br/>(space-separated list)            |
+    | Field      | Description                                                    | Format                                       |
+    | ---------- | -------------------------------------------------------------- | -------------------------------------------- |
+    | identifier | Version number or another unique identifier of the deployment. | String                                       |
+    | timestamp  | Time when the deployment finished.                             | Number<br/>(Unix epoch timestamp in seconds) |
+    | system     | Optional. Repository or component to assign to this event.     | String                                       |
+    |            | Commit identifiers included in the deployment.                 | String<br/>(space-separated list)            |
 
     Run the following command to report each deployment:
 
@@ -171,6 +193,7 @@ If you don't use Git or prefer to have more fine-grained control over the inform
             --api-key "<API key>" \
             --identifier "<deployment identifier>" \
             --timestamp "$(date +%s)" \
+            [--system "<system>"] \
             <space-separated list of commit identifiers>
         ```
 
@@ -180,6 +203,7 @@ If you don't use Git or prefer to have more fine-grained control over the inform
             --api-key "<API key>" \
             --identifier "<deployment identifier>" \
             --timestamp "<timestamp>" \
+            [--system "<system>"] \
             <space-separated list of commit identifiers>
         ```
 
@@ -196,11 +220,12 @@ Pulse uses these reports to calculate the metrics [Median time to recovery](metr
 
 Send the following information when reporting **incidents** to Pulse:
 
-| Field             | Description                                    | Format                                       |
-| ----------------- | ---------------------------------------------- | -------------------------------------------- |
-| identifier        | A unique identifier of the incident            | String                                       |
-| timestampCreated  | Time when the incident started or was detected | Number<br/>(Unix epoch timestamp in seconds) |
-| timestampResolved | Time when the incident was resolved            | Number<br/>(Unix epoch timestamp in seconds) |
+| Field             | Description                                                | Format                                       |
+| ----------------- | ---------------------------------------------------------- | -------------------------------------------- |
+| identifier        | A unique identifier of the incident.                       | String                                       |
+| timestampCreated  | Time when the incident started or was detected.            | Number<br/>(Unix epoch timestamp in seconds) |
+| timestampResolved | Time when the incident was resolved.                       | Number<br/>(Unix epoch timestamp in seconds) |
+| system            | Optional. Repository or component to assign to this event. | String                                       |
 
 Run the following command to report each incident:
 
@@ -210,7 +235,8 @@ Run the following command to report each incident:
         --api-key "<API key>" \
         --identifier "<incident identifier>" \
         --timestampCreated "<timestampCreated>" \
-        --timestampResolved "$(date +%s)"
+        --timestampResolved "$(date +%s)" \
+        [--system "<system>"]
     ```
 
 === "Windows"
@@ -219,7 +245,8 @@ Run the following command to report each incident:
         --api-key "<API key>" \
         --identifier "<incident identifier>" \
         --timestampCreated "<timestampCreated>" \
-        --timestampResolved "<timestampResolved>"
+        --timestampResolved "<timestampResolved>" \
+        [--system "<system>"]
     ```
 
 ## Examples
