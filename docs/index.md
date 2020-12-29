@@ -332,7 +332,7 @@ done
 
 In this example we used the CLI to push past incidents from the Codacy status page API into Pulse.
 
-```py
+```python
 # incidents.py
 
 import requests
@@ -365,5 +365,5 @@ for incident in data:
         process = subprocess.Popen(bashCmd, stdout=subprocess.PIPE)
         output, error = process.communicate()
     else:
-        print(f"Skipping incident {id} . Because it was not resolved")
+        print(f"Skipping incident {id} because it was not resolved")
 ```
