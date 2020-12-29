@@ -105,7 +105,7 @@ for incident in data:
         print(f'Pushing incident {id} created in {created} and resolved at {updated}')
         print(created)
         print(updated)
-        bashCmd = ["./event-cli", "push", "incident",
+        bashCmd = ["./pulse-event-cli", "push", "incident",
         "--api-key", "xxx",
         "--identifier", id,
         "--timestampCreated", created,

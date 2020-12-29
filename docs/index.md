@@ -81,7 +81,7 @@ Download the latest version of the CLI for your operating system and make sure t
 
     === "Windows"
         ```sh
-        event-cli.exe help
+        pulse-event-cli.exe help
         ```
 
 ## 2. Pushing data to Pulse
@@ -241,7 +241,7 @@ Run the following command to report each incident:
 
 === "Windows"
     ```sh
-    event-cli.exe push incident \
+    pulse-event-cli.exe push incident \
         --api-key "<API key>" \
         --identifier "<incident identifier>" \
         --timestampCreated "<timestampCreated>" \
