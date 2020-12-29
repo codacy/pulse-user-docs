@@ -1,10 +1,14 @@
 # Integration examples
 
-Some examples that we used to quickly populate our dashboard with historical data.
+The following are examples of scripts that we used to quickly populate our own Pulse dashboard with historical data.
+
+You can use the examples to understand better how you can integrate the Pulse CLI with your existing workflows, or adapt these examples to populate your Pulse dashboard with historical data from your team.
 
 ## Pushing historic changes and deployments
 
-In this example we used the CLI to push past changes and deployments from a git repository into Pulse. Deployments are identified using semantic version git tags. Changes are the commits included in those deployments.
+In this example, we used the Pulse CLI to push past changes and deployments from a Git repository into Pulse.
+
+Deployments are identified using semantic version Git tags, and the changes are the commits included in those deployments.
 
 ```sh
 # example.sh
@@ -35,7 +39,7 @@ do
     deployment_date=$(git log --format="%at" ${deployment_sha} | head -n 1)
 
     # Skip deployments before date
-    # If you are on MacOS you need to use $(date -jf "%b %d %Y" "Oct 01 2020" +%s) instead
+    # If you are on macOS you need to use $(date -jf "%b %d %Y" "Oct 01 2020" +%s) instead
     if [ ${deployment_date} -lt $(date -d "Oct 01 2020" +%s) ]
     then
         continue
@@ -79,7 +83,7 @@ done
 
 ## Pushing historic incidents
 
-In this example we used the CLI to push past incidents from the Codacy status page API into Pulse.
+In this example, we used the Pulse CLI to push past incidents from the Codacy status page API into Pulse.
 
 ```python
 # incidents.py
