@@ -1,8 +1,8 @@
-# Examples
+# Integration examples
 
 Some examples that we used to quickly populate our dashboard with historical data.
 
-## Using the CLI to push historic changes and deployments
+## Pushing historic changes and deployments
 
 In this example we used the CLI to push past changes and deployments from a git repository into Pulse. Deployments are identified using semantic version git tags. Changes are the commits included in those deployments.
 
@@ -77,7 +77,7 @@ do
 done
 ```
 
-## Using the CLI to push historic incidents
+## Pushing historic incidents
 
 In this example we used the CLI to push past incidents from the Codacy status page API into Pulse.
 
