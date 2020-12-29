@@ -20,7 +20,6 @@ set -e
 CREDENTIALS="xxx"
 
 workdir=$(mktemp -d -t website-dora-XXXXXXXXXX)
-# workdir=$(pwd)/website
 
 function clean {
     rm -rf ${workdir}
