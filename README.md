@@ -1,6 +1,8 @@
 # Pulse documentation
 
-<https://docs.pulse.codacy.com/>
+[![MkDocs](https://github.com/codacy/pulse-user-docs/workflows/MkDocs/badge.svg)](https://github.com/codacy/pulse-user-docs/actions?query=workflow%3AMkDocs) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/98d931319de2492db939d40f4b2a628e)](https://www.codacy.com/gh/codacy/pulse-user-docs/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=codacy/pulse-user-docs&amp;utm_campaign=Badge_Grade)
+
+<https://docs.pulse.codacy.com>
 
 ## Contributing to the documentation
 
