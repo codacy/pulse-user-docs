@@ -218,39 +218,33 @@ Typically, it's possible to keep track of this information using your monitoring
 
 Pulse uses these reports to calculate the metrics [Median time to recovery](metrics.md#median-time-to-recover) and [Change failure rate](metrics.md#change-failure-rate).
 
-#### Integrations
+Send the following information when reporting **incidents** to Pulse:
 
-- [Integrating with PagerDuty](pagerduty.md)
+| Field             | Description                                                | Format                                       |
+| ----------------- | ---------------------------------------------------------- | -------------------------------------------- |
+| identifier        | A unique identifier of the incident.                       | String                                       |
+| timestampCreated  | Time when the incident started or was detected.            | Number<br/>(Unix epoch timestamp in seconds) |
+| timestampResolved | Time when the incident was resolved.                       | Number<br/>(Unix epoch timestamp in seconds) |
+| system            | Optional. Repository or component to assign to this event. | String                                       |
 
-- Use the Pulse CLI
+Run the following command to report each incident:
 
-    Send the following information when reporting **incidents** to Pulse:
+=== "Linux and macOS"
+    ```sh
+    ./pulse-event-cli push incident \
+        --api-key "<API key>" \
+        --identifier "<incident identifier>" \
+        --timestampCreated "<timestampCreated>" \
+        --timestampResolved "$(date +%s)" \
+        [--system "<system>"]
+    ```
 
-    | Field             | Description                                                | Format                                       |
-    | ----------------- | ---------------------------------------------------------- | -------------------------------------------- |
-    | identifier        | A unique identifier of the incident.                       | String                                       |
-    | timestampCreated  | Time when the incident started or was detected.            | Number<br/>(Unix epoch timestamp in seconds) |
-    | timestampResolved | Time when the incident was resolved.                       | Number<br/>(Unix epoch timestamp in seconds) |
-    | system            | Optional. Repository or component to assign to this event. | String                                       |
-
-    Run the following command to report each incident:
-
-    === "Linux and macOS"
-        ```sh
-        ./pulse-event-cli push incident \
-            --api-key "<API key>" \
-            --identifier "<incident identifier>" \
-            --timestampCreated "<timestampCreated>" \
-            --timestampResolved "$(date +%s)" \
-            [--system "<system>"]
-        ```
-
-    === "Windows"
-        ```sh
-        pulse-event-cli.exe push incident \
-            --api-key "<API key>" \
-            --identifier "<incident identifier>" \
-            --timestampCreated "<timestampCreated>" \
-            --timestampResolved "<timestampResolved>" \
-            [--system "<system>"]
-        ```
+=== "Windows"
+    ```sh
+    pulse-event-cli.exe push incident \
+        --api-key "<API key>" \
+        --identifier "<incident identifier>" \
+        --timestampCreated "<timestampCreated>" \
+        --timestampResolved "<timestampResolved>" \
+        [--system "<system>"]
+    ```

@@ -2,9 +2,7 @@
 
 Pulse can integrate directly with PagerDuty to receive Webhooks that will be ingested as incidents.
 
-## Requirements
-
-- Pulse API key for an organization
+<!-- TODO Provide instructions on how to set up the integration using the Pulse UI
 
 ## Setup
 
@@ -22,3 +20,4 @@ Pulse can integrate directly with PagerDuty to receive Webhooks that will be ing
         PagerDuty already has a concept of a service which can be a good starting point for the system field in the Pulse URL.
 
 ![Creating a PagerDuty Webhook integration](assets/pagerduty-webhook.png)
+-->
