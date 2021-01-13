@@ -19,7 +19,7 @@ Consider the following before integrating your workflow with Pulse:
 
 -   In some scenarios, it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are reporting events from providers that only support webhooks. For these situations, you can call an HTTP POST webhook instead. For example:
 
-    ```test
+    ```text
     https://ingestion.pulse.codacy.com/v1/ingestion/<PROVIDER>?api_key=<API KEY>
     ```
 
