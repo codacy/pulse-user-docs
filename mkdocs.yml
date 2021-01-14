@@ -35,6 +35,6 @@ markdown_extensions:
 
 nav:
   - index.md
-  - pagerduty.md
+  - one-click-integrations.md
   - examples.md
   - metrics.md
