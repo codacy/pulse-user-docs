@@ -2,7 +2,7 @@
 
 Pulse displays metrics that provide insights about the current and historic performance of your software delivery process. To calculate these metrics, Pulse must collect information from key events of your particular software development workflow.
 
-Currently, Pulse supports a push-based integration with your workflow and the recommended way of reporting the necessary events to Pulse is by using the Pulse CLI.
+Currently, Pulse provides a push-based integration with your workflow using "[one-click integrations](one-click-integrations.md)" and the Pulse CLI.
 
 ## Before you begin
 
@@ -217,6 +217,13 @@ Report an event to Pulse whenever an incident resulting from a release or infras
 Typically, it's possible to keep track of this information using your monitoring infrastructure or your ticketing system.
 
 Pulse uses these reports to calculate the metrics [Median time to recovery](metrics.md#median-time-to-recover) and [Change failure rate](metrics.md#change-failure-rate).
+
+
+#### Using PagerDuty
+
+If you're using PagerDuty as an incident management tool, [use our PagerDuty integration](one-click-integrations.md#pagerduty) to send the necessary incident data to Pulse.
+
+#### Using the Pulse CLI
 
 Send the following information when reporting **incidents** to Pulse:
 

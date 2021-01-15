@@ -8,7 +8,7 @@ Pulse integrates directly with PagerDuty to receive data about incidents.
 
 To set up the PagerDuty integration:
 
-1.  Click **Integrations** and select **PagerDuty**.
+1.  On Pulse, click **Integrations** and select **PagerDuty**.
 
     ![PagerDuty integratio](images/pagerduty.png)
 
