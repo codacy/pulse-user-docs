@@ -2,7 +2,7 @@
 
 Pulse displays metrics that provide insights about the current and historic performance of your software delivery process. To calculate these metrics, Pulse must collect information from key events of your particular software development workflow.
 
-Currently, Pulse supports a push-based integration with your workflow and the recommended way of reporting the necessary events to Pulse is by using the Pulse CLI.
+Currently, Pulse provides a push-based integration with your workflow using "[one-click integrations](one-click-integrations.md)" and the Pulse CLI.
 
 ## Before you begin
 
@@ -19,7 +19,7 @@ Consider the following before integrating your workflow with Pulse:
 
 -   In some scenarios, it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are reporting events from providers that only support webhooks. For these situations, you can call an HTTP POST webhook instead. For example:
 
-    ```test
+    ```text
     https://ingestion.pulse.codacy.com/v1/ingestion/<PROVIDER>?api_key=<API KEY>
     ```
 
@@ -218,39 +218,40 @@ Typically, it's possible to keep track of this information using your monitoring
 
 Pulse uses these reports to calculate the metrics [Median time to recovery](metrics.md#median-time-to-recover) and [Change failure rate](metrics.md#change-failure-rate).
 
-#### Integrations
 
-- [Integrating with PagerDuty](pagerduty.md)
+#### Using PagerDuty
 
-- Use the Pulse CLI
+If you're using PagerDuty as an incident management tool, [use our PagerDuty integration](one-click-integrations.md#pagerduty) to send the necessary incident data to Pulse.
 
-    Send the following information when reporting **incidents** to Pulse:
+#### Using the Pulse CLI
 
-    | Field             | Description                                                | Format                                       |
-    | ----------------- | ---------------------------------------------------------- | -------------------------------------------- |
-    | identifier        | A unique identifier of the incident.                       | String                                       |
-    | timestampCreated  | Time when the incident started or was detected.            | Number<br/>(Unix epoch timestamp in seconds) |
-    | timestampResolved | Time when the incident was resolved.                       | Number<br/>(Unix epoch timestamp in seconds) |
-    | system            | Optional. Repository or component to assign to this event. | String                                       |
+Send the following information when reporting **incidents** to Pulse:
 
-    Run the following command to report each incident:
+| Field             | Description                                                | Format                                       |
+| ----------------- | ---------------------------------------------------------- | -------------------------------------------- |
+| identifier        | A unique identifier of the incident.                       | String                                       |
+| timestampCreated  | Time when the incident started or was detected.            | Number<br/>(Unix epoch timestamp in seconds) |
+| timestampResolved | Time when the incident was resolved.                       | Number<br/>(Unix epoch timestamp in seconds) |
+| system            | Optional. Repository or component to assign to this event. | String                                       |
 
-    === "Linux and macOS"
-        ```sh
-        ./pulse-event-cli push incident \
-            --api-key "<API key>" \
-            --identifier "<incident identifier>" \
-            --timestampCreated "<timestampCreated>" \
-            --timestampResolved "$(date +%s)" \
-            [--system "<system>"]
-        ```
+Run the following command to report each incident:
 
-    === "Windows"
-        ```sh
-        pulse-event-cli.exe push incident \
-            --api-key "<API key>" \
-            --identifier "<incident identifier>" \
-            --timestampCreated "<timestampCreated>" \
-            --timestampResolved "<timestampResolved>" \
-            [--system "<system>"]
-        ```
+=== "Linux and macOS"
+    ```sh
+    ./pulse-event-cli push incident \
+        --api-key "<API key>" \
+        --identifier "<incident identifier>" \
+        --timestampCreated "<timestampCreated>" \
+        --timestampResolved "$(date +%s)" \
+        [--system "<system>"]
+    ```
+
+=== "Windows"
+    ```sh
+    pulse-event-cli.exe push incident \
+        --api-key "<API key>" \
+        --identifier "<incident identifier>" \
+        --timestampCreated "<timestampCreated>" \
+        --timestampResolved "<timestampResolved>" \
+        [--system "<system>"]
+    ```

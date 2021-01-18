@@ -32,3 +32,9 @@ markdown_extensions:
       strip_comments: true
   - toc:
       permalink: true
+
+nav:
+  - index.md
+  - one-click-integrations.md
+  - examples.md
+  - metrics.md
