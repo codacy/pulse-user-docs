@@ -31,9 +31,7 @@ To set up the GitHub integration:
 
     ![GitHub integration](images/ghi-setup.png)
 
-1.  Click **Install GitHub App**
-
-1.  Follow the instructions on the GitHub UI to install the app in the desired organization.
+1.  Click **Install GitHub App** and follow the instructions on the GitHub UI to install the app in the desired organization.
 
     ![GitHub webhook](images/ghi-github-install.png)
 
@@ -41,10 +39,10 @@ To set up the GitHub integration:
 
     ![GitHub webhook](images/ghi-creating.png)
 
-1.  In case of success you should be redirected to a page like:
+In case of success you should be redirected to a page like:
 
-    ![GitHub webhook](images/ghi-ok.png)
+![GitHub webhook](images/ghi-ok.png)
 
-1.  If there is an error as displayed bellow please [contact support](mailto:pulsesupport@codacy.com).
+If there is an error as displayed below please [contact support](mailto:pulsesupport@codacy.com).
 
-    ![GitHub webhook](images/ghi-error.png)
+![GitHub webhook](images/ghi-error.png)
