@@ -47,13 +47,11 @@ If there is an error as displayed below please [contact support](mailto:pulsesup
 
 ![GitHub webhook](images/ghi-error.png)
 
-### How it works
-
-- We rely on tags to collect deployments by selecting non pre-release versions that follow the [SemVer](https://semver.org) convention
-
-- For [annotated tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_annotated_tags), we know the creation date of the tag itself,
-  while for [lightweight tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_lightweight_tags), there is no creation date,
-  so we rely on the timestamp when our webhook is invoked.
-  Since webhook calls can be delayed, the deployment timestamp on Pulse might be imprecise, impacting the `Lead time for changes` metric.
-
-- We use the commits between two tags to know what changes (commits) belong to a deployment
+!!! important
+    **How it works:**
+    - We rely on tags to collect deployments by selecting non pre-release versions that follow the [SemVer](https://semver.org) convention
+    - For [annotated tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_annotated_tags), we know the creation date of the tag itself,
+      while for [lightweight tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_lightweight_tags), there is no creation date,
+      so we rely on the timestamp when our webhook is invoked.
+      Since webhook calls can be delayed, the deployment timestamp on Pulse might be imprecise, impacting the `Lead time for changes` metric.
+    - We use the commits between two tags to know what changes (commits) belong to a deployment
