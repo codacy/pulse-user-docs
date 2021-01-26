@@ -30,9 +30,9 @@ Pulse integrates directly with GitHub to receive data about deployments and chan
 
     -   The integration obtains information about deployments from Git tags that follow the [SemVer](https://semver.org) convention, excluding pre-release versions.
 
-    -   The integration uses the creation date of [annotated tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_annotated_tags) as the deployment date.
+    -   The integration obtains the deployment date from either the creation date of [annotated tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_annotated_tags) or the timestamp when the integration receives the webhook calls for [lightweight tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_lightweight_tags).
     
-        However, since [lightweight tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_lightweight_tags) don't have this information, in this case the deployment date is the timestamp when the integration receives the webhook call. Since webhook calls can be delayed, the deployment date on Pulse might be imprecise, impacting the metric **Lead time for changes**.
+        However, since webhook calls can be delayed, in this case the deployment date on Pulse could be imprecise and impact the metric **Lead time for changes**.
 
     -   The integration obtains the set of changes that belong to a deployment from the list of commits between the tag of that deployment and the previous tag.
     
