@@ -35,6 +35,8 @@ Pulse integrates directly with GitHub to receive data about deployments and chan
         However, since [lightweight tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_lightweight_tags) don't have this information, in this case the deployment date is the timestamp when the integration receives the webhook call. Since webhook calls can be delayed, the deployment date on Pulse might be imprecise, impacting the metric **Lead time for changes**.
 
     -   The integration obtains the set of changes that belong to a deployment from the list of commits between the tag of that deployment and the previous tag.
+    
+        Because of this, the integration doesn't consider the first SemVer tag in the repository as a deployment because it's not possible to calculate the list of changes for that deployment.
 
 To set up the GitHub integration:
 
