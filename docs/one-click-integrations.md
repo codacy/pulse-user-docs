@@ -25,6 +25,17 @@ To set up the PagerDuty integration:
 
 Pulse integrates directly with GitHub to receive data about deployments and changes.
 
+!!! important
+    Consider the following before using the GitHub integration:
+
+    -   The integration obtains information about deployments from Git tags that follow the [SemVer](https://semver.org) convention, excluding pre-release versions.
+
+    -   The integration uses the creation date of [annotated tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_annotated_tags) as the deployment date.
+    
+        However, since [lightweight tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_lightweight_tags) don't have this information, in this case the deployment date is the timestamp when the integration receives the webhook call. Since webhook calls can be delayed, the deployment date on Pulse might be imprecise, impacting the metric **Lead time for changes**.
+
+    -   The integration obtains the set of changes that belong to a deployment from the list of commits between the tag of that deployment and the previous tag.
+
 To set up the GitHub integration:
 
 1.  On Pulse, click **Integrations** and select **GitHub**.
@@ -46,12 +57,3 @@ In case of success you should be redirected to a page like:
 If there is an error as displayed below please [contact support](mailto:pulsesupport@codacy.com).
 
 ![GitHub webhook](images/ghi-error.png)
-
-!!! important
-    **How it works:**
-    - We rely on tags to collect deployments by selecting non pre-release versions that follow the [SemVer](https://semver.org) convention
-    - For [annotated tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_annotated_tags), we know the creation date of the tag itself,
-      while for [lightweight tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_lightweight_tags), there is no creation date,
-      so we rely on the timestamp when our webhook is invoked.
-      Since webhook calls can be delayed, the deployment timestamp on Pulse might be imprecise, impacting the `Lead time for changes` metric.
-    - We use the commits between two tags to know what changes (commits) belong to a deployment
