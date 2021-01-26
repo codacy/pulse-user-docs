@@ -40,6 +40,14 @@ Pulse integrates directly with GitHub to receive data about deployments and chan
 
 To set up the GitHub integration:
 
+1.  Make sure that you're creating a Git tag on your repositories for each sucessful deployment to production, or whenever you make a new release available to any user of your application:
+
+    ```bash
+    git tag -a X.Y.Z -m "<Deployment or release message>"
+    ```
+
+    Where X.Y.Z must be a valid SemVer version without pre-release information.
+
 1.  On Pulse, click **Integrations** and select **GitHub**.
 
     ![GitHub integration](images/ghi-setup.png)
