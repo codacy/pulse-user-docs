@@ -4,7 +4,7 @@ Pulse is developing "one-click integrations" for the most popular Git providers,
 
 ## GitHub
 
-Pulse integrates directly with GitHub to receive data about deployments and changes.
+Pulse integrates directly with GitHub to receive data about changes and deployments.
 
 !!! important
     Consider the following before using the GitHub integration:
