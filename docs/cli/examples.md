@@ -1,4 +1,4 @@
-# Integration examples
+# Examples
 
 The following are examples of scripts that we used to quickly populate our own Pulse dashboard with historical data.
 

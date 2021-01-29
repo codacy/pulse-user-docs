@@ -35,6 +35,9 @@ markdown_extensions:
 
 nav:
   - index.md
-  - one-click-integrations.md
-  - examples.md
   - metrics.md
+  - one-click-integrations.md
+  - "Pulse CLI":
+    - cli/installing-the-pulse-cli.md
+    - cli/pushing-data-to-pulse.md
+    - cli/examples.md
