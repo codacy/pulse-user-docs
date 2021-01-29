@@ -1,6 +1,6 @@
 # Integrating with Pulse
 
-Pulse displays metrics that provide insights about the current and historic performance of your software delivery process. To calculate these metrics, Pulse must collect information from key events of your particular software development workflow.
+Pulse displays metrics that provide insights into the current and historic performance of your software delivery process. To calculate these metrics, Pulse must collect information from key events of your particular software development workflow.
 
 Currently, Pulse provides a push-based integration with your workflow using "[one-click integrations](one-click-integrations.md)" and the Pulse CLI.
 
