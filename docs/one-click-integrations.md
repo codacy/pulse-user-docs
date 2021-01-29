@@ -4,7 +4,7 @@ Pulse is developing "one-click integrations" for the most popular Git providers,
 
 ## GitHub
 
-Pulse integrates directly with GitHub to receive data about changes and deployments.
+Pulse integrates directly with GitHub to receive data about changes and deployments, necessary to calculate the metrics [Lead time for changes](metrics.md#lead-time-for-changes) and [Deployment frequency](metrics.md#deployment-frequency).
 
 !!! important
     Consider the following before using the GitHub integration:
@@ -51,7 +51,7 @@ If there is an error as displayed below please [contact support](mailto:pulsesup
 
 ## PagerDuty
 
-Pulse integrates directly with PagerDuty to receive data about incidents.
+Pulse integrates directly with PagerDuty to receive data about incidents, necessary to calculate the metrics [Median time to recover](metrics.md#median-time-to-recover) and [Change failure rate](metrics.md#change-failure-rate).
 
 To set up the PagerDuty integration:
 
