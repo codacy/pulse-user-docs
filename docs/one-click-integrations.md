@@ -28,7 +28,7 @@ Pulse integrates directly with GitHub to receive data about deployments and chan
 !!! important
     Consider the following before using the GitHub integration:
 
-    -   The integration obtains information about deployments from Git tags that follow the [SemVer](https://semver.org) convention, excluding pre-release versions.
+    -   The integration obtains information about deployments from Git tags that follow the [SemVer](https://semver.org) convention, excluding pre-release versions, but allowing release prefixes. Valid tags e.g.: `1.0.0`, `v2.3.4`
 
     -   The integration obtains the deployment date from either the creation date of [annotated tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_annotated_tags) or the timestamp when the integration receives the webhook calls for [lightweight tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_lightweight_tags).
     
