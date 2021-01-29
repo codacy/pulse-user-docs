@@ -13,7 +13,7 @@ Pulse integrates directly with GitHub to receive data about changes and deployme
 
     -   The integration obtains the deployment date from either the creation date of [annotated tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_annotated_tags) or the timestamp when the integration receives the webhook calls for [lightweight tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_lightweight_tags).
     
-        However, since webhook calls can be delayed, in this case the deployment date on Pulse could be imprecise and impact the metric **Lead time for changes**.
+        However, since webhook calls can be delayed, the deployment date on Pulse could be imprecise and impact the metric **Lead time for changes**.
 
     -   The integration obtains the set of changes that belong to a deployment from the list of commits between the tag of that deployment and the previous tag.
 
@@ -21,7 +21,7 @@ Pulse integrates directly with GitHub to receive data about changes and deployme
 
 To set up the GitHub integration:
 
-1.  Make sure that you're creating a Git tag on your repositories for each sucessful deployment to production, or whenever you make a new release available to any user of your application:
+1.  Make sure that you're creating a Git tag on your repositories for each successful deployment to production, or whenever you make a new release available to any user of your application:
 
     ```bash
     git tag -a X.Y.Z -m "<Deployment or release message>"
