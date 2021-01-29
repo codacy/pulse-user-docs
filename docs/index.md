@@ -8,6 +8,8 @@ Currently, Pulse provides a push-based integration with your workflow using eith
 -   **[PagerDuty integration](one-click-integrations.md#pagerduty)** (reports incidents)
 -   **[Pulse CLI](cli/installing-the-pulse-cli.md)** (reports changes, deployments, and incidents)
 
+We recommend that you use the integrations that match your stack because they're faster to set up.
+
 ## Before you begin
 
 When reporting events to Pulse you should use the field `system` to associate each event with the **most granular unit** that you will use to filter data on the Pulse dashboards, such as by application or service, product, team, or any other entity or group of entities in your organization.
