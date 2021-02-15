@@ -20,3 +20,11 @@ When reporting events to Pulse you should use the field `system` to associate ea
     However, if you're using a monorepo the value of `system` should be the name of the component in the repository instead.
 
 Although the field `system` is optional, if you don't report this information you won't be able to filter the data on the Pulse dashboards.
+
+## Creating an organization
+
+You must create your own organization on Pulse to start the onboarding.
+
+Click **pulsedemo** on the top left-hand corner, select **New Organization**, and follow the instructions:
+
+![Adding a new organization on Pulse](images/organization-add.png)
