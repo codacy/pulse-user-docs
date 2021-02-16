@@ -23,8 +23,8 @@ Although the field `system` is optional, if you don't report this information yo
 
 ## Creating an organization
 
-You must create your own organization on Pulse to start the onboarding.
-
-Click **pulsedemo** on the top left-hand corner, select **New Organization**, and follow the instructions:
+You must create your own organization on Pulse to start the onboarding. Click the link in the welcome banner at the top of the page and follow the instructions.
 
 ![Adding a new organization on Pulse](images/organization-add.png)
+
+To add more organizations, click the name of the current organization on the top left-hand corner and select **New Organization**.
