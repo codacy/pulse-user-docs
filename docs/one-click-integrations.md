@@ -12,7 +12,7 @@ Pulse integrates directly with GitHub to receive data about changes and deployme
     -   The integration obtains information about deployments from Git tags that follow the [SemVer](https://semver.org) convention, excluding pre-release versions, but allowing release prefixes. Valid tags e.g.: `1.0.0`, `v2.3.4`
 
     -   The integration obtains the deployment date from either the creation date of [annotated tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_annotated_tags) or the timestamp when the integration receives the webhook calls for [lightweight tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_lightweight_tags).
-    
+
         However, since webhook calls can be delayed, the deployment date on Pulse could be imprecise and impact the metric **Lead time for changes**.
 
     -   The integration obtains the set of changes that belong to a deployment from the list of commits between the tag of that deployment and the previous tag.
@@ -29,7 +29,7 @@ To set up the GitHub integration:
 
     Where X.Y.Z must be a valid SemVer version without pre-release information.
 
-1.  On Pulse, click **Integrations** and select **GitHub**.
+1.  On Pulse, [navigate to **Integrations** and then select **GitHub**](https://app.pulse.codacy.com/integrations/github){target=_blank}.
 
     ![GitHub integration](images/ghi-setup.png)
 
@@ -55,7 +55,7 @@ Pulse integrates directly with PagerDuty to receive data about incidents, necess
 
 To set up the PagerDuty integration:
 
-1.  On Pulse, click **Integrations** and select **PagerDuty**.
+1.  On Pulse, [navigate to **Integrations** and then select **PagerDuty**](https://app.pulse.codacy.com/integrations/pagerduty){target=_blank}.
 
     ![PagerDuty integration](images/pagerduty.png)
 

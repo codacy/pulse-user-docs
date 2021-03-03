@@ -21,6 +21,7 @@ google_analytics: ["G-B5Q5WTNDMD", "docs.pulse.codacy.com"]
 # Extensions
 markdown_extensions:
   - admonition
+  - attr_list
   - codehilite:
       guess_lang: false
       linenums: true
