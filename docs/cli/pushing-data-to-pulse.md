@@ -8,10 +8,10 @@ To measure the performance of your team, you must send information to Pulse abou
 !!! important
     Consider the following before setting up the integration using the Pulse CLI:
 
-    -   **Make sure that you have an API key** provided by Pulse to identify your organization and authorize you to send data to Pulse.
+    -   [**Make sure that you have an API key**](https://app.pulse.codacy.com/integrations/cli){target=_blank} provided by Pulse to identify your organization and authorize you to send data to Pulse.
 
     -   In some scenarios, it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are reporting events from providers that only support webhooks.
-    
+
         For these situations, you can call an HTTP POST webhook instead. For example:
 
         ```text
