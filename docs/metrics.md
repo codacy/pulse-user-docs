@@ -26,7 +26,6 @@ When we aggregate Deployment Frequency we use the average of a period of time.
 | High                  | Daily (Between once per day and once per week)                     |
 | Elite                 | On-demand (Multiple deployments per day)                           |
 
-
 ## Lead time for changes
 
 Median of `deployments` time created - `changes` time created.
@@ -42,6 +41,29 @@ When we aggregate Lead time for changes we use the maximum of a period of time.
 | High                  | Between 1 day and 1 week     |
 | Elite                 | Less than 1 day              |
 
+### Sub-metrics
+
+There are several metrics that directly influence the lead time for changes,
+and can help you track in more detail what needs to be improved in your workflow.
+All the sub-metrics are aggregated by an interval (day, week or month) and have values for
+the average, median, and percentiles 5%, 20%, 25%, 75%, 80%, 95%.
+
+These metrics are extracted from pull requests,
+only include pull requests that have been merged (ignores closed without merge and currently open) and
+draft pull requests are treated as normal pull requests.
+
+#### Time to Open
+
+An approximation of the time a change takes to be developed.
+This metric assumes you are not developing after the PR is open.
+
+This metric is the difference between the pull request base commit author timestamp and the pull request created timestamp.
+
+#### Time to Review
+
+The time since a pull request is opened until it is merged.
+
+This metric is the difference between the the pull request merged timestamp and the pull request created timestamp.
 
 ## Median time to recover
 
@@ -55,7 +77,6 @@ When we aggregate Median time to recover we use the maximum of a period of time.
 | Medium                | Less than 1 day            |
 | High                  | Less than 1 day            |
 | Elite                 | Less than 1 hour           |
-
 
 ## Change failure rate
 
@@ -74,6 +95,5 @@ When we aggregate Change failure rate we use the average of a period of time.
 | Medium                | 0-15%  |
 | High                  | 0-15%  |
 | Elite                 | 0-15%  |
-
 
 [^1]: Performance levels are based on the [State of DevOps 2019](https://services.google.com/fh/files/misc/state-of-devops-2019.pdf).
