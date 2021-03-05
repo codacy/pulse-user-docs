@@ -4,6 +4,8 @@ strict: true
 site_name: "Pulse documentation"
 site_url: https://docs.pulse.codacy.com/
 
+repo_url: https://app.pulse.codacy.com/
+
 # Configuration
 theme:
   name: "material"
