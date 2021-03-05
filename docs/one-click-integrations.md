@@ -29,7 +29,7 @@ To set up the GitHub integration:
 
     Where X.Y.Z must be a valid SemVer version without pre-release information.
 
-1.  On Pulse, [navigate to **Integrations** and then select **GitHub**](https://app.pulse.codacy.com/integrations/github){target=_blank}.
+1.  On Pulse, [navigate to **Integrations** and then select **GitHub**](https://app.pulse.codacy.com/integrations/github){: target="_blank"}.
 
     ![GitHub integration](images/ghi-setup.png)
 
@@ -55,7 +55,7 @@ Pulse integrates directly with PagerDuty to receive data about incidents, necess
 
 To set up the PagerDuty integration:
 
-1.  On Pulse, [navigate to **Integrations** and then select **PagerDuty**](https://app.pulse.codacy.com/integrations/pagerduty){target=_blank}.
+1.  On Pulse, [navigate to **Integrations** and then select **PagerDuty**](https://app.pulse.codacy.com/integrations/pagerduty){: target="_blank"}.
 
     ![PagerDuty integration](images/pagerduty.png)
 
