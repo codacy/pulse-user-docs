@@ -26,7 +26,6 @@ When we aggregate Deployment Frequency we use the average of a period of time.
 | High                  | Daily (Between once per day and once per week)                     |
 | Elite                 | On-demand (Multiple deployments per day)                           |
 
-
 ## Lead time for changes
 
 Median of `deployments` time created - `changes` time created.
@@ -42,6 +41,32 @@ When we aggregate Lead time for changes we use the maximum of a period of time.
 | High                  | Between 1 day and 1 week     |
 | Elite                 | Less than 1 day              |
 
+### Sub-metrics
+
+There are several metrics that directly influence **Lead time for changes**,
+and can help you track in more detail what needs to be improved in your workflow.
+All the sub-metrics are aggregated by an interval (day, week, or month) and have values for
+the average, median, and percentiles 5%, 20%, 25%, 75%, 80%, 95%.
+
+These metrics are based on pull requests and:
+
+-   Include draft pull requests: the lifetime of a pull request includes the time marked as draft.
+-   Exclude open pull requests
+-   Exclude declined pull requests
+-   Exclude pull requests without commits
+-   Exclude push-forced pull requests: where the first commit was authored after the pull request was open.
+
+#### Time to Open
+
+An approximation of the time a change takes to be developed. How long does it take for features to be developed?
+
+This metric is calculated as the time between the first commit in the pull request's branch and the pull request being created.
+
+#### Time to Review
+
+The time spent in the code review process. Once a pull request is opened, how long does it take to merge?
+
+This metric is calculated as the time between the pull request being created and the pull request being merged.
 
 ## Median time to recover
 
@@ -55,7 +80,6 @@ When we aggregate Median time to recover we use the maximum of a period of time.
 | Medium                | Less than 1 day            |
 | High                  | Less than 1 day            |
 | Elite                 | Less than 1 hour           |
-
 
 ## Change failure rate
 
@@ -74,6 +98,5 @@ When we aggregate Change failure rate we use the average of a period of time.
 | Medium                | 0-15%  |
 | High                  | 0-15%  |
 | Elite                 | 0-15%  |
-
 
 [^1]: Performance levels are based on the [State of DevOps 2019](https://services.google.com/fh/files/misc/state-of-devops-2019.pdf).
