@@ -51,11 +51,11 @@ the average, median, and percentiles 5%, 20%, 25%, 75%, 80%, 95%.
 These metrics are based on pull requests.
 They:
 
-- Include draft pull requests: the lifetime of a pull request includes the time marked as draft.
-- Exclude open pull requests
-- Exclude declined pull requests
-- Exclude pull requests without commits
-- Exclude push-forced pull requests: where the first commit was authored after the pull request was open.
+-   Include draft pull requests: the lifetime of a pull request includes the time marked as draft.
+-   Exclude open pull requests
+-   Exclude declined pull requests
+-   Exclude pull requests without commits
+-   Exclude push-forced pull requests: where the first commit was authored after the pull request was open.
 
 #### Time to Open
 
