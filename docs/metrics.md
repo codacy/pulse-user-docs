@@ -45,11 +45,10 @@ When we aggregate Lead time for changes we use the maximum of a period of time.
 
 There are several metrics that directly influence **Lead time for changes**,
 and can help you track in more detail what needs to be improved in your workflow.
-All the sub-metrics are aggregated by an interval (day, week or month) and have values for
+All the sub-metrics are aggregated by an interval (day, week, or month) and have values for
 the average, median, and percentiles 5%, 20%, 25%, 75%, 80%, 95%.
 
-These metrics are based on pull requests.
-They:
+These metrics are based on pull requests and:
 
 -   Include draft pull requests: the lifetime of a pull request includes the time marked as draft.
 -   Exclude open pull requests
@@ -65,7 +64,7 @@ This metric is calculated as the time between the first commit in the pull reque
 
 #### Time to Review
 
-The time spent in the code review process. Once a PR is opened, how long does it take to merge?
+The time spent in the code review process. Once a pull request is opened, how long does it take to merge?
 
 This metric is calculated as the time between the pull request being created and the pull request being merged.
 
