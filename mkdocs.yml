@@ -4,6 +4,9 @@ strict: true
 site_name: "Pulse documentation"
 site_url: https://docs.pulse.codacy.com/
 
+repo_url: https://app.pulse.codacy.com/
+repo_name: Back to the Pulse app
+
 # Configuration
 theme:
   name: "material"
@@ -15,6 +18,8 @@ theme:
   features:
     - navigation.instant
   custom_dir: overrides
+  icon:
+    repo: fontawesome/regular/arrow-alt-circle-right
 
 google_analytics: ["G-B5Q5WTNDMD", "docs.pulse.codacy.com"]
 
