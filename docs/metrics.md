@@ -67,7 +67,7 @@ This metric is calculated as the time between the first commit in the pull reque
 
 The time spent in the code review process. Once a PR is opened, how long does it take to merge?
 
-This metric is calculated as the time between the pull request being created and the pull request being created.
+This metric is calculated as the time between the pull request being created and the pull request being merged.
 
 ## Median time to recover
 
