@@ -17,6 +17,7 @@ theme:
   logo: "assets/pulse-logo.png"
   features:
     - navigation.instant
+    - toc.integrate
   custom_dir: overrides
   icon:
     repo: fontawesome/regular/arrow-alt-circle-right
