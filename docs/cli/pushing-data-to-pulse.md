@@ -27,7 +27,7 @@ Report an event to Pulse whenever your team deploys code to production, includin
 -   **For SaaS applications,** report the event on each deployment to your production environment.
 -   **For self-hosted applications,** a better option is to report the event each time you make an artifact available to any user of your application, such as when you release new binaries or upload a new version to an app store.
 
-Pulse uses these reports to calculate the metrics [Lead time for changes](../metrics.md#lead-time-for-changes) and [Deployment frequency](../metrics.md#deployment-frequency).
+Pulse uses these reports to calculate the metrics [Lead time for changes](../metrics/accelerate.md#lead-time-for-changes) and [Deployment frequency](../metrics/accelerate.md#deployment-frequency).
 
 ### Using Git
 
@@ -142,7 +142,7 @@ Report an event to Pulse whenever an incident resulting from a release or infras
 
 Typically, it's possible to keep track of this information using your monitoring infrastructure or your ticketing system.
 
-Pulse uses these reports to calculate the metrics [Median time to recovery](../metrics.md#median-time-to-recover) and [Change failure rate](../metrics.md#change-failure-rate).
+Pulse uses these reports to calculate the metrics [Median time to recovery](../metrics/accelerate.md#median-time-to-recover) and [Change failure rate](../metrics/accelerate.md#change-failure-rate).
 
 Send the following information when reporting **incidents** to Pulse:
 
