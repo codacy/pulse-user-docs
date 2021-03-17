@@ -1,4 +1,4 @@
-# Lead time sub-metrics & Reviews metrics
+# Lead time and review metrics
 
 ## Lead time for changes sub-metrics
 There are several metrics that directly influence **Lead time for changes**, and can help you track in more detail what needs to be improved in your workflow.
@@ -24,7 +24,7 @@ The time spent in the code review process. Once a pull request is opened, how lo
 
 This metric is calculated as the time between the pull request being created and the pull request being merged.
 
-## Reviews metrics
+## Review metrics
 
 | Name     | Description                                                                |
 | -------- | -------------------------------------------------------------------------- |
