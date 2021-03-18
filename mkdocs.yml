@@ -42,7 +42,9 @@ markdown_extensions:
 
 nav:
   - index.md
-  - metrics.md
+  - "Calculated metrics":
+    - metrics/accelerate.md
+    - metrics/lead-time-reviews.md
   - one-click-integrations.md
   - "Pulse CLI":
     - cli/installing-the-pulse-cli.md

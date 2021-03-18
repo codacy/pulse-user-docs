@@ -1,3 +1,5 @@
 site/
 
 .terraform
+
+node_modules/
