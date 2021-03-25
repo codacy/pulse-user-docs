@@ -1,16 +1,30 @@
 # One-click integrations
 
-Pulse is developing "one-click integrations" for the most popular Git providers, CI/CD platforms, and incident management tools. These integrations simplify the process of setting up your workflows to send data to Pulse.
+Pulse is developing "one-click integrations" for the most popular Git providers, CI/CD platforms, and incident management tools.
+These integrations simplify the process of setting up your workflows to send data to Pulse.
 
 ## GitHub
 
-Pulse integrates directly with GitHub to receive data about changes and deployments, necessary to calculate the metrics:
+Pulse integrates directly with GitHub to receive data about changes and deployments,
+necessary to calculate the metrics:
 
 -   [Lead time for changes](metrics/accelerate.md#lead-time-for-changes) (including the sub-metrics [Time to open](metrics/accelerate.md#time-to-open) and [Time to review](metrics/accelerate.md#time-to-review))
 -   [Deployment frequency](metrics/accelerate.md#deployment-frequency)
 
-!!! important
-    Consider the following before using the GitHub integration:
+### Deployment detection
+
+#### Strategies
+
+-   Pull request merged to default branch **\[default\]**
+
+    -   The integration obtains information about deployments from pull requests that target the default branch of the repository.
+
+    -   The integration obtains the deployment date from the merged timestamp of the pull request.
+
+    -   The integration obtains the set of changes that belong to a deployment from the list of commits in the pull request,
+        which means it can track your changes even if you squash when merging the pull request.
+
+-   Git tag following the [SemVer](https://semver.org) convention, excluding pre-release versions, but allowing release prefixes
 
     -   The integration obtains information about deployments from Git tags that follow the [SemVer](https://semver.org) convention, excluding pre-release versions, but allowing release prefixes. Valid tags e.g.: `1.0.0`, `v2.3.4`
 
@@ -22,15 +36,25 @@ Pulse integrates directly with GitHub to receive data about changes and deployme
 
         Because of this, the integration discards the first SemVer tag in the repository since there is no previous tag to compare with.
 
-To set up the GitHub integration:
+    -   Make sure that you're creating a Git tag on your repositories for each successful deployment to production, or whenever you make a new release available to any user of your application:
 
-1.  Make sure that you're creating a Git tag on your repositories for each successful deployment to production, or whenever you make a new release available to any user of your application:
+            ```bash
+            git tag -a X.Y.Z -m "<Deployment or release message>"
+            ```
 
-    ```bash
-    git tag -a X.Y.Z -m "<Deployment or release message>"
-    ```
+            Where X.Y.Z must be a valid SemVer version without pre-release information.
 
-    Where X.Y.Z must be a valid SemVer version without pre-release information.
+#### Strategy selection
+
+1.  On Pulse, [navigate to **Integrations** and then select **GitHub**](https://app.pulse.codacy.com/integrations/github){: target="_blank"}.
+
+    ![GitHub integration](images/ghi-setup.png)
+
+1.  Choose the strategy that fits best your workflows.
+
+    ![GitHub webhook](images/ghi-github-install.png)
+
+### Installation
 
 1.  On Pulse, [navigate to **Integrations** and then select **GitHub**](https://app.pulse.codacy.com/integrations/github){: target="_blank"}.
 
