@@ -67,11 +67,10 @@ To configure the strategy that Pulse uses to detect deployments:
 
 1.  On Pulse, [expand **Integrations** and select **GitHub**](https://app.pulse.codacy.com/integrations/github){: target="_blank"}.
 
-    ![GitHub integration](images/ghi-setup.png)
-
 1.  Choose the strategy that fits best your workflows.
 
-    ![GitHub webhook](images/ghi-github-install.png)
+    ![Choosing a deployment triggering strategy](images/ghi-strategy.png)
+
 
 ## PagerDuty
 
