@@ -11,12 +11,10 @@ Pulse integrates directly with GitHub to receive data about changes and deployme
 
 The Pulse GitHub integration supports two strategies to detect and measure deployments in your repositories:
 
--   **Pull requests merged to default branch** (default stragegy)
+-   **Pull requests merged to default branch** (default strategy)
 
     -   Pulse considers a deployment every pull request that targets the default branch of the repository.
-
     -   The deployment date is the timestamp when the corresponding pull request is merged.
-
     -   The set of changes in a deployment is the list of commits in the corresponding pull request. Pulse correctly tracks your changes even if you squash the commits when merging the pull request.
 
 -   **Git tags following the SemVer specification**
