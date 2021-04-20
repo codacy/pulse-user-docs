@@ -33,7 +33,7 @@ If there is an error as displayed below please [contact support](mailto:pulsesup
 
 ![GitHub webhook](images/ghi-error.png)
 
-### Configuring how Pulse detects deployments
+### Configuring how Pulse detects deployments {: id="deployment-detection-strategy"}
 
 The Pulse GitHub integration supports two strategies to detect and measure deployments in your repositories:
 
