@@ -19,12 +19,11 @@ To set up the GitHub integration:
 
     ![Installing the Pulse GitHub App](images/ghi-installing.png)
 
-1.  Wait until you get a confirmation that Pulse successfully created the integration and the webhook on GitHub for you.
+1.  Wait until you get a confirmation that Pulse successfully created the integration and the webhook on GitHub.
 
     ![Pulse GitHub integration set up successfully](images/ghi-ok.png)
 
     If there was an error please [contact support](mailto:pulsesupport@codacy.com).
-
 
 ### Configuring how Pulse detects deployments {: id="deployment-detection-strategy"}
 
@@ -59,6 +58,8 @@ The Pulse GitHub integration supports two strategies to detect and measure deplo
 To configure the strategy that Pulse uses to detect deployments:
 
 1.  On Pulse, [expand **Integrations** and select **GitHub**](https://app.pulse.codacy.com/integrations/github){: target="_blank"}.
+
+    Make sure that you have already installed the GitHub App.
 
 1.  Choose the strategy that fits best your workflows.
 
