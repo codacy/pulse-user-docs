@@ -40,6 +40,11 @@ markdown_extensions:
   - toc:
       permalink: true
 
+# Plugins
+plugins:
+    - search
+    - meta-descriptions
+
 nav:
   - index.md
   - "Calculated metrics":

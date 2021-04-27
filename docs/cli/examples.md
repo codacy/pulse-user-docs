@@ -1,6 +1,6 @@
 # Examples
 
-The following are examples of scripts that we used to quickly populate our own Pulse dashboard with historical data.
+This page includes examples of scripts that we used to quickly populate our own Pulse dashboard with historical data.
 
 You can use the examples to understand better how you can integrate the Pulse CLI with your existing workflows, or adapt these examples to populate your Pulse dashboard with historical data from your team.
 
