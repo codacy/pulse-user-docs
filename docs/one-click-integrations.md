@@ -54,7 +54,7 @@ The Pulse GitHub integration supports two strategies to detect and measure deplo
     -   The set of changes that belong to a deployment is the list of commits between the tag of that deployment and the previous tag.
 
         Because of this, Pulse discards the first SemVer tag in the repository since there is no previous tag to compare with.
-        Also, in case a tag (and its previous tag) do not have a common ancestor, since we cannot obtain their changes, it will be discarded.
+        Pulse also discards any tag that does not have a common ancestor (commit) with its previous tag, since it cannot obtain the changes between them.
 
 To configure the strategy that Pulse uses to detect deployments:
 
