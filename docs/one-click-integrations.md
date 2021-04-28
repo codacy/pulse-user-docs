@@ -51,9 +51,10 @@ The Pulse GitHub integration supports two strategies to detect and measure deplo
 
         Keep in mind that since webhook calls can be delayed, the deployment date on Pulse could be imprecise and impact the metric **Lead time for changes**.
 
-    -   The set of changes that belong to a deployment is the list of commits between the tag of that deployment and the previous tag.
-
-        Because of this, Pulse discards the first SemVer tag in the repository since there is no previous tag to compare with.
+    -   The set of changes that belong to a deployment is the list of commits between the tag of that deployment and the previous tag. Because of this, Pulse discards:
+        
+        -   The first SemVer tag in the repository since there is no previous tag to compare with.
+        -   Any tag that does not have a common ancestor (commit) with its previous tag, since Pulse cannot obtain the changes between them.
 
 To configure the strategy that Pulse uses to detect deployments:
 
