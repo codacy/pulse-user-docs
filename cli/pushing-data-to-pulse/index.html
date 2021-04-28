@@ -1,0 +1,786 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://docs.pulse.codacy.com/cli/pushing-data-to-pulse/">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
+    
+    
+      
+        <title>Pushing data to Pulse - Pulse documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.77f3fd56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#009485">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+        
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-B5Q5WTNDMD"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-B5Q5WTNDMD');
+</script>
+
+<!-- Hotjar Tracking Code for app.pulse.codacy.com -->
+<script>
+  (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:2248401,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+  })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+
+
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pushing-data-to-pulse" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="https://docs.pulse.codacy.com/" title="Pulse documentation" class="md-header__button md-logo" aria-label="Pulse documentation">
+      
+  <img src="../../assets/pulse-logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pulse documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Pushing data to Pulse
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="md-header__options">
+      
+    </div>
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://app.pulse.codacy.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256s111 248 248 248 248-111 248-248zm-448 0c0-110.5 89.5-200 200-200s200 89.5 200 200-89.5 200-200 200S56 366.5 56 256zm72 20v-40c0-6.6 5.4-12 12-12h116v-67c0-10.7 12.9-16 20.5-8.5l99 99c4.7 4.7 4.7 12.3 0 17l-99 99c-7.6 7.6-20.5 2.2-20.5-8.5v-67H140c-6.6 0-12-5.4-12-12z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Back to the Pulse app
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://docs.pulse.codacy.com/" title="Pulse documentation" class="md-nav__button md-logo" aria-label="Pulse documentation">
+      
+  <img src="../../assets/pulse-logo.png" alt="logo">
+
+    </a>
+    Pulse documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://app.pulse.codacy.com/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256s111 248 248 248 248-111 248-248zm-448 0c0-110.5 89.5-200 200-200s200 89.5 200 200-89.5 200-200 200S56 366.5 56 256zm72 20v-40c0-6.6 5.4-12 12-12h116v-67c0-10.7 12.9-16 20.5-8.5l99 99c4.7 4.7 4.7 12.3 0 17l-99 99c-7.6 7.6-20.5 2.2-20.5-8.5v-67H140c-6.6 0-12-5.4-12-12z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Back to the Pulse app
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Integrating with Pulse
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Calculated metrics
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Calculated metrics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Calculated metrics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/accelerate/" class="md-nav__link">
+        Accelerate metrics
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../metrics/lead-time-reviews/" class="md-nav__link">
+        Lead time and review metrics
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../one-click-integrations/" class="md-nav__link">
+        One-click integrations
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        Pulse CLI
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pulse CLI" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Pulse CLI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installing-the-pulse-cli/" class="md-nav__link">
+        Installing the Pulse CLI
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Pushing data to Pulse
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Pushing data to Pulse
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#changes-and-deployments" class="md-nav__link">
+    Changes and deployments
+  </a>
+  
+    <nav class="md-nav" aria-label="Changes and deployments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-git" class="md-nav__link">
+    Using Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#without-using-git" class="md-nav__link">
+    Without using Git
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#incidents" class="md-nav__link">
+    Incidents
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../examples/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="pushing-data-to-pulse">Pushing data to Pulse<a class="headerlink" href="#pushing-data-to-pulse" title="Permanent link">&para;</a></h1>
+<p>To measure the performance of your team, you must send information to Pulse about the following key events whenever they happen in the software delivery workflow of your primary application or service:</p>
+<ul>
+<li><a href="#changes-and-deployments">Changes and deployments</a></li>
+<li><a href="#incidents">Incidents</a></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Consider the following before setting up the integration using the Pulse CLI:</p>
+<ul>
+<li>
+<p><a href="https://app.pulse.codacy.com/integrations/cli" target="_blank"><strong>Make sure that you have an API key</strong></a> provided by Pulse to identify your organization and authorize you to send data to Pulse.</p>
+</li>
+<li>
+<p>In some scenarios, it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are reporting events from providers that only support webhooks.</p>
+<p>For these situations, you can call an HTTP POST webhook instead. For example:</p>
+<div class="highlight"><pre><span></span><code>https://ingestion.pulse.codacy.com/v1/ingestion/&lt;PROVIDER&gt;?api_key=&lt;API KEY&gt;
+</code></pre></div>
+<p><strong>Please let us know if you're planning on reporting events to Pulse using the webhook</strong> so we can give you more detailed instructions on how to use it.</p>
+</li>
+</ul>
+</div>
+<h2 id="changes-and-deployments">Changes and deployments<a class="headerlink" href="#changes-and-deployments" title="Permanent link">&para;</a></h2>
+<p>Report an event to Pulse whenever your team deploys code to production, including the list of code changes included in that deployment:</p>
+<ul>
+<li><strong>For SaaS applications,</strong> report the event on each deployment to your production environment.</li>
+<li><strong>For self-hosted applications,</strong> a better option is to report the event each time you make an artifact available to any user of your application, such as when you release new binaries or upload a new version to an app store.</li>
+</ul>
+<p>Pulse uses these reports to calculate the metrics <a href="../../metrics/accelerate/#lead-time-for-changes">Lead time for changes</a> and <a href="../../metrics/accelerate/#deployment-frequency">Deployment frequency</a>.</p>
+<h3 id="using-git">Using Git<a class="headerlink" href="#using-git" title="Permanent link">&para;</a></h3>
+<p>If you're using Git, send the following information when reporting <strong>changes and deployments</strong> to Pulse:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>previous-deployment-ref</td>
+<td>Git reference of the previous deployment.<br/>This can be a tag or a commit identifier.</td>
+<td>String</td>
+</tr>
+<tr>
+<td>identifier</td>
+<td>Version number or another unique identifier of the deployment.</td>
+<td>String</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>Time when the deployment finished.</td>
+<td>Number<br/>(Unix epoch timestamp in seconds)</td>
+</tr>
+<tr>
+<td>system</td>
+<td>Optional. Repository or component to assign to this event.</td>
+<td>String</td>
+</tr>
+</tbody>
+</table>
+<p>Run the following command to report a deployment and its changes:</p>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Linux and macOS</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>git clone &lt;Git repository URL&gt;
+<span class="nb">cd</span> &lt;<span class="nb">local</span> Git repository directory&gt;
+./pulse-event-cli push git deployment <span class="se">\</span>
+    --api-key <span class="s2">&quot;&lt;API key&gt;&quot;</span> <span class="se">\</span>
+    --previous-deployment-ref <span class="s2">&quot;&lt;previous deployment ref&gt;&quot;</span> <span class="se">\</span>
+    --identifier <span class="s2">&quot;&lt;deployment identifier&gt;&quot;</span> <span class="se">\</span>
+    --timestamp <span class="s2">&quot;</span><span class="k">$(</span>date +%s<span class="k">)</span><span class="s2">&quot;</span> <span class="se">\</span>
+    <span class="o">[</span>--system <span class="s2">&quot;&lt;system&gt;&quot;</span><span class="o">]</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">Windows</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>git clone &lt;Git repository URL&gt;
+<span class="nb">cd</span> &lt;<span class="nb">local</span> Git repository directory&gt;
+event-cli.exe push git deployment <span class="se">\</span>
+    --api-key <span class="s2">&quot;&lt;API key&gt;&quot;</span> <span class="se">\</span>
+    --previous-deployment-ref <span class="s2">&quot;&lt;previous deployment ref&gt;&quot;</span> <span class="se">\</span>
+    --identifier <span class="s2">&quot;&lt;deployment identifier&gt;&quot;</span> <span class="se">\</span>
+    --timestamp <span class="s2">&quot;&lt;timestamp&gt;&quot;</span> <span class="se">\</span>
+    <span class="o">[</span>--system <span class="s2">&quot;&lt;system&gt;&quot;</span><span class="o">]</span>
+</code></pre></div>
+</div>
+</div>
+<p>The command automatically reports all commits done between the previous deployment and the <code>HEAD</code> of the Git repository as changes that belong to the deployment being reported.</p>
+<h3 id="without-using-git">Without using Git<a class="headerlink" href="#without-using-git" title="Permanent link">&para;</a></h3>
+<p>If you don't use Git or prefer to have more fine-grained control over the information that you send when reporting changes and deployments, send separate reports for each change and deployment as described below.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you're using Git, it's simpler to <a href="#using-git">report changes and deployments</a> together.</p>
+</div>
+<ol>
+<li>
+<p>Send the following information when reporting <strong>changes</strong> to Pulse:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>identifier</td>
+<td>The commit identifier.</td>
+<td>String</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>Time when the commit was first pushed to the repository.</td>
+<td>Number<br/>(Unix epoch timestamp in seconds)</td>
+</tr>
+<tr>
+<td>system</td>
+<td>Optional. Repository or component to assign to this event.</td>
+<td>String</td>
+</tr>
+</tbody>
+</table>
+<p>Run the following command to report each change:</p>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">Linux and macOS</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>./pulse-event-cli push change <span class="se">\</span>
+    --api-key <span class="s2">&quot;&lt;API key&gt;&quot;</span> <span class="se">\</span>
+    --identifier <span class="s2">&quot;&lt;change identifier&gt;&quot;</span> <span class="se">\</span>
+    --timestamp <span class="s2">&quot;</span><span class="k">$(</span>date +%s<span class="k">)</span><span class="s2">&quot;</span> <span class="se">\</span>
+    <span class="o">[</span>--system <span class="s2">&quot;&lt;system&gt;&quot;</span><span class="o">]</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">Windows</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>event-cli.exe push change <span class="se">\</span>
+    --api-key <span class="s2">&quot;&lt;API key&gt;&quot;</span> <span class="se">\</span>
+    --identifier <span class="s2">&quot;&lt;change identifier&gt;&quot;</span> <span class="se">\</span>
+    --timestamp <span class="s2">&quot;&lt;timestamp&gt;&quot;</span> <span class="se">\</span>
+    <span class="o">[</span>--system <span class="s2">&quot;&lt;system&gt;&quot;</span><span class="o">]</span>
+</code></pre></div>
+</div>
+</div>
+</li>
+<li>
+<p>Send the following information when reporting <strong>deployments</strong> to Pulse:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>identifier</td>
+<td>Version number or another unique identifier of the deployment.</td>
+<td>String</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>Time when the deployment finished.</td>
+<td>Number<br/>(Unix epoch timestamp in seconds)</td>
+</tr>
+<tr>
+<td>system</td>
+<td>Optional. Repository or component to assign to this event.</td>
+<td>String</td>
+</tr>
+<tr>
+<td></td>
+<td>Commit identifiers included in the deployment.</td>
+<td>String<br/>(space-separated list)</td>
+</tr>
+</tbody>
+</table>
+<p>Run the following command to report each deployment:</p>
+<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Linux and macOS</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>./pulse-event-cli push deployment <span class="se">\</span>
+    --api-key <span class="s2">&quot;&lt;API key&gt;&quot;</span> <span class="se">\</span>
+    --identifier <span class="s2">&quot;&lt;deployment identifier&gt;&quot;</span> <span class="se">\</span>
+    --timestamp <span class="s2">&quot;</span><span class="k">$(</span>date +%s<span class="k">)</span><span class="s2">&quot;</span> <span class="se">\</span>
+    <span class="o">[</span>--system <span class="s2">&quot;&lt;system&gt;&quot;</span><span class="o">]</span> <span class="se">\</span>
+    &lt;space-separated list of commit identifiers&gt;
+</code></pre></div>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Windows</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>event-cli.exe push deployment <span class="se">\</span>
+    --api-key <span class="s2">&quot;&lt;API key&gt;&quot;</span> <span class="se">\</span>
+    --identifier <span class="s2">&quot;&lt;deployment identifier&gt;&quot;</span> <span class="se">\</span>
+    --timestamp <span class="s2">&quot;&lt;timestamp&gt;&quot;</span> <span class="se">\</span>
+    <span class="o">[</span>--system <span class="s2">&quot;&lt;system&gt;&quot;</span><span class="o">]</span> <span class="se">\</span>
+    &lt;space-separated list of commit identifiers&gt;
+</code></pre></div>
+</div>
+</div>
+</li>
+</ol>
+<h2 id="incidents">Incidents<a class="headerlink" href="#incidents" title="Permanent link">&para;</a></h2>
+<p>Report an event to Pulse whenever an incident resulting from a release or infrastructure configuration change to production is solved. Incidents are any form of degraded service that require remediation:</p>
+<ul>
+<li>The incident is <strong>created</strong> when you detect a service impairment or service outage in production.</li>
+<li>The incident is <strong>resolved</strong> when you apply a hotfix or patch, or when you rollback the changes to restore the service in production.</li>
+</ul>
+<p>Typically, it's possible to keep track of this information using your monitoring infrastructure or your ticketing system.</p>
+<p>Pulse uses these reports to calculate the metrics <a href="../../metrics/accelerate/#median-time-to-recover">Median time to recovery</a> and <a href="../../metrics/accelerate/#change-failure-rate">Change failure rate</a>.</p>
+<p>Send the following information when reporting <strong>incidents</strong> to Pulse:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+<th>Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>identifier</td>
+<td>A unique identifier of the incident.</td>
+<td>String</td>
+</tr>
+<tr>
+<td>timestampCreated</td>
+<td>Time when the incident started or was detected.</td>
+<td>Number<br/>(Unix epoch timestamp in seconds)</td>
+</tr>
+<tr>
+<td>timestampResolved</td>
+<td>Time when the incident was resolved.</td>
+<td>Number<br/>(Unix epoch timestamp in seconds)</td>
+</tr>
+<tr>
+<td>system</td>
+<td>Optional. Repository or component to assign to this event.</td>
+<td>String</td>
+</tr>
+</tbody>
+</table>
+<p>Run the following command to report each incident:</p>
+<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">Linux and macOS</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>./pulse-event-cli push incident <span class="se">\</span>
+    --api-key <span class="s2">&quot;&lt;API key&gt;&quot;</span> <span class="se">\</span>
+    --identifier <span class="s2">&quot;&lt;incident identifier&gt;&quot;</span> <span class="se">\</span>
+    --timestampCreated <span class="s2">&quot;&lt;timestampCreated&gt;&quot;</span> <span class="se">\</span>
+    --timestampResolved <span class="s2">&quot;</span><span class="k">$(</span>date +%s<span class="k">)</span><span class="s2">&quot;</span> <span class="se">\</span>
+    <span class="o">[</span>--system <span class="s2">&quot;&lt;system&gt;&quot;</span><span class="o">]</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">Windows</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>pulse-event-cli.exe push incident <span class="se">\</span>
+    --api-key <span class="s2">&quot;&lt;API key&gt;&quot;</span> <span class="se">\</span>
+    --identifier <span class="s2">&quot;&lt;incident identifier&gt;&quot;</span> <span class="se">\</span>
+    --timestampCreated <span class="s2">&quot;&lt;timestampCreated&gt;&quot;</span> <span class="se">\</span>
+    --timestampResolved <span class="s2">&quot;&lt;timestampResolved&gt;&quot;</span> <span class="se">\</span>
+    <span class="o">[</span>--system <span class="s2">&quot;&lt;system&gt;&quot;</span><span class="o">]</span>
+</code></pre></div>
+</div>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="../installing-the-pulse-cli/" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Installing the Pulse CLI
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="../examples/" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Examples
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>
+      
+    
+  </body>
+</html>
