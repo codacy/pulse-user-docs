@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
      <loc>https://docs.pulse.codacy.com/</loc>
-     <lastmod>2021-04-28</lastmod>
+     <lastmod>2021-04-29</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.pulse.codacy.com/metrics/accelerate/</loc>
-     <lastmod>2021-04-28</lastmod>
+     <lastmod>2021-04-29</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.pulse.codacy.com/metrics/lead-time-reviews/</loc>
-     <lastmod>2021-04-28</lastmod>
+     <lastmod>2021-04-29</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.pulse.codacy.com/one-click-integrations/</loc>
-     <lastmod>2021-04-28</lastmod>
+     <lastmod>2021-04-29</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.pulse.codacy.com/cli/installing-the-pulse-cli/</loc>
-     <lastmod>2021-04-28</lastmod>
+     <lastmod>2021-04-29</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.pulse.codacy.com/cli/pushing-data-to-pulse/</loc>
-     <lastmod>2021-04-28</lastmod>
+     <lastmod>2021-04-29</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://docs.pulse.codacy.com/cli/examples/</loc>
-     <lastmod>2021-04-28</lastmod>
+     <lastmod>2021-04-29</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
