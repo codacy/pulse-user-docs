@@ -4,7 +4,7 @@ Download the latest version of the Pulse CLI for your operating system and make 
 
 1.  Take note of the latest version of the CLI:
 
-    [![Download](https://img.shields.io/github/v/release/codacy/pulse-event-cli?sort=semver)](https://artifacts.codacy.com/codacy/pulse/event-cli/latest)
+    [Latest version](https://img.shields.io/github/v/release/codacy/pulse-event-cli?sort=semver)
 
 1.  Run the command to download the correct binary for your operating system, changing `<VERSION>` to the latest version obtained on the previous step:
 
