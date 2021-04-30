@@ -4,7 +4,7 @@ Download the latest version of the Pulse CLI for your operating system and make 
 
 1.  Take note of the latest version of the CLI:
 
-    [![Download](https://api.bintray.com/packages/codacy/pulse/event-cli/images/download.svg)](https://bintray.com/codacy/pulse/event-cli/_latestVersion)
+    [Latest version](https://img.shields.io/github/v/release/codacy/pulse-event-cli?sort=semver)
 
 1.  Run the command to download the correct binary for your operating system, changing `<VERSION>` to the latest version obtained on the previous step:
 
@@ -12,20 +12,20 @@ Download the latest version of the Pulse CLI for your operating system and make 
         On 32-bit operating systems:
 
         ```sh
-        curl -fsSL -o pulse-event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_386/pulse-event-cli && \
+        curl -fsSL -o pulse-event-cli https://artifacts.codacy.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_386/pulse-event-cli && \
         chmod +x pulse-event-cli
         ```
 
         On 64-bit operating systems:
     
         ```sh
-        curl -fsSL -o pulse-event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_amd64/pulse-event-cli && \
+        curl -fsSL -o pulse-event-cli https://artifacts.codacy.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_amd64/pulse-event-cli && \
         chmod +x pulse-event-cli
         ```
 
     === "macOS"
         ```sh
-        curl -fsSL -o pulse-event-cli https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_darwin_amd64/pulse-event-cli && \
+        curl -fsSL -o pulse-event-cli https://artifacts.codacy.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_darwin_amd64/pulse-event-cli && \
         chmod +x pulse-event-cli
         ```
 
@@ -33,13 +33,13 @@ Download the latest version of the Pulse CLI for your operating system and make 
         On 32-bit operating systems:
 
         ```
-        curl -fsSL -o pulse-event-cli.exe https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_386/pulse-event-cli.exe
+        curl -fsSL -o pulse-event-cli.exe https://artifacts.codacy.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_386/pulse-event-cli.exe
         ```
     
         On 64-bit operating systems:
 
         ```
-        curl -fsSL -o pulse-event-cli.exe https://dl.bintray.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_amd64/pulse-event-cli.exe
+        curl -fsSL -o pulse-event-cli.exe https://artifacts.codacy.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_amd64/pulse-event-cli.exe
         ```
 
 1.  Test if you can run the CLI:
