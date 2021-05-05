@@ -45,4 +45,4 @@ The time it takes to have reviews. Once a pull request is opened, how long does 
 
 This metric is calculated as the time between the pull request being created and the first and last reviews being submitted.
 
-Reviews include approves, changes requests and inline pull request comments, does not include conversation pull request comments.
+Reviews include approves, change requests, and inline pull request comments, but don't include conversation pull request comments.
