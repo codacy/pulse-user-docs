@@ -18,7 +18,7 @@ An approximation of the time a change takes to be developed. How long does it ta
 
 This metric is calculated as the time between the first commit in the pull request's branch and the pull request being created.
 
-### Time to review
+### Time to merge
 
 The time spent in the code review process. Once a pull request is opened, how long does it take to merge?
 
@@ -32,3 +32,17 @@ This metric is calculated as the time between the pull request being created and
 | Commits  | The number of commits in a pull request. Even if pull request is squashed. |
 | Reviews  | The number of reviews in a pull request.                                   |
 | Comments | The number of comments and review comments in a pull request.              |
+
+### Time to first/last approve
+
+The time it takes to have approves. Once a pull request is opened, how long does it take to have an approve and how long does it take to the last approve?
+
+This metric is calculated as the time between the pull request being created and the first and last approves being submitted.
+
+### Time to first/last review
+
+The time it takes to have reviews. Once a pull request is opened, how long does it take to have a review and how long does it take to the last review?
+
+This metric is calculated as the time between the pull request being created and the first and last reviews being submitted.
+
+Reviews include approves, change requests, and inline pull request comments, but don't include conversation pull request comments.
