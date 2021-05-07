@@ -15,7 +15,10 @@ To set up the GitHub integration:
 
 1.  On Pulse, [expand **Integrations** and select **GitHub**](https://app.pulse.codacy.com/integrations/github){: target="_blank"}.
 
-1.  Click **Install GitHub App** and follow the instructions on the GitHub UI to install the app in the desired organization.
+1.  Click **Install GitHub App** and follow the instructions on the GitHub UI to install the app on your organization.
+
+    !!! important
+        You can only install the Pulse GitHub App on an organization and not on your personal account.
 
     ![Installing the Pulse GitHub App](images/ghi-installing.png)
 
