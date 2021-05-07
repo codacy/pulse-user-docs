@@ -37,12 +37,12 @@ This metric is calculated as the time between the pull request being created and
 
 The time it takes to have approves. Once a pull request is opened, how long does it take to have an approve and how long does it take to the last approve?
 
-These metrics are calculated as the time between the pull request being created and the first and last approves being submitted.
+These metrics are calculated as the time between the pull request being created and the first and last approves being submitted before the merge of the pull request.
 
 ### Time to first/last review
 
 The time it takes to have reviews. Once a pull request is opened, how long does it take to have a review and how long does it take to the last review?
 
-These metrics are calculated as the time between the pull request being created and the first and last reviews being submitted.
+These metrics are calculated as the time between the pull request being created and the first and last reviews being submitted before the merge of the pull request.
 
 Reviews include approves, change requests, and inline pull request comments, but don't include pull request conversation comments.
