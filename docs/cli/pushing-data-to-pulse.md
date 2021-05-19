@@ -6,23 +6,33 @@ description: Use the Pulse CLI to send information about changes, deployments, a
 
 To measure the performance of your team you must send information to Pulse about the following key events whenever they happen in the software delivery workflow of your primary application or service:
 
--   [Changes and deployments](#changes-and-deployments)
--   [Incidents](#incidents)
+-   Changes and deployments
+-   Incidents
 
-!!! important
-    Consider the following before setting up the integration using the Pulse CLI:
+## Before you begin
 
-    -   [**Make sure that you have an API key**](https://app.pulse.codacy.com/integrations/cli){: target="_blank"} provided by Pulse to identify your organization and authorize you to send data to Pulse.
+Consider the following before setting up the integration using the Pulse CLI:
 
-    -   In some scenarios, it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are reporting events from providers that only support webhooks.
+-   When reporting events to Pulse you should use the field `system` to associate each event with the **most granular unit** that you will use to filter data on the Pulse dashboards, such as by application or service, product, team, or any other entity or group of entities in your organization.
 
-        For these situations, you can call an HTTP POST webhook instead. For example:
+    !!! important
+        Typically, the value of `system` should be the name of the CVS repository corresponding to the event.
 
-        ```text
-        https://ingestion.pulse.codacy.com/v1/ingestion/<PROVIDER>?api_key=<API KEY>
-        ```
+        However, if you're using a monorepo the value of `system` should be the name of the component in the repository instead.
 
-        **Please let us know if you're planning on reporting events to Pulse using the webhook** so we can give you more detailed instructions on how to use it.
+    Although the field `system` is optional, if you don't report this information you won't be able to filter the data on the Pulse dashboards.
+
+-   [**Make sure that you have an API key**](https://app.pulse.codacy.com/integrations/cli){: target="_blank"} provided by Pulse to identify your organization and authorize you to send data to Pulse.
+
+-   In some scenarios, it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are reporting events from providers that only support webhooks.
+
+    For these situations, you can call an HTTP POST webhook instead. For example:
+
+    ```text
+    https://ingestion.pulse.codacy.com/v1/ingestion/<PROVIDER>?api_key=<API KEY>
+    ```
+
+    **Please let us know if you're planning on reporting events to Pulse using the webhook** so we can give you more detailed instructions on how to use it.
 
 ## Changes and deployments
 
