@@ -67,22 +67,26 @@ When we aggregate Median time to recover we use the maximum of a period of time.
 
 ## Change failure rate
 
-Percentage of deployments causing a failure in production (e.g., service impairment or unplanned outage) and that subsequently require remediation.
+Percentage of deployments causing a failure in production (e.g., service impairment or unplanned outage) and that subsequently require remediation:
 
-Number of `deployments` that caused `incidents` / Number of `deployments`.
+```
+number of deployments that caused incidents / total number of deployments
+```
 
-`deployments` that caused `incidents` is defined as the closest deployment before the incident start. A deployment might be responsible for multiple incidents.
-
-When we aggregate Change failure rate we use the average of a period of time.
+Pulse uses the average over a period of time to display aggregate change failure rates.
 
 !!! note
-    We have opted to avoid requiring a relationship between `incidents` and `deployments` or `changes` to simplify the data model reported.
+    We decided to avoid requiring a relationship between **incidents** and **deployments** or **changes** to simplify the data model reported.
+    
+    As such, Pulse considers the **deployment** that caused an **incident** the closest deployment before the start of that **incident**. The same deployment might be responsible for multiple incidents.
 
-| Performance level[^1] | Value  |
-| --------------------- | ------ |
-| Low                   | 46-60% |
-| Medium                | 0-15%  |
-| High                  | 0-15%  |
-| Elite                 | 0-15%  |
+Pulse determines the performance level for change failure rate as follows:
+
+| Performance level[^1] | Change failure rate  |
+| --------------------- | -------------------- |
+| Elite                 | 0-15%                |
+| High                  | 0-15%                |
+| Medium                | 0-15%                |
+| Low                   | 46-60%               |
 
 [^1]: Performance levels are based on the [State of DevOps 2019](https://services.google.com/fh/files/misc/state-of-devops-2019.pdf).
