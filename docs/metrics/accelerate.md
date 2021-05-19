@@ -1,8 +1,15 @@
 # Accelerate metrics
 
-Pulse calculates the four key Accelerate metrics: [deployment frequency](#deployment-frequency), [lead time for changes](#lead-time-for-changes), [median time to recover](#median-time-to-recover), and [change failure rate](#change-failure-rate). These metrics are calculated using strictly `changes`, `deployments` and `incidents` for a rolling window of the last 90 days.
+Pulse calculates the four key Accelerate metrics using strictly **changes**, **deployments**, and **incidents** data for a rolling window of the last 90 days:
+
+-   [Deployment frequency](#deployment-frequency)
+-   [Lead time for changes](#lead-time-for-changes)
+-   [Median time to recover](#median-time-to-recover)
+-   [Change failure rate](#change-failure-rate)
 
 ## Deployment frequency
+
+How often your organization completes a deployment to production or releases code to end-users of your primary application or service.
 
 The most specific that applies:
 
@@ -28,6 +35,8 @@ When we aggregate Deployment Frequency we use the average of a period of time.
 
 ## Lead time for changes
 
+How long it takes a commit to get into production on your primary application or service.
+
 Median of `deployments` time created - `changes` time created.
 
 The time of `changes` is when code is actually checked into a repository.
@@ -43,6 +52,8 @@ When we aggregate Lead time for changes we use the maximum of a period of time.
 
 ## Median time to recover
 
+How long it takes your organization to recover from a failure in production (e.g., service impairment or unplanned outage).
+
 Median of `incidents` time resolved - `incidents` time created.
 
 When we aggregate Median time to recover we use the maximum of a period of time.
@@ -55,6 +66,8 @@ When we aggregate Median time to recover we use the maximum of a period of time.
 | Elite                 | Less than 1 hour           |
 
 ## Change failure rate
+
+Percentage of deployments causing a failure in production (e.g., service impairment or unplanned outage) and that subsequently require remediation.
 
 Number of `deployments` that caused `incidents` / Number of `deployments`.
 
