@@ -19,12 +19,12 @@ Pulse uses the average value over a period of time to display aggregate deployme
 
 Pulse determines your performance level for this metric as follows:
 
-| Performance level[^1] | Deployment frequency                                                                                              |
-| --------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| Elite                 | On-demand (multiple deploys per day)<br/>(median of more than one **deployment** per day)                         |
-| High                  | Between once per day and once per week<br/>(median of three or more days with **deployments** in a calendar week) |
-| Medium                | Between once per week and once per month<br/>(median of one or more **deployments** in a calendar week)           |
-| Low                   | Between once per month and once every six months<br/>(median of one or more **deployments** in a calendar month)  |
+| Performance level[^1] | Deployment frequency                                                  |
+| --------------------- | --------------------------------------------------------------------- |
+| Elite                 | Median of more than one **deployment** per day                        |
+| High                  | Median of three or more days with **deployments** in a calendar week) |
+| Medium                | Median of one or more **deployments** in a calendar week              |
+| Low                   | Median of one or more **deployments** in a calendar month             |
 
 ## Lead time for changes
 
