@@ -52,18 +52,22 @@ When we aggregate Lead time for changes we use the maximum of a period of time.
 
 ## Median time to recover
 
-How long it takes your organization to recover from a failure in production (e.g., service impairment or unplanned outage).
+How long it takes your organization to recover from a failure in production (e.g., service impairment or unplanned outage):
 
-Median of `incidents` time resolved - `incidents` time created.
+```
+median(incident time resolved - incident time created)
+```
 
-When we aggregate Median time to recover we use the maximum of a period of time.
+Pulse uses the maximum value over a period of time to display aggregate median times to recover.
 
-| Performance level[^1] | Value                      |
+Pulse determines the performance level for median time to recover as follows:
+
+| Performance level[^1] | Median time to recover     |
 | --------------------- | -------------------------- |
-| Low                   | Between 1 week and 1 month |
-| Medium                | Less than 1 day            |
-| High                  | Less than 1 day            |
 | Elite                 | Less than 1 hour           |
+| High                  | Less than 1 day            |
+| Medium                | Less than 1 day            |
+| Low                   | Between 1 week and 1 month |
 
 ## Change failure rate
 
@@ -73,7 +77,7 @@ Percentage of deployments causing a failure in production (e.g., service impairm
 number of deployments that caused incidents / total number of deployments
 ```
 
-Pulse uses the average over a period of time to display aggregate change failure rates.
+Pulse uses the average value over a period of time to display aggregate change failure rates.
 
 !!! note
     We decided to avoid requiring a relationship between **incidents** and **deployments** or **changes** to simplify the data model reported.
