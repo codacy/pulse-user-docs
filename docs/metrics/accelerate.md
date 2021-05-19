@@ -9,29 +9,22 @@ Pulse calculates the four key Accelerate metrics using strictly **changes**, **d
 
 ## Deployment frequency
 
-How often your organization completes a deployment to production or releases code to end-users of your primary application or service.
+How often your organization completes a deployment to production or releases code to end-users of your primary application or service:
 
-The most specific that applies:
+```
+number of deployments per day
+```
 
-| Deployment frequency | Value                                                                                                                                  |
-| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| On-demand            | Median of more than one `deployments` per day (i.e. more than 50% of the days have more than one deployment.)                          |
-| Daily                | Median of three or more days with `deployments` in a calendar week (i.e. more than 50% of weeks have 3 or more days with deployments.) |
-| Weekly               | Median of one or more `deployments` in a calendar week (i.e. more than 50% of weeks have at least one deployment.)                     |
-| Monthly              | Median of one or more `deployments` in a calendar month (i.e. more than 50% of months have at least one deployment.)                   |
-| Yearly               | None of the above                                                                                                                      |
+Pulse uses the average value over a period of time to display aggregate deployment frequencies.
 
-!!! note
-    The value above is used to determine your Performance level. The numeric value displayed as Deployment Frequency is the number of `deployments` per day.
+Pulse determines your performance level for this metric as follows:
 
-When we aggregate Deployment Frequency we use the average of a period of time.
-
-| Performance level[^1] | Value                                                              |
-| --------------------- | ------------------------------------------------------------------ |
-| Low                   | Monthly or Yearly (Between once per month and once every 6 months) |
-| Medium                | Weekly (Between once per week and once per month)                  |
-| High                  | Daily (Between once per day and once per week)                     |
-| Elite                 | On-demand (Multiple deployments per day)                           |
+| Performance level[^1] | Deployment frequency                                                                                              |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Elite                 | On-demand (multiple deploys per day)<br/>(median of more than one **deployment** per day)                         |
+| High                  | Between once per day and once per week<br/>(median of three or more days with **deployments** in a calendar week) |
+| Medium                | Between once per week and once per month<br/>(median of one or more **deployments** in a calendar week)           |
+| Low                   | Between once per month and once every six months<br/>(median of one or more **deployments** in a calendar month)  |
 
 ## Lead time for changes
 
@@ -46,7 +39,7 @@ median(deployment time - changes time)
 
 Pulse uses the maximum value over a period of time to display aggregate lead time for changes.
 
-Pulse determines the performance level for this metric as follows:
+Pulse determines your performance level for this metric as follows:
 
 | Performance level[^1] | Lead time for changes        |
 | --------------------- | ---------------------------- |
@@ -65,7 +58,7 @@ median(incident time resolved - incident time created)
 
 Pulse uses the maximum value over a period of time to display aggregate median times to recover.
 
-Pulse determines the performance level for this metric as follows:
+Pulse determines your performance level for this metric as follows:
 
 | Performance level[^1] | Median time to recover     |
 | --------------------- | -------------------------- |
@@ -89,7 +82,7 @@ Pulse uses the average value over a period of time to display aggregate change f
     
     As such, Pulse considers the **deployment** that caused an **incident** the closest deployment before the start of that **incident**. The same deployment might be responsible for multiple incidents.
 
-Pulse determines the performance level for this metric as follows:
+Pulse determines your performance level for this metric as follows:
 
 | Performance level[^1] | Change failure rate  |
 | --------------------- | -------------------- |
