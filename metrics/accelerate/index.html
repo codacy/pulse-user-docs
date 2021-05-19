@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Pulse calculates the four key Accelerate metrics: deployment frequency, lead time for changes, median time to recover, and change failure rate. These metrics are calculated using strictly changes, deployments and incidents for a rolling window of the last 90 days.">
+        <meta name="description" content="Pulse calculates the four key Accelerate metrics using strictly changes, deployments, and incidents data for a rolling window of the last 90 days:">
       
       
       
@@ -450,8 +450,15 @@
                 
                 
                 <h1 id="accelerate-metrics">Accelerate metrics<a class="headerlink" href="#accelerate-metrics" title="Permanent link">&para;</a></h1>
-<p>Pulse calculates the four key Accelerate metrics: <a href="#deployment-frequency">deployment frequency</a>, <a href="#lead-time-for-changes">lead time for changes</a>, <a href="#median-time-to-recover">median time to recover</a>, and <a href="#change-failure-rate">change failure rate</a>. These metrics are calculated using strictly <code>changes</code>, <code>deployments</code> and <code>incidents</code> for a rolling window of the last 90 days.</p>
+<p>Pulse calculates the four key Accelerate metrics using strictly <strong>changes</strong>, <strong>deployments</strong>, and <strong>incidents</strong> data for a rolling window of the last 90 days:</p>
+<ul>
+<li><a href="#deployment-frequency">Deployment frequency</a></li>
+<li><a href="#lead-time-for-changes">Lead time for changes</a></li>
+<li><a href="#median-time-to-recover">Median time to recover</a></li>
+<li><a href="#change-failure-rate">Change failure rate</a></li>
+</ul>
 <h2 id="deployment-frequency">Deployment frequency<a class="headerlink" href="#deployment-frequency" title="Permanent link">&para;</a></h2>
+<p>How often your organization completes a deployment to production or releases code to end-users of your primary application or service.</p>
 <p>The most specific that applies:</p>
 <table>
 <thead>
@@ -515,6 +522,7 @@
 </tbody>
 </table>
 <h2 id="lead-time-for-changes">Lead time for changes<a class="headerlink" href="#lead-time-for-changes" title="Permanent link">&para;</a></h2>
+<p>How long it takes a commit to get into production on your primary application or service.</p>
 <p>Median of <code>deployments</code> time created - <code>changes</code> time created.</p>
 <p>The time of <code>changes</code> is when code is actually checked into a repository.</p>
 <p>When we aggregate Lead time for changes we use the maximum of a period of time.</p>
@@ -545,6 +553,7 @@
 </tbody>
 </table>
 <h2 id="median-time-to-recover">Median time to recover<a class="headerlink" href="#median-time-to-recover" title="Permanent link">&para;</a></h2>
+<p>How long it takes your organization to recover from a failure in production (e.g., service impairment or unplanned outage).</p>
 <p>Median of <code>incidents</code> time resolved - <code>incidents</code> time created.</p>
 <p>When we aggregate Median time to recover we use the maximum of a period of time.</p>
 <table>
@@ -574,6 +583,7 @@
 </tbody>
 </table>
 <h2 id="change-failure-rate">Change failure rate<a class="headerlink" href="#change-failure-rate" title="Permanent link">&para;</a></h2>
+<p>Percentage of deployments causing a failure in production (e.g., service impairment or unplanned outage) and that subsequently require remediation.</p>
 <p>Number of <code>deployments</code> that caused <code>incidents</code> / Number of <code>deployments</code>.</p>
 <p><code>deployments</code> that caused <code>incidents</code> is defined as the closest deployment before the incident start. A deployment might be responsible for multiple incidents.</p>
 <p>When we aggregate Change failure rate we use the average of a period of time.</p>
