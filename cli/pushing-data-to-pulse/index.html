@@ -383,6 +383,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#before-you-begin" class="md-nav__link">
+    Before you begin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#changes-and-deployments" class="md-nav__link">
     Changes and deployments
   </a>
@@ -458,13 +465,21 @@
                 <h1 id="pushing-data-to-pulse">Pushing data to Pulse<a class="headerlink" href="#pushing-data-to-pulse" title="Permanent link">&para;</a></h1>
 <p>To measure the performance of your team you must send information to Pulse about the following key events whenever they happen in the software delivery workflow of your primary application or service:</p>
 <ul>
-<li><a href="#changes-and-deployments">Changes and deployments</a></li>
-<li><a href="#incidents">Incidents</a></li>
+<li>Changes and deployments</li>
+<li>Incidents</li>
 </ul>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
+<h2 id="before-you-begin">Before you begin<a class="headerlink" href="#before-you-begin" title="Permanent link">&para;</a></h2>
 <p>Consider the following before setting up the integration using the Pulse CLI:</p>
 <ul>
+<li>
+<p>When reporting events to Pulse you should use the field <code>system</code> to associate each event with the <strong>most granular unit</strong> that you will use to filter data on the Pulse dashboards, such as by application or service, product, team, or any other entity or group of entities in your organization.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Typically, the value of <code>system</code> should be the name of the CVS repository corresponding to the event.</p>
+<p>However, if you're using a monorepo the value of <code>system</code> should be the name of the component in the repository instead.</p>
+</div>
+<p>Although the field <code>system</code> is optional, if you don't report this information you won't be able to filter the data on the Pulse dashboards.</p>
+</li>
 <li>
 <p><a href="https://app.pulse.codacy.com/integrations/cli" target="_blank"><strong>Make sure that you have an API key</strong></a> provided by Pulse to identify your organization and authorize you to send data to Pulse.</p>
 </li>
@@ -476,7 +491,6 @@
 <p><strong>Please let us know if you're planning on reporting events to Pulse using the webhook</strong> so we can give you more detailed instructions on how to use it.</p>
 </li>
 </ul>
-</div>
 <h2 id="changes-and-deployments">Changes and deployments<a class="headerlink" href="#changes-and-deployments" title="Permanent link">&para;</a></h2>
 <p>Report an event to Pulse whenever your team deploys code to production, including the list of code changes included in that deployment:</p>
 <ul>
