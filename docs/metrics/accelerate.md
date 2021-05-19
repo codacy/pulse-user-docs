@@ -11,7 +11,7 @@ Pulse calculates the four key Accelerate metrics using strictly **changes**, **d
 
 How often your organization completes a deployment to production or releases code to end-users of your primary application or service:
 
-```
+```text
 number of deployments per day
 ```
 
@@ -79,7 +79,7 @@ Pulse uses the average value over a period of time to display aggregate change f
 
 !!! note
     We decided to avoid requiring a relationship between **incidents** and **deployments** or **changes** to simplify the data model reported.
-    
+
     As such, Pulse considers the **deployment** that caused an **incident** the closest deployment before the start of that **incident**. The same deployment might be responsible for multiple incidents.
 
 Pulse determines your performance level for this metric as follows:
