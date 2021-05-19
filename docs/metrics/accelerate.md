@@ -21,10 +21,10 @@ Pulse determines your performance level for this metric as follows:
 
 | Performance level[^1] | Deployment frequency                                                  |
 | --------------------- | --------------------------------------------------------------------- |
-| Elite                 | Median of more than one **deployment** per day                        |
-| High                  | Median of three or more days with **deployments** in a calendar week) |
-| Medium                | Median of one or more **deployments** in a calendar week              |
-| Low                   | Median of one or more **deployments** in a calendar month             |
+| Elite                 | More than 50% of days have one or more **deployments**                |
+| High                  | More than 50% of weeks have 3 or more days with a **deployment**      |
+| Medium                | More than 50% of weeks have at least one **deployment**               |
+| Low                   | More than 50% of months have at least one **deployment**              |
 
 ## Lead time for changes
 
