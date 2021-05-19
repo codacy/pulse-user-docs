@@ -31,11 +31,11 @@ Pulse determines your performance level for this metric as follows:
 How long it takes a commit to get into production on your primary application or service:
 
 ```text
-median(deployment time - changes time)
+median(deployment timestamp - changes timestamp)
 ```
 
 !!! note
-    The **changes** time is when code is actually checked into a repository.
+    The **changes** timestamp is when code is actually checked into a repository.
 
 Pulse uses the maximum value over a period of time to display aggregate lead time for changes.
 
@@ -53,7 +53,7 @@ Pulse determines your performance level for this metric as follows:
 How long it takes your organization to recover from a failure in production (e.g., service impairment or unplanned outage):
 
 ```text
-median(incident time resolved - incident time created)
+median(incident resolved timestamp - incident created timestamp)
 ```
 
 Pulse uses the maximum value over a period of time to display aggregate median times to recover.
