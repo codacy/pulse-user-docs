@@ -35,32 +35,37 @@ When we aggregate Deployment Frequency we use the average of a period of time.
 
 ## Lead time for changes
 
-How long it takes a commit to get into production on your primary application or service.
+How long it takes a commit to get into production on your primary application or service:
 
-Median of `deployments` time created - `changes` time created.
+```text
+median(deployment time - changes time)
+```
 
-The time of `changes` is when code is actually checked into a repository.
+!!! note
+    The **changes** time is when code is actually checked into a repository.
 
-When we aggregate Lead time for changes we use the maximum of a period of time.
+Pulse uses the maximum value over a period of time to display aggregate lead time for changes.
 
-| Performance level[^1] | Value                        |
+Pulse determines the performance level for this metric as follows:
+
+| Performance level[^1] | Lead time for changes        |
 | --------------------- | ---------------------------- |
-| Low                   | Between 1 month and 6 months |
-| Medium                | Between 1 week and 1 month   |
-| High                  | Between 1 day and 1 week     |
 | Elite                 | Less than 1 day              |
+| High                  | Between 1 day and 1 week     |
+| Medium                | Between 1 week and 1 month   |
+| Low                   | Between 1 month and 6 months |
 
 ## Median time to recover
 
 How long it takes your organization to recover from a failure in production (e.g., service impairment or unplanned outage):
 
-```
+```text
 median(incident time resolved - incident time created)
 ```
 
 Pulse uses the maximum value over a period of time to display aggregate median times to recover.
 
-Pulse determines the performance level for median time to recover as follows:
+Pulse determines the performance level for this metric as follows:
 
 | Performance level[^1] | Median time to recover     |
 | --------------------- | -------------------------- |
@@ -73,7 +78,7 @@ Pulse determines the performance level for median time to recover as follows:
 
 Percentage of deployments causing a failure in production (e.g., service impairment or unplanned outage) and that subsequently require remediation:
 
-```
+```text
 number of deployments that caused incidents / total number of deployments
 ```
 
@@ -84,7 +89,7 @@ Pulse uses the average value over a period of time to display aggregate change f
     
     As such, Pulse considers the **deployment** that caused an **incident** the closest deployment before the start of that **incident**. The same deployment might be responsible for multiple incidents.
 
-Pulse determines the performance level for change failure rate as follows:
+Pulse determines the performance level for this metric as follows:
 
 | Performance level[^1] | Change failure rate  |
 | --------------------- | -------------------- |
