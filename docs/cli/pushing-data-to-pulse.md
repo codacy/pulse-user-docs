@@ -6,8 +6,8 @@ description: Use the Pulse CLI to send information about changes, deployments, a
 
 To measure the performance of your team you must send information to Pulse about the following key events whenever they happen in the software delivery workflow of your primary application or service:
 
--   [Changes and deployments](#changes-and-deployments)
--   [Incidents](#incidents)
+-   Changes and deployments
+-   Incidents
 
 ## Before you begin
 
