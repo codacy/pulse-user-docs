@@ -1,6 +1,11 @@
 # Accelerate metrics
 
-Pulse calculates the four key Accelerate metrics: [deployment frequency](#deployment-frequency), [lead time for changes](#lead-time-for-changes), [median time to recover](#median-time-to-recover), and [change failure rate](#change-failure-rate). These metrics are calculated using strictly `changes`, `deployments` and `incidents` for a rolling window of the last 90 days.
+Pulse calculates the four key Accelerate metrics using strictly **changes**, **deployments**, and **incidents** data for a rolling window of the last 90 days:
+
+-   [Deployment frequency](#deployment-frequency)
+-   [Lead time for changes](#lead-time-for-changes)
+-   [Median time to recover](#median-time-to-recover)
+-   [Change failure rate](#change-failure-rate)
 
 ## Deployment frequency
 
