@@ -16,6 +16,11 @@
     ],
     [
       "lint-code-block-style", "consistent"
+    ],
+    [
+      "lint-no-undefined-references", {
+        "allow": ["^1"]
+      }
     ]
   ]
 }
