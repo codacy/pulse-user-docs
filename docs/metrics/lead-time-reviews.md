@@ -34,19 +34,51 @@ pull request merge timestamp - pull request open timestamp
 
 ## Review metrics
 
-### Time to first/last approve
+The following metrics provide insights into the level of engagement and efficiency of your code review process:
 
-The time it takes to have approves. Once a pull request is opened, how long does it take to have an approve and how long does it take to the last approve?
+-   [Time to first review](#time-to-first-review)
+-   [Time to first approval](#time-to-first-approval)
+-   [Time from first to last approval](#time-from-first-to-last-approval)
+-   [Time from last approval to merge](#time-from-last-approval-to-merge)
+-   [Outlier review details](#outlier-review-details)
 
-These metrics are calculated as the time between the pull request being created and the first and last approves being submitted before the merge of the pull request.
+!!! note
+    Pulse calculates these metrics based on pull request data and:
 
-### Time to first/last review
+    -   Considers that reviews are approvals, change requests, and inline pull request comments, but not pull request conversation comments
+    -   Excludes reviews and approvals that are done after the pull requests are merged.
 
-The time it takes to have reviews. Once a pull request is opened, how long does it take to have a review and how long does it take to the last review?
+### Time to first review
 
-These metrics are calculated as the time between the pull request being created and the first and last reviews being submitted before the merge of the pull request.
+How long does it take to have the first review on a pull request:
 
-Reviews include approves, change requests, and inline pull request comments, but don't include pull request conversation comments.
+```text
+first review timestamp - pull request open timestamp
+```
+
+### Time to first approval
+
+How long does it take to have the first approval on a pull request:
+
+```text
+first approval timestamp - pull request open timestamp
+```
+
+### Time from first to last approval
+
+How long does it take between the first and last approvals on a pull request:
+
+```text
+last approval timestamp - first approval timestamp
+```
+
+### Time from last approval to merge
+
+How long does it take to merge a pull request after the last approval:
+
+```text
+pull request merge timestamp - last approval timestamp
+```
 
 ### Outlier review details
 
