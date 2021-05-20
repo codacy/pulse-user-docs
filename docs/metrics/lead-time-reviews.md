@@ -18,15 +18,19 @@ Pulse aggregates these metrics by week and presents values for the average and t
 
 ### Time to open
 
-An approximation of the time a change takes to be developed. How long does it take for features to be developed?
+An approximation of how long it takes for a change or feature to be developed:
 
-This metric is calculated as the time between the first commit in the pull request's branch and the pull request being created.
+```text
+pull request open timestamp - first commit in pull request branch timestamp
+```
 
 ### Time to merge
 
-The time spent in the code review process. Once a pull request is opened, how long does it take to merge?
+How long does the code review process take for a change or feature:
 
-This metric is calculated as the time between the pull request being created and the pull request being merged.
+```text
+pull request merge timestamp - pull request open timestamp
+```
 
 ## Review metrics
 
