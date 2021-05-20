@@ -34,13 +34,6 @@ pull request merge timestamp - pull request open timestamp
 
 ## Review metrics
 
-| Name     | Description                                                                |
-| -------- | -------------------------------------------------------------------------- |
-| Changes  | Number of lines of code changed in a pull request.                         |
-| Commits  | Number of commits in a pull request, even if the pull request is squashed. |
-| Reviews  | Number of reviews in a pull request.                                       |
-| Comments | Number of comments and review comments in a pull request.                  |
-
 ### Time to first/last approve
 
 The time it takes to have approves. Once a pull request is opened, how long does it take to have an approve and how long does it take to the last approve?
@@ -54,3 +47,14 @@ The time it takes to have reviews. Once a pull request is opened, how long does 
 These metrics are calculated as the time between the pull request being created and the first and last reviews being submitted before the merge of the pull request.
 
 Reviews include approves, change requests, and inline pull request comments, but don't include pull request conversation comments.
+
+### Outlier review details
+
+Pulse displays the following details for each pull request in the chart **Review time explorer**:
+
+| Name           | Description                                                               |
+| -------------- | ------------------------------------------------------------------------- |
+| Time to review | Time to merge a pull request                                              |
+| Changes        | Number of lines of code changed in a pull request                         |
+| Commits        | Number of commits in a pull request, even if the pull request is squashed |
+| Comments       | Number of comments and review comments in a pull request                  |
