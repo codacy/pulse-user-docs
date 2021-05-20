@@ -1,16 +1,20 @@
 # Lead time and review metrics
 
 ## Lead time for changes sub-metrics
-There are several metrics that directly influence **Lead time for changes**, and can help you track in more detail what needs to be improved in your workflow.
-All the sub-metrics are aggregated by an interval (day, week, or month) and have values for the average, median, and percentiles 5%, 20%, 25%, 75%, 80%, 95%.
 
-These metrics are based on pull requests and:
+The following metrics directly influence **Lead time for changes**, and can help you track in more detail what needs to be improved in your workflow:
 
--   Include draft pull requests: the lifetime of a pull request includes the time marked as draft;
--   Exclude open pull requests;
--   Exclude declined pull requests;
--   Exclude pull requests without commits;
--   Exclude push-forced pull requests: where the first commit was authored after the pull request was open.
+-   [Time to open](#time-to-open)
+-   [Time to merge](#time-to-merge)
+
+Pulse aggregates these metrics by week and presents values for the average and the 5%, 25%, 75%, and 95% percentiles.
+
+!!! note
+    Pulse calculates these metrics based on pull request data and:
+
+    -   Includes draft pull requests, meaning that the lifetime of pull requests includes the time marked as draft
+    -   Excludes open and declined pull requests
+    -   Excludes pull requests without commits and force pushed pull requests where the first commit was authored after the pull request was open
 
 ### Time to open
 
