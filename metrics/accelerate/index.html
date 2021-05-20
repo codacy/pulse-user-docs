@@ -458,162 +458,135 @@
 <li><a href="#change-failure-rate">Change failure rate</a></li>
 </ul>
 <h2 id="deployment-frequency">Deployment frequency<a class="headerlink" href="#deployment-frequency" title="Permanent link">&para;</a></h2>
-<p>How often your organization completes a deployment to production or releases code to end-users of your primary application or service.</p>
-<p>The most specific that applies:</p>
-<table>
-<thead>
-<tr>
-<th>Deployment frequency</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>On-demand</td>
-<td>Median of more than one <code>deployments</code> per day (i.e. more than 50% of the days have more than one deployment.)</td>
-</tr>
-<tr>
-<td>Daily</td>
-<td>Median of three or more days with <code>deployments</code> in a calendar week (i.e. more than 50% of weeks have 3 or more days with deployments.)</td>
-</tr>
-<tr>
-<td>Weekly</td>
-<td>Median of one or more <code>deployments</code> in a calendar week (i.e. more than 50% of weeks have at least one deployment.)</td>
-</tr>
-<tr>
-<td>Monthly</td>
-<td>Median of one or more <code>deployments</code> in a calendar month (i.e. more than 50% of months have at least one deployment.)</td>
-</tr>
-<tr>
-<td>Yearly</td>
-<td>None of the above</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The value above is used to determine your Performance level. The numeric value displayed as Deployment Frequency is the number of <code>deployments</code> per day.</p>
-</div>
-<p>When we aggregate Deployment Frequency we use the average of a period of time.</p>
+<p>How often your organization completes a deployment to production or releases code to end-users of your primary application or service:</p>
+<div class="highlight"><pre><span></span><code>number of deployments per day
+</code></pre></div>
+<p>Pulse uses the average value over a period of time to display aggregate deployment frequencies.</p>
+<p>Pulse determines your performance level for this metric as follows:</p>
 <table>
 <thead>
 <tr>
 <th>Performance level<sup id="fnref4:1"><a class="footnote-ref" href="#fn:1">1</a></sup></th>
-<th>Value</th>
+<th>Deployment frequency</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Low</td>
-<td>Monthly or Yearly (Between once per month and once every 6 months)</td>
-</tr>
-<tr>
-<td>Medium</td>
-<td>Weekly (Between once per week and once per month)</td>
+<td>Elite</td>
+<td>More than 50% of days have one or more <strong>deployments</strong></td>
 </tr>
 <tr>
 <td>High</td>
-<td>Daily (Between once per day and once per week)</td>
+<td>More than 50% of weeks have 3 or more days with a <strong>deployment</strong></td>
 </tr>
 <tr>
-<td>Elite</td>
-<td>On-demand (Multiple deployments per day)</td>
+<td>Medium</td>
+<td>More than 50% of weeks have at least one <strong>deployment</strong></td>
+</tr>
+<tr>
+<td>Low</td>
+<td>More than 50% of months have at least one <strong>deployment</strong></td>
 </tr>
 </tbody>
 </table>
 <h2 id="lead-time-for-changes">Lead time for changes<a class="headerlink" href="#lead-time-for-changes" title="Permanent link">&para;</a></h2>
-<p>How long it takes a commit to get into production on your primary application or service.</p>
-<p>Median of <code>deployments</code> time created - <code>changes</code> time created.</p>
-<p>The time of <code>changes</code> is when code is actually checked into a repository.</p>
-<p>When we aggregate Lead time for changes we use the maximum of a period of time.</p>
+<p>How long it takes a commit to get into production on your primary application or service:</p>
+<div class="highlight"><pre><span></span><code>median(deployment timestamp - changes timestamp)
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>changes</strong> timestamp is when code is actually checked into a repository.</p>
+</div>
+<p>Pulse uses the maximum value over a period of time to display aggregate lead time for changes.</p>
+<p>Pulse determines your performance level for this metric as follows:</p>
 <table>
 <thead>
 <tr>
 <th>Performance level<sup id="fnref3:1"><a class="footnote-ref" href="#fn:1">1</a></sup></th>
-<th>Value</th>
+<th>Lead time for changes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Low</td>
-<td>Between 1 month and 6 months</td>
-</tr>
-<tr>
-<td>Medium</td>
-<td>Between 1 week and 1 month</td>
+<td>Elite</td>
+<td>Less than 1 day</td>
 </tr>
 <tr>
 <td>High</td>
 <td>Between 1 day and 1 week</td>
 </tr>
 <tr>
-<td>Elite</td>
-<td>Less than 1 day</td>
+<td>Medium</td>
+<td>Between 1 week and 1 month</td>
+</tr>
+<tr>
+<td>Low</td>
+<td>Between 1 month and 6 months</td>
 </tr>
 </tbody>
 </table>
 <h2 id="median-time-to-recover">Median time to recover<a class="headerlink" href="#median-time-to-recover" title="Permanent link">&para;</a></h2>
-<p>How long it takes your organization to recover from a failure in production (e.g., service impairment or unplanned outage).</p>
-<p>Median of <code>incidents</code> time resolved - <code>incidents</code> time created.</p>
-<p>When we aggregate Median time to recover we use the maximum of a period of time.</p>
+<p>How long it takes your organization to recover from a failure in production (e.g., service impairment or unplanned outage):</p>
+<div class="highlight"><pre><span></span><code>median(incident resolved timestamp - incident created timestamp)
+</code></pre></div>
+<p>Pulse uses the maximum value over a period of time to display aggregate median times to recover.</p>
+<p>Pulse determines your performance level for this metric as follows:</p>
 <table>
 <thead>
 <tr>
 <th>Performance level<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></th>
-<th>Value</th>
+<th>Median time to recover</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>Low</td>
-<td>Between 1 week and 1 month</td>
-</tr>
-<tr>
-<td>Medium</td>
-<td>Less than 1 day</td>
-</tr>
-<tr>
-<td>High</td>
-<td>Less than 1 day</td>
-</tr>
 <tr>
 <td>Elite</td>
 <td>Less than 1 hour</td>
 </tr>
+<tr>
+<td>High</td>
+<td>Less than 1 day</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>Less than 1 day</td>
+</tr>
+<tr>
+<td>Low</td>
+<td>Between 1 week and 1 month</td>
+</tr>
 </tbody>
 </table>
 <h2 id="change-failure-rate">Change failure rate<a class="headerlink" href="#change-failure-rate" title="Permanent link">&para;</a></h2>
-<p>Percentage of deployments causing a failure in production (e.g., service impairment or unplanned outage) and that subsequently require remediation.</p>
-<p>Number of <code>deployments</code> that caused <code>incidents</code> / Number of <code>deployments</code>.</p>
-<p><code>deployments</code> that caused <code>incidents</code> is defined as the closest deployment before the incident start. A deployment might be responsible for multiple incidents.</p>
-<p>When we aggregate Change failure rate we use the average of a period of time.</p>
+<p>Percentage of deployments causing a failure in production (e.g., service impairment or unplanned outage) and that subsequently require remediation:</p>
+<div class="highlight"><pre><span></span><code>number of deployments that caused incidents / total number of deployments
+</code></pre></div>
+<p>Pulse uses the average value over a period of time to display aggregate change failure rates.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>We have opted to avoid requiring a relationship between <code>incidents</code> and <code>deployments</code> or <code>changes</code> to simplify the data model reported.</p>
+<p>We decided to avoid requiring a relationship between <strong>incidents</strong> and <strong>deployments</strong> or <strong>changes</strong> to simplify the data model reported.</p>
+<p>As such, Pulse considers the <strong>deployment</strong> that caused an <strong>incident</strong> the closest deployment before the start of that <strong>incident</strong>. The same deployment might be responsible for multiple incidents.</p>
 </div>
+<p>Pulse determines your performance level for this metric as follows:</p>
 <table>
 <thead>
 <tr>
 <th>Performance level<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></th>
-<th>Value</th>
+<th>Change failure rate</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Low</td>
-<td>46-60%</td>
+<td>Elite</td>
+<td>0-15%</td>
 </tr>
 <tr>
 <td>Medium</td>
-<td>0-15%</td>
+<td>15-46%</td>
 </tr>
 <tr>
-<td>High</td>
-<td>0-15%</td>
-</tr>
-<tr>
-<td>Elite</td>
-<td>0-15%</td>
+<td>Low</td>
+<td>46-100%</td>
 </tr>
 </tbody>
 </table>
