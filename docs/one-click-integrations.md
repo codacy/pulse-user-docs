@@ -7,8 +7,11 @@ Pulse is developing "one-click integrations" for the most popular Git providers,
 Pulse integrates directly with GitHub to receive data about changes and deployments, necessary to calculate the metrics:
 
 -   [Lead time for changes](metrics/accelerate.md#lead-time-for-changes), including the following drill-down metrics:
+
     -   [Lead time for changes sub-metrics](metrics/lead-time-reviews.md#lead-time-for-changes-sub-metrics)
+
     -   [Review metrics](metrics/lead-time-reviews.md#review-metrics)
+
 -   [Deployment frequency](metrics/accelerate.md#deployment-frequency)
 
 ### Setting up the GitHub integration
