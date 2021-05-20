@@ -87,8 +87,7 @@ Pulse determines your performance level for this metric as follows:
 | Performance level[^1] | Change failure rate  |
 | --------------------- | -------------------- |
 | Elite                 | 0-15%                |
-| High                  | 0-15%                |
-| Medium                | 0-15%                |
-| Low                   | 46-60%               |
+| Medium                | 15-46%               |
+| Low                   | 46-100%              |
 
 [^1]: Performance levels are based on the [State of DevOps 2019](https://services.google.com/fh/files/misc/state-of-devops-2019.pdf).
