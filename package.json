@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "remark-cli": "^9.0.0",
+    "remark-frontmatter": "^3.0.0",
     "remark-lint-heading-increment": "^2.0.1",
     "remark-lint-no-multiple-toplevel-headings": "^2.0.1",
     "remark-lint-ordered-list-marker-value": "^2.0.1",
