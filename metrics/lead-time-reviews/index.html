@@ -347,15 +347,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#time-to-firstlast-approve" class="md-nav__link">
-    Time to first/last approve
+  <a href="#time-to-first-review" class="md-nav__link">
+    Time to first review
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#time-to-firstlast-review" class="md-nav__link">
-    Time to first/last review
+  <a href="#time-to-first-approval" class="md-nav__link">
+    Time to first approval
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-from-first-to-last-approval" class="md-nav__link">
+    Time from first to last approval
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-from-last-approval-to-merge" class="md-nav__link">
+    Time from last approval to merge
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outlier-review-details" class="md-nav__link">
+    Outlier review details
   </a>
   
 </li>
@@ -475,23 +496,64 @@
                 
                 <h1 id="lead-time-and-review-metrics">Lead time and review metrics<a class="headerlink" href="#lead-time-and-review-metrics" title="Permanent link">&para;</a></h1>
 <h2 id="lead-time-for-changes-sub-metrics">Lead time for changes sub-metrics<a class="headerlink" href="#lead-time-for-changes-sub-metrics" title="Permanent link">&para;</a></h2>
-<p>There are several metrics that directly influence <strong>Lead time for changes</strong>, and can help you track in more detail what needs to be improved in your workflow.
-All the sub-metrics are aggregated by an interval (day, week, or month) and have values for the average, median, and percentiles 5%, 20%, 25%, 75%, 80%, 95%.</p>
-<p>These metrics are based on pull requests and:</p>
+<p>The following metrics directly influence <strong>Lead time for changes</strong>, and can help you track in more detail what needs to be improved in your workflow:</p>
 <ul>
-<li>Include draft pull requests: the lifetime of a pull request includes the time marked as draft;</li>
-<li>Exclude open pull requests;</li>
-<li>Exclude declined pull requests;</li>
-<li>Exclude pull requests without commits;</li>
-<li>Exclude push-forced pull requests: where the first commit was authored after the pull request was open.</li>
+<li><a href="#time-to-open">Time to open</a></li>
+<li><a href="#time-to-merge">Time to merge</a></li>
 </ul>
+<p>Pulse aggregates these metrics by week and presents values for the average and the 5%, 25%, 75%, and 95% percentiles.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pulse calculates these metrics based on pull request data and:</p>
+<ul>
+<li>Includes draft pull requests, meaning that the lifetime of pull requests includes the time marked as draft</li>
+<li>Excludes open and declined pull requests</li>
+<li>Excludes pull requests without commits and force pushed pull requests where the first commit was authored after the pull request was open</li>
+</ul>
+</div>
 <h3 id="time-to-open">Time to open<a class="headerlink" href="#time-to-open" title="Permanent link">&para;</a></h3>
-<p>An approximation of the time a change takes to be developed. How long does it take for features to be developed?</p>
-<p>This metric is calculated as the time between the first commit in the pull request's branch and the pull request being created.</p>
+<p>An approximation of how long it takes for a change or feature to be developed:</p>
+<div class="highlight"><pre><span></span><code>pull request open timestamp - first commit in pull request branch timestamp
+</code></pre></div>
 <h3 id="time-to-merge">Time to merge<a class="headerlink" href="#time-to-merge" title="Permanent link">&para;</a></h3>
-<p>The time spent in the code review process. Once a pull request is opened, how long does it take to merge?</p>
-<p>This metric is calculated as the time between the pull request being created and the pull request being merged.</p>
+<p>How long does the code review process take for a change or feature:</p>
+<div class="highlight"><pre><span></span><code>pull request merge timestamp - pull request open timestamp
+</code></pre></div>
 <h2 id="review-metrics">Review metrics<a class="headerlink" href="#review-metrics" title="Permanent link">&para;</a></h2>
+<p>The following metrics provide insights into the level of engagement and efficiency of your code review process:</p>
+<ul>
+<li><a href="#time-to-first-review">Time to first review</a></li>
+<li><a href="#time-to-first-approval">Time to first approval</a></li>
+<li><a href="#time-from-first-to-last-approval">Time from first to last approval</a></li>
+<li><a href="#time-from-last-approval-to-merge">Time from last approval to merge</a></li>
+<li><a href="#outlier-review-details">Outlier review details</a></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pulse calculates these metrics based on pull request data and:</p>
+<ul>
+<li>Considers that reviews are approvals, change requests, and inline pull request comments, but not pull request conversation comments</li>
+<li>Excludes reviews and approvals that are done after the pull requests are merged.</li>
+</ul>
+</div>
+<h3 id="time-to-first-review">Time to first review<a class="headerlink" href="#time-to-first-review" title="Permanent link">&para;</a></h3>
+<p>How long does it take to have the first review on a pull request:</p>
+<div class="highlight"><pre><span></span><code>first review timestamp - pull request open timestamp
+</code></pre></div>
+<h3 id="time-to-first-approval">Time to first approval<a class="headerlink" href="#time-to-first-approval" title="Permanent link">&para;</a></h3>
+<p>How long does it take to have the first approval on a pull request:</p>
+<div class="highlight"><pre><span></span><code>first approval timestamp - pull request open timestamp
+</code></pre></div>
+<h3 id="time-from-first-to-last-approval">Time from first to last approval<a class="headerlink" href="#time-from-first-to-last-approval" title="Permanent link">&para;</a></h3>
+<p>How long does it take between the first and last approvals on a pull request:</p>
+<div class="highlight"><pre><span></span><code>last approval timestamp - first approval timestamp
+</code></pre></div>
+<h3 id="time-from-last-approval-to-merge">Time from last approval to merge<a class="headerlink" href="#time-from-last-approval-to-merge" title="Permanent link">&para;</a></h3>
+<p>How long does it take to merge a pull request after the last approval:</p>
+<div class="highlight"><pre><span></span><code>pull request merge timestamp - last approval timestamp
+</code></pre></div>
+<h3 id="outlier-review-details">Outlier review details<a class="headerlink" href="#outlier-review-details" title="Permanent link">&para;</a></h3>
+<p>Pulse displays the following details for each pull request in the chart <strong>Review time explorer</strong>:</p>
 <table>
 <thead>
 <tr>
@@ -501,30 +563,23 @@ All the sub-metrics are aggregated by an interval (day, week, or month) and have
 </thead>
 <tbody>
 <tr>
+<td>Time to review</td>
+<td>Time to merge a pull request</td>
+</tr>
+<tr>
 <td>Changes</td>
-<td>Number of lines of code changed in a pull request.</td>
+<td>Number of lines of code changed in a pull request</td>
 </tr>
 <tr>
 <td>Commits</td>
-<td>Number of commits in a pull request, even if the pull request is squashed.</td>
-</tr>
-<tr>
-<td>Reviews</td>
-<td>Number of reviews in a pull request.</td>
+<td>Number of commits in a pull request, even if the pull request is squashed</td>
 </tr>
 <tr>
 <td>Comments</td>
-<td>Number of comments and review comments in a pull request.</td>
+<td>Number of comments and review comments in a pull request</td>
 </tr>
 </tbody>
 </table>
-<h3 id="time-to-firstlast-approve">Time to first/last approve<a class="headerlink" href="#time-to-firstlast-approve" title="Permanent link">&para;</a></h3>
-<p>The time it takes to have approves. Once a pull request is opened, how long does it take to have an approve and how long does it take to the last approve?</p>
-<p>These metrics are calculated as the time between the pull request being created and the first and last approves being submitted before the merge of the pull request.</p>
-<h3 id="time-to-firstlast-review">Time to first/last review<a class="headerlink" href="#time-to-firstlast-review" title="Permanent link">&para;</a></h3>
-<p>The time it takes to have reviews. Once a pull request is opened, how long does it take to have a review and how long does it take to the last review?</p>
-<p>These metrics are calculated as the time between the pull request being created and the first and last reviews being submitted before the merge of the pull request.</p>
-<p>Reviews include approves, change requests, and inline pull request comments, but don't include pull request conversation comments.</p>
                 
               
               
