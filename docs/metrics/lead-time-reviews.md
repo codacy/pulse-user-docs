@@ -1,48 +1,92 @@
 # Lead time and review metrics
 
 ## Lead time for changes sub-metrics
-There are several metrics that directly influence **Lead time for changes**, and can help you track in more detail what needs to be improved in your workflow.
-All the sub-metrics are aggregated by an interval (day, week, or month) and have values for the average, median, and percentiles 5%, 20%, 25%, 75%, 80%, 95%.
 
-These metrics are based on pull requests and:
+The following metrics directly influence **Lead time for changes**, and can help you track in more detail what needs to be improved in your workflow:
 
--   Include draft pull requests: the lifetime of a pull request includes the time marked as draft;
--   Exclude open pull requests;
--   Exclude declined pull requests;
--   Exclude pull requests without commits;
--   Exclude push-forced pull requests: where the first commit was authored after the pull request was open.
+-   [Time to open](#time-to-open)
+-   [Time to merge](#time-to-merge)
+
+Pulse aggregates these metrics by week and presents values for the average and the 5%, 25%, 75%, and 95% percentiles.
+
+!!! note
+    Pulse calculates these metrics based on pull request data and:
+
+    -   Includes draft pull requests, meaning that the lifetime of pull requests includes the time marked as draft
+    -   Excludes open and declined pull requests
+    -   Excludes pull requests without commits and force pushed pull requests where the first commit was authored after the pull request was open
 
 ### Time to open
 
-An approximation of the time a change takes to be developed. How long does it take for features to be developed?
+An approximation of how long it takes for a change or feature to be developed:
 
-This metric is calculated as the time between the first commit in the pull request's branch and the pull request being created.
+```text
+pull request open timestamp - first commit in pull request branch timestamp
+```
 
 ### Time to merge
 
-The time spent in the code review process. Once a pull request is opened, how long does it take to merge?
+How long does the code review process take for a change or feature:
 
-This metric is calculated as the time between the pull request being created and the pull request being merged.
+```text
+pull request merge timestamp - pull request open timestamp
+```
 
 ## Review metrics
 
-| Name     | Description                                                                |
-| -------- | -------------------------------------------------------------------------- |
-| Changes  | Number of lines of code changed in a pull request.                         |
-| Commits  | Number of commits in a pull request, even if the pull request is squashed. |
-| Reviews  | Number of reviews in a pull request.                                       |
-| Comments | Number of comments and review comments in a pull request.                  |
+The following metrics provide insights into the level of engagement and efficiency of your code review process:
 
-### Time to first/last approve
+-   [Time to first review](#time-to-first-review)
+-   [Time to first approval](#time-to-first-approval)
+-   [Time from first to last approval](#time-from-first-to-last-approval)
+-   [Time from last approval to merge](#time-from-last-approval-to-merge)
+-   [Outlier review details](#outlier-review-details)
 
-The time it takes to have approves. Once a pull request is opened, how long does it take to have an approve and how long does it take to the last approve?
+!!! note
+    Pulse calculates these metrics based on pull request data and:
 
-These metrics are calculated as the time between the pull request being created and the first and last approves being submitted before the merge of the pull request.
+    -   Considers that reviews are approvals, change requests, and inline pull request comments, but not pull request conversation comments
+    -   Excludes reviews and approvals that are done after the pull requests are merged.
 
-### Time to first/last review
+### Time to first review
 
-The time it takes to have reviews. Once a pull request is opened, how long does it take to have a review and how long does it take to the last review?
+How long does it take to have the first review on a pull request:
 
-These metrics are calculated as the time between the pull request being created and the first and last reviews being submitted before the merge of the pull request.
+```text
+first review timestamp - pull request open timestamp
+```
 
-Reviews include approves, change requests, and inline pull request comments, but don't include pull request conversation comments.
+### Time to first approval
+
+How long does it take to have the first approval on a pull request:
+
+```text
+first approval timestamp - pull request open timestamp
+```
+
+### Time from first to last approval
+
+How long does it take between the first and last approvals on a pull request:
+
+```text
+last approval timestamp - first approval timestamp
+```
+
+### Time from last approval to merge
+
+How long does it take to merge a pull request after the last approval:
+
+```text
+pull request merge timestamp - last approval timestamp
+```
+
+### Outlier review details
+
+Pulse displays the following details for each pull request in the chart **Review time explorer**:
+
+| Name           | Description                                                               |
+| -------------- | ------------------------------------------------------------------------- |
+| Time to review | Time to merge a pull request                                              |
+| Changes        | Number of lines of code changed in a pull request                         |
+| Commits        | Number of commits in a pull request, even if the pull request is squashed |
+| Comments       | Number of comments and review comments in a pull request                  |
