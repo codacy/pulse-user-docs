@@ -12,6 +12,8 @@ Pulse integrates directly with GitHub to receive data about changes and deployme
 
     -   [Review metrics](metrics/lead-time-reviews.md#review-metrics)
 
+    -   [Work in progress metrics](metrics/work-in-progress.md)
+
 -   [Deployment frequency](metrics/accelerate.md#deployment-frequency)
 
 ### Setting up the GitHub integration
