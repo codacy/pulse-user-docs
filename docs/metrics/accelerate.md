@@ -41,12 +41,12 @@ Pulse uses the maximum value over a period of time to display aggregate lead tim
 
 Pulse determines your performance level for this metric as follows:
 
-| Performance level[^1] | Lead time for changes        |
-| --------------------- | ---------------------------- |
-| Elite                 | Less than 1 day              |
-| High                  | Between 1 day and 1 week     |
-| Medium                | Between 1 week and 1 month   |
-| Low                   | Between 1 month and 6 months |
+| Performance level[^1] | Lead time for changes         |
+| --------------------- | ----------------------------- |
+| Elite                 | Less than 1 day               |
+| High                  | Between 1 day and 1 week      |
+| Medium                | Between 1 week and 1 month    |
+| Low                   | More than or equal to 1 month |
 
 ## Median time to recover
 
@@ -60,12 +60,11 @@ Pulse uses the maximum value over a period of time to display aggregate median t
 
 Pulse determines your performance level for this metric as follows:
 
-| Performance level[^1] | Median time to recover     |
-| --------------------- | -------------------------- |
-| Elite                 | Less than 1 hour           |
-| High                  | Less than 1 day            |
-| Medium                | Less than 1 day            |
-| Low                   | Between 1 week and 1 month |
+| Performance level[^1] | Median time to recover       |
+| --------------------- | ---------------------------- |
+| Elite                 | Less than 1 hour             |
+| High, Medium [^2]     | Less than 1 day              |
+| Low                   | More than or equal to 1 week |
 
 ## Change failure rate
 
@@ -84,10 +83,10 @@ Pulse uses the average value over a period of time to display aggregate change f
 
 Pulse determines your performance level for this metric as follows:
 
-| Performance level[^1] | Change failure rate  |
-| --------------------- | -------------------- |
-| Elite                 | 0-15%                |
-| Medium                | 15-46%               |
-| Low                   | 46-100%              |
+| Performance level[^1]    | Change failure rate  |
+| ------------------------ | -------------------- |
+| Elite, High, Medium [^2] | 0-15%                |
+| Low                      | 15-100%              |
 
 [^1]: Performance levels are based on the [State of DevOps 2019](https://services.google.com/fh/files/misc/state-of-devops-2019.pdf).
+[^2]: Means are not significantly different based on Tukey's post hoc analysis.
