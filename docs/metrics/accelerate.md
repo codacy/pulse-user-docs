@@ -89,4 +89,4 @@ Pulse determines your performance level for this metric as follows:
 | Low                      | 15-100%              |
 
 [^1]: Performance levels are based on the [State of DevOps 2019](https://services.google.com/fh/files/misc/state-of-devops-2019.pdf).
-[^2]: Means are not significantly different based on Tukey's post hoc analysis.
+[^2]: Means are not significantly different based on Tukey's post hoc analysis ([State of DevOps 2019](https://services.google.com/fh/files/misc/state-of-devops-2019.pdf) pp. 18).
