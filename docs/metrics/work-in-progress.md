@@ -1,5 +1,10 @@
 # Work in progress metrics
 
+Pulse calculates the work in progress metrics based on the status of all pull requests targeting any base branch in your GitHub repositories.
+
+!!! important
+    You must install the [GitHub integration](../one-click-integrations.md#github) for Pulse to calculate the work in progress metrics.
+
 ## Work in progress
 
 To provide you with an high-level view of the current work in progress of your teams, Pulse groups pull requests that are currently open by the following phases:
