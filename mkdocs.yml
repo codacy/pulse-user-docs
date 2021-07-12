@@ -22,7 +22,7 @@ theme:
   icon:
     repo: fontawesome/regular/arrow-alt-circle-right
 
-google_analytics: ["G-B5Q5WTNDMD", "docs.pulse.codacy.com"]
+google_analytics: ["G-E31MPDGETR", "docs.pulse.codacy.com"]
 
 # Extensions
 markdown_extensions:
