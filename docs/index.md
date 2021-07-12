@@ -20,10 +20,12 @@ To add more organizations, click the name of the current organization on the top
 
 ## Sharing access with teammates
 
-To bring more visibility to Pulse's metrics, you can share Pulse's dashboards with your teammates. For that, copy the link in the **Organization members** page and send it to your teammates. (A convenient way is to share it in your team's chat and pinning it.)
+Share the Pulse dashboards with your teammates to bring more visibility to the metrics.
+
+To do this, copy the link on the **Organization members** page and share it with your teammates. A convenient way to do this is to share and pin the link on your team's chat.
 
 ![Inviting teammates to Pulse](images/inviting-members.png)
 
-By doing so, the people you invite will not be required to perform any integration, and after signing up, will immediately have access to all dashboards.
+By doing this, the people you invite will have access to all dashboards immediately after signing up without needing to perform any integration.
 
-The link will remain valid for 3 months and can be refreshed at any moment.
+The link is valid for 3 months, but you can refresh it at any moment.
