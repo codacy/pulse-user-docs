@@ -37,7 +37,7 @@ To set up the GitHub integration:
 
 ### Configuring how Pulse detects deployments {: id="deployment-detection-strategy"}
 
-The Pulse GitHub integration supports two strategies to detect and measure deployments in your repositories:
+Optionally, the Pulse GitHub integration can use one of two strategies to automatically detect and measure deployments in your repositories:
 
 -   **Pull requests merged to default branch** (default strategy)
 
@@ -66,10 +66,7 @@ The Pulse GitHub integration supports two strategies to detect and measure deplo
         -   The first SemVer tag in the repository since there is no previous tag to compare with.
         -   Any tag that does not have a common ancestor (commit) with its previous tag, since Pulse cannot obtain the changes between them.
 
--   **Don't track automatically**
-
-    -   Pulse will not try to infer deployments from any GitHub event.
-    -   Useful if you want to track deployments from another source using the CLI or the API to send deployment events.
+If the automatic deployment detection is turned off, Pulse doesn't detect deployments using GitHub events and you must report deployments using the Pulse CLI or the API. This is useful if none of the automatic deployment detection strategies match your workflow and you must have control over the way Pulse tracks your deployments.
 
 To configure the strategy that Pulse uses to detect deployments:
 
@@ -77,7 +74,7 @@ To configure the strategy that Pulse uses to detect deployments:
 
     Make sure that you have already installed the GitHub App.
 
-1.  Choose the strategy that fits best your workflows.
+1.  Choose the strategy that fits best your workflows, or turn off the automatic deployment detection.
 
     ![Choosing a deployment triggering strategy](images/ghi-strategy.png)
 
