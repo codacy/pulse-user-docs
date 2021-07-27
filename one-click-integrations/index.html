@@ -509,7 +509,7 @@
 </li>
 </ol>
 <h3 id="deployment-detection-strategy">Configuring how Pulse detects deployments<a class="headerlink" href="#deployment-detection-strategy" title="Permanent link">&para;</a></h3>
-<p>The Pulse GitHub integration supports two strategies to detect and measure deployments in your repositories:</p>
+<p>Optionally, the Pulse GitHub integration can use one of two strategies to automatically detect and measure deployments in your repositories:</p>
 <ul>
 <li>
 <p><strong>Pull requests merged to default branch</strong> (default strategy)</p>
@@ -543,6 +543,7 @@
 </ul>
 </li>
 </ul>
+<p>If the automatic deployment detection is turned off, Pulse doesn't detect deployments using GitHub events and you must report deployments using the Pulse CLI or the API. This is useful if none of the automatic deployment detection strategies match your workflow and you must have control over the way Pulse tracks your deployments.</p>
 <p>To configure the strategy that Pulse uses to detect deployments:</p>
 <ol>
 <li>
@@ -550,7 +551,7 @@
 <p>Make sure that you have already installed the GitHub App.</p>
 </li>
 <li>
-<p>Choose the strategy that fits best your workflows.</p>
+<p>Choose the strategy that fits best your workflows, or turn off the automatic deployment detection.</p>
 <p><img alt="Choosing a deployment triggering strategy" src="../images/ghi-strategy.png" /></p>
 </li>
 </ol>
