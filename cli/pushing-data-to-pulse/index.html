@@ -496,11 +496,7 @@
 <p><a href="https://app.pulse.codacy.com/integrations/cli" target="_blank"><strong>Make sure that you have an API key</strong></a> provided by Pulse to identify your organization and authorize you to send data to Pulse.</p>
 </li>
 <li>
-<p>In some scenarios, it may not be feasible to use the CLI to send data to Pulse, such as when reporting changes or incidents, or if you are reporting events from providers that only support webhooks.</p>
-<p>For these situations, you can call an HTTP POST webhook instead. For example:</p>
-<div class="highlight"><pre><span></span><code>https://ingestion.pulse.codacy.com/v1/ingestion/&lt;PROVIDER&gt;?api_key=&lt;API KEY&gt;
-</code></pre></div>
-<p><strong>Please let us know if you're planning on reporting events to Pulse using the webhook</strong> so we can give you more detailed instructions on how to use it.</p>
+<p>In some scenarios, it may not be feasible to use the CLI to send data to Pulse, such as when you have the data inside an application. For these situations, you can <a href="https://ingestion.pulse.codacy.com/v1/api-docs" target="_blank">use the Pulse Ingestion API instead</a>.</p>
 </li>
 </ul>
 <h2 id="changes-and-deployments">Changes and deployments<a class="headerlink" href="#changes-and-deployments" title="Permanent link">&para;</a></h2>
