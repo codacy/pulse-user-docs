@@ -2,10 +2,15 @@
 
 Pulse displays metrics that provide insights into the current and historic performance of your software delivery process. To calculate these metrics, Pulse must collect information from key events of your particular software development workflow.
 
+<!--TODO Include this information about supporting more one-click integrations:
+
+Pulse is developing "one-click integrations" for the most popular Git providers, CI/CD platforms, and incident management tools. These integrations simplify the process of setting up your workflows to send data to Pulse.
+-->
+
 Currently, Pulse provides a push-based integration with your workflow using either "one-click integrations" or the Pulse CLI:
 
--   **[GitHub integration](one-click-integrations.md#github)** (reports changes and deployments)
--   **[PagerDuty integration](one-click-integrations.md#pagerduty)** (reports incidents)
+-   **[GitHub integration](one-click-integrations/github-integration.md)** (reports changes and deployments)
+-   **[PagerDuty integration](one-click-integrations/pagerduty-integration.md)** (reports incidents)
 -   **[Pulse CLI](cli/installing-the-pulse-cli.md)** (reports changes, deployments, and incidents)
 
 We recommend that you use the integrations that match your stack because they're faster to set up.

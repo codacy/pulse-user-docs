@@ -3,7 +3,7 @@
 Pulse calculates the work in progress metrics based on the status of all pull requests targeting any base branch in your GitHub repositories.
 
 !!! important
-    You must install the [GitHub integration](../one-click-integrations.md#github) for Pulse to calculate the work in progress metrics.
+    You must install the [GitHub integration](../one-click-integrations/github-integration.md) for Pulse to calculate the work in progress metrics.
 
 ## Work in progress
 

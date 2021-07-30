@@ -1,22 +1,18 @@
-# One-click integrations
-
-Pulse is developing "one-click integrations" for the most popular Git providers, CI/CD platforms, and incident management tools. These integrations simplify the process of setting up your workflows to send data to Pulse.
-
-## GitHub
+# GitHub integration
 
 Pulse integrates directly with GitHub to receive data about changes and deployments, necessary to calculate the metrics:
 
--   [Lead time for changes](metrics/accelerate.md#lead-time-for-changes), including the following drill-down metrics:
+-   [Lead time for changes](../metrics/accelerate.md#lead-time-for-changes), including the following drill-down metrics:
 
-    -   [Lead time for changes sub-metrics](metrics/lead-time-reviews.md#lead-time-for-changes-sub-metrics)
+    -   [Lead time for changes sub-metrics](../metrics/lead-time-reviews.md#lead-time-for-changes-sub-metrics)
 
-    -   [Review metrics](metrics/lead-time-reviews.md#review-metrics)
+    -   [Review metrics](../metrics/lead-time-reviews.md#review-metrics)
 
-    -   [Work in progress metrics](metrics/work-in-progress.md)
+    -   [Work in progress metrics](../metrics/work-in-progress.md)
 
--   [Deployment frequency](metrics/accelerate.md#deployment-frequency)
+-   [Deployment frequency](../metrics/accelerate.md#deployment-frequency)
 
-### Setting up the GitHub integration
+## Setting up the GitHub integration
 
 To set up the GitHub integration:
 
@@ -35,7 +31,7 @@ To set up the GitHub integration:
 
     If there was an error please [contact support](mailto:pulsesupport@codacy.com).
 
-### Configuring how Pulse detects deployments {: id="deployment-detection-strategy"}
+## Configuring how Pulse detects deployments {: id="deployment-detection-strategy"}
 
 Optionally, the Pulse GitHub integration can use one of two strategies to automatically detect and measure deployments in your repositories:
 
@@ -77,23 +73,3 @@ To configure the strategy that Pulse uses to detect deployments:
 1.  Choose the strategy that fits best your workflows, or turn off the automatic deployment detection.
 
     ![Choosing a deployment triggering strategy](images/ghi-strategy.png)
-
-
-## PagerDuty
-
-Pulse integrates directly with PagerDuty to receive data about incidents, necessary to calculate the metrics [Median time to recover](metrics/accelerate.md#median-time-to-recover) and [Change failure rate](metrics/accelerate.md#change-failure-rate).
-
-To set up the PagerDuty integration:
-
-1.  On Pulse, [expand **Integrations** and select **PagerDuty**](https://app.pulse.codacy.com/integrations/pagerduty){: target="_blank"}.
-
-    ![PagerDuty integration](images/pagerduty.png)
-
-1.  Fill in the necessary details:
-
-    -   **PagerDuty subdomain:** Your custom PagerDuty subdomain. For example, `mysubdomain` if you use the URL `https://mysubdomain.pagerduty.com` to access PagerDuty.
-    -   **Pulse system name:** Name of the [system](https://docs.pulse.codacy.com/#before-you-begin) to associate with the incidents reported by this integration.
-
-1.  Follow the instructions on the Pulse UI to create a new webhook on PagerDuty using the provided URL. For example:
-
-    ![PagerDuty webhook](images/pagerduty-webhook.png)
