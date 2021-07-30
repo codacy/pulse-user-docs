@@ -1,0 +1,9 @@
+Page,Meta description
+https://docs.pulse.codacy.com/,"Pulse displays metrics that provide insights into the current and historic performance of your software delivery process. To calculate these metrics, Pulse must collect information from key events of your particular software development workflow."
+https://docs.pulse.codacy.com/one-click-integrations/,"Pulse is developing ""one-click integrations"" for the most popular Git providers, CI/CD platforms, and incident management tools. These integrations simplify the process of setting up your workflows to send data to Pulse."
+https://docs.pulse.codacy.com/cli/examples/,This page includes examples of scripts that we used to quickly populate our own Pulse dashboard with historical data.
+https://docs.pulse.codacy.com/cli/installing-the-pulse-cli/,Download the latest version of the Pulse CLI for your operating system and make sure that you're able to run the binary.
+https://docs.pulse.codacy.com/cli/pushing-data-to-pulse/,"Use the Pulse CLI to send information about changes, deployments, and incidents whenever they happen in the software delivery workflow of your primary application or service."
+https://docs.pulse.codacy.com/metrics/accelerate/,"Pulse calculates the four key Accelerate metrics using strictly changes, deployments, and incidents data for a rolling window of the last 90 days:"
+https://docs.pulse.codacy.com/metrics/lead-time-reviews/,Lead time for changes and review metrics provide an extra level of detail about the performance of your team workflows.
+https://docs.pulse.codacy.com/metrics/work-in-progress/,Pulse calculates the work in progress metrics based on the status of all pull requests targeting any base branch in your GitHub repositories.
