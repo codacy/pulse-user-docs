@@ -1,5 +1,7 @@
 # Lead time and review metrics
 
+Lead time for changes and review metrics provide an extra level of detail about the performance of your team workflows.
+
 ## Lead time for changes sub-metrics
 
 The following metrics directly influence **Lead time for changes**, and can help you track in more detail what needs to be improved in your workflow:

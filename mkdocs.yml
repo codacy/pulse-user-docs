@@ -43,7 +43,8 @@ markdown_extensions:
 # Plugins
 plugins:
     - search
-    - meta-descriptions
+    - meta-descriptions:
+          export_csv: true
 
 nav:
   - index.md
