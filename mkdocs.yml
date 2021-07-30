@@ -48,12 +48,12 @@ plugins:
 
 nav:
   - index.md
-  - "Calculated metrics":
-    - metrics/accelerate.md
-    - metrics/lead-time-reviews.md
-    - metrics/work-in-progress.md
   - one-click-integrations.md
   - "Pulse CLI":
     - cli/installing-the-pulse-cli.md
     - cli/pushing-data-to-pulse.md
     - cli/examples.md
+  - "Calculated metrics":
+    - metrics/accelerate.md
+    - metrics/lead-time-reviews.md
+    - metrics/work-in-progress.md
