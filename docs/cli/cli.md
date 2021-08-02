@@ -20,9 +20,6 @@ To push information about these key events to Pulse using the CLI you must compl
 
     Push information about incidents when they're solved.
 
-!!! note
-    In some scenarios it may not be feasible to use the CLI to send data to Pulse, such as when you have the data inside an application. For these situations, you can [use the Pulse Ingestion API instead](https://ingestion.pulse.codacy.com/v1/api-docs){: target="_blank"}.
-
 ## Before you begin
 
 Consider the following before setting up the integration using the Pulse CLI:
