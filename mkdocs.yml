@@ -54,6 +54,7 @@ nav:
   - "Pulse CLI":
     - cli/cli.md
     - cli/examples.md
+  - "Pulse Ingestion API": https://ingestion.pulse.codacy.com/v1/api-docs
   - "Calculated metrics":
     - metrics/accelerate.md
     - metrics/lead-time-reviews.md
