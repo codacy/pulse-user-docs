@@ -11,7 +11,7 @@ Currently, Pulse provides a push-based integration with your workflow using eith
 
 -   **[GitHub integration](one-click-integrations/github-integration.md)** (reports changes and deployments)
 -   **[PagerDuty integration](one-click-integrations/pagerduty-integration.md)** (reports incidents)
--   **[Pulse CLI](cli/installing-the-pulse-cli.md)** (reports changes, deployments, and incidents)
+-   **[Pulse CLI](cli/cli.md)** (reports changes, deployments, and incidents)
 
 We recommend that you use the integrations that match your stack because they're faster to set up.
 

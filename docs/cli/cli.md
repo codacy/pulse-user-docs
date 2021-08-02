@@ -2,16 +2,32 @@
 description: Use the Pulse CLI to send information about changes, deployments, and incidents whenever they happen in the software delivery workflow of your primary application or service.
 ---
 
-# Pushing data to Pulse
+# Using the Pulse CLI
 
-To measure the performance of your team you must send information to Pulse about the following key events whenever they happen in the software delivery workflow of your primary application or service:
+To measure the performance of your team you must send information to Pulse about changes, deployments, and incidents whenever they happen in the software delivery workflow of your primary application or service.
 
--   Changes and deployments
--   Incidents
+To push information about these key events to Pulse using the CLI you must complete these main steps:
+
+1.  **Installing the Pulse CLI**
+
+    Download and set up the latest version of the Pulse CLI binary.
+
+1.  **Pushing changes and deployments**
+
+    Push information about changes and deployments when they happen on your software delivery workflow.
+
+1.  **Pushing incidents**
+
+    Push information about incidents when they're solved.
+
+!!! note
+    In some scenarios it may not be feasible to use the CLI to send data to Pulse, such as when you have the data inside an application. For these situations, you can [use the Pulse Ingestion API instead](https://ingestion.pulse.codacy.com/v1/api-docs){: target="_blank"}.
 
 ## Before you begin
 
 Consider the following before setting up the integration using the Pulse CLI:
+
+-   [**Make sure that you have an API key**](https://app.pulse.codacy.com/integrations/cli){: target="_blank"} provided by Pulse to identify your organization and authorize you to send data to Pulse.
 
 -   When reporting events to Pulse you should use the field `system` to associate each event with the **most granular unit** that you will use to filter data on the Pulse dashboards, such as by application or service, product, team, or any other entity or group of entities in your organization.
 
@@ -22,11 +38,63 @@ Consider the following before setting up the integration using the Pulse CLI:
 
     Although the field `system` is optional, if you don't report this information you won't be able to filter the data on the Pulse dashboards.
 
--   [**Make sure that you have an API key**](https://app.pulse.codacy.com/integrations/cli){: target="_blank"} provided by Pulse to identify your organization and authorize you to send data to Pulse.
+## 1. Installing the Pulse CLI
 
--   In some scenarios, it may not be feasible to use the CLI to send data to Pulse, such as when you have the data inside an application. For these situations, you can [use the Pulse Ingestion API instead](https://ingestion.pulse.codacy.com/v1/api-docs){: target="_blank"}.
+Download the latest version of the Pulse CLI for your operating system and make sure that you're able to run the binary.
 
-## Changes and deployments
+1.  Take note of the latest version of the CLI:
+
+    ![Latest version](https://img.shields.io/github/v/release/codacy/pulse-event-cli?sort=semver)
+
+1.  Run the command to download the correct binary for your operating system, changing `<VERSION>` to the latest version obtained on the previous step:
+
+    === "Linux"
+        On 32-bit operating systems:
+
+        ```sh
+        curl -fsSL -o pulse-event-cli https://artifacts.codacy.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_386/pulse-event-cli && \
+        chmod +x pulse-event-cli
+        ```
+
+        On 64-bit operating systems:
+    
+        ```sh
+        curl -fsSL -o pulse-event-cli https://artifacts.codacy.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_amd64/pulse-event-cli && \
+        chmod +x pulse-event-cli
+        ```
+
+    === "macOS"
+        ```sh
+        curl -fsSL -o pulse-event-cli https://artifacts.codacy.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_darwin_amd64/pulse-event-cli && \
+        chmod +x pulse-event-cli
+        ```
+
+    === "Windows"
+        On 32-bit operating systems:
+
+        ```
+        curl -fsSL -o pulse-event-cli.exe https://artifacts.codacy.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_386/pulse-event-cli.exe
+        ```
+    
+        On 64-bit operating systems:
+
+        ```
+        curl -fsSL -o pulse-event-cli.exe https://artifacts.codacy.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_amd64/pulse-event-cli.exe
+        ```
+
+1.  Test if you can run the CLI:
+
+    === "Linux and macOS"
+        ```sh
+        ./pulse-event-cli help
+        ```
+
+    === "Windows"
+        ```sh
+        pulse-event-cli.exe help
+        ```
+
+## 2. Pushing changes and deployments
 
 Report an event to Pulse whenever your team deploys code to production, including the list of code changes included in that deployment:
 
@@ -139,7 +207,7 @@ If you don't use Git or prefer to have more fine-grained control over the inform
             <space-separated list of commit identifiers>
         ```
 
-## Incidents
+## 3. Pushing incidents
 
 Report an event to Pulse whenever an incident resulting from a release or infrastructure configuration change to production is solved. Incidents are any form of degraded service that require remediation:
 

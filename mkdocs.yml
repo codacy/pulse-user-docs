@@ -52,8 +52,7 @@ nav:
     - one-click-integrations/github-integration.md
     - one-click-integrations/pagerduty-integration.md 
   - "Pulse CLI":
-    - cli/installing-the-pulse-cli.md
-    - cli/pushing-data-to-pulse.md
+    - cli/cli.md
     - cli/examples.md
   - "Calculated metrics":
     - metrics/accelerate.md
