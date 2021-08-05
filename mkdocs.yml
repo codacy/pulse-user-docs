@@ -48,12 +48,14 @@ plugins:
 
 nav:
   - index.md
+  - "One-click integrations":
+    - one-click-integrations/github-integration.md
+    - one-click-integrations/pagerduty-integration.md 
+  - "Pulse CLI":
+    - cli/cli.md
+    - cli/examples.md
+  - "Pulse Ingestion API": https://ingestion.pulse.codacy.com/v1/api-docs
   - "Calculated metrics":
     - metrics/accelerate.md
     - metrics/lead-time-reviews.md
     - metrics/work-in-progress.md
-  - one-click-integrations.md
-  - "Pulse CLI":
-    - cli/installing-the-pulse-cli.md
-    - cli/pushing-data-to-pulse.md
-    - cli/examples.md
