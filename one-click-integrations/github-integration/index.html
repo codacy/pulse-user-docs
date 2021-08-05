@@ -6,26 +6,26 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Pulse is developing &quot;one-click integrations&quot; for the most popular Git providers, CI/CD platforms, and incident management tools. These integrations simplify the process of setting up your workflows to send data to Pulse.">
+        <meta name="description" content="Pulse integrates directly with GitHub to receive data about changes and deployments, necessary to calculate the metrics:">
       
       
       
       
-        <link rel="canonical" href="https://docs.pulse.codacy.com/one-click-integrations/">
+        <link rel="canonical" href="https://docs.pulse.codacy.com/one-click-integrations/github-integration/">
       
-      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.0.5">
     
     
       
-        <title>One-click integrations - Pulse documentation</title>
+        <title>GitHub integration - Pulse documentation</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.77f3fd56.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.77f3fd56.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.7fa14f5b.min.css">
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.7fa14f5b.min.css">
         
           
           
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#one-click-integrations" class="md-skip">
+        <a href="#github-integration" class="md-skip">
           Skip to content
         </a>
       
@@ -107,7 +107,7 @@
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="https://docs.pulse.codacy.com/" title="Pulse documentation" class="md-header__button md-logo" aria-label="Pulse documentation">
       
-  <img src="../assets/pulse-logo.png" alt="logo">
+  <img src="../../assets/pulse-logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              One-click integrations
+              GitHub integration
             
           </span>
         </div>
@@ -204,7 +204,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="https://docs.pulse.codacy.com/" title="Pulse documentation" class="md-nav__button md-logo" aria-label="Pulse documentation">
       
-  <img src="../assets/pulse-logo.png" alt="logo">
+  <img src="../../assets/pulse-logo.png" alt="logo">
 
     </a>
     Pulse documentation
@@ -233,8 +233,8 @@
   
   
     <li class="md-nav__item">
-      <a href=".." class="md-nav__link">
-        Integrating with Pulse
+      <a href="../.." class="md-nav__link">
+        Getting started with Pulse
       </a>
     </li>
   
@@ -246,32 +246,79 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
       
       <label class="md-nav__link" for="__nav_2">
-        Calculated metrics
+        One-click integrations
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Calculated metrics" data-md-level="1">
+      <nav class="md-nav" aria-label="One-click integrations" data-md-level="1">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
-          Calculated metrics
+          One-click integrations
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../metrics/accelerate/" class="md-nav__link">
-        Accelerate metrics
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          GitHub integration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        GitHub integration
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-the-github-integration" class="md-nav__link">
+    Setting up the GitHub integration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deployment-detection-strategy" class="md-nav__link">
+    Configuring how Pulse detects deployments
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -281,20 +328,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../metrics/lead-time-reviews/" class="md-nav__link">
-        Lead time and review metrics
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../metrics/work-in-progress/" class="md-nav__link">
-        Work in progress metrics
+      <a href="../pagerduty-integration/" class="md-nav__link">
+        PagerDuty integration
       </a>
     </li>
   
@@ -312,76 +347,65 @@
 
   
   
+  
     
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-        
+    <li class="md-nav__item md-nav__item--nested">
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          One-click integrations
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        Pulse CLI
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Pulse CLI" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
+          Pulse CLI
         </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        One-click integrations
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cli/cli/" class="md-nav__link">
+        Using the Pulse CLI
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+    </li>
+  
+
+          
+            
   
   
+  
+    <li class="md-nav__item">
+      <a href="../../cli/examples/" class="md-nav__link">
+        Integration examples
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
     
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
-        <li class="md-nav__item">
-  <a href="#github" class="md-nav__link">
-    GitHub
-  </a>
-  
-    <nav class="md-nav" aria-label="GitHub">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#setting-up-the-github-integration" class="md-nav__link">
-    Setting up the GitHub integration
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#deployment-detection-strategy" class="md-nav__link">
-    Configuring how Pulse detects deployments
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
-        <li class="md-nav__item">
-  <a href="#pagerduty" class="md-nav__link">
-    PagerDuty
-  </a>
-  
-</li>
       
-    </ul>
+
   
-</nav>
-      
+  
+  
+    <li class="md-nav__item">
+      <a href="https://ingestion.pulse.codacy.com/v1/api-docs" class="md-nav__link">
+        Pulse Ingestion API
+      </a>
     </li>
   
 
@@ -397,16 +421,16 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
       
-      <label class="md-nav__link" for="__nav_4">
-        Pulse CLI
+      <label class="md-nav__link" for="__nav_5">
+        Calculated metrics
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="Pulse CLI" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
+      <nav class="md-nav" aria-label="Calculated metrics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
           <span class="md-nav__icon md-icon"></span>
-          Pulse CLI
+          Calculated metrics
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -415,8 +439,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../cli/installing-the-pulse-cli/" class="md-nav__link">
-        Installing the Pulse CLI
+      <a href="../../metrics/accelerate/" class="md-nav__link">
+        Accelerate metrics
       </a>
     </li>
   
@@ -427,8 +451,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../cli/pushing-data-to-pulse/" class="md-nav__link">
-        Pushing data to Pulse
+      <a href="../../metrics/lead-time-reviews/" class="md-nav__link">
+        Lead time and review metrics
       </a>
     </li>
   
@@ -439,8 +463,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../cli/examples/" class="md-nav__link">
-        Examples
+      <a href="../../metrics/work-in-progress/" class="md-nav__link">
+        Work in progress metrics
       </a>
     </li>
   
@@ -465,30 +489,28 @@
               
                 
                 
-                <h1 id="one-click-integrations">One-click integrations<a class="headerlink" href="#one-click-integrations" title="Permanent link">&para;</a></h1>
-<p>Pulse is developing "one-click integrations" for the most popular Git providers, CI/CD platforms, and incident management tools. These integrations simplify the process of setting up your workflows to send data to Pulse.</p>
-<h2 id="github">GitHub<a class="headerlink" href="#github" title="Permanent link">&para;</a></h2>
+                <h1 id="github-integration">GitHub integration<a class="headerlink" href="#github-integration" title="Permanent link">&para;</a></h1>
 <p>Pulse integrates directly with GitHub to receive data about changes and deployments, necessary to calculate the metrics:</p>
 <ul>
 <li>
-<p><a href="../metrics/accelerate/#lead-time-for-changes">Lead time for changes</a>, including the following drill-down metrics:</p>
+<p><a href="../../metrics/accelerate/#lead-time-for-changes">Lead time for changes</a>, including the following drill-down metrics:</p>
 <ul>
 <li>
-<p><a href="../metrics/lead-time-reviews/#lead-time-for-changes-sub-metrics">Lead time for changes sub-metrics</a></p>
+<p><a href="../../metrics/lead-time-reviews/#lead-time-for-changes-sub-metrics">Lead time for changes sub-metrics</a></p>
 </li>
 <li>
-<p><a href="../metrics/lead-time-reviews/#review-metrics">Review metrics</a></p>
+<p><a href="../../metrics/lead-time-reviews/#review-metrics">Review metrics</a></p>
 </li>
 <li>
-<p><a href="../metrics/work-in-progress/">Work in progress metrics</a></p>
+<p><a href="../../metrics/work-in-progress/">Work in progress metrics</a></p>
 </li>
 </ul>
 </li>
 <li>
-<p><a href="../metrics/accelerate/#deployment-frequency">Deployment frequency</a></p>
+<p><a href="../../metrics/accelerate/#deployment-frequency">Deployment frequency</a></p>
 </li>
 </ul>
-<h3 id="setting-up-the-github-integration">Setting up the GitHub integration<a class="headerlink" href="#setting-up-the-github-integration" title="Permanent link">&para;</a></h3>
+<h2 id="setting-up-the-github-integration">Setting up the GitHub integration<a class="headerlink" href="#setting-up-the-github-integration" title="Permanent link">&para;</a></h2>
 <p>To set up the GitHub integration:</p>
 <ol>
 <li>
@@ -508,7 +530,7 @@
 <p>If there was an error please <a href="mailto:pulsesupport@codacy.com">contact support</a>.</p>
 </li>
 </ol>
-<h3 id="deployment-detection-strategy">Configuring how Pulse detects deployments<a class="headerlink" href="#deployment-detection-strategy" title="Permanent link">&para;</a></h3>
+<h2 id="deployment-detection-strategy">Configuring how Pulse detects deployments<a class="headerlink" href="#deployment-detection-strategy" title="Permanent link">&para;</a></h2>
 <p>Optionally, the Pulse GitHub integration can use one of two strategies to automatically detect and measure deployments in your repositories:</p>
 <ul>
 <li>
@@ -555,26 +577,6 @@
 <p><img alt="Choosing a deployment triggering strategy" src="../images/ghi-strategy.png" /></p>
 </li>
 </ol>
-<h2 id="pagerduty">PagerDuty<a class="headerlink" href="#pagerduty" title="Permanent link">&para;</a></h2>
-<p>Pulse integrates directly with PagerDuty to receive data about incidents, necessary to calculate the metrics <a href="../metrics/accelerate/#median-time-to-recover">Median time to recover</a> and <a href="../metrics/accelerate/#change-failure-rate">Change failure rate</a>.</p>
-<p>To set up the PagerDuty integration:</p>
-<ol>
-<li>
-<p>On Pulse, <a href="https://app.pulse.codacy.com/integrations/pagerduty" target="_blank">expand <strong>Integrations</strong> and select <strong>PagerDuty</strong></a>.</p>
-<p><img alt="PagerDuty integration" src="../images/pagerduty.png" /></p>
-</li>
-<li>
-<p>Fill in the necessary details:</p>
-<ul>
-<li><strong>PagerDuty subdomain:</strong> Your custom PagerDuty subdomain. For example, <code>mysubdomain</code> if you use the URL <code>https://mysubdomain.pagerduty.com</code> to access PagerDuty.</li>
-<li><strong>Pulse system name:</strong> Name of the <a href="https://docs.pulse.codacy.com/#before-you-begin">system</a> to associate with the incidents reported by this integration.</li>
-</ul>
-</li>
-<li>
-<p>Follow the instructions on the Pulse UI to create a new webhook on PagerDuty using the provided URL. For example:</p>
-<p><img alt="PagerDuty webhook" src="../images/pagerduty-webhook.png" /></p>
-</li>
-</ol>
                 
                   
                 
@@ -594,7 +596,7 @@
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../metrics/work-in-progress/" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../.." class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -603,19 +605,19 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Work in progress metrics
+              Getting started with Pulse
             </div>
           </div>
         </a>
       
       
-        <a href="../cli/installing-the-pulse-cli/" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="../pagerduty-integration/" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Installing the Pulse CLI
+              PagerDuty integration
             </div>
           </div>
           <div class="md-footer__button md-icon">
@@ -644,10 +646,10 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.instant", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.fb4a9340.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.5cf3e710.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5cf3e710.min.js"></script>
       
     
   </body>
