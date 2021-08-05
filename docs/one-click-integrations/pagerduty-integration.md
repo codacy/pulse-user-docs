@@ -19,11 +19,11 @@ To set up the PagerDuty integration:
 
 ## Collected data
 
-After being configured, the PagerDuty integration will push data an it will be converted to [Pulse's data model](https://ingestion.pulse.codacy.com/v1/api-docs#tocs_event) to calculate the metrics shown on the UI. In the following table you can see how data from PagerDuty is used to calculate each of the metrics:
+After being configured, the integration, PagerDuty will push data and it will be converted into [Pulse's data model](https://ingestion.pulse.codacy.com/v1/api-docs#tocs_event) to calculate the metrics shown on the UI. In the following table you can see how data from PagerDuty is used to calculate each of the metrics:
 
-| Pulse Event | Source  | Fields                                              | Used in                                          |
-| ----------- | ------- | --------------------------------------------------- | ------------------------------------------------ |
-| Incident    | Commits | identifier → ???                                    | [Accelerate dashboard](../metrics/accelerate.md) |
-|             |         | timestampCreated → ???                              |                                                  |
-|             |         | timestampResolved → ???                             |                                                  |
-|             |         | system → *defined during the configuration process* |                                                  |
+| Pulse Event | Source     | Fields                                              | Used in                                          |
+| ---------------- | ------------- | --------------------------------------------------- | ------------------------------------------------ |
+| Incident       | pagerduty | identifier → id                                    | [Accelerate dashboard](../metrics/accelerate.md) |
+|                    |                  | timestampCreated → created_at                              |                                                  |
+|                    |                  | timestampResolved → last_status_change_at                             |                                                  |
+|                                       |         | system → *defined during the configuration process* |                                                  |
