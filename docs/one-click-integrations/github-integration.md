@@ -73,3 +73,19 @@ To configure the strategy that Pulse uses to detect deployments:
 1.  Choose the strategy that fits best your workflows, or turn off the automatic deployment detection.
 
     ![Choosing a deployment triggering strategy](images/ghi-strategy.png)
+
+## Collected data
+
+After being configured, the GitHub integration will collect data from your organization and convert it to [Pulse's data model](https://ingestion.pulse.codacy.com/v1/api-docs#tocs_event) to calculate the metrics shown on the UI. In the following table you can see how data from GitHub is used to calculate each of the metrics:
+
+| Pulse Event | Source                                                                            | Fields                               | Used in                                                                                                                          |
+| ----------- | --------------------------------------------------------------------------------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| Changes     | Commits                                                                           | identifier → commit uuid             | [Accelerate dashboard](../metrics/accelerate.md)                                                                                 |
+|             |                                                                                   | timestamp → commit author date[^1]   |                                                                                                                                  |
+|             |                                                                                   | system → repository name             |                                                                                                                                  |
+| Deployments | Pull requests, git tags, or none ([configurable](#deployment-detection-strategy)) | identifier → pull request id         | [Accelerate dashboard](../metrics/accelerate.md)                                                                                 |
+|             |                                                                                   | timestamp → pull request merged date |                                                                                                                                  |
+|             |                                                                                   | system → repository name             |                                                                                                                                  |
+| Reviews     | Pull requests                                                                     |                                      | [Lead time and reviews dashboard](../metrics/lead-time-reviews.md), [Work in progress dashboard](../metrics/work-in-progress.md) |
+
+[^1]: Pulse uses the commit author's date since it is the more realistic one, due to the commit date usually representing the push and not an actual code change.

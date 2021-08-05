@@ -16,3 +16,14 @@ To set up the PagerDuty integration:
 1.  Follow the instructions on the Pulse UI to create a new webhook on PagerDuty using the provided URL. For example:
 
     ![PagerDuty webhook](images/pagerduty-webhook.png)
+
+## Collected data
+
+After being configured, the PagerDuty integration will push data an it will be converted to [Pulse's data model](https://ingestion.pulse.codacy.com/v1/api-docs#tocs_event) to calculate the metrics shown on the UI. In the following table you can see how data from PagerDuty is used to calculate each of the metrics:
+
+| Pulse Event | Source  | Fields                                              | Used in                                          |
+| ----------- | ------- | --------------------------------------------------- | ------------------------------------------------ |
+| Incident    | Commits | identifier → ???                                    | [Accelerate dashboard](../metrics/accelerate.md) |
+|             |         | timestampCreated → ???                              |                                                  |
+|             |         | timestampResolved → ???                             |                                                  |
+|             |         | system → *defined during the configuration process* |                                                  |
