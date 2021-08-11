@@ -40,9 +40,9 @@ The table below lists the data that the PagerDuty integration collects from your
     <td>
         <p>Incident:</p>
         <ul>
-            <li><code>identifier</code>: id</li>
-            <li><code>timestamp_created</code>: created_at</li>
-            <li><code>timestamp_resolved</code>: last_status_change_at</li>
+            <li><code>identifier</code>: <code>id</code> (incident ID)</li>
+            <li><code>timestamp_created</code>: <code>created_at</code> (date when the incident was first triggered)</li>
+            <li><code>timestamp_resolved</code>: <code>last_status_change_at</code> (date of the last status change of the incident)</li>
             <li><code>system</code>: <i>defined during the configuration process</i></li>
         </ul>
     </td>
