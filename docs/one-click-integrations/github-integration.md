@@ -100,7 +100,7 @@ The table below lists the data that the GitHub integration collects from your Gi
             <li><code>system</code>: repository name</li>
         </ul>
     </td>
-    <td>Lead time for changes on the <a href="../metrics/accelerate/">Accelerate dashboard</a></td>
+    <td>Lead time for changes on the <a href="../../metrics/accelerate/">Accelerate dashboard</a></td>
 </tr>
 <tr>
     <td>Pull requests, git tags, or none (<a href="#deployment-detection-strategy">configurable</a>)</td>
@@ -111,14 +111,14 @@ The table below lists the data that the GitHub integration collects from your Gi
             <li><code>system</code>: repository name</li>
         </ul>
     </td>
-    <td>Deployment frequency and Change failure rate on the <a href="../metrics/accelerate/">Accelerate dashboard</a></td>
+    <td>Deployment frequency and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate dashboard</a></td>
 </tr>
 <tr>
     <td>Pull requests</td>
     <td>
         -
     </td>
-    <td><a href="../metrics/lead-time-reviews/">Lead time and reviews dashboard</a>,<br/><a href="../metrics/work-in-progress/">Work in progress dashboard</a></td>
+    <td><a href="../../metrics/lead-time-reviews/">Lead time and reviews dashboard</a>,<br/><a href="../../metrics/work-in-progress/">Work in progress dashboard</a></td>
 </tr>
 </table>
 
