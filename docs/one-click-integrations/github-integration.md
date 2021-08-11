@@ -76,15 +76,50 @@ To configure the strategy that Pulse uses to detect deployments:
 
 ## Collected data
 
-After being configured, the GitHub integration will collect data from your organization and convert it to [Pulse's data model](https://ingestion.pulse.codacy.com/v1/api-docs#tocs_event) to calculate the metrics shown on the UI. In the following table you can see how data from GitHub is used to calculate each of the metrics:
+The table below lists the data that the GitHub integration collects from your GitHub organization, together with:
 
-| Pulse Event | Source                                                                            | Fields                               | Used in                                                                                                                          |
-| ----------- | --------------------------------------------------------------------------------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------- |
-| Changes     | Pull request commits                                                              | identifier → commit uuid              | [Accelerate dashboard](../metrics/accelerate.md)                                                                                 |
-|             |                                                                                   | timestamp → commit author date[^1]   |                                                                                                                                  |
-|             |                                                                                   | system → repository name             |                                                                                                                                  |
-| Deployments | Pull requests, git tags, or none ([configurable](#deployment-detection-strategy))  | identifier → pull request id          | [Accelerate dashboard](../metrics/accelerate.md)                                                                                 |
-|             |                                                                                   | system → repository name             |                                                                                                                                  |
-| Reviews     | Pull requests                                                                     |                                      | [Lead time and reviews dashboard](../metrics/lead-time-reviews.md), [Work in progress dashboard](../metrics/work-in-progress.md) |
+-   The mapping between the data collected from GitHub and the [Pulse data model](https://ingestion.pulse.codacy.com/v1/api-docs#tocs_event)
+-   The metrics that Pulse calculates from the data to display on the dashboards
 
-[^1]: Pulse uses the commit author's date since it is more accurate. The committer date can be changed (e.g.: rebases) which does not reflect the real origin of the change.
+<table>
+<thead>
+<tr>
+<th><strong>Data collected from GitHub</strong></th>
+<th><strong>Mapping to Pulse data model</strong></th>
+<th><strong>Used in</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>Pull request commits</td>
+    <td>
+        <p>Changes:</p>
+        <ul>
+            <li><code>change_id</code>: commit UUID</li>
+            <li><code>time_created</code>: commit author date<sup><a href="#commit-author-date">1</a></sup></li>
+            <li><code>system</code>: repository name</li>
+        </ul>
+    </td>
+    <td>Lead time for changes on the <a href="../metrics/accelerate/">Accelerate dashboard</a></td>
+</tr>
+<tr>
+    <td>Pull requests, git tags, or none (<a href="#deployment-detection-strategy">configurable</a>)</td>
+    <td>
+        <p>Deployments:</p>
+        <ul>
+            <li><code>deploy_id</code>: pull request ID</li>
+            <li><code>system</code>: repository name</li>
+        </ul>
+    </td>
+    <td>Deployment frequency and Change failure rate on the <a href="../metrics/accelerate/">Accelerate dashboard</a></td>
+</tr>
+<tr>
+    <td>Pull requests</td>
+    <td>
+        -
+    </td>
+    <td><a href="../metrics/lead-time-reviews/">Lead time and reviews dashboard</a>,<br/><a href="../metrics/work-in-progress/">Work in progress dashboard</a></td>
+</tr>
+</table>
+
+<span id="commit-author-date">1</span>: Pulse uses the commit author's date since it is more accurate. The committer date can be changed (e.g.: rebases) and stop reflecting the real creation date of the change.
