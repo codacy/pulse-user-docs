@@ -291,9 +291,45 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          PagerDuty integration
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         PagerDuty integration
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-the-pagerduty-integration" class="md-nav__link">
+    Setting up the PagerDuty integration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collected-data" class="md-nav__link">
+    Collected data
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -455,6 +491,7 @@
                 
                 <h1 id="pagerduty-integration">PagerDuty integration<a class="headerlink" href="#pagerduty-integration" title="Permanent link">&para;</a></h1>
 <p>Pulse integrates directly with PagerDuty to receive data about incidents, necessary to calculate the metrics <a href="../../metrics/accelerate/#median-time-to-recover">Median time to recover</a> and <a href="../../metrics/accelerate/#change-failure-rate">Change failure rate</a>.</p>
+<h2 id="setting-up-the-pagerduty-integration">Setting up the PagerDuty integration<a class="headerlink" href="#setting-up-the-pagerduty-integration" title="Permanent link">&para;</a></h2>
 <p>To set up the PagerDuty integration:</p>
 <ol>
 <li>
@@ -473,6 +510,35 @@
 <p><img alt="PagerDuty webhook" src="../images/pagerduty-webhook.png" /></p>
 </li>
 </ol>
+<h2 id="collected-data">Collected data<a class="headerlink" href="#collected-data" title="Permanent link">&para;</a></h2>
+<p>The table below lists the data that the PagerDuty integration collects from your PagerDuty webhooks, together with:</p>
+<ul>
+<li>The mapping between the data collected from PagerDuty and the <a href="https://ingestion.pulse.codacy.com/v1/api-docs#tocs_event">Pulse data model</a></li>
+<li>The metrics that Pulse calculates from the data to display on the dashboards</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>Data collected from PagerDuty</strong></th>
+<th><strong>Mapping to Pulse data model</strong></th>
+<th><strong>Used in</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>Incident</td>
+    <td>
+        <p>Incident:</p>
+        <ul>
+            <li><code>identifier</code>: <code>id</code> (incident ID)</li>
+            <li><code>timestamp_created</code>: <code>created_at</code> (date when the incident was first triggered)</li>
+            <li><code>timestamp_resolved</code>: <code>last_status_change_at</code> (date of the last status change of the incident)</li>
+            <li><code>system</code>: <i>defined during the configuration process</i></li>
+        </ul>
+    </td>
+    <td>Median time to recover and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate dashboard</a></td>
+</tr>
+</table>
                 
                   
                 
