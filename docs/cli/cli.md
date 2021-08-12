@@ -33,7 +33,7 @@ Consider the following before setting up the integration using the Pulse CLI:
 
         However, if you're using a monorepo the value of `system` should be the name of the component in the repository instead.
 
-    Although the field `system` is optional, if you don't report this information you won't be able to filter the data on the Pulse dashboards.
+    Although the field `system` is optional, if you don't report this information you won't be able to filter the data on the Pulse dashboards. Events without a specified `system` will be grouped under a special system called `_unknown_`.
 
 ## 1. Installing the Pulse CLI
 
@@ -54,7 +54,7 @@ Download the latest version of the Pulse CLI for your operating system and make 
         ```
 
         On 64-bit operating systems:
-    
+
         ```sh
         curl -fsSL -o pulse-event-cli https://artifacts.codacy.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_linux_amd64/pulse-event-cli && \
         chmod +x pulse-event-cli
@@ -72,7 +72,7 @@ Download the latest version of the Pulse CLI for your operating system and make 
         ```
         curl -fsSL -o pulse-event-cli.exe https://artifacts.codacy.com/codacy/pulse/event-cli/<VERSION>/pulse-event-cli_windows_386/pulse-event-cli.exe
         ```
-    
+
         On 64-bit operating systems:
 
         ```
