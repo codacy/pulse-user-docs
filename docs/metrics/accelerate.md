@@ -81,7 +81,7 @@ Pulse uses the average value over a period of time to display aggregate change f
 
     As such, Pulse considers the **deployment** that caused an **incident** the closest deployment before the start of that **incident**. The same deployment might be responsible for multiple incidents.
 
-    When viewing the performance of specific systems, both incidents and deployments will be first filtered, and only then associated.
+    When viewing the performance, it is calculated per system before being aggregated by the time buckets. This also means that you need the deployments and incidents to have the right system association for the metrics to work.
 
 Pulse determines your performance level for this metric as follows:
 
