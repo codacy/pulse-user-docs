@@ -616,6 +616,7 @@
 <p class="admonition-title">Note</p>
 <p>We decided to avoid requiring a relationship between <strong>incidents</strong> and <strong>deployments</strong> or <strong>changes</strong> to simplify the data model reported.</p>
 <p>As such, Pulse considers the <strong>deployment</strong> that caused an <strong>incident</strong> the closest deployment before the start of that <strong>incident</strong>. The same deployment might be responsible for multiple incidents.</p>
+<p>Pulse calculates the performance metrics per system and later aggregates the metrics by time interval when displaying them. This means that you need both deployments and incidents for Pulse to correctly map the system between the two types of events and for the metrics to work.</p>
 </div>
 <p>Pulse determines your performance level for this metric as follows:</p>
 <table>
