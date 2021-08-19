@@ -120,6 +120,16 @@ The table below lists the data that the GitHub integration collects from your Gi
     </td>
     <td><a href="../../metrics/lead-time-reviews/">Lead time and reviews dashboard</a>,<br/><a href="../../metrics/work-in-progress/">Work in progress dashboard</a></td>
 </tr>
+<tr>
+    <td>Teams</td>
+    <td>
+        <p>Deployments:</p>
+        <ul>
+            <li><code>teams</code>: GitHub teams responsible for the changes in the deployment</li>
+        </ul>
+    </td>
+    <td>Filters for the <a href="../../metrics/accelerate/">Accelerate dashboard</a>, <a href="../../metrics/lead-time-reviews/">Lead time and reviews dashboard</a>, and <a href="../../metrics/work-in-progress/">Work in progress dashboard</a></td>
+</tr>
 </table>
 
-<span id="commit-author-date">1</span>: Pulse uses the commit author's date since it is more accurate. The committer date can be changed (e.g.: rebases) and stop reflecting the real creation date of the change.
+<sup><span id="commit-author-date">1</span></sup>: Pulse uses the commit author's date since it is more accurate. The committer date can be changed (e.g.: rebases) and stop reflecting the real creation date of the change.
