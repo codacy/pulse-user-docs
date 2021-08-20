@@ -26,7 +26,7 @@ Consider the following before setting up the integration using the Pulse CLI:
 
 -   [**Make sure that you have an API key**](https://app.pulse.codacy.com/integrations/cli){: target="_blank"} provided by Pulse to identify your organization and authorize you to send data to Pulse.
 
--   When reporting events to Pulse you should use the field `system` to associate each event with the **most granular unit** that you will use to filter data on the Pulse dashboards, such as by application or service, product, team, or any other entity or group of entities in your organization.
+-   When reporting events to Pulse you should use the field `system` to associate each event with the **most granular unit** that you will use to filter data on the Pulse dashboards, such as by application or service, product, or any other entity or group of entities in your organization.
 
     !!! important
         Typically, the value of `system` should be the name of the CVS repository corresponding to the event.
@@ -34,6 +34,8 @@ Consider the following before setting up the integration using the Pulse CLI:
         However, if you're using a monorepo the value of `system` should be the name of the component in the repository instead.
 
     Although the field `system` is optional, if you don't report this information you won't be able to filter the data on the Pulse dashboards. Events without a specified `system` will be grouped under a special system called `_unknown_`.
+
+-   When reporting deployments to Pulse you should use the field `teams` to associate each deployment with the list of teams that contributed with changes included in the deployment.
 
 ## 1. Installing the Pulse CLI
 
@@ -110,6 +112,7 @@ If you're using Git, send the following information when reporting **changes and
 | identifier              | Version number or another unique identifier of the deployment.                          | String                                       |
 | timestamp               | Time when the deployment finished.                                                      | Number<br/>(Unix epoch timestamp in seconds) |
 | system                  | Optional. Repository or component to assign to this event.                              | String                                       |
+| teams                   | Optional. Teams responsible for the changes in the deployment.                          | String<br/>(space-separated list)            |
 
 Run the following command to report a deployment and its changes:
 
@@ -122,7 +125,8 @@ Run the following command to report a deployment and its changes:
         --previous-deployment-ref "<previous deployment ref>" \
         --identifier "<deployment identifier>" \
         --timestamp "$(date +%s)" \
-        [--system "<system>"]
+        [--system "<system>"] \
+        [--teams <space-separated list of teams>]
     ```
 
 === "Windows"
@@ -134,7 +138,8 @@ Run the following command to report a deployment and its changes:
         --previous-deployment-ref "<previous deployment ref>" \
         --identifier "<deployment identifier>" \
         --timestamp "<timestamp>" \
-        [--system "<system>"]
+        [--system "<system>"] \
+        [--teams <space-separated list of teams>]
     ```
 The command automatically reports all commits done between the previous deployment and the `HEAD` of the Git repository as changes that belong to the deployment being reported.
 
@@ -180,6 +185,7 @@ If you don't use Git or prefer to have more fine-grained control over the inform
     | identifier | Version number or another unique identifier of the deployment. | String                                       |
     | timestamp  | Time when the deployment finished.                             | Number<br/>(Unix epoch timestamp in seconds) |
     | system     | Optional. Repository or component to assign to this event.     | String                                       |
+    | teams      | Optional. Teams responsible for the changes in the deployment. | String<br/>(space-separated list)            |
     |            | Commit identifiers included in the deployment.                 | String<br/>(space-separated list)            |
 
     Run the following command to report each deployment:
@@ -191,6 +197,7 @@ If you don't use Git or prefer to have more fine-grained control over the inform
             --identifier "<deployment identifier>" \
             --timestamp "$(date +%s)" \
             [--system "<system>"] \
+            [--teams <space-separated list of teams>] \
             <space-separated list of commit identifiers>
         ```
 
