@@ -40,6 +40,7 @@ Optionally, the Pulse GitHub integration can use one of two strategies to automa
     -   Pulse considers a deployment every pull request that **targets the default branch** of the repository.
     -   The deployment date is the timestamp when the corresponding pull request is merged.
     -   The set of changes in a deployment is the list of commits in the corresponding pull request. Pulse correctly tracks your changes even if you squash the commits when merging the pull request.
+    -   Pulse associates the teams of the author of the pull request with the deployment.
 
 -   **Git tags following the SemVer specification**
 
@@ -61,6 +62,8 @@ Optionally, the Pulse GitHub integration can use one of two strategies to automa
 
         -   The first SemVer tag in the repository since there is no previous tag to compare with.
         -   Any tag that does not have a common ancestor (commit) with its previous tag, since Pulse cannot obtain the changes between them.
+
+    -   Pulse associates the teams of the person who creates the Git tag with the deployment.
 
 If the automatic deployment detection is turned off, Pulse doesn't detect deployments using GitHub events and you must report deployments using the Pulse CLI or the API. This is useful if none of the automatic deployment detection strategies match your workflow and you must have control over the way Pulse tracks your deployments.
 
