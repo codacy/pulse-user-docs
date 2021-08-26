@@ -31,53 +31,47 @@ To set up the GitHub integration:
 
     If there was an error please [contact support](mailto:pulsesupport@codacy.com).
 
-## Configuring how Pulse detects deployments {: id="deployment-detection-strategy"}
-
-Optionally, configure the Pulse GitHub integration to automatically detect deployments:
-
-1.  On Pulse, [expand **Integrations** and select **GitHub**](https://app.pulse.codacy.com/integrations/github){: target="_blank"}.
-
-    Make sure that you have already installed the GitHub App.
-
-1.  Choose the strategy that will be used to automatically detect deployments that best fits your workflows, or turn off the automatic deployment detection.
+1.  Choose the strategy to detect deployments that best fits your workflows, or turn off the automatic deployment detection. See the section below for a detailed description of each option.
 
     ![Choosing a deployment detection strategy](images/ghi-strategy.png)
 
-    The following is a detailed description of how each option works:
+## Automatic deployment detection strategies {: id="deployment-detection-strategy"}
 
-    -   **Use merged pull requests** (default)
+The following is a detailed description of how the Pulse GitHub integration automatically detects deployment using each detection strategy:
 
-        -   Pulse considers a deployment every pull request that **targets the default branch** of the repository.
-        -   The deployment date is the timestamp when the corresponding pull request is merged.
-        -   The set of changes in a deployment is the list of commits in the corresponding pull request. Pulse correctly tracks your changes even if you squash the commits when merging the pull request.
-        -   Pulse associates all GitHub teams of the author of a merged pull request with the corresponding deployment, excluding teams with less than three members. Pulse only takes changes to GitHub teams into account on pull requests merged after those changes.
+-   **Use merged pull requests** (default)
 
-    -   **Use semantic versioning tags**
+    -   Pulse considers a deployment every pull request that **targets the default branch** of the repository.
+    -   The deployment date is the timestamp when the corresponding pull request is merged.
+    -   The set of changes in a deployment is the list of commits in the corresponding pull request. Pulse correctly tracks your changes even if you squash the commits when merging the pull request.
+    -   Pulse associates all GitHub teams of the author of a merged pull request with the corresponding deployment, excluding teams with less than three members. Pulse only takes changes to GitHub teams into account on pull requests merged after those changes.
 
-        -   Pulse considers a deployment every Git tag that follows the [SemVer](https://semver.org) convention, excluding pre-release versions but allowing release prefixes. For exmple, the following are valid tags: `1.0.0`, `v2.3.4`.
+-   **Use semantic versioning tags**
 
-            To use this strategy, make sure that you're creating Git tags on your repositories for each successful deployment to production, or whenever you make a new release available to any user of your application:
+    -   Pulse considers a deployment every Git tag that follows the [SemVer](https://semver.org) convention, excluding pre-release versions but allowing release prefixes. For exmple, the following are valid tags: `1.0.0`, `v2.3.4`.
 
-            ```bash
-            git tag -a MAJOR.MINOR.PATCH -m "<Deployment or release message>"
-            ```
+        To use this strategy, make sure that you're creating Git tags on your repositories for each successful deployment to production, or whenever you make a new release available to any user of your application:
 
-            Where `MAJOR.MINOR.PATCH` must be a valid SemVer version without pre-release information.
+        ```bash
+        git tag -a MAJOR.MINOR.PATCH -m "<Deployment or release message>"
+        ```
 
-        -   The deployment date is either the creation date of [annotated tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_annotated_tags) or the timestamp when Pulse receives the webhook calls for [lightweight tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_lightweight_tags).
+        Where `MAJOR.MINOR.PATCH` must be a valid SemVer version without pre-release information.
 
-            Keep in mind that since webhook calls can be delayed, the deployment date on Pulse could be imprecise and impact the metric **Lead time for changes**.
+    -   The deployment date is either the creation date of [annotated tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_annotated_tags) or the timestamp when Pulse receives the webhook calls for [lightweight tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_lightweight_tags).
 
-        -   The set of changes that belong to a deployment is the list of commits between the tag of that deployment and the previous tag. Because of this, Pulse discards:
+        Keep in mind that since webhook calls can be delayed, the deployment date on Pulse could be imprecise and impact the metric **Lead time for changes**.
 
-            -   The first SemVer tag in the repository since there is no previous tag to compare with.
-            -   Any tag that does not have a common ancestor (commit) with its previous tag, since Pulse cannot obtain the changes between them.
+    -   The set of changes that belong to a deployment is the list of commits between the tag of that deployment and the previous tag. Because of this, Pulse discards:
 
-        -   Pulse associates all GitHub teams of the person who creates a Git tag with the corresponding deployment, excluding teams with less than three members. Pulse only takes changes to GitHub teams into account on Git tags created after those changes.
+        -   The first SemVer tag in the repository since there is no previous tag to compare with.
+        -   Any tag that does not have a common ancestor (commit) with its previous tag, since Pulse cannot obtain the changes between them.
 
-    -   **Don't detect deployments automatically**
+    -   Pulse associates all GitHub teams of the person who creates a Git tag with the corresponding deployment, excluding teams with less than three members. Pulse only takes changes to GitHub teams into account on Git tags created after those changes.
 
-        If the automatic deployment detection is turned off, Pulse doesn't detect deployments using GitHub events and you must report deployments using the Pulse CLI or the API. This is useful if none of the automatic deployment detection strategies match your workflow and you must have control over the way Pulse tracks your deployments.
+-   **Don't detect deployments automatically**
+
+    If the automatic deployment detection is turned off, Pulse doesn't detect deployments using GitHub events and you must report deployments using the Pulse CLI or the API. This is useful if none of the automatic deployment detection strategies match your workflow and you must have control over the way Pulse tracks your deployments.
 
 ## Collected data
 
