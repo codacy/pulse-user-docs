@@ -41,7 +41,7 @@ The following is a detailed description of how the Pulse GitHub integration auto
 
 -   **Use merged pull requests** (default)
 
-    -   Pulse considers a deployment every pull request that **targets the default branch** of the repository.
+    -   Pulse considers a deployment every merged pull request that **targets the default branch** of the repository.
     -   The deployment date is the timestamp when the corresponding pull request is merged.
     -   The set of changes in a deployment is the list of commits in the corresponding pull request. Pulse correctly tracks your changes even if you squash the commits when merging the pull request.
     -   Pulse associates all GitHub teams of the author of a merged pull request with the corresponding deployment, excluding teams with less than three members. Pulse only takes changes to GitHub teams into account on pull requests merged after those changes.
