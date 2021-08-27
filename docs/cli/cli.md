@@ -112,7 +112,7 @@ If you're using Git, send the following information when reporting **changes and
 | identifier              | Version number or another unique identifier of the deployment.                          | String                                       |
 | timestamp               | Time when the deployment finished.                                                      | Number<br/>(Unix epoch timestamp in seconds) |
 | system                  | Optional. Repository or component to assign to this event.                              | String                                       |
-| teams                   | Optional. Teams responsible for the changes in the deployment.                          | String<br/>(space-separated list)            |
+| teams                   | Optional. Teams responsible for the changes in the deployment.                          | String<br/>(comma-separated list)            |
 
 Run the following command to report a deployment and its changes:
 
@@ -126,7 +126,7 @@ Run the following command to report a deployment and its changes:
         --identifier "<deployment identifier>" \
         --timestamp "$(date +%s)" \
         [--system "<system>"] \
-        [--teams <space-separated list of teams>]
+        [--teams <comma-separated list of teams>]
     ```
 
 === "Windows"
@@ -139,7 +139,7 @@ Run the following command to report a deployment and its changes:
         --identifier "<deployment identifier>" \
         --timestamp "<timestamp>" \
         [--system "<system>"] \
-        [--teams <space-separated list of teams>]
+        [--teams <comma-separated list of teams>]
     ```
 The command automatically reports all commits done between the previous deployment and the `HEAD` of the Git repository as changes that belong to the deployment being reported.
 
@@ -185,7 +185,7 @@ If you don't use Git or prefer to have more fine-grained control over the inform
     | identifier | Version number or another unique identifier of the deployment. | String                                       |
     | timestamp  | Time when the deployment finished.                             | Number<br/>(Unix epoch timestamp in seconds) |
     | system     | Optional. Repository or component to assign to this event.     | String                                       |
-    | teams      | Optional. Teams responsible for the changes in the deployment. | String<br/>(space-separated list)            |
+    | teams      | Optional. Teams responsible for the changes in the deployment. | String<br/>(comma-separated list)            |
     |            | Commit identifiers included in the deployment.                 | String<br/>(space-separated list)            |
 
     Run the following command to report each deployment:
