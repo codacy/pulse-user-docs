@@ -310,7 +310,7 @@
       
         <li class="md-nav__item">
   <a href="#deployment-detection-strategy" class="md-nav__link">
-    Configuring how Pulse detects deployments
+    Automatic deployment detection strategies
   </a>
   
 </li>
@@ -536,20 +536,25 @@
 <p><img alt="Pulse GitHub integration set up successfully" src="../images/ghi-ok.png" /></p>
 <p>If there was an error please <a href="mailto:pulsesupport@codacy.com">contact support</a>.</p>
 </li>
+<li>
+<p>Choose the strategy to detect deployments that best fits your workflows, or turn off the automatic deployment detection. See the section below for a detailed description of each option.</p>
+<p><img alt="Choosing a deployment detection strategy" src="../images/ghi-strategy.png" /></p>
+</li>
 </ol>
-<h2 id="deployment-detection-strategy">Configuring how Pulse detects deployments<a class="headerlink" href="#deployment-detection-strategy" title="Permanent link">&para;</a></h2>
-<p>Optionally, the Pulse GitHub integration can use one of two strategies to automatically detect and measure deployments in your repositories:</p>
+<h2 id="deployment-detection-strategy">Automatic deployment detection strategies<a class="headerlink" href="#deployment-detection-strategy" title="Permanent link">&para;</a></h2>
+<p>The following is a detailed description of how the Pulse GitHub integration automatically detects deployment using each detection strategy:</p>
 <ul>
 <li>
-<p><strong>Pull requests merged to default branch</strong> (default strategy)</p>
+<p><strong>Use merged pull requests</strong> (default)</p>
 <ul>
-<li>Pulse considers a deployment every pull request that <strong>targets the default branch</strong> of the repository.</li>
+<li>Pulse considers a deployment every merged pull request that <strong>targets the default branch</strong> of the repository.</li>
 <li>The deployment date is the timestamp when the corresponding pull request is merged.</li>
 <li>The set of changes in a deployment is the list of commits in the corresponding pull request. Pulse correctly tracks your changes even if you squash the commits when merging the pull request.</li>
+<li>Pulse associates all GitHub teams of the author of a merged pull request with the corresponding deployment, excluding teams with less than two members. Pulse only takes changes to GitHub teams into account on pull requests merged after those changes.</li>
 </ul>
 </li>
 <li>
-<p><strong>Git tags following the SemVer specification</strong></p>
+<p><strong>Use semantic versioning tags</strong></p>
 <ul>
 <li>
 <p>Pulse considers a deployment every Git tag that follows the <a href="https://semver.org">SemVer</a> convention, excluding pre-release versions but allowing release prefixes. For exmple, the following are valid tags: <code>1.0.0</code>, <code>v2.3.4</code>.</p>
@@ -569,21 +574,16 @@
 <li>Any tag that does not have a common ancestor (commit) with its previous tag, since Pulse cannot obtain the changes between them.</li>
 </ul>
 </li>
-</ul>
+<li>
+<p>Pulse associates all GitHub teams of the person who creates a Git tag with the corresponding deployment, excluding teams with less than two members. Pulse only takes changes to GitHub teams into account on Git tags created after those changes.</p>
 </li>
 </ul>
+</li>
+<li>
+<p><strong>Don't detect deployments automatically</strong></p>
 <p>If the automatic deployment detection is turned off, Pulse doesn't detect deployments using GitHub events and you must report deployments using the Pulse CLI or the API. This is useful if none of the automatic deployment detection strategies match your workflow and you must have control over the way Pulse tracks your deployments.</p>
-<p>To configure the strategy that Pulse uses to detect deployments:</p>
-<ol>
-<li>
-<p>On Pulse, <a href="https://app.pulse.codacy.com/integrations/github" target="_blank">expand <strong>Integrations</strong> and select <strong>GitHub</strong></a>.</p>
-<p>Make sure that you have already installed the GitHub App.</p>
 </li>
-<li>
-<p>Choose the strategy that fits best your workflows, or turn off the automatic deployment detection.</p>
-<p><img alt="Choosing a deployment triggering strategy" src="../images/ghi-strategy.png" /></p>
-</li>
-</ol>
+</ul>
 <h2 id="collected-data">Collected data<a class="headerlink" href="#collected-data" title="Permanent link">&para;</a></h2>
 <p>The table below lists the data that the GitHub integration collects from your GitHub organization, together with:</p>
 <ul>
@@ -629,9 +629,19 @@
     </td>
     <td><a href="../../metrics/lead-time-reviews/">Lead time and reviews dashboard</a>,<br/><a href="../../metrics/work-in-progress/">Work in progress dashboard</a></td>
 </tr>
+<tr>
+    <td>Teams</td>
+    <td>
+        <p>Deployments:</p>
+        <ul>
+            <li><code>teams</code>: GitHub teams responsible for the changes in the deployment</li>
+        </ul>
+    </td>
+    <td>Filters for the <a href="../../metrics/accelerate/">Accelerate dashboard</a>, <a href="../../metrics/lead-time-reviews/">Lead time and reviews dashboard</a>, and <a href="../../metrics/work-in-progress/">Work in progress dashboard</a></td>
+</tr>
 </table>
 
-<p><span id="commit-author-date">1</span>: Pulse uses the commit author's date since it is more accurate. The committer date can be changed (e.g.: rebases) and stop reflecting the real creation date of the change.</p>
+<p><sup><span id="commit-author-date">1</span></sup>: Pulse uses the commit author's date since it is more accurate. The committer date can be changed (e.g.: rebases) and stop reflecting the real creation date of the change.</p>
                 
                   
                 

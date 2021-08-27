@@ -547,13 +547,16 @@
 <p><a href="https://app.pulse.codacy.com/integrations/cli" target="_blank"><strong>Make sure that you have an API key</strong></a> provided by Pulse to identify your organization and authorize you to send data to Pulse.</p>
 </li>
 <li>
-<p>When reporting events to Pulse you should use the field <code>system</code> to associate each event with the <strong>most granular unit</strong> that you will use to filter data on the Pulse dashboards, such as by application or service, product, team, or any other entity or group of entities in your organization.</p>
+<p>When reporting events to Pulse you should use the field <code>system</code> to associate each event with the <strong>most granular unit</strong> that you will use to filter data on the Pulse dashboards, such as by application or service, product, or any other entity or group of entities in your organization.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Typically, the value of <code>system</code> should be the name of the CVS repository corresponding to the event.</p>
 <p>However, if you're using a monorepo the value of <code>system</code> should be the name of the component in the repository instead.</p>
 </div>
 <p>Although the field <code>system</code> is optional, if you don't report this information you won't be able to filter the data on the Pulse dashboards. Events without a specified <code>system</code> will be grouped under a special system called <code>_unknown_</code>.</p>
+</li>
+<li>
+<p>When reporting deployments to Pulse you should use the field <code>teams</code> to associate each deployment with the list of teams that contributed with changes included in the deployment.</p>
 </li>
 </ul>
 <h2 id="1-installing-the-pulse-cli">1. Installing the Pulse CLI<a class="headerlink" href="#1-installing-the-pulse-cli" title="Permanent link">&para;</a></h2>
@@ -641,6 +644,11 @@ chmod +x pulse-event-cli
 <td>Optional. Repository or component to assign to this event.</td>
 <td>String</td>
 </tr>
+<tr>
+<td>teams</td>
+<td>Optional. Teams responsible for the changes in the deployment.</td>
+<td>String<br/>(comma-separated list)</td>
+</tr>
 </tbody>
 </table>
 <p>Run the following command to report a deployment and its changes:</p>
@@ -652,7 +660,8 @@ chmod +x pulse-event-cli
     --previous-deployment-ref <span class="s2">&quot;&lt;previous deployment ref&gt;&quot;</span> <span class="se">\</span>
     --identifier <span class="s2">&quot;&lt;deployment identifier&gt;&quot;</span> <span class="se">\</span>
     --timestamp <span class="s2">&quot;</span><span class="k">$(</span>date +%s<span class="k">)</span><span class="s2">&quot;</span> <span class="se">\</span>
-    <span class="o">[</span>--system <span class="s2">&quot;&lt;system&gt;&quot;</span><span class="o">]</span>
+    <span class="o">[</span>--system <span class="s2">&quot;&lt;system&gt;&quot;</span><span class="o">]</span> <span class="se">\</span>
+    <span class="o">[</span>--teams &lt;comma-separated list of teams&gt;<span class="o">]</span>
 </code></pre></div>
 </div>
 <input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Windows</label><div class="tabbed-content">
@@ -663,7 +672,8 @@ event-cli.exe push git deployment <span class="se">\</span>
     --previous-deployment-ref <span class="s2">&quot;&lt;previous deployment ref&gt;&quot;</span> <span class="se">\</span>
     --identifier <span class="s2">&quot;&lt;deployment identifier&gt;&quot;</span> <span class="se">\</span>
     --timestamp <span class="s2">&quot;&lt;timestamp&gt;&quot;</span> <span class="se">\</span>
-    <span class="o">[</span>--system <span class="s2">&quot;&lt;system&gt;&quot;</span><span class="o">]</span>
+    <span class="o">[</span>--system <span class="s2">&quot;&lt;system&gt;&quot;</span><span class="o">]</span> <span class="se">\</span>
+    <span class="o">[</span>--teams &lt;comma-separated list of teams&gt;<span class="o">]</span>
 </code></pre></div>
 </div>
 </div>
@@ -749,6 +759,11 @@ event-cli.exe push git deployment <span class="se">\</span>
 <td>String</td>
 </tr>
 <tr>
+<td>teams</td>
+<td>Optional. Teams responsible for the changes in the deployment.</td>
+<td>String<br/>(comma-separated list)</td>
+</tr>
+<tr>
 <td></td>
 <td>Commit identifiers included in the deployment.</td>
 <td>String<br/>(space-separated list)</td>
@@ -762,6 +777,7 @@ event-cli.exe push git deployment <span class="se">\</span>
     --identifier <span class="s2">&quot;&lt;deployment identifier&gt;&quot;</span> <span class="se">\</span>
     --timestamp <span class="s2">&quot;</span><span class="k">$(</span>date +%s<span class="k">)</span><span class="s2">&quot;</span> <span class="se">\</span>
     <span class="o">[</span>--system <span class="s2">&quot;&lt;system&gt;&quot;</span><span class="o">]</span> <span class="se">\</span>
+    <span class="o">[</span>--teams &lt;space-separated list of teams&gt;<span class="o">]</span> <span class="se">\</span>
     &lt;space-separated list of commit identifiers&gt;
 </code></pre></div>
 </div>
