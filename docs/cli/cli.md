@@ -197,7 +197,7 @@ If you don't use Git or prefer to have more fine-grained control over the inform
             --identifier "<deployment identifier>" \
             --timestamp "$(date +%s)" \
             [--system "<system>"] \
-            [--teams <space-separated list of teams>] \
+            [--teams <comma-separated list of teams>] \
             <space-separated list of commit identifiers>
         ```
 
@@ -208,6 +208,7 @@ If you don't use Git or prefer to have more fine-grained control over the inform
             --identifier "<deployment identifier>" \
             --timestamp "<timestamp>" \
             [--system "<system>"] \
+            [--teams <comma-separated list of teams>] \
             <space-separated list of commit identifiers>
         ```
 
