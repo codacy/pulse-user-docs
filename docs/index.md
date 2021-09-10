@@ -62,4 +62,4 @@ Alternatively, copy the invitation link from the **Organization members** page a
 
 ![Adding organization members](images/joining-email-domain.png)
 
-The people who sign up using your company's email addres or that you explicitly invite will have access to all dashboards immediately after signing up without needing to perform any integration.
+Newcomers will have access to all dashboards immediately after signing up without needing to perform any integration.
