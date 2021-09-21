@@ -106,13 +106,13 @@ Pulse uses these reports to calculate the metrics [Lead time for changes](../met
 
 If you're using Git, send the following information when reporting **changes and deployments** to Pulse:
 
-| Field                   | Description                                                                                   | Format                                       |
-| ----------------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| previous-deployment-ref | Git reference of the previous deployment.<br/>This can be a tag or a commit identifier.       | String                                       |
-| identifier              | Version number or another unique identifier of the deployment.                                | String                                       |
-| timestamp               | Time when the deployment finished.                                                            | Number<br/>(Unix epoch timestamp in seconds) |
-| system                  | Optional. Repository or component to assign to this event. It will be converted to lowercase. | String                                       |
-| teams                   | Optional. Teams responsible for the changes in the deployment.                                | String<br/>(comma-separated list)            |
+| Field                   | Description                                                                             | Format                                       |
+| ----------------------- | --------------------------------------------------------------------------------------- | -------------------------------------------- |
+| previous-deployment-ref | Git reference of the previous deployment.<br/>This can be a tag or a commit identifier. | String                                       |
+| identifier              | Version number or another unique identifier of the deployment.                          | String                                       |
+| timestamp               | Time when the deployment finished.                                                      | Number<br/>(Unix epoch timestamp in seconds) |
+| system                  | Optional. Repository or component to assign to this event.                              | String                                       |
+| teams                   | Optional. Teams responsible for the changes in the deployment.                          | String<br/>(comma-separated list)            |
 
 Run the following command to report a deployment and its changes:
 
@@ -152,11 +152,11 @@ If you don't use Git or prefer to have more fine-grained control over the inform
 
 1.  Send the following information when reporting **changes** to Pulse:
 
-    | Field      | Description                                                                                   | Format                                       |
-    | ---------- | --------------------------------------------------------------------------------------------- | -------------------------------------------- |
-    | identifier | The commit identifier.                                                                        | String                                       |
-    | timestamp  | Time when the commit was first pushed to the repository.                                      | Number<br/>(Unix epoch timestamp in seconds) |
-    | system     | Optional. Repository or component to assign to this event. It will be converted to lowercase. | String                                       |
+    | Field      | Description                                                | Format                                       |
+    | ---------- | ---------------------------------------------------------- | -------------------------------------------- |
+    | identifier | The commit identifier.                                     | String                                       |
+    | timestamp  | Time when the commit was first pushed to the repository.   | Number<br/>(Unix epoch timestamp in seconds) |
+    | system     | Optional. Repository or component to assign to this event. | String                                       |
 
     Run the following command to report each change:
 
@@ -180,13 +180,13 @@ If you don't use Git or prefer to have more fine-grained control over the inform
 
 1.  Send the following information when reporting **deployments** to Pulse:
 
-    | Field      | Description                                                                                   | Format                                       |
-    | ---------- | --------------------------------------------------------------------------------------------- | -------------------------------------------- |
-    | identifier | Version number or another unique identifier of the deployment.                                | String                                       |
-    | timestamp  | Time when the deployment finished.                                                            | Number<br/>(Unix epoch timestamp in seconds) |
-    | system     | Optional. Repository or component to assign to this event. It will be converted to lowercase. | String                                       |
-    | teams      | Optional. Teams responsible for the changes in the deployment.                                | String<br/>(comma-separated list)            |
-    |            | Commit identifiers included in the deployment.                                                | String<br/>(space-separated list)            |
+    | Field      | Description                                                    | Format                                       |
+    | ---------- | -------------------------------------------------------------- | -------------------------------------------- |
+    | identifier | Version number or another unique identifier of the deployment. | String                                       |
+    | timestamp  | Time when the deployment finished.                             | Number<br/>(Unix epoch timestamp in seconds) |
+    | system     | Optional. Repository or component to assign to this event.     | String                                       |
+    | teams      | Optional. Teams responsible for the changes in the deployment. | String<br/>(comma-separated list)            |
+    |            | Commit identifiers included in the deployment.                 | String<br/>(space-separated list)            |
 
     Run the following command to report each deployment:
 
@@ -225,12 +225,12 @@ Pulse uses these reports to calculate the metrics [Median time to recovery](../m
 
 Send the following information when reporting **incidents** to Pulse:
 
-| Field             | Description                                                                                   | Format                                       |
-| ----------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| identifier        | A unique identifier of the incident.                                                          | String                                       |
-| timestampCreated  | Time when the incident started or was detected.                                               | Number<br/>(Unix epoch timestamp in seconds) |
-| timestampResolved | Time when the incident was resolved.                                                          | Number<br/>(Unix epoch timestamp in seconds) |
-| system            | Optional. Repository or component to assign to this event. It will be converted to lowercase. | String                                       |
+| Field             | Description                                                | Format                                       |
+| ----------------- | ---------------------------------------------------------- | -------------------------------------------- |
+| identifier        | A unique identifier of the incident.                       | String                                       |
+| timestampCreated  | Time when the incident started or was detected.            | Number<br/>(Unix epoch timestamp in seconds) |
+| timestampResolved | Time when the incident was resolved.                       | Number<br/>(Unix epoch timestamp in seconds) |
+| system            | Optional. Repository or component to assign to this event. | String                                       |
 
 Run the following command to report each incident:
 
