@@ -65,7 +65,9 @@ Alternatively, copy the invitation link from the **Organization members** page a
 Newcomers will have access to all dashboards immediately after signing up without needing to perform any integration.
 
 !!! note "About joining via email domain"
-    Consider the following when using **Joining via email domain**:
+    Consider the following when using **joining via email domain**:
+
+    -   **Joining via email domain isn't available for free email addresses.**
 
     -   **Each email domain can only be used in one Pulse organization.**
 
@@ -78,7 +80,5 @@ Newcomers will have access to all dashboards immediately after signing up withou
     -   **Turning off joining via email domain doesn't remove users from the organization.**
 
         If you turn off the feature, the users that joined while the feature was active will continue to have access to the organization on Pulse.
-
-    -   **Joining via email domain isn't available for free email addresses.**
 
     If you come across any issues please [contact support](mailto:pulsesupport@codacy.com).
