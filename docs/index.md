@@ -75,6 +75,10 @@ Newcomers will have access to all dashboards immediately after signing up withou
 
         If you turn off the feature, you can only re-enable it using your email domain.
 
+    -   **Turning off joining via email domain doesn't remove users from the organization.**
+
+        If you turn off the feature, the users that joined while the feature was active will continue to have access to the organization on Pulse.
+
     -   **Joining via email domain isn't available for free email addresses.**
 
     If you come across any issues please [contact support](mailto:pulsesupport@codacy.com).
