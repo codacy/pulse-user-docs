@@ -56,10 +56,29 @@ Currently, Pulse provides a push-based integration with your workflow using one 
 
 Share the Pulse dashboards with your teammates to bring more visibility to the metrics.
 
-To do this, copy the link on the **Organization members** page and share it with your teammates. A convenient way to do this is to share and pin the link on your team's chat.
+The most convenient way of ensuring that all the members of your company have access to the Pulse dashboards is by enabling the feature **Joining via email domain** on the **Organization members** page. When this option is enabled, anyone who signs up to Pulse using an email address from your company is automatically added to your Pulse organization.
 
-![Inviting teammates to Pulse](images/inviting-members.png)
+Alternatively, copy the invitation link from the **Organization members** page and share the link with specific people. A convenient way to do this is to share and pin the link on your team's chat. The link is valid for 3 months, but you can refresh it at any moment.
 
-By doing this, the people you invite will have access to all dashboards immediately after signing up without needing to perform any integration.
+![Adding organization members](images/joining-email-domain.png)
 
-The link is valid for 3 months, but you can refresh it at any moment.
+Newcomers will have access to all dashboards immediately after signing up without needing to perform any integration.
+
+!!! note "About joining via email domain"
+    Consider the following when using **joining via email domain**:
+
+    -   **Joining via email domain isn't available for free email addresses.**
+
+    -   **Each email domain can only be used in one Pulse organization.**
+
+        If an existing organization is already using your email domain to automatically join new users, you won't be able to activate this feature on another organization.
+
+    -   **You can only enable joining via the email domain that you used to sign in to Pulse.**
+
+        If you turn off the feature, you can only re-enable it using your email domain.
+
+    -   **Turning off joining via email domain doesn't remove users from the organization.**
+
+        If you turn off the feature, the users that joined while the feature was active will continue to have access to the organization on Pulse.
+
+    If you come across any issues please [contact support](mailto:pulsesupport@codacy.com).
