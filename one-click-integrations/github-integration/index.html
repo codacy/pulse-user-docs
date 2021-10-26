@@ -561,7 +561,7 @@
 <p>To use this strategy, make sure that you're creating Git tags on your repositories for each successful deployment to production, or whenever you make a new release available to any user of your application:</p>
 <div class="highlight"><pre><span></span><code>git tag -a MAJOR.MINOR.PATCH -m <span class="s2">&quot;&lt;Deployment or release message&gt;&quot;</span>
 </code></pre></div>
-<p>Where <code>MAJOR.MINOR.PATCH</code> must be a valid SemVer version without pre-release information.</p>
+<p>Where <code>MAJOR.MINOR.PATCH</code> must be a valid SemVer version without pre-release information. <a href="https://regex101.com/r/NVAtiz/1">Check if your versioning syntax is valid</a>.</p>
 </li>
 <li>
 <p>The deployment date is either the creation date of <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging#_annotated_tags">annotated tags</a> or the timestamp when Pulse receives the webhook calls for <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging#_lightweight_tags">lightweight tags</a>.</p>
