@@ -56,7 +56,7 @@ The following is a detailed description of how the Pulse GitHub integration auto
         git tag -a MAJOR.MINOR.PATCH -m "<Deployment or release message>"
         ```
 
-        Where `MAJOR.MINOR.PATCH` must be a valid SemVer version without pre-release information. (Validated using the following pattern: <https://regex101.com/r/NVAtiz/1>)
+        Where `MAJOR.MINOR.PATCH` must be a valid SemVer version without pre-release information. [Check if your versioning syntax is valid](https://regex101.com/r/NVAtiz/1).
 
     -   The deployment date is either the creation date of [annotated tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_annotated_tags) or the timestamp when Pulse receives the webhook calls for [lightweight tags](https://git-scm.com/book/en/v2/Git-Basics-Tagging#_lightweight_tags).
 
