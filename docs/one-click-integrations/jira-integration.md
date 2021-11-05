@@ -18,3 +18,25 @@ To set up the GitHub integration:
 
 ## Collected data
 
+The table below lists the data that the Jira integration collects from your Jira issues, together with:
+
+-   The mapping between the data collected from Jira and the [Pulse data model](https://ingestion.pulse.codacy.com/v1/api-docs#tocs_event)
+-   The metrics that Pulse calculates from the data to display on the dashboards
+
+<table>
+<thead>
+<tr>
+<th><strong>Data collected from Jira</strong></th>
+<th><strong>Mapping to Pulse data model</strong></th>
+<th><strong>Used in</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+    <td>-</td>
+    <td>
+        -
+    </td>
+    <td>-</td>
+</tr>
+</table>
