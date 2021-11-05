@@ -38,6 +38,7 @@ Currently, Pulse provides a push-based integration with your workflow using one 
 
     -   **[GitHub integration](one-click-integrations/github-integration.md):** reports changes and deployments
     -   **[PagerDuty integration](one-click-integrations/pagerduty-integration.md):** reports incidents
+    -   **[Jira integration](one-click-integrations/jira-integration.md):** reports issue lead and cycle time
 
     We plan to continue developing integrations for the most popular Git providers, CI/CD platforms, and incident management tools.
 
