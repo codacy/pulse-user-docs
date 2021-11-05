@@ -50,7 +50,8 @@ nav:
   - index.md
   - "One-click integrations":
     - one-click-integrations/github-integration.md
-    - one-click-integrations/pagerduty-integration.md 
+    - one-click-integrations/pagerduty-integration.md
+    - one-click-integrations/jira-integration.md
   - "Pulse CLI":
     - cli/cli.md
     - cli/examples.md
