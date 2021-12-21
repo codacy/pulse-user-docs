@@ -1,14 +1,14 @@
 {% block analytics %}
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ config.google_analytics[0] }}"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<!-- Determine analytics provider -->
+{% if config.extra.analytics %}
+  {% set provider = config.extra.analytics.provider %}
+{% endif %}
 
-  gtag('config', '{{ config.google_analytics[0] }}');
-</script>
+<!-- Set up analytics provider -->
+{% if provider %}
+  {% include "partials/integrations/analytics/" ~ provider ~ ".html" %}
+{% endif %}
 
 <!-- Hotjar Tracking Code for app.pulse.codacy.com -->
 <script>
