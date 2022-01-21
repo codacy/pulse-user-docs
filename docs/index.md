@@ -26,7 +26,7 @@ You must create an organization on Pulse to start the onboarding. Click the link
 
 ![Adding a new organization on Pulse](images/organization-add.png)
 
-To add more organizations, click the name of the current organization on the top left-hand corner and select **New Organization**.
+To add more organizations, click the name of the current organization on the top left-hand corner and select **Create Organization**.
 
 ## 2. Pushing data to Pulse
 

@@ -22,7 +22,10 @@ theme:
   icon:
     repo: fontawesome/regular/arrow-alt-circle-right
 
-google_analytics: ["G-E31MPDGETR", "docs.pulse.codacy.com"]
+extra:
+  analytics:
+    provider: google
+    property: G-E31MPDGETR
 
 # Extensions
 markdown_extensions:
@@ -34,7 +37,8 @@ markdown_extensions:
   - footnotes
   - meta
   - pymdownx.superfences
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true 
   - pymdownx.striphtml:
       strip_comments: true
   - toc:
