@@ -326,6 +326,33 @@
     Automatic deployment detection strategies
   </a>
   
+    <nav class="md-nav" aria-label="Automatic deployment detection strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-merged-pull-requests-default" class="md-nav__link">
+    Use merged pull requests (default)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-semantic-versioning-tags" class="md-nav__link">
+    Use semantic versioning tags
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dont-detect-deployments-automatically" class="md-nav__link">
+    Don't detect deployments automatically
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -577,18 +604,14 @@
 </ol>
 <h2 id="deployment-detection-strategy">Automatic deployment detection strategies<a class="headerlink" href="#deployment-detection-strategy" title="Permanent link">&para;</a></h2>
 <p>The following is a detailed description of how the Pulse GitHub integration automatically detects deployment using each detection strategy:</p>
-<ul>
-<li>
-<p><strong>Use merged pull requests</strong> (default)</p>
+<h3 id="use-merged-pull-requests-default">Use merged pull requests (default)<a class="headerlink" href="#use-merged-pull-requests-default" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Pulse considers a deployment every merged pull request that <strong>targets the default branch</strong> of the repository.</li>
 <li>The deployment date is the timestamp when the corresponding pull request is merged.</li>
 <li>The set of changes in a deployment is the list of commits in the corresponding pull request. Pulse correctly tracks your changes even if you squash the commits when merging the pull request.</li>
 <li>Pulse associates all GitHub teams of the author of a merged pull request with the corresponding deployment, excluding teams with less than two members. Pulse only takes changes to GitHub teams into account on pull requests merged after those changes.</li>
 </ul>
-</li>
-<li>
-<p><strong>Use semantic versioning tags</strong></p>
+<h3 id="use-semantic-versioning-tags">Use semantic versioning tags<a class="headerlink" href="#use-semantic-versioning-tags" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>Pulse considers a deployment every Git tag that follows the <a href="https://semver.org">SemVer</a> convention, excluding pre-release versions but allowing release prefixes. For example, the following are valid tags: <code>1.0.0</code>, <code>v2.3.4</code>.</p>
@@ -612,12 +635,8 @@
 <p>Pulse associates all GitHub teams of the person who creates a Git tag with the corresponding deployment, excluding teams with less than two members. Pulse only takes changes to GitHub teams into account on Git tags created after those changes.</p>
 </li>
 </ul>
-</li>
-<li>
-<p><strong>Don't detect deployments automatically</strong></p>
+<h3 id="dont-detect-deployments-automatically">Don't detect deployments automatically<a class="headerlink" href="#dont-detect-deployments-automatically" title="Permanent link">&para;</a></h3>
 <p>If the automatic deployment detection is turned off, Pulse doesn't detect deployments using GitHub events and you must report deployments using the Pulse CLI or the API. This is useful if none of the automatic deployment detection strategies match your workflow and you must have control over the way Pulse tracks your deployments.</p>
-</li>
-</ul>
 <h2 id="collected-data">Collected data<a class="headerlink" href="#collected-data" title="Permanent link">&para;</a></h2>
 <p>The table below lists the data that the GitHub integration collects from your GitHub organization, together with:</p>
 <ul>
