@@ -1,6 +1,8 @@
-# Lead and cycle time metrics
+# Lead time and cycle time metrics
 
-Pulse calculates lead and cycle time based on issue state changes in Jira.
+Monitoring you team's lead time and cycle time allows you to understand if you're improving the ability to deliver value to customers.
+
+Pulse calculates lead time and cycle time based on the state changes of issues in Jira.
 
 ![Lead time versus cycle time](images/lead-cycle-time.png)
 
