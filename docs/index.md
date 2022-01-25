@@ -30,7 +30,7 @@ To add more organizations, click the name of the current organization on the top
 
 ## 2. Pushing data to Pulse
 
-Currently, Pulse provides a push-based integration with your workflow using one of the following alternatives:
+Pulse provides push-based integrations with your workflow using the following alternatives:
 
 -   **One-click integrations**
 
