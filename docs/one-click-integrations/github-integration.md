@@ -4,11 +4,11 @@ Pulse integrates directly with GitHub to receive data about changes and deployme
 
 -   [Lead time for changes](../metrics/accelerate.md#lead-time-for-changes), including the following drill-down metrics:
 
-    -   [Lead time for changes sub-metrics](../metrics/lead-time-reviews.md#lead-time-for-changes-sub-metrics)
+    -   [Lead time for changes sub-metrics](../metrics/accelerate-changes.md#change-metrics)
 
-    -   [Review metrics](../metrics/lead-time-reviews.md#review-metrics)
+    -   [Review metrics](../metrics/accelerate-changes.md#review-metrics)
 
-    -   [Work in progress metrics](../metrics/work-in-progress.md)
+    -   [Work in progress metrics](../metrics/accelerate-wip.md)
 
 -   [Deployment frequency](../metrics/accelerate.md#deployment-frequency)
 
@@ -117,7 +117,7 @@ The table below lists the data that the GitHub integration collects from your Gi
     <td>
         -
     </td>
-    <td><a href="../../metrics/lead-time-reviews/">Lead time and reviews dashboard</a>,<br/><a href="../../metrics/work-in-progress/">Work in progress dashboard</a></td>
+    <td><a href="../../metrics/accelerate-changes/">Lead time and reviews dashboard</a>,<br/><a href="../../metrics/accelerate-wip/">Work in progress dashboard</a></td>
 </tr>
 <tr>
     <td>Teams</td>
@@ -127,7 +127,7 @@ The table below lists the data that the GitHub integration collects from your Gi
             <li><code>teams</code>: GitHub teams responsible for the changes in the deployment</li>
         </ul>
     </td>
-    <td>Filters for the <a href="../../metrics/accelerate/">Accelerate dashboard</a>, <a href="../../metrics/lead-time-reviews/">Lead time and reviews dashboard</a>, and <a href="../../metrics/work-in-progress/">Work in progress dashboard</a></td>
+    <td>Filters for the <a href="../../metrics/accelerate/">Accelerate dashboard</a>, <a href="../../metrics/accelerate-changes/">Lead time and reviews dashboard</a>, and <a href="../../metrics/accelerate-wip/">Work in progress dashboard</a></td>
 </tr>
 </table>
 

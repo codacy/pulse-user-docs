@@ -61,5 +61,5 @@ nav:
   - "Pulse Ingestion API": https://ingestion.pulse.codacy.com/v1/api-docs
   - "Calculated metrics":
     - metrics/accelerate.md
-    - metrics/lead-time-reviews.md
-    - metrics/work-in-progress.md
+    - metrics/accelerate-changes.md
+    - metrics/accelerate-wip.md
