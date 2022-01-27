@@ -5,6 +5,7 @@ Pulse displays the following metrics to provide insights into the current and hi
 -   [Accelerate metrics](metrics/accelerate.md)
 -   [Lead time and review metrics](metrics/lead-time-reviews.md)
 -   [Work in progress metrics](metrics/work-in-progress.md)
+-   [Lead time and cycle time](metrics/lead-cycle-time.md)
 
 To calculate these metrics, you must complete these main steps to set up Pulse and to collect information from key events of your particular software development workflow:
 
