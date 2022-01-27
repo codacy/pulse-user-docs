@@ -1,4 +1,4 @@
-# Lead time and cycle time metrics
+# Lead and cycle time metrics
 
 Monitoring you team's lead time and cycle time allows you to understand if you're improving the ability to deliver value to customers.
 
