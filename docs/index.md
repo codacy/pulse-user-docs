@@ -41,7 +41,8 @@ Pulse provides push-based integrations with your workflow using the following al
     -   **[PagerDuty integration](one-click-integrations/pagerduty-integration.md):** reports incidents
     -   **[Jira integration](one-click-integrations/jira-integration.md):** reports lead and cycle time
 
-    We plan to continue developing integrations for the most popular Git providers, CI/CD platforms, and incident management tools.
+    !!! note
+        We recommend that whenever possible you use the integrations that match your stack because they're faster to set up. We plan to continue developing integrations for the most popular Git providers, CI/CD platforms, and incident management tools.
 
 -   **[Pulse CLI](cli/cli.md)**
 
@@ -50,9 +51,6 @@ Pulse provides push-based integrations with your workflow using the following al
 -   **[Pulse Ingestion API](https://ingestion.pulse.codacy.com/v1/api-docs){: target="_blank"}**
 
     Use the Pulse Ingestion API in scenarios where it may not be feasible to use the CLI to send data to Pulse, such as when you have the data inside an application.
-
-!!! note
-    We recommend that you use the integrations that match your stack because they're faster to set up.
 
 ## 3. Sharing access with teammates
 
