@@ -37,6 +37,6 @@ The table below lists the data that the Jira integration collects from your Jira
     <td>
         -<!--TODO-->
     </td>
-    <td>Lead time on the <a href="../../metrics/lead-cycle-time/">Lead & Cycle time dashboard</a></td>
+    <td>Lead time and cycle time on the <a href="../../metrics/lead-cycle-time/">Lead & Cycle time dashboard</a></td>
 </tr>
 </table>
