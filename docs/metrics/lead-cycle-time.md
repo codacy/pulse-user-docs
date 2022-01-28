@@ -2,19 +2,19 @@
 
 Monitoring you team's lead time and cycle time allows you to understand if you're improving the ability to deliver value to customers.
 
-Pulse calculates lead time and cycle time based on the state changes of issues in Jira.
-
 ![Lead time versus cycle time](images/lead-cycle-time.png)
 
 -   [Lead time](#lead-time)
 -   [Cycle time](#cycle-time)
 
-<!--TODO Some things to take into consideration into the definition of the metrics:
+!!! note
+    Pulse calculates lead time and cycle time based on the state changes of issues **that are already closed** in Jira. This means that:
 
-* what happens when an issue is reopened?
-* what happens when an issue changes type?
-* what happens when an issue changes project?
--->
+    -   **If you reopen** a completed issue, Pulse stops considering the issue while calculating the metrics. If the issue is completed again, Pulse takes into account the last completed timestamp.
+
+    -   **If you change the type or the project** of a completed issue, Pulse reflects the change on the dashboards, transitioning the issue history to the new project if relevant
+    
+        Note that this change doesn't affect the lead time or cycle time metrics.
 
 ## Lead time
 
