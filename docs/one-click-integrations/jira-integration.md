@@ -6,7 +6,7 @@ Pulse integrates with Jira to receive data about issues, necessary to calculate 
 
 To set up the Jira integration:
 
-1.  On Pulse, [expand **Integrations** and select **Jira**](https://app.pulse.codacy.com/integrations/jira){: target="_blank"}. <!--TODO Validate final link-->
+1.  On Pulse, [expand **Integrations** and select **Jira**](https://app.pulse.codacy.com/integrations/jira){: target="_blank"}.<!--TODO Validate final link-->
 
 1.  Click **Install Jira** and follow the instructions on the Jira UI to install the app.
 
@@ -20,7 +20,7 @@ To set up the Jira integration:
 
 The table below lists the data that the Jira integration collects from your Jira issues, together with:
 
--   The mapping between the data collected from Jira and the [Pulse data model](https://ingestion.pulse.codacy.com/v1/api-docs#tocs_event) <!--TODO Check if API will have schema for Jira data model-->
+-   The mapping between the data collected from Jira and the [Pulse data model](https://ingestion.pulse.codacy.com/v1/api-docs#tocs_event)<!--TODO Check if API will have schema for Jira data model-->
 -   The metrics that Pulse calculates from the data to display on the dashboards
 
 <table>
@@ -33,9 +33,9 @@ The table below lists the data that the Jira integration collects from your Jira
 </thead>
 <tbody>
 <tr>
-    <td>-</td>
+    <td>-<!--TODO--></td>
     <td>
-        -
+        -<!--TODO-->
     </td>
     <td>Lead time on the <a href="../../metrics/lead-cycle-time/">Lead & Cycle time dashboard</a></td>
 </tr>
