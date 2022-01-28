@@ -46,6 +46,6 @@ The table below lists the data that the PagerDuty integration collects from your
             <li><code>system</code>: <i>defined during the configuration process</i></li>
         </ul>
     </td>
-    <td>Median time to recover and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate dashboard</a></td>
+    <td>Median time to recover and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a></td>
 </tr>
 </table>
