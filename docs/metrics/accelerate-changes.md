@@ -1,8 +1,8 @@
-# Lead time and review metrics
+# Changes and reviews metrics
 
-Lead time for changes and review metrics provide an extra level of detail about the performance of your team workflows.
+Changes and reviews metrics provide an extra level of detail about the performance of your team workflows.
 
-## Lead time for changes sub-metrics
+## Changes metrics
 
 The following metrics directly influence **Lead time for changes**, and can help you track in more detail what needs to be improved in your workflow:
 
@@ -34,7 +34,7 @@ How long does the code review process take for a change or feature:
 pull request merge timestamp - pull request open timestamp
 ```
 
-## Review metrics
+## Reviews metrics
 
 The following metrics provide insights into the level of engagement and efficiency of your code review process:
 

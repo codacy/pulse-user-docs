@@ -3,8 +3,8 @@
 Pulse displays the following metrics to provide insights into the current and historic performance of your software delivery process:
 
 -   [Accelerate metrics](metrics/accelerate.md)
--   [Lead time and review metrics](metrics/lead-time-reviews.md)
--   [Work in progress metrics](metrics/work-in-progress.md)
+-   [Changes and reviews metrics](metrics/accelerate-changes.md)
+-   [Work in progress metrics](metrics/accelerate-wip.md)
 -   [Lead time and cycle time](metrics/lead-cycle-time.md)
 
 To calculate these metrics, you must complete these main steps to set up Pulse and to collect information from key events of your particular software development workflow:
@@ -56,9 +56,9 @@ Pulse provides push-based integrations with your workflow using the following al
 
 Share the Pulse dashboards with your teammates to bring more visibility to the metrics.
 
-The most convenient way of ensuring that all the members of your company have access to the Pulse dashboards is by enabling the feature **Joining via email domain** on the **Organization members** page. When this option is enabled, anyone who signs up to Pulse using an email address from your company is automatically added to your Pulse organization.
+The most convenient way of ensuring that all the members of your company have access to the Pulse dashboards is by enabling the feature **Joining via email domain** on the **Organization** page. When this option is enabled, anyone who signs up to Pulse using an email address from your company is automatically added to your Pulse organization.
 
-Alternatively, copy the invitation link from the **Organization members** page and share the link with specific people. A convenient way to do this is to share and pin the link on your team's chat. The link is valid for 3 months, but you can refresh it at any moment.
+Alternatively, copy the invitation link from the **Organization** page and share the link with specific people. A convenient way to do this is to share and pin the link on your team's chat. The link is valid for 3 months, but you can refresh it at any moment.
 
 ![Adding organization members](images/joining-email-domain.png)
 
