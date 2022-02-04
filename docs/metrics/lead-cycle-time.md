@@ -14,7 +14,7 @@ Monitoring you team's lead time and cycle time allows you to understand if you'r
 
     -   **If you change the type or the project** of a completed issue, Pulse reflects the change on the dashboards, transitioning the issue history to the new project if relevant
     
-        Note that this change doesn't affect the lead time or cycle time metrics.
+        Note that this change doesn't affect the overall calculation of the lead time or cycle time metrics.
 
 ## Lead time
 
