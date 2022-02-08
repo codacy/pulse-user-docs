@@ -6,7 +6,7 @@ Pulse integrates with Jira Cloud to receive data about issues, necessary to calc
 
 To set up the Jira integration:
 
-1.  On Pulse, [expand **Integrations** and select **Jira**](https://app.pulse.codacy.com/integrations/jira){: target="_blank"}.<!--TODO Validate final link-->
+1.  On Pulse, [expand **Integrations** and select **Jira**](https://app.pulse.codacy.com/integrations/jira){: target="_blank"}.
 
 1.  Click **Install Jira** and follow the instructions on the Jira UI to install the app.
 
