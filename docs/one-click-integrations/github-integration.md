@@ -132,3 +132,8 @@ The table below lists the data that the GitHub integration collects from your Gi
 </table>
 
 <sup><span id="commit-author-date">1</span></sup>: Pulse uses the commit author's date since it is more accurate. The committer date can be changed (e.g.: rebases) and stop reflecting the real creation date of the change.
+
+## See also
+
+-   [Accelerate metrics](../metrics/accelerate.md)
+-   [Changes and reviews metrics](../metrics/accelerate-changes.md)

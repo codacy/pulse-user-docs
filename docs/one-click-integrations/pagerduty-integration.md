@@ -49,3 +49,7 @@ The table below lists the data that the PagerDuty integration collects from your
     <td>Median time to recover and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a></td>
 </tr>
 </table>
+
+## See also
+
+-   [Accelerate metrics](../metrics/accelerate.md)
