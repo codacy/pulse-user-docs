@@ -92,3 +92,10 @@ Pulse displays the following details for each pull request in the chart **Review
 | Changes        | Number of lines of code changed in a pull request                         |
 | Commits        | Number of commits in a pull request, even if the pull request is squashed |
 | Comments       | Number of comments and review comments in a pull request                  |
+
+## See also
+
+Report data to Pulse using the following integrations:
+
+-   [GitHub integration](../one-click-integrations/github-integration.md)
+-   [Pulse CLI](../cli/cli.md)

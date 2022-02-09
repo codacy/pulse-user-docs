@@ -23,3 +23,7 @@ The following metrics for each open pull request allow you to understand which w
 -   **Comments:** number of comments of the pull request. Comments include inline pull request comments and conversation comments.
 -   **Time stale:** number of days since the pull request had the last interaction.
 -   **Changes:** number of lines of code changed by the pull request.
+
+## See also
+
+-   Report data to Pulse using the [GitHub integration](../one-click-integrations/github-integration.md)

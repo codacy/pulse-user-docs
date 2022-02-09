@@ -92,3 +92,11 @@ Pulse determines your performance level for this metric as follows:
 
 [^1]: Performance levels are based on the [Accelerate State of DevOps 2019](https://services.google.com/fh/files/misc/state-of-devops-2019.pdf) report. The values for the Elite level have been updated using the highest level from [Puppet's State of DevOps Report 2021](https://media.webteam.puppet.com/uploads/2021/07/Puppet-State-of-DevOps-Report-2021.pdf).
 [^2]: Means are not significantly different based on Tukey's post hoc analysis ([State of DevOps 2019](https://services.google.com/fh/files/misc/state-of-devops-2019.pdf) pp. 18).
+
+## See also
+
+Report data to Pulse using the following integrations:
+
+-   [GitHub integration](../one-click-integrations/github-integration.md)
+-   [PagerDuty integration](../one-click-integrations/pagerduty-integration.md)
+-   [Pulse CLI](../cli/cli.md)
