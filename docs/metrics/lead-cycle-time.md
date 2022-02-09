@@ -44,4 +44,4 @@ sum all (issue exited in progress timestamp - issue entered in progress timestam
 
 ## See also
 
--   [Jira integration](../one-click-integrations/jira-integration.md)
+-   Report data to Pulse using the [Jira integration](../one-click-integrations/jira-integration.md)
