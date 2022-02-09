@@ -10,6 +10,9 @@ To set up the Jira integration:
 
 1.  Click **Install Jira** and follow the instructions on the Jira UI to install the app.
 
+    !!! important
+        This step should be performed by a Jira administrator, since Pulse will only have access to Jira resources that the user setting up the integration has access to.
+
     ![Installing the Pulse Jira app](images/jira-installing.png)
 
 1.  Wait until you get a confirmation that Pulse successfully created the integration and the necessary webhooks on Jira.
