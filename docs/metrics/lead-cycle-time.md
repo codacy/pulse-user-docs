@@ -20,7 +20,7 @@ Monitoring you team's lead time and cycle time allows you to understand if you'r
 
 Time between creating an issue in the backlog and completing the issue.
 
-Pulse calculates Lead time for completed issues, taking into account that issues [can transition from **Completed** back to another status](../one-click-integrations/jira-integration.md#collected-data):
+Pulse calculates lead time for completed issues, taking into account that issues can transition from **Completed** back to another status.
 
 ```text
 last issue completed timestamp - issue created timestamp
@@ -30,7 +30,13 @@ last issue completed timestamp - issue created timestamp
 
 Time between commiting to work on an issue (such as at the start of a sprint) and completing the issue. Cycle time is a subpart of lead time.
 
-Pulse calculates Cycle time for completed issues, taking into account that issues [can transition from **In progress** back to another status besides **Completed**](../one-click-integrations/jira-integration.md#collected-data):
+Pulse calculates cycle time for completed issues, taking into account that issues can transition from **In progress** back to another status besides **Completed**.
+
+!!! note
+    When calculating cycle time, Pulse considers that:
+
+    -   Issues are in progress when they transition to any Jira status belonging to the **In Progress** status category (represented by the blue color in Jira).
+    -   Issues that have a status belonging to the **To Do** status category (represented by the grey color in Jira) don't contribute to cycle time.
 
 ```text
 sum all (issue exited in progress timestamp - issue entered in progress timestamp)

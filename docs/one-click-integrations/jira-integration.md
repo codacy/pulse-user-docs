@@ -35,12 +35,7 @@ The table below lists the data that the Jira integration collects from your Jira
     <tr>
         <td>Issues</td>
         <td>
-            Issue data includes all issue status transitions.<br/><br/>
-            When calculating Cycle time, Pulse considers that:
-            <ul>
-                <li>Issues are in progress when they transition to any Jira status belonging to the <strong>In Progress</strong> status category (represented by the blue color in Jira).</li>
-                <li>Issues that have a status belonging to the <strong>To Do</strong> status category (represented by the grey color in Jira) don't contribute to Cycle time.</li>
-            </ul>
+            Issue data includes all issue status transitions.
         </td>
         <td>Lead time and Cycle time metrics on the <a href="../../metrics/lead-cycle-time/">Lead & Cycle time dashboard</a></td>
     </tr>
