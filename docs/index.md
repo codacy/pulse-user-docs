@@ -5,6 +5,7 @@ Pulse displays the following metrics to provide insights into the current and hi
 -   [Accelerate metrics](metrics/accelerate.md)
 -   [Changes and reviews metrics](metrics/accelerate-changes.md)
 -   [Work in progress metrics](metrics/accelerate-wip.md)
+-   [Lead time and cycle time](metrics/lead-cycle-time.md)
 
 To calculate these metrics, you must complete these main steps to set up Pulse and to collect information from key events of your particular software development workflow:
 
@@ -30,7 +31,7 @@ To add more organizations, click the name of the current organization on the top
 
 ## 2. Pushing data to Pulse
 
-Currently, Pulse provides a push-based integration with your workflow using one of the following alternatives:
+Pulse provides push-based integrations with your workflow using the following alternatives:
 
 -   **One-click integrations**
 
@@ -38,8 +39,10 @@ Currently, Pulse provides a push-based integration with your workflow using one 
 
     -   **[GitHub integration](one-click-integrations/github-integration.md):** reports changes and deployments
     -   **[PagerDuty integration](one-click-integrations/pagerduty-integration.md):** reports incidents
+    -   **[Jira integration](one-click-integrations/jira-integration.md):** reports lead and cycle time
 
-    We plan to continue developing integrations for the most popular Git providers, CI/CD platforms, and incident management tools.
+    !!! note
+        We recommend that whenever possible you use the integrations that match your stack because they're faster to set up. We plan to continue developing integrations for the most popular Git providers, CI/CD platforms, and incident management tools.
 
 -   **[Pulse CLI](cli/cli.md)**
 
@@ -48,9 +51,6 @@ Currently, Pulse provides a push-based integration with your workflow using one 
 -   **[Pulse Ingestion API](https://ingestion.pulse.codacy.com/v1/api-docs){: target="_blank"}**
 
     Use the Pulse Ingestion API in scenarios where it may not be feasible to use the CLI to send data to Pulse, such as when you have the data inside an application.
-
-!!! note
-    We recommend that you use the integrations that match your stack because they're faster to set up.
 
 ## 3. Sharing access with teammates
 
