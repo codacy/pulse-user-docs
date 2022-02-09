@@ -1,6 +1,6 @@
 # GitHub integration
 
-Pulse integrates directly with GitHub to receive data about changes and deployments, necessary to calculate the metrics:
+Pulse integrates with GitHub Cloud to receive data about changes and deployments, necessary to calculate the metrics:
 
 -   [Lead time for changes](../metrics/accelerate.md#lead-time-for-changes), including the following drill-down metrics:
 
