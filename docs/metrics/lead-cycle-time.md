@@ -35,3 +35,7 @@ Pulse calculates Cycle time for completed issues, taking into account that issue
 ```text
 sum all (issue exited in progress timestamp - issue entered in progress timestamp)
 ```
+
+## See also
+
+-   [Jira integration](../one-click-integrations/jira-integration.md)

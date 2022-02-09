@@ -60,3 +60,7 @@ The table below lists the data that the Jira integration collects from your Jira
         <td>Filters on the <a href="../../metrics/lead-cycle-time/">Lead & Cycle time dashboard</a></td>
     </tr>
 </table>
+
+## See also
+
+-   [Lead and Cycle time metrics](../metrics/lead-cycle-time.md)
