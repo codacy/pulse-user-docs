@@ -20,6 +20,8 @@ Monitoring you team's lead time and cycle time allows you to understand if you'r
 
 Time between creating an issue in the backlog and completing the issue.
 
+Pulse calculates Lead time for completed issues, taking into account that issues can transition from **Completed** back to another status:
+
 ```text
 last issue completed timestamp - issue created timestamp
 ```
@@ -28,6 +30,8 @@ last issue completed timestamp - issue created timestamp
 
 Time between commiting to work on an issue (such as at the start of a sprint) and completing the issue. Cycle time is a subpart of lead time.
 
+Pulse calculates Cycle time for completed issues, taking into account that issues can transition from **In progress** back to another status besides **Completed**:
+
 ```text
-last issue completed timestamp - issue in progress timestamp
+sum all (issue exited in progress timestamp - issue entered in progress timestamp)
 ```
