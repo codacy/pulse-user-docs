@@ -5,7 +5,7 @@ https://docs.pulse.codacy.com/cli/examples/,This page includes examples of scrip
 https://docs.pulse.codacy.com/metrics/accelerate-changes/,Changes and reviews metrics provide an extra level of detail about the performance of your team workflows.
 https://docs.pulse.codacy.com/metrics/accelerate-wip/,Pulse calculates the work in progress metrics based on the status of all pull requests targeting any base branch in your GitHub repositories.
 https://docs.pulse.codacy.com/metrics/accelerate/,"Pulse calculates the four key Accelerate metrics using strictly changes, deployments, and incidents data for a rolling window of the last 90 days:"
-https://docs.pulse.codacy.com/metrics/lead-cycle-time/,Monitoring you team's lead time and cycle time allows you to understand if you're improving the ability to deliver value to customers.
+https://docs.pulse.codacy.com/metrics/lead-cycle-time/,Monitoring you team's lead time and cycle time allows you to understand if you're improving the ability to deliver value to customers. These productivity metrics indicate how long it takes for work to flow through the software development process:
 https://docs.pulse.codacy.com/one-click-integrations/github-integration/,"Pulse integrates with GitHub Cloud to receive data about changes and deployments, necessary to calculate the metrics:"
 https://docs.pulse.codacy.com/one-click-integrations/jira-integration/,"Pulse integrates with Jira Cloud to receive data about issues, necessary to calculate the metrics Lead time and Cycle time."
 https://docs.pulse.codacy.com/one-click-integrations/pagerduty-integration/,"Pulse integrates with PagerDuty to receive data about incidents, necessary to calculate the metrics Median time to recover and Change failure rate."
