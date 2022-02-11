@@ -52,6 +52,11 @@ plugins:
 
 nav:
   - index.md
+  - "Calculated metrics":
+    - metrics/accelerate.md
+    - metrics/accelerate-changes.md
+    - metrics/accelerate-wip.md
+    - metrics/lead-cycle-time.md
   - "One-click integrations":
     - one-click-integrations/github-integration.md
     - one-click-integrations/pagerduty-integration.md
@@ -60,8 +65,3 @@ nav:
     - cli/cli.md
     - cli/examples.md
   - "Pulse Ingestion API": https://ingestion.pulse.codacy.com/v1/api-docs
-  - "Calculated metrics":
-    - metrics/accelerate.md
-    - metrics/accelerate-changes.md
-    - metrics/accelerate-wip.md
-    - metrics/lead-cycle-time.md
