@@ -2,10 +2,10 @@
 
 Monitoring you team's lead time and cycle time allows you to understand if you're improving the ability to deliver value to customers.
 
-![Lead time versus cycle time](images/lead-cycle-time.png)
-
 -   [Lead time](#lead-time)
 -   [Cycle time](#cycle-time)
+
+![Lead time versus cycle time](images/lead-cycle-time.png)
 
 !!! note
     Pulse calculates lead time and cycle time based on the state changes of issues **that are already closed** in Jira, independently of the resolution. This means that:
