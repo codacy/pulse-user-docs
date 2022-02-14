@@ -14,13 +14,15 @@ theme:
     scheme: "slate"
     primary: "teal"
     accent: "teal"
+  font:
+    text: Inter
   logo: "assets/pulse-logo.png"
   features:
     - navigation.instant
     - toc.integrate
   custom_dir: overrides
   icon:
-    repo: fontawesome/regular/arrow-alt-circle-right
+    repo: fontawesome/regular/circle-right
 
 extra:
   analytics:
@@ -38,7 +40,7 @@ markdown_extensions:
   - meta
   - pymdownx.superfences
   - pymdownx.tabbed:
-      alternate_style: true 
+      alternate_style: true
   - pymdownx.striphtml:
       strip_comments: true
   - toc:
