@@ -43,12 +43,8 @@ The following is a detailed description of how the Pulse GitHub integration auto
 
 -   Pulse considers a deployment every merged pull request that **targets the default branch** of the repository.
 -   The deployment date is the timestamp when the corresponding pull request is merged.
--   The set of changes in a deployment is the list of commits in the corresponding pull request. Pulse correctly tracks your changes even if you squash the commits when merging the pull request.
+-   The set of changes in a deployment is the list of commits in the corresponding pull request. Pulse correctly tracks your changes even if you [squash or rebase the commits when merging the pull request](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github), since Pulse processes all the original commits before any changes to the Git history.
 -   Pulse associates all GitHub teams of the author of a merged pull request with the corresponding deployment, excluding teams with less than two members. Pulse only takes changes to GitHub teams into account on pull requests merged after those changes.
-
-!!! note "About pull request merge methods"
-    There is no impact in the Accelerate metrics, regardless of the [merge method](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github) (Merge pull request, Squash and merge, or Rebase and merge) you use.
-    Specifically considering **Lead time for changes**, when merging a pull request that rewrites git history, Pulse processes all the original commits before any history is modified, therefore avoiding any interference with the metrics.
 
 ### Use semantic versioning tags
 
