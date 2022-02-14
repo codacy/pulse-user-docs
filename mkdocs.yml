@@ -14,6 +14,8 @@ theme:
     scheme: "slate"
     primary: "teal"
     accent: "teal"
+  font:
+    text: Inter
   logo: "assets/pulse-logo.png"
   features:
     - navigation.instant
@@ -38,7 +40,7 @@ markdown_extensions:
   - meta
   - pymdownx.superfences
   - pymdownx.tabbed:
-      alternate_style: true 
+      alternate_style: true
   - pymdownx.striphtml:
       strip_comments: true
   - toc:
