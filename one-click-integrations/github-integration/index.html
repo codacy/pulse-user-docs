@@ -643,7 +643,7 @@
 <ul>
 <li>Pulse considers a deployment every merged pull request that <strong>targets the default branch</strong> of the repository.</li>
 <li>The deployment date is the timestamp when the corresponding pull request is merged.</li>
-<li>The set of changes in a deployment is the list of commits in the corresponding pull request. Pulse correctly tracks your changes even if you squash the commits when merging the pull request.</li>
+<li>The set of changes in a deployment is the list of commits in the corresponding pull request. Pulse correctly tracks your changes even if you <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github">squash or rebase the commits when merging the pull request</a>, since Pulse processes all the original commits before any changes to the Git history.</li>
 <li>Pulse associates all GitHub teams of the author of a merged pull request with the corresponding deployment, excluding teams with less than two members. Pulse only takes changes to GitHub teams into account on pull requests merged after those changes.</li>
 </ul>
 <h3 id="use-semantic-versioning-tags">Use semantic versioning tags<a class="headerlink" href="#use-semantic-versioning-tags" title="Permanent link">&para;</a></h3>
