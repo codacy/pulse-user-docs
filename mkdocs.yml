@@ -20,7 +20,7 @@ theme:
     - toc.integrate
   custom_dir: overrides
   icon:
-    repo: fontawesome/regular/arrow-alt-circle-right
+    repo: fontawesome/regular/circle-right
 
 extra:
   analytics:
