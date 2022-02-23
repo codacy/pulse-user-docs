@@ -42,7 +42,7 @@ Consider the following before setting up the integration using the Pulse CLI:
 Download the latest version of the Pulse CLI for your operating system and make sure that you're able to run the binary.
 
 !!! tip
-    **If you're using GitHub** we recommend that you use our [Pulse GitHub Action](https://github.com/codacy/pulse-action) as a more convenient way to report events directly from your GitHub Actions workflows.
+    **If you're using GitHub but our [one-click integration](../one-click-integrations/github-integration.md) doesn't fit your requirements** we recommend that you use our [Pulse GitHub Action](https://github.com/codacy/pulse-action) as a convenient way to report events directly from your GitHub Actions workflows.
 
     The Pulse GitHub Action acts as a wrapper for the Pulse CLI and accepts the same fields as the Pulse CLI.
 
