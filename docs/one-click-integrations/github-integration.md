@@ -133,7 +133,7 @@ The table below lists the data that the GitHub integration collects from your Gi
 
 <sup><span id="commit-author-date">1</span></sup>: Pulse uses the commit author's date since it is more accurate. The committer date can be changed (e.g.: rebases) and stop reflecting the real creation date of the change.
 
-<sup><span id="deployment-teams">2</span></sup>: Adding a new team, deleting an existing team, or changing the composition of a team on GitHub only affects new data from that moment onwards and doesn't have an immediate impact on the dashboards.
+<sup><span id="deployment-teams">2</span></sup>: Adding a new team or changing the composition of a team on GitHub only affects new data from that moment onwards and doesn't have an immediate impact on the dashboards. Also, deleted teams on GitHub will continue to show in Pulse.
 
 ## See also
 
