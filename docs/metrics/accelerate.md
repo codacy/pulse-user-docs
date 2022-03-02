@@ -17,6 +17,11 @@ number of deployments per day
 
 Pulse uses the average value over a period of time to display aggregate deployment frequencies.
 
+!!! note
+    Due to the way Deployment frequency is measured, the absence of data will have an impact on reducing its value.
+
+    For example, assume you have started development on a project 3 months ago, and that your deployment frequency over those 3 months was 2 deployments/day. If you increase the observed time interval to 6 months, including a period of time before there were deployments, your Deployment frequency will decrease, in this case to 1 deployment/day.
+
 Pulse determines your performance level for this metric as follows:
 
 | Performance level[^1] | Deployment frequency                                             |
