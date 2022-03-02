@@ -124,7 +124,7 @@ The table below lists the data that the GitHub integration collects from your Gi
     <td>
         <p>Deployments:</p>
         <ul>
-            <li><code>teams</code>: GitHub teams of the author a deployment<sup><a href="#deployment-teams">2</a></sup></li>
+            <li><code>teams</code>: GitHub teams of the author of a deployment<sup><a href="#deployment-teams">2</a></sup></li>
         </ul>
     </td>
     <td>Filters the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a>, <a href="../../metrics/accelerate-changes/">Changes & Reviews dashboard</a>, and <a href="../../metrics/accelerate-wip/">Work in Progress dashboard</a> by the contributions made by the team</td>
