@@ -124,14 +124,16 @@ The table below lists the data that the GitHub integration collects from your Gi
     <td>
         <p>Deployments:</p>
         <ul>
-            <li><code>teams</code>: GitHub teams responsible for the changes in the deployment</li>
+            <li><code>teams</code>: GitHub teams of the author a deployment<sup><a href="#deployment-teams">2</a></sup></li>
         </ul>
     </td>
-    <td>Filters for the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a>, <a href="../../metrics/accelerate-changes/">Changes & Reviews dashboard</a>, and <a href="../../metrics/accelerate-wip/">Work in Progress dashboard</a></td>
+    <td>Filters the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a>, <a href="../../metrics/accelerate-changes/">Changes & Reviews dashboard</a>, and <a href="../../metrics/accelerate-wip/">Work in Progress dashboard</a> by the people belonging to the team</td>
 </tr>
 </table>
 
 <sup><span id="commit-author-date">1</span></sup>: Pulse uses the commit author's date since it is more accurate. The committer date can be changed (e.g.: rebases) and stop reflecting the real creation date of the change.
+
+<sup><span id="deployment-teams">2</span></sup>: Adding a new team, deleting an existing team, or changing the composition of a team in GitHub only affects new data from that moment onwards and doesn't have an immediate impact on the dashboards.
 
 ## See also
 
