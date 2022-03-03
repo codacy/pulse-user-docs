@@ -585,6 +585,11 @@
 <div class="highlight"><pre><span></span><code>number of deployments per day
 </code></pre></div>
 <p>Pulse uses the average value over a period of time to display aggregate deployment frequencies.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Due to the way Pulse calculates deployment frequency, the absence of data will have an impact on reducing the value of this metric.</p>
+<p>For example, suppose that you started developing a project 3 months ago and your deployment frequency over this time period was 2 deployments/day. If you increase the observed time interval to 6 months to include a time period before there were deployments, Pulse displays a deployment frequency of only 1 deployment/day.</p>
+</div>
 <p>Pulse determines your performance level for this metric as follows:</p>
 <table>
 <thead>
