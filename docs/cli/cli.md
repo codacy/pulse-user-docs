@@ -226,7 +226,7 @@ Report an event to Pulse whenever an incident resulting from a release or infras
 
 Typically, it's possible to keep track of this information using your monitoring infrastructure or your ticketing system.
 
-Pulse uses these reports to calculate the metrics [Median time to recovery](../metrics/accelerate.md#median-time-to-recover) and [Change failure rate](../metrics/accelerate.md#change-failure-rate).
+Pulse uses these reports to calculate the metrics [Time to recover](../metrics/accelerate.md#time-to-recover) and [Change failure rate](../metrics/accelerate.md#change-failure-rate).
 
 Send the following information when reporting **incidents** to Pulse:
 

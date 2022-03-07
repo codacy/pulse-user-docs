@@ -1,6 +1,6 @@
 # PagerDuty integration
 
-Pulse integrates with PagerDuty to receive data about incidents, necessary to calculate the metrics [Median time to recover](../metrics/accelerate.md#median-time-to-recover) and [Change failure rate](../metrics/accelerate.md#change-failure-rate).
+Pulse integrates with PagerDuty to receive data about incidents, necessary to calculate the metrics [Time to recover](../metrics/accelerate.md#time-to-recover) and [Change failure rate](../metrics/accelerate.md#change-failure-rate).
 
 ## Setting up the PagerDuty integration
 
@@ -46,7 +46,7 @@ The table below lists the data that the PagerDuty integration collects from your
             <li><code>system</code>: <i>defined during the configuration process</i></li>
         </ul>
     </td>
-    <td>Median time to recover and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a></td>
+    <td>Time to recover and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a></td>
 </tr>
 </table>
 

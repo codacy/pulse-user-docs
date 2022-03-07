@@ -4,7 +4,7 @@ Pulse calculates the four key Accelerate metrics using strictly **changes**, **d
 
 -   [Deployment frequency](#deployment-frequency)
 -   [Lead time for changes](#lead-time-for-changes)
--   [Median time to recover](#median-time-to-recover)
+-   [Time to recover](#time-to-recover)
 -   [Change failure rate](#change-failure-rate)
 
 ## Deployment frequency
@@ -53,19 +53,19 @@ Pulse determines your performance level for this metric as follows:
 | Medium                | Between 1 week and 1 month    |
 | Low                   | More than or equal to 1 month |
 
-## Median time to recover
+## Time to recover
 
 How long it takes your organization to recover from a failure in production (e.g., service impairment or unplanned outage):
 
 ```text
-median(incident resolved timestamp - incident created timestamp)
+average(incident resolved timestamp - incident created timestamp)
 ```
 
-Pulse uses the maximum value over a period of time to display aggregate median times to recover.
+Pulse uses the maximum value over a period of time to display aggregate times to recover.
 
 Pulse determines your performance level for this metric as follows:
 
-| Performance level[^1] | Median time to recover       |
+| Performance level[^1] | Time to recover              |
 | --------------------- | ---------------------------- |
 | Elite                 | Less than 1 hour             |
 | High, Medium [^2]     | Less than 1 day              |
