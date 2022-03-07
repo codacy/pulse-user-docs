@@ -24,12 +24,12 @@ Pulse uses the average value over a period of time to display aggregate deployme
 
 Pulse determines your performance level for this metric as follows:
 
-| Performance level[^1] | Deployment frequency                                             |
-| --------------------- | ---------------------------------------------------------------- |
-| Elite                 | More than 50% of days have one or more **deployments**           |
-| High                  | More than 50% of weeks have 3 or more days with a **deployment** |
-| Medium                | More than 50% of weeks have at least one **deployment**          |
-| Low                   | More than 50% of months have at least one **deployment**         |
+| Performance level[^1] | Deployment frequency                                        |
+| --------------------- | ----------------------------------------------------------- |
+| Elite                 | More than 50% of days have one or more **deployments**      |
+| High                  | More than 50% of months have at least one **deployment**    |
+| Medium                | More than 50% of semesters have at least one **deployment** |
+| Low                   | Less than 50% of semesters have at least one **deployment** |
 
 ## Lead time for changes
 
@@ -46,12 +46,12 @@ Pulse uses the maximum value over a period of time to display aggregate lead tim
 
 Pulse determines your performance level for this metric as follows:
 
-| Performance level[^1] | Lead time for changes         |
-| --------------------- | ----------------------------- |
-| Elite                 | Less than 1 hour              |
-| High                  | Between 1 hour and 1 week     |
-| Medium                | Between 1 week and 1 month    |
-| Low                   | More than or equal to 1 month |
+| Performance level[^1] | Lead time for changes          |
+| --------------------- | ------------------------------ |
+| Elite                 | Less than 1 hour               |
+| High                  | Between 1 hour and 1 week      |
+| Medium                | Between 1 week and 6 months    |
+| Low                   | More than or equal to 6 months |
 
 ## Time to recover
 
@@ -68,7 +68,8 @@ Pulse determines your performance level for this metric as follows:
 | Performance level[^1] | Time to recover              |
 | --------------------- | ---------------------------- |
 | Elite                 | Less than 1 hour             |
-| High, Medium [^2]     | Less than 1 day              |
+| High                  | Less than 1 day              |
+| Medium                | Less than 1 week             |
 | Low                   | More than or equal to 1 week |
 
 ## Change failure rate
@@ -91,12 +92,11 @@ Pulse determines your performance level for this metric as follows:
 
 | Performance level[^1] | Change failure rate |
 | --------------------- | ------------------- |
-| Elite                 | 0-5%                |
-| High, Medium [^2]     | 5-15%               |
-| Low                   | 15-100%             |
+| Elite                 | 0-15%               |
+| High                  | 15-30%              |
+| Low                   | 30-100%             |
 
-[^1]: Performance levels are based on the [Accelerate State of DevOps 2019](https://services.google.com/fh/files/misc/state-of-devops-2019.pdf) report. The values for the Elite level have been updated using the highest level from [Puppet's State of DevOps Report 2021](https://media.webteam.puppet.com/uploads/2021/07/Puppet-State-of-DevOps-Report-2021.pdf).
-[^2]: Means are not significantly different based on Tukey's post hoc analysis ([State of DevOps 2019](https://services.google.com/fh/files/misc/state-of-devops-2019.pdf) pp. 18).
+[^1]: Performance levels are based on the [Accelerate State of DevOps 2021](https://services.google.com/fh/files/misc/state-of-devops-2021.pdf) report.
 
 ## See also
 
