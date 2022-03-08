@@ -329,8 +329,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#median-time-to-recover" class="md-nav__link">
-    Median time to recover
+  <a href="#time-to-recover" class="md-nav__link">
+    Time to recover
   </a>
   
 </li>
@@ -577,7 +577,7 @@
 <ul>
 <li><a href="#deployment-frequency">Deployment frequency</a></li>
 <li><a href="#lead-time-for-changes">Lead time for changes</a></li>
-<li><a href="#median-time-to-recover">Median time to recover</a></li>
+<li><a href="#time-to-recover">Time to recover</a></li>
 <li><a href="#change-failure-rate">Change failure rate</a></li>
 </ul>
 <h2 id="deployment-frequency">Deployment frequency<a class="headerlink" href="#deployment-frequency" title="Permanent link">&para;</a></h2>
@@ -605,15 +605,15 @@
 </tr>
 <tr>
 <td>High</td>
-<td>More than 50% of weeks have 3 or more days with a <strong>deployment</strong></td>
+<td>More than 50% of months have at least one <strong>deployment</strong></td>
 </tr>
 <tr>
 <td>Medium</td>
-<td>More than 50% of weeks have at least one <strong>deployment</strong></td>
+<td>More than 50% of semesters have at least one <strong>deployment</strong></td>
 </tr>
 <tr>
 <td>Low</td>
-<td>More than 50% of months have at least one <strong>deployment</strong></td>
+<td>Less than 50% of semesters have at least one <strong>deployment</strong></td>
 </tr>
 </tbody>
 </table>
@@ -645,25 +645,25 @@
 </tr>
 <tr>
 <td>Medium</td>
-<td>Between 1 week and 1 month</td>
+<td>Between 1 week and 6 months</td>
 </tr>
 <tr>
 <td>Low</td>
-<td>More than or equal to 1 month</td>
+<td>More than or equal to 6 months</td>
 </tr>
 </tbody>
 </table>
-<h2 id="median-time-to-recover">Median time to recover<a class="headerlink" href="#median-time-to-recover" title="Permanent link">&para;</a></h2>
+<h2 id="time-to-recover">Time to recover<a class="headerlink" href="#time-to-recover" title="Permanent link">&para;</a></h2>
 <p>How long it takes your organization to recover from a failure in production (e.g., service impairment or unplanned outage):</p>
-<div class="highlight"><pre><span></span><code>median(incident resolved timestamp - incident created timestamp)
+<div class="highlight"><pre><span></span><code>average(incident resolved timestamp - incident created timestamp)
 </code></pre></div>
-<p>Pulse uses the maximum value over a period of time to display aggregate median times to recover.</p>
+<p>Pulse uses the maximum value over a period of time to display aggregate times to recover.</p>
 <p>Pulse determines your performance level for this metric as follows:</p>
 <table>
 <thead>
 <tr>
 <th>Performance level<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup></th>
-<th>Median time to recover</th>
+<th>Time to recover</th>
 </tr>
 </thead>
 <tbody>
@@ -672,8 +672,12 @@
 <td>Less than 1 hour</td>
 </tr>
 <tr>
-<td>High, Medium <sup id="fnref2:2"><a class="footnote-ref" href="#fn:2">2</a></sup></td>
+<td>High</td>
 <td>Less than 1 day</td>
+</tr>
+<tr>
+<td>Medium</td>
+<td>Less than 1 week</td>
 </tr>
 <tr>
 <td>Low</td>
@@ -703,15 +707,15 @@
 <tbody>
 <tr>
 <td>Elite</td>
-<td>0-5%</td>
+<td>0-15%</td>
 </tr>
 <tr>
-<td>High, Medium <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup></td>
-<td>5-15%</td>
+<td>High</td>
+<td>15-30%</td>
 </tr>
 <tr>
 <td>Low</td>
-<td>15-100%</td>
+<td>30-100%</td>
 </tr>
 </tbody>
 </table>
@@ -726,10 +730,7 @@
 <hr />
 <ol>
 <li id="fn:1">
-<p>Performance levels are based on the <a href="https://services.google.com/fh/files/misc/state-of-devops-2019.pdf">Accelerate State of DevOps 2019</a> report. The values for the Elite level have been updated using the highest level from <a href="https://media.webteam.puppet.com/uploads/2021/07/Puppet-State-of-DevOps-Report-2021.pdf">Puppet's State of DevOps Report 2021</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-<li id="fn:2">
-<p>Means are not significantly different based on Tukey's post hoc analysis (<a href="https://services.google.com/fh/files/misc/state-of-devops-2019.pdf">State of DevOps 2019</a> pp. 18).&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Performance levels are based on the <a href="https://services.google.com/fh/files/misc/state-of-devops-2021.pdf">Accelerate State of DevOps 2021</a> report.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref4:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
