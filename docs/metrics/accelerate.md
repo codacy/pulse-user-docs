@@ -98,7 +98,7 @@ Pulse determines your performance level for this metric as follows:
 | Low                   | 30-100%             |
 
 [^1]: Performance levels are based on the [Accelerate State of DevOps 2021](https://services.google.com/fh/files/misc/state-of-devops-2021.pdf) report.
-[^2]: The [Accelerate State of DevOps 2021](https://services.google.com/fh/files/misc/state-of-devops-2021.pdf) report defines the same value for both Medium and Low performance levels, so we've opted to skip the Medium level.
+[^2]: The [Accelerate State of DevOps 2021](https://services.google.com/fh/files/misc/state-of-devops-2021.pdf) report defines the same range of values for both Medium and Low performance levels, so we've opted to skip the Medium level.
 
 ## See also
 
