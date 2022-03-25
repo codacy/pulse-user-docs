@@ -47,9 +47,9 @@ The following metrics provide insights into the level of engagement and efficien
 !!! note
     Pulse calculates these metrics based on pull request data and:
 
-    -   Considers that reviews are approvals, change requests, and inline pull request comments, but not pull request conversation comments;
-    -   Excludes reviews in a pending state;
-    -   Excludes reviews and approvals that are done after the pull requests are merged.
+    -   Considers that reviews are approvals, change requests, and inline pull request comments, but not pull request conversation comments
+    -   Excludes reviews in a pending state
+    -   Excludes reviews and approvals that are done after the pull requests are merged
 
 ### Time to first review
 
