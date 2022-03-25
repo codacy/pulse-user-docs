@@ -1,5 +1,6 @@
 mkdocs==1.2.3
 mkdocs-material==8.1.11
+Jinja2==3.0.3
 pymdown-extensions==9.2
 mkdocs-meta-descriptions-plugin==1.0.2
 jinja2==3.0.0
