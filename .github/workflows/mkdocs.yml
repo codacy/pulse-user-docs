@@ -30,7 +30,32 @@ jobs:
         run: |
           docker run -v $(pwd):/test --rm wjdp/htmltest --conf .htmltest.yml
 
-      # On push to master, deploy the docs to GitHub pages
+      # On push to feature branch, deploy the docs to Netlify
+      - name: Determine branch name
+        id: branches
+        if: github.ref != 'refs/heads/master'
+        uses: transferwise/sanitize-branch-name@v1
+
+      - name: Deploy docs (branch preview)
+        if: github.ref != 'refs/heads/master'
+        uses: nwtgck/actions-netlify@v1.2
+        with:
+          publish-dir: ./site
+          production-branch: master
+          github-token: ${{ secrets.DEPLOYMENT_PERSONAL_ACCESS_TOKEN }}
+          deploy-message: Deploy for branch ${{ github.ref_name }}
+          enable-pull-request-comment: false
+          enable-commit-comment: false
+          enable-commit-status: false
+          overwrites-pull-request-comment: false
+          alias: ${{ steps.branches.outputs.sanitized-branch-name }}
+          github-deployment-environment: Netlify
+          github-deployment-description: Branch deployment preview
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_PERSONAL_ACCESS_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+      # On push to master, deploy the docs to GitHub Pages
       - name: Set up git author
         if: github.ref == 'refs/heads/master'
         run: |
