@@ -38,6 +38,7 @@ jobs:
 
       - name: Convert branch name to lowercase
         id: string
+        if: github.ref != 'refs/heads/master'
         uses: ASzc/change-string-case-action@v2
         with:
           string: ${{ steps.branches.outputs.sanitized-branch-name }}
