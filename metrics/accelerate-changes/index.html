@@ -627,7 +627,7 @@
 <li><a href="#time-to-open">Time to open</a></li>
 <li><a href="#time-to-merge">Time to merge</a></li>
 </ul>
-<p>Pulse aggregates these metrics by week and presents values for the average and the 5%, 25%, 75%, and 95% percentiles.</p>
+<p>Pulse aggregates these metrics by week and presents values for the average and the 75% and 95% percentiles.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Pulse calculates these metrics based on pull request data and:</p>
@@ -639,12 +639,12 @@
 </div>
 <h3 id="time-to-open">Time to open<a class="headerlink" href="#time-to-open" title="Permanent link">&para;</a></h3>
 <p>An approximation of how long it takes for a change or feature to be developed:</p>
-<div class="highlight"><pre><span></span><code>pull request open timestamp - first commit in pull request branch timestamp
-</code></pre></div>
+<p><code>text
+pull request open timestamp - first commit in pull request branch timestamp</code></p>
 <h3 id="time-to-merge">Time to merge<a class="headerlink" href="#time-to-merge" title="Permanent link">&para;</a></h3>
 <p>How long does the code review process take for a change or feature:</p>
-<div class="highlight"><pre><span></span><code>pull request merge timestamp - pull request open timestamp
-</code></pre></div>
+<p><code>text
+pull request merge timestamp - pull request open timestamp</code></p>
 <h2 id="reviews-metrics">Reviews metrics<a class="headerlink" href="#reviews-metrics" title="Permanent link">&para;</a></h2>
 <p>The following metrics provide insights into the level of engagement and efficiency of your code review process:</p>
 <ul>
@@ -665,20 +665,20 @@
 </div>
 <h3 id="time-to-first-review">Time to first review<a class="headerlink" href="#time-to-first-review" title="Permanent link">&para;</a></h3>
 <p>How long does it take to have the first review on a pull request:</p>
-<div class="highlight"><pre><span></span><code>first review timestamp - pull request open timestamp
-</code></pre></div>
+<p><code>text
+first review timestamp - pull request open timestamp</code></p>
 <h3 id="time-to-first-approval">Time to first approval<a class="headerlink" href="#time-to-first-approval" title="Permanent link">&para;</a></h3>
 <p>How long does it take to have the first approval on a pull request:</p>
-<div class="highlight"><pre><span></span><code>first approval timestamp - pull request open timestamp
-</code></pre></div>
+<p><code>text
+first approval timestamp - pull request open timestamp</code></p>
 <h3 id="time-from-first-to-last-approval">Time from first to last approval<a class="headerlink" href="#time-from-first-to-last-approval" title="Permanent link">&para;</a></h3>
 <p>How long does it take between the first and last approvals on a pull request:</p>
-<div class="highlight"><pre><span></span><code>last approval timestamp - first approval timestamp
-</code></pre></div>
+<p><code>text
+last approval timestamp - first approval timestamp</code></p>
 <h3 id="time-from-last-approval-to-merge">Time from last approval to merge<a class="headerlink" href="#time-from-last-approval-to-merge" title="Permanent link">&para;</a></h3>
 <p>How long does it take to merge a pull request after the last approval:</p>
-<div class="highlight"><pre><span></span><code>pull request merge timestamp - last approval timestamp
-</code></pre></div>
+<p><code>text
+pull request merge timestamp - last approval timestamp</code></p>
 <h3 id="outlier-review-details">Outlier review details<a class="headerlink" href="#outlier-review-details" title="Permanent link">&para;</a></h3>
 <p>Pulse displays the following details for each pull request in the chart <strong>Review time explorer</strong>:</p>
 <table>

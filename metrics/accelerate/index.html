@@ -582,8 +582,8 @@
 </ul>
 <h2 id="deployment-frequency">Deployment frequency<a class="headerlink" href="#deployment-frequency" title="Permanent link">&para;</a></h2>
 <p>How often your organization completes a deployment to production or releases code to end-users of your primary application or service:</p>
-<div class="highlight"><pre><span></span><code>number of deployments per day
-</code></pre></div>
+<p><code>text
+number of deployments per day</code></p>
 <p>Pulse uses the average value over a period of time to display aggregate deployment frequencies.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -619,8 +619,8 @@
 </table>
 <h2 id="lead-time-for-changes">Lead time for changes<a class="headerlink" href="#lead-time-for-changes" title="Permanent link">&para;</a></h2>
 <p>How long it takes a commit to get into production on your primary application or service:</p>
-<div class="highlight"><pre><span></span><code>median(deployment timestamp - changes timestamp)
-</code></pre></div>
+<p><code>text
+median(deployment timestamp - changes timestamp)</code></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <strong>changes</strong> timestamp is when code is actually checked into a repository.</p>
@@ -655,8 +655,8 @@
 </table>
 <h2 id="time-to-recover">Time to recover<a class="headerlink" href="#time-to-recover" title="Permanent link">&para;</a></h2>
 <p>How long it takes your organization to recover from a failure in production (e.g., service impairment or unplanned outage):</p>
-<div class="highlight"><pre><span></span><code>average(incident resolved timestamp - incident created timestamp)
-</code></pre></div>
+<p><code>text
+average(incident resolved timestamp - incident created timestamp)</code></p>
 <p>Pulse uses the maximum value over a period of time to display aggregate times to recover.</p>
 <p>Pulse determines your performance level for this metric as follows:</p>
 <table>
@@ -687,8 +687,8 @@
 </table>
 <h2 id="change-failure-rate">Change failure rate<a class="headerlink" href="#change-failure-rate" title="Permanent link">&para;</a></h2>
 <p>Percentage of deployments causing a failure in production (e.g., service impairment or unplanned outage) and that subsequently require remediation:</p>
-<div class="highlight"><pre><span></span><code>number of deployments that caused incidents / total number of deployments
-</code></pre></div>
+<p><code>text
+number of deployments that caused incidents / total number of deployments</code></p>
 <p>Pulse uses the average value over a period of time to display aggregate change failure rates.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
