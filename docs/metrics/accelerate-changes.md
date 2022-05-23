@@ -9,7 +9,7 @@ The following metrics directly influence **Lead time for changes**, and can help
 -   [Time to open](#time-to-open)
 -   [Time to merge](#time-to-merge)
 
-Pulse aggregates these metrics by week and presents values for the average and the 5%, 25%, 75%, and 95% percentiles.
+Pulse aggregates these metrics by week and presents values for the average and the 75% and 95% percentiles.
 
 !!! note
     Pulse calculates these metrics based on pull request data and:
