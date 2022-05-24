@@ -14,6 +14,7 @@ Pulse aggregates these metrics by week and presents values for the average and t
 !!! note
     Pulse calculates these metrics based on pull request data and:
 
+    -   Includes pull requests targeting all branches
     -   Includes draft pull requests, meaning that the lifetime of pull requests includes the time marked as draft
     -   Excludes open and declined pull requests
     -   Excludes pull requests without commits and force pushed pull requests where the first commit was authored after the pull request was open
