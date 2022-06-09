@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://docs.pulse.codacy.com/one-click-integrations/github-integration/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.3">
     
     
       
@@ -21,7 +21,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.50e68009.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e8d9bf0c.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
@@ -37,7 +37,7 @@
       
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,400i,700%7C&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7C:400,400i,700,700i&display=fallback">
         <style>:root{--md-text-font:"Inter";--md-code-font:""}</style>
       
     
@@ -592,6 +592,7 @@
               
                 
 
+
 <h1 id="github-integration">GitHub integration<a class="headerlink" href="#github-integration" title="Permanent link">&para;</a></h1>
 <p>Pulse integrates with GitHub Cloud to receive data about changes and deployments, necessary to calculate the metrics:</p>
 <ul>
@@ -651,8 +652,8 @@
 <li>
 <p>Pulse considers a deployment every Git tag that follows the <a href="https://semver.org">SemVer</a> convention, excluding pre-release versions but allowing release prefixes. For example, the following are valid tags: <code>1.0.0</code>, <code>v2.3.4</code>.</p>
 <p>To use this strategy, make sure that you're creating Git tags on your repositories for each successful deployment to production, or whenever you make a new release available to any user of your application:</p>
-<p><code>bash
-git tag -a MAJOR.MINOR.PATCH -m "&lt;Deployment or release message&gt;"</code></p>
+<div class="highlight"><pre><span></span><code>git tag -a MAJOR.MINOR.PATCH -m <span class="s2">&quot;&lt;Deployment or release message&gt;&quot;</span>
+</code></pre></div>
 <p>Where <code>MAJOR.MINOR.PATCH</code> must be a valid SemVer version without pre-release information. <a href="https://regex101.com/r/NVAtiz/1">Check if your versioning syntax is valid</a>.</p>
 </li>
 <li>
@@ -801,10 +802,10 @@ git tag -a MAJOR.MINOR.PATCH -m "&lt;Deployment or release message&gt;"</code></
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.092fa1f6.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "toc.integrate"], "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5a9542cf.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b88e97c5.min.js"></script>
       
     
   </body>

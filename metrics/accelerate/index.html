@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://docs.pulse.codacy.com/metrics/accelerate/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.11">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.3">
     
     
       
@@ -21,7 +21,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.50e68009.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e8d9bf0c.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
@@ -37,7 +37,7 @@
       
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,400i,700%7C&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,300i,400,400i,700,700i%7C:400,400i,700,700i&display=fallback">
         <style>:root{--md-text-font:"Inter";--md-code-font:""}</style>
       
     
@@ -572,6 +572,7 @@
               
                 
 
+
 <h1 id="accelerate-metrics">Accelerate metrics<a class="headerlink" href="#accelerate-metrics" title="Permanent link">&para;</a></h1>
 <p>Pulse calculates the four key Accelerate metrics using strictly <strong>changes</strong>, <strong>deployments</strong>, and <strong>incidents</strong> data for a rolling window of the last 90 days:</p>
 <ul>
@@ -582,8 +583,8 @@
 </ul>
 <h2 id="deployment-frequency">Deployment frequency<a class="headerlink" href="#deployment-frequency" title="Permanent link">&para;</a></h2>
 <p>How often your organization completes a deployment to production or releases code to end-users of your primary application or service:</p>
-<p><code>text
-number of deployments per day</code></p>
+<div class="highlight"><pre><span></span><code>number of deployments per day
+</code></pre></div>
 <p>Pulse uses the average value over a period of time to display aggregate deployment frequencies.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -619,8 +620,8 @@ number of deployments per day</code></p>
 </table>
 <h2 id="lead-time-for-changes">Lead time for changes<a class="headerlink" href="#lead-time-for-changes" title="Permanent link">&para;</a></h2>
 <p>How long it takes a commit to get into production on your primary application or service:</p>
-<p><code>text
-median(deployment timestamp - changes timestamp)</code></p>
+<div class="highlight"><pre><span></span><code>median(deployment timestamp - changes timestamp)
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <strong>changes</strong> timestamp is when code is actually checked into a repository.</p>
@@ -655,8 +656,8 @@ median(deployment timestamp - changes timestamp)</code></p>
 </table>
 <h2 id="time-to-recover">Time to recover<a class="headerlink" href="#time-to-recover" title="Permanent link">&para;</a></h2>
 <p>How long it takes your organization to recover from a failure in production (e.g., service impairment or unplanned outage):</p>
-<p><code>text
-average(incident resolved timestamp - incident created timestamp)</code></p>
+<div class="highlight"><pre><span></span><code>average(incident resolved timestamp - incident created timestamp)
+</code></pre></div>
 <p>Pulse uses the maximum value over a period of time to display aggregate times to recover.</p>
 <p>Pulse determines your performance level for this metric as follows:</p>
 <table>
@@ -687,8 +688,8 @@ average(incident resolved timestamp - incident created timestamp)</code></p>
 </table>
 <h2 id="change-failure-rate">Change failure rate<a class="headerlink" href="#change-failure-rate" title="Permanent link">&para;</a></h2>
 <p>Percentage of deployments causing a failure in production (e.g., service impairment or unplanned outage) and that subsequently require remediation:</p>
-<p><code>text
-number of deployments that caused incidents / total number of deployments</code></p>
+<div class="highlight"><pre><span></span><code>number of deployments that caused incidents / total number of deployments
+</code></pre></div>
 <p>Pulse uses the average value over a period of time to display aggregate change failure rates.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -806,10 +807,10 @@ number of deployments that caused incidents / total number of deployments</code>
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "toc.integrate"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.092fa1f6.min.js"}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "toc.integrate"], "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5a9542cf.min.js"></script>
+      <script src="../../assets/javascripts/bundle.b88e97c5.min.js"></script>
       
     
   </body>
