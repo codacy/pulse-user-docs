@@ -4,7 +4,7 @@ mkdocs-material==8.2.3
 Jinja2==3.1.1
 
 # Markdown extensions
-pymdown-extensions==9.4
+pymdown-extensions==9.5
 
 # MkDocs plugins
 mkdocs-meta-descriptions-plugin==1.0.2
