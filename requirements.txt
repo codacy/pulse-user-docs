@@ -7,4 +7,4 @@ Jinja2==3.1.2
 pymdown-extensions==9.5
 
 # MkDocs plugins
-mkdocs-meta-descriptions-plugin==1.0.2
+mkdocs-meta-descriptions-plugin==2.0.0
