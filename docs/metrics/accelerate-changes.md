@@ -100,4 +100,3 @@ Pulse displays the following details for each pull request in the chart **Review
 Report data to Pulse using the following integrations:
 
 -   [GitHub integration](../one-click-integrations/github-integration.md)
--   [Pulse CLI](../cli/cli.md)
