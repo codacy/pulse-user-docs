@@ -66,4 +66,4 @@ nav:
   - "Pulse CLI":
     - cli/cli.md
     - cli/examples.md
-  - "Pulse Ingestion API": https://ingestion.pulse.codacy.com/v1/api-docs
+  - "Ingestion API docs ↗": https://ingestion.pulse.codacy.com/v1/api-docs
