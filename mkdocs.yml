@@ -24,6 +24,11 @@ theme:
   icon:
     repo: fontawesome/regular/circle-right
 
+extra:
+  analytics:
+    provider: segment
+    property: "4sT1ml0BeKdR1RtrK5dSQmwxmvcUpYtL"
+
 # Extensions
 markdown_extensions:
   - admonition
