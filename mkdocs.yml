@@ -24,11 +24,6 @@ theme:
   icon:
     repo: fontawesome/regular/circle-right
 
-extra:
-  analytics:
-    provider: google
-    property: G-E31MPDGETR
-
 # Extensions
 markdown_extensions:
   - admonition
