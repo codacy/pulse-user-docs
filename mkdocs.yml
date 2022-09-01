@@ -27,7 +27,7 @@ theme:
 extra:
   analytics:
     provider: segment
-    property: "4sT1ml0BeKdR1RtrK5dSQmwxmvcUpYtL"
+    property: "8vbB5QvZbwQqMTCWkaiY9Tx2zQ2EU5AF"
 
 # Extensions
 markdown_extensions:
