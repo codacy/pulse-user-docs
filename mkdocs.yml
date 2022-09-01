@@ -26,8 +26,8 @@ theme:
 
 extra:
   analytics:
-    provider: google
-    property: G-E31MPDGETR
+    provider: segment
+    property: "8vbB5QvZbwQqMTCWkaiY9Tx2zQ2EU5AF"
 
 # Extensions
 markdown_extensions:
