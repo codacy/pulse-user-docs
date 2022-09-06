@@ -20,6 +20,9 @@ To push information about these key events to Pulse using the CLI you must compl
 
     Push information about incidents when they're solved.
 
+!!! note
+    The Pulse CLI is a simplified abstraction over the Pulse Ingestion API. If the CLI requirements below don't fit your use case, explore the [Ingestion API docs](https://ingestion.pulse.codacy.com/v1/api-docs) for interacting directly with the API.
+
 ## Before you begin
 
 Consider the following before setting up the integration using the Pulse CLI:
