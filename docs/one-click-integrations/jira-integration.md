@@ -15,6 +15,9 @@ To set up the Jira integration:
 
     ![Installing the Pulse Jira app](images/jira-installing.png)
 
+    !!! note
+        You can only integrate one Pulse organization with each Jira instance.
+
 1.  Wait until you get a confirmation that Pulse successfully created the integration and the necessary webhooks on Jira.
 
     If there was an error please [contact support](mailto:pulsesupport@codacy.com).
