@@ -71,7 +71,11 @@ The following is a detailed description of how the Pulse GitHub integration auto
 
 ### Don't detect deployments automatically
 
-If the automatic deployment detection is turned off, Pulse doesn't detect deployments using GitHub events and you must report deployments using the Pulse CLI or the API. This is useful if none of the automatic deployment detection strategies match your workflow and you must have control over the way Pulse tracks your deployments.
+-   If the option **Detect deployments using GitHub** is turned off, Pulse doesn't detect deployments automatically using GitHub events.
+
+    This is useful if none of the automatic deployment detection strategies match your workflow and you must have control over the way Pulse tracks your deployments.
+
+-   In this case, you must send to Pulse the information about your **deployments** and the corresponding **changes** using the [Pulse CLI](../cli/cli.md) or the [Ingestion API](https://ingestion.pulse.codacy.com/v1/api-docs).
 
 ## Collected data
 
