@@ -11,3 +11,4 @@ jobs:
     - uses: yogevbd/enforce-label-action@2.2.2
       with:
         BANNED_LABELS: "don't merge"
+
