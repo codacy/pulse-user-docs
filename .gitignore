@@ -18,6 +18,3 @@ node_modules/
 *.bak
 *.tmp
 *~
-
-# Auxiliary tool outputs
-tools/*.csv
