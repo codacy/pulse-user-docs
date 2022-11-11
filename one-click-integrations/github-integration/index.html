@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://docs.pulse.codacy.com/one-click-integrations/github-integration/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.9">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.9">
     
     
       
@@ -670,7 +670,15 @@
 </li>
 </ul>
 <h3 id="dont-detect-deployments-automatically">Don't detect deployments automatically<a class="headerlink" href="#dont-detect-deployments-automatically" title="Permanent link">&para;</a></h3>
-<p>If the automatic deployment detection is turned off, Pulse doesn't detect deployments using GitHub events and you must report deployments using the Pulse CLI or the API. This is useful if none of the automatic deployment detection strategies match your workflow and you must have control over the way Pulse tracks your deployments.</p>
+<ul>
+<li>
+<p>If the option <strong>Detect deployments using GitHub</strong> is turned off, Pulse doesn't detect deployments automatically using GitHub events.</p>
+<p>This is useful if none of the automatic deployment detection strategies match your workflow and you must have control over the way Pulse tracks your deployments.</p>
+</li>
+<li>
+<p>In this case, you must send to Pulse the information about your <strong>deployments</strong> and the corresponding <strong>changes</strong> using the <a href="../../cli/cli/">Pulse CLI</a> or the <a href="https://ingestion.pulse.codacy.com/v1/api-docs">Ingestion API</a>.</p>
+</li>
+</ul>
 <h2 id="collected-data">Collected data<a class="headerlink" href="#collected-data" title="Permanent link">&para;</a></h2>
 <p>The table below lists the data that the GitHub integration collects from your GitHub organization, together with:</p>
 <ul>
