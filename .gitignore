@@ -1,5 +1,23 @@
+# MkDocs build dir
 site/
 
 .terraform
 
 node_modules/
+
+# OS generated files
+.DS_Store
+
+# IDE files
+.vscode
+.metals
+.idea
+
+# Backup files
+*.swp
+*.bak
+*.tmp
+*~
+
+# Auxiliary tool outputs
+tools/*.csv
