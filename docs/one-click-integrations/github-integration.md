@@ -77,7 +77,7 @@ The following is a detailed description of how the Pulse GitHub integration auto
 
 -   In this case, you must send to Pulse the information about your **deployments** and the corresponding **changes** using the [Pulse CLI](../cli/cli.md) or the [Ingestion API](https://ingestion.pulse.codacy.com/v1/api-docs).
 
-## Collected data
+## Collected data {: id="collected-data"}
 
 The table below lists the data that the GitHub integration collects from your GitHub organization, together with:
 
@@ -138,6 +138,58 @@ The table below lists the data that the GitHub integration collects from your Gi
 <sup><span id="commit-author-date">1</span></sup>: Pulse uses the commit author's date since it is more accurate. The committer date can be changed (e.g.: rebases) and stop reflecting the real creation date of the change.
 
 <sup><span id="deployment-teams">2</span></sup>: Adding a new team or changing the composition of a team on GitHub only affects new data from that moment onwards and doesn't have an immediate impact on the dashboards. Also, deleted teams on GitHub will continue to show in Pulse.
+
+## Which permissions does Pulse need from GitHub? {: id="gh-permissions"}
+
+Pulse requests only the necessary permissions from GitHub to collect your organization changes and deployment data and [keeps your information secure](https://security.codacy.com/). See below the detailed list of permissions.
+
+<table>
+  <colgroup>
+    <col width="20%"/>
+    <col width="20%"/>
+    <col width="60%"/>
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Scope</th>
+      <th>Permissions</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="3"><strong>Repository permissions:</strong></td>
+    </tr>
+    <tr>
+      <td>Pull requests</td>
+      <td>Read</td>
+      <td>Pulse retrieves pull request information to calculate several metrics.</td>
+    </tr>
+    <tr>
+      <td>Contents</td>
+      <td>Read</td>
+      <td>Pulse retrieves contents of files and directories in a repository to read tags and support semantic versioning.</td>
+    </tr>
+    <tr>
+      <td>Issues</td>
+      <td>Read</td>
+      <td>Pulse retrieves issue information to get the top-level comments of pull requests.</td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Organization permissions:</strong></td>
+    </tr>
+    <tr>
+      <td>Webhooks</td>
+      <td>Read & Write</td>
+      <td>Pulse creates webhooks for organization and repository events (...) to calculate metrics. </td>
+    </tr>
+    <tr>
+      <td>Members</td>
+      <td>Read</td>
+      <td>Pulse retrieves information about organization members and teams to enforce permissions, user management, and billing purposes.</td>
+    </tr>
+  </tbody>
+</table>
 
 ## See also
 
