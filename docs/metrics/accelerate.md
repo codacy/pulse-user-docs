@@ -63,6 +63,15 @@ average(incident resolved timestamp - incident created timestamp)
 
 Pulse uses the maximum value over a period of time to display aggregate times to recover.
 
+<!--match-incident-deployment-start-->
+!!! note
+    We decided to avoid requiring a relationship between **incidents** and **deployments** or **changes** to simplify the data model reported.
+
+    As such, Pulse considers that the **deployment** for a system immediately before an **incident** for the same system is the one that caused that incident. The same deployment might be responsible for multiple incidents.
+
+    Pulse calculates the performance metrics per system and later aggregates the metrics by time interval when displaying them. This means that you need both deployments and incidents for Pulse to correctly map the system between the two types of events and for the metrics to work.
+<!--match-incident-deployment-end-->
+
 Pulse determines your performance level for this metric as follows:
 
 | Performance level[^1] | Time to recover              |
@@ -82,12 +91,12 @@ number of deployments that caused incidents / total number of deployments
 
 Pulse uses the average value over a period of time to display aggregate change failure rates.
 
-!!! note
-    We decided to avoid requiring a relationship between **incidents** and **deployments** or **changes** to simplify the data model reported.
+{%
+   include-markdown "accelerate.md"
+   start="<!--match-incident-deployment-start-->"
+   end="<!--match-incident-deployment-end-->"
+%}
 
-    As such, Pulse considers the **deployment** that caused an **incident** the closest deployment before the start of that **incident**. The same deployment might be responsible for multiple incidents.
-
-    Pulse calculates the performance metrics per system and later aggregates the metrics by time interval when displaying them. This means that you need both deployments and incidents for Pulse to correctly map the system between the two types of events and for the metrics to work.
 Pulse determines your performance level for this metric as follows:
 
 | Performance level[^1] | Change failure rate |
