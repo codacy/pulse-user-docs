@@ -163,7 +163,7 @@ Pulse requests only the necessary permissions from GitHub to collect your organi
     <tr>
       <td>Pull requests</td>
       <td>Read</td>
-      <td>Pulse retrieves pull request information to calculate several metrics.</td>
+      <td>Pulse retrieves pull request information to calculate several of the metrics presented on the dashboards. <a href="#collected-data"> See the details here.</a></td>
     </tr>
     <tr>
       <td>Contents</td>
