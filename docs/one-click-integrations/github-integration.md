@@ -181,7 +181,7 @@ Pulse requests only the necessary permissions from GitHub to collect your organi
     <tr>
       <td>Webhooks</td>
       <td>Read & Write</td>
-      <td>Pulse creates webhooks for organization and repository events (create, pull_request, pull_request_review) to calculate metrics. </td>
+      <td>Pulse creates webhooks for organization and repository events (`create`, `pull_request`, `pull_request_review`) to calculate metrics.</td>
     </tr>
     <tr>
       <td>Members</td>
