@@ -168,7 +168,7 @@ Pulse requests only the necessary permissions from GitHub to collect changes and
     <tr>
       <td>Contents</td>
       <td>Read</td>
-      <td>Pulse retrieves tag information to support semantic versioning. For this, the Pulse GitHub App requires read permission on contents of files and directories, as it's the same permission that applies to tags.</td>
+      <td>Pulse retrieves tag information to support semantic versioning. For this, the Pulse GitHub App requires read permission on the contents of files and directories, as it's the same permission that applies to tags.</td>
     </tr>
     <tr>
       <td>Issues</td>
@@ -181,7 +181,7 @@ Pulse requests only the necessary permissions from GitHub to collect changes and
     <tr>
       <td>Webhooks</td>
       <td>Read & Write</td>
-      <td>Pulse creates webhooks for organization and repository events (`create`, `pull_request`, `pull_request_review`) to calculate metrics.</td>
+      <td>Pulse creates webhooks for organization and repository events (<code>create</code>, <code>pull_request</code>, <code>pull_request_review</code>) to calculate metrics.</td>
     </tr>
     <tr>
       <td>Members</td>
