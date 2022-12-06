@@ -77,7 +77,7 @@ The following is a detailed description of how the Pulse GitHub integration auto
 
 -   In this case, you must send to Pulse the information about your **deployments** and the corresponding **changes** using the [Pulse CLI](../cli/cli.md) or the [Ingestion API](https://ingestion.pulse.codacy.com/v1/api-docs).
 
-## Collected data {: id="collected-data"}
+## Collected data
 
 The table below lists the data that the GitHub integration collects from your GitHub organization, together with:
 
