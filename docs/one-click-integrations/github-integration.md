@@ -141,7 +141,7 @@ The table below lists the data that the GitHub integration collects from your Gi
 
 ## Which permissions does Pulse need from GitHub? {: id="gh-permissions"}
 
-Pulse requests only the necessary permissions from GitHub to collect your organization changes and deployment data and [keeps your information secure](https://security.codacy.com/). See below the detailed list of permissions.
+Pulse requests only the necessary permissions from GitHub to collect changes and deployment data from the repositories in your organization and [keeps your information secure](https://security.codacy.com/). See below the detailed list of permissions.
 
 <table>
   <colgroup>
