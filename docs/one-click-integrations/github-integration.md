@@ -186,7 +186,7 @@ Pulse requests only the necessary permissions from GitHub to collect changes and
     <tr>
       <td>Members</td>
       <td>Read</td>
-      <td>Pulse retrieves information about organization members and teams to enforce permissions, manage users, and for billing purposes.</td>
+      <td>Pulse retrieves information about organization members and teams for filtering metrics and billing purposes.</td>
     </tr>
   </tbody>
 </table>
