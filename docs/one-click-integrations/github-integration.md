@@ -139,6 +139,63 @@ The table below lists the data that the GitHub integration collects from your Gi
 
 <sup><span id="deployment-teams">2</span></sup>: Adding a new team or changing the composition of a team on GitHub only affects new data from that moment onwards and doesn't have an immediate impact on the dashboards. Also, deleted teams on GitHub will continue to show in Pulse.
 
+## Which permissions does Pulse need from GitHub? {: id="gh-permissions"}
+
+Pulse requests only the necessary permissions from GitHub to collect changes and deployment data from the repositories in your organization and [keeps your information secure](https://security.codacy.com/). See below the detailed list of permissions.
+
+<table>
+  <colgroup>
+    <col width="20%"/>
+    <col width="20%"/>
+    <col width="60%"/>
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Scope</th>
+      <th>Permissions</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="3"><strong>Repository permissions:</strong></td>
+    </tr>
+    <tr>
+      <td>Pull requests</td>
+      <td>Read</td>
+      <td>Pulse retrieves pull request information to calculate several metrics presented on the dashboards. <a href="#collected-data">See the details here.</a></td>
+    </tr>
+    <tr>
+      <td>Contents</td>
+      <td>Read</td>
+      <td>Pulse retrieves tag information to track deployments via semantic versioning tags. For this, the Pulse GitHub App requires read permission on the contents of files and directories, as it's the same permission that applies to tags.</td>
+    </tr>
+    <tr>
+      <td>Issues</td>
+      <td>Read</td>
+      <td>Pulse retrieves issue information to get the top-level comments of pull requests.</td>
+    </tr>
+    <tr>
+      <td colspan="3"><strong>Organization permissions:</strong></td>
+    </tr>
+    <tr>
+      <td>Webhooks</td>
+      <td>Read & Write</td>
+      <td>Pulse creates organization webhooks to track new or deleted repositories, and the status of the integration.<br/>Pulse also creates webhooks subscribed to the following repository events as a trigger to gather the corresponding data in real time:
+      <ul>
+        <li><code>create</code>: tags creation</li>
+        <li><code>pull_request</code>: pull requests creation, edition, and deletion</li>
+        <li><code>pull_request_review</code>: review creation, edition, and deletion</li>
+      </ul></td>
+    </tr>
+    <tr>
+      <td>Members</td>
+      <td>Read</td>
+      <td>Pulse retrieves information about members and teams of your organization to filter metrics and for billing purposes.</td>
+    </tr>
+  </tbody>
+</table>
+
 ## See also
 
 -   [Accelerate metrics](../metrics/accelerate.md)
