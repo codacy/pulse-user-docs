@@ -67,9 +67,9 @@ Pulse uses the maximum value over a period of time to display aggregate times to
 !!! note
     We decided to avoid requiring a relationship between **incidents** and **deployments** or **changes** to simplify the data model reported.
 
-    As such, Pulse considers that the **deployment** for a system immediately before an **incident** for the same system is the one that caused that incident. The same deployment might be responsible for multiple incidents.
+    As such, Pulse considers that the **deployment** for a [system](../cli/cli.md#before-you-begin) immediately before an **incident** for the same system is the one that caused that incident. The same deployment might be responsible for multiple incidents.
 
-    Pulse calculates the performance metrics per system and later aggregates the metrics by time interval when displaying them. This means that you need both deployments and incidents for Pulse to correctly map the system between the two types of events and for the metrics to work.
+    Pulse calculates the performance metrics per system and later aggregates the metrics by time interval when displaying them. This means that you need both deployments and incidents for Pulse to correctly map the system between the two types of events and for the metrics to work. Otherwise, even if you're reporting incident events, the charts will be empty.
 <!--match-incident-deployment-end-->
 
 Pulse determines your performance level for this metric as follows:
