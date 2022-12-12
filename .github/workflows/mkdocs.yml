@@ -45,7 +45,7 @@ jobs:
 
       - name: Deploy docs (branch preview)
         if: github.ref != 'refs/heads/master'
-        uses: nwtgck/actions-netlify@v1.2
+        uses: nwtgck/actions-netlify@v2.0
         with:
           publish-dir: ./site
           production-branch: master
