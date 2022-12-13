@@ -105,5 +105,6 @@ Pulse determines your performance level for this metric as follows:
 Report data to Pulse using the following integrations:
 
 -   [GitHub integration](../one-click-integrations/github-integration.md)
+-   [Bitbucket integration](../one-click-integrations/bitbucket-integration.md)
 -   [PagerDuty integration](../one-click-integrations/pagerduty-integration.md)
 -   [Pulse CLI](../cli/cli.md)

@@ -1,5 +1,7 @@
 # Changes and reviews metrics
 
+(WARNING ABOUT BITBUCKET LIMITATIONS?)
+
 Changes and reviews metrics provide an extra level of detail about the performance of your team workflows.
 
 ## Changes metrics
