@@ -45,7 +45,7 @@ To set up the Bitbucket integration:
 -   Pulse considers a deployment every merged pull request that **targets the default branch** of the repository.
 -   The deployment date is the timestamp when the corresponding pull request is merged.
 -   The set of changes in a deployment is the list of commits in the corresponding pull request. Pulse correctly tracks your changes even if you [squash or fast-forward the commits when merging the pull request](https://support.atlassian.com/bitbucket-cloud/docs/merge-a-pull-request/#Merge-strategies), since Pulse processes all the original commits before any changes to the Git history.
--   Pulse associates all Bitbucket teams of the author of a merged pull request with the corresponding deployment, excluding teams with less than two members. Pulse only takes changes to Bitbucket teams into account on pull requests merged after those changes.
+-   Pulse associates all Bitbucket user groups of the author of a merged pull request with the corresponding deployment, excluding user groups with less than two members. Pulse only takes changes to Bitbucket teams into account on pull requests merged after those changes.
 
 ## Collected data
 
