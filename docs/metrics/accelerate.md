@@ -92,7 +92,7 @@ Pulse uses the average value over a period of time to display aggregate change f
 
         This means that you must report both deployments and incidents associated with the correct systems for Pulse to calculate the metrics correctly. Otherwise, even if you're reporting incident events, the charts will be empty.
 
-    -   Pulse considers that **the deployment causing each incident is the deployment immediately before the start of the incident**, within the same system. The same deployment may be associated with multiple incidents.
+    -   Pulse considers that **the deployment causing each incident is the last deployment before the incident**, within the same system. The same deployment may be associated with multiple incidents.
 
         This simplification reduces the complexity of the integration because it doesn't require any information about deployments or changes when reporting incidents, which could originate from a different data source.
 
