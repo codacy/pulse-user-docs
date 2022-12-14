@@ -65,7 +65,9 @@ Pulse uses the maximum value over a period of time to display aggregate times to
 
 <!--match-incident-deployment-start-->
 !!! note
-    We decided to avoid requiring a relationship between **incidents** and **deployments** or **changes** to simplify the data model reported.
+    **If your deployments have [systems](../cli/cli.md#before-you-begin), your incidents should too.**
+
+    We don't require that users specify which **deployment** should be associated with an  **incident** when sending the event, to simplify the complexity of the integration, as the events may originate from different data sources.
 
     As such, Pulse considers that the **deployment** for a [system](../cli/cli.md#before-you-begin) immediately before an **incident** for the same system is the one that caused that incident. The same deployment might be responsible for multiple incidents.
 
