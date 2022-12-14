@@ -64,13 +64,9 @@ average(incident resolved timestamp - incident created timestamp)
 Pulse uses the maximum value over a period of time to display aggregate times to recover.
 
 !!! note
-    **If your deployments have [systems](../cli/cli.md#before-you-begin), your incidents should too.**
+    **Pulse first calculates the performance metrics per [system](../cli/cli.md#before-you-begin)**, and later aggregates the metrics by time interval when displaying them.
 
-    We don't require that users specify which **deployment** should be associated with an  **incident** when sending the event, to simplify the complexity of the integration, as the events may originate from different data sources.
-
-    As such, Pulse considers that the **deployment** for a [system](../cli/cli.md#before-you-begin) immediately before an **incident** for the same system is the one that caused that incident. The same deployment might be responsible for multiple incidents.
-
-    Pulse calculates the performance metrics per system and later aggregates the metrics by time interval when displaying them. This means that you need both deployments and incidents for Pulse to correctly map the system between the two types of events and for the metrics to work. Otherwise, even if you're reporting incident events, the charts will be empty.
+    This means that you must report both deployments and incidents associated with the correct systems for Pulse to calculate the metrics correctly. Otherwise, even if you're reporting incident events, the charts will be empty.
 
 Pulse determines your performance level for this metric as follows:
 
@@ -92,13 +88,13 @@ number of deployments that caused incidents / total number of deployments
 Pulse uses the average value over a period of time to display aggregate change failure rates.
 
 !!! note
-    **If your deployments have [systems](../cli/cli.md#before-you-begin), your incidents should too.**
+    -   **Pulse first calculates the performance metrics per [system](../cli/cli.md#before-you-begin)**, and later aggregates the metrics by time interval when displaying them.
 
-    We don't require that users specify which **deployment** should be associated with an  **incident** when sending the event, to simplify the complexity of the integration, as the events may originate from different data sources.
+        This means that you must report both deployments and incidents associated with the correct systems for Pulse to calculate the metrics correctly. Otherwise, even if you're reporting incident events, the charts will be empty.
 
-    As such, Pulse considers that the **deployment** for a [system](../cli/cli.md#before-you-begin) immediately before an **incident** for the same system is the one that caused that incident. The same deployment might be responsible for multiple incidents.
+    -   Pulse considers that **the deployment causing each incident is the deployment immediately before the start of the incident**, within the same system. The same deployment may be associated with multiple incidents.
 
-    Pulse calculates the performance metrics per system and later aggregates the metrics by time interval when displaying them. This means that you need both deployments and incidents for Pulse to correctly map the system between the two types of events and for the metrics to work. Otherwise, even if you're reporting incident events, the charts will be empty.
+        This simplification reduces the complexity of the integration because it doesn't require any information about deployments or changes when reporting incidents, which could originate from a different data source.
 
 Pulse determines your performance level for this metric as follows:
 
