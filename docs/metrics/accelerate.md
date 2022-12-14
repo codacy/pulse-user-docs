@@ -18,7 +18,7 @@ number of deployments per day
 Pulse uses the average value over a period of time to display aggregate deployment frequencies.
 
 !!! note
-    Due to the way Pulse calculates deployment frequency, the absence of data will have an impact on reducing the value of this metric.
+    Due to the way Pulse calculates deployment frequency, **the absence of data will have an impact on reducing the value of this metric**.
 
     For example, suppose that you started developing a project 3 months ago and your deployment frequency over this time period was 2 deployments/day. If you increase the observed time interval to 6 months to include a time period before there were deployments, Pulse displays a deployment frequency of only 1 deployment/day.
 
@@ -40,7 +40,7 @@ median(deployment timestamp - changes timestamp)
 ```
 
 !!! note
-    The **changes** timestamp is when code is actually checked into a repository.
+    The changes timestamp is **when code is actually checked into a repository**.
 
 Pulse uses the maximum value over a period of time to display aggregate lead time for changes.
 
