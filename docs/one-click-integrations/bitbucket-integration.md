@@ -45,7 +45,7 @@ To set up the Bitbucket integration:
 -   Pulse considers a deployment every merged pull request that **targets the default branch** of the repository.
 -   The deployment date is the timestamp when the corresponding pull request is merged.
 -   The set of changes in a deployment is the list of commits in the corresponding pull request. Pulse correctly tracks your changes even if you [squash or fast-forward the commits when merging the pull request](https://support.atlassian.com/bitbucket-cloud/docs/merge-a-pull-request/#Merge-strategies), since Pulse processes all the original commits before any changes to the Git history.
--   Pulse associates all Bitbucket user groups of the author of a merged pull request with the corresponding deployment, excluding user groups with less than two members. Pulse only takes changes to Bitbucket teams into account on pull requests merged after those changes.
+-   Pulse associates all the Bitbucket user groups of the author of a merged pull request with the corresponding deployment, excluding the user groups with less than two members. Pulse only takes the changes to Bitbucket user groups into account on pull requests merged after those changes.
 
 ## Collected data
 
@@ -87,11 +87,11 @@ The table below lists the data that the Bitbucket integration collects from your
     <td>Deployment frequency and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a></td>
 </tr>
 <tr>
-    <td>Teams</td>
+    <td>User groups</td>
     <td>
         <p>Deployments:</p>
         <ul>
-            <li><code>teams</code>: Bitbucket teams of the author of a deployment<sup><a href="#deployment-teams">2</a></sup></li>
+            <li><code>teams</code>: Bitbucket user groups of the author of a deployment<sup><a href="#deployment-teams">2</a></sup></li>
         </ul>
     </td>
     <td>Filters the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a> by the contributions made by the team</td>
@@ -100,7 +100,7 @@ The table below lists the data that the Bitbucket integration collects from your
 
 <sup><span id="commit-author-date">1</span></sup>: Pulse uses the commit author's date since it is more accurate. The committer date can be changed (e.g.: fast-forward) and stop reflecting the real creation date of the change.
 
-<sup><span id="deployment-teams">2</span></sup>: Adding a new team or changing the composition of a team on Bitbucket only affects new data from that moment onwards and doesn't have an immediate impact on the dashboards. Also, deleted teams on Bitbucket will continue to show in Pulse.
+<sup><span id="deployment-teams">2</span></sup>: Adding a new user group or changing the composition of a user group on Bitbucket only affects new data from that moment onwards and doesn't have an immediate impact on the dashboards. Also, deleted user groups on Bitbucket will continue to show in Pulse.
 
 ## Which permissions does Pulse need from Bitbucket? {: id="bb-permissions"}
 
@@ -150,7 +150,7 @@ Pulse requests only the necessary permissions from Bitbucket to collect changes 
       <td>Pulse retrieves the settings and the repositories of the projects within your workspaces to ....</td>
     </tr>
     <tr>
-      <td>Teams</td>
+      <td>User groups</td>
       <td>Read</td>
       <td>Pulse retrieves information about teams membership to filter metrics and for billing purposes.</td>
     </tr>
