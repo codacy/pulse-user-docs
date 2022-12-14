@@ -50,9 +50,6 @@ markdown_extensions:
 # Plugins
 plugins:
     - search
-    # Include content from other Markdown files
-    # https://github.com/mondeja/mkdocs-include-markdown-plugin
-    - include-markdown
     # Generate meta descriptions from introductory paragraphs
     # https://github.com/prcr/mkdocs-meta-descriptions-plugin
     - meta-descriptions:
