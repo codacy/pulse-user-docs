@@ -104,63 +104,53 @@ The table below lists the data that the Bitbucket integration collects from your
 
 ## Which permissions does Pulse need from Bitbucket? {: id="bb-permissions"}
 
-Pulse requests only the necessary permissions from Bitbucket to collect changes and deployment data from the repositories in your organization and [keeps your information secure](https://security.codacy.com/). See below the detailed list of permissions.
+Pulse requests only the necessary [permissions/scopes from Bitbucket](https://developer.atlassian.com/cloud/bitbucket/bitbucket-cloud-rest-api-scopes/) to collect changes and deployment data from the repositories in your workspace and [keeps your information secure](https://security.codacy.com/). See below the detailed list of permissions.
 
 <table>
   <colgroup>
-    <col width="20%"/>
-    <col width="20%"/>
-    <col width="60%"/>
+    <col width="25%"/>
+    <col width="75%"/>
   </colgroup>
   <thead>
     <tr>
-      <th>Scope</th>
-      <th>Permissions</th>
+      <th>Scope and permissions</th>
       <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td colspan="3"><strong>Repository permissions:</strong></td>
+      <td><code>account</code></td>
+      <td>Pulse retrieves the email of the user installing the integration, the user's workspaces and its membership, and the user groups.</td>
     </tr>
     <tr>
-      <td>Pull requests</td>
-      <td>Read</td>
+      <td><code>repository</code></td>
+      <td>Pulse retrieves repository information to get the default branch and the list of commits.</td>
+    </tr>
+    <tr>
+      <td><code>pullrequest</code></td>
       <td>Pulse retrieves pull request information to calculate several metrics presented on the dashboards. <a href="#collected-data">See the details here.</a></td>
     </tr>
     <tr>
-      <td>Issues</td>
-      <td>Read</td>
-      <td>?Pulse retrieves issue information to get the top-level comments of pull requests.?</td>
-    </tr>
-    <tr>
-      <td>Webhooks</td>
-      <td>Read & Write</td>
-      <td>Pulse creates webhooks to track new or deleted repositories, and the status of the integration.<br/>Pulse also creates webhooks subscribed to the following repository events as a trigger to gather the corresponding data in real time:
+      <td><code>webhook</code></td>
+      <td>Pulse creates webhooks to track new or deleted workspaces.
+      <br/>Pulse creates webhooks subscribed to the following events as a trigger to gather the corresponding data in real time:
       <ul>
-        <li><code>pull_request</code>: pull requests creation, edition, and deletion</li>
-      </ul></td>
-    </tr>
-    <tr>
-      <td colspan="3"><strong>Workspace permissions:</strong></td>
-    </tr>
-    <tr>
-      <td>Projects</td>
-      <td>Read</td>
-      <td>Pulse retrieves the settings and the repositories of the projects within your workspaces to ....</td>
-    </tr>
-    <tr>
-      <td>User groups</td>
-      <td>Read</td>
-      <td>Pulse retrieves information about teams membership to filter metrics and for billing purposes.</td>
-    </tr>
-    <tr>
-      <td colspan="3"><strong>Account permissions:</strong></td>
-    </tr>
-    <tr>
-      <td>?Account information?</td>
-      <td>Read</td>
-      <td>Pulse retrives ...</td>
+        <li><code>pullrequest:created</code>: pull requests creation</li>
+        <li><code>pullrequest:updated</code>: pull requests edition</li>
+        <li><code>pullrequest:fulfilled</code>: pull requests merge</li>
+        <li><code>pullrequest:rejected</code>: pull requests decline</li>
+        <li><code>pullrequest:approved</code>: pull requests approval</li>
+        <li><code>pullrequest:unapproved</code>: deletion of pull requests approval</li>
+        <li><code>pullrequest:changes_request_created</code>: pull requests change request</li>
+        <li><code>pullrequest:changes_request_removed</code>: deletion of pull requests change request</li>
+        <li><code>repo:push</code>: pushes of commits to a repository</li>
+      </ul>
+      Pulse creates webhooks subscribed to the following events as a trigger to historical data import:
+      <ul>
+        <li><code>repo:transfer</code>: repositories tranfer acceptance</li>
+        <li><code>repo:fork</code>: repositories fork</li>
+      </ul>
+      </td>
     </tr>
   </tbody>
 </table>
