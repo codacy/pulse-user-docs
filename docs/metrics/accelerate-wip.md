@@ -1,7 +1,5 @@
 # Work in progress metrics
 
-(WARNING ABOUT BITBUCKET LIMITATIONS?)
-
 Pulse calculates the work in progress metrics based on the status of all pull requests targeting any base branch in your GitHub repositories.
 
 !!! important
