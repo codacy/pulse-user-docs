@@ -26,7 +26,7 @@ To set up the Bitbucket integration:
 
     (IMAGE)
 
-1.  Wait until you get a confirmation that Pulse successfully created the integration and the webhook on Bitbucket.
+1.  Wait until you get a confirmation that Pulse successfully connected the integration to Bitbucket.
             
     (IMAGE)
 
