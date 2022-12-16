@@ -37,9 +37,9 @@ Pulse provides push-based integrations with your workflow using the following al
 
     Pulse currently supports the following "one-click" integrations that simplify the process of setting up your workflows to send data to Pulse:
 
-    -   **[GitHub integration](one-click-integrations/github-integration.md)** or **[Bitbucket integration](one-click-integrations/bitbucket-integration.md)**: reports changes and deployments
-    -   **[PagerDuty integration](one-click-integrations/pagerduty-integration.md)**: reports incidents
-    -   **[Jira integration](one-click-integrations/jira-integration.md)**: reports lead and cycle time
+    -   **[GitHub integration](one-click-integrations/github-integration.md) or [Bitbucket integration](one-click-integrations/bitbucket-integration.md):** reports changes and deployments
+    -   **[PagerDuty integration](one-click-integrations/pagerduty-integration.md):** reports incidents
+    -   **[Jira integration](one-click-integrations/jira-integration.md):** reports lead and cycle time
 
     !!! note
         We recommend that whenever possible you use the integrations that match your stack because they're faster to set up. We plan to continue developing integrations for the most popular Git providers, CI/CD platforms, and incident management tools.
