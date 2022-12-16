@@ -27,7 +27,6 @@ To set up the Bitbucket integration:
     (IMAGE)
 
 1.  Wait until you get a confirmation that Pulse successfully connected the integration to Bitbucket.
-            
     (IMAGE)
 
     If there was an error please [contact support](mailto:pulsesupport@codacy.com).
