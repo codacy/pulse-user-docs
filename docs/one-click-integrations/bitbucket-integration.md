@@ -1,12 +1,12 @@
 # Bitbucket integration
 
 !!! note
-    Pulse's Bitbucket integration is new and still in Beta:
+    <!--NOTE Limitation from Bitbucket integration V1-V2-->Pulse's Bitbucket integration is new and still in Beta:
 
     -   For now, we only show the [Accelerate metrics](../metrics/accelerate.md) using your merged pull requests to automatically detect deployments.
-    -   At the moment, we're only collecting new data, so you won’t see any metrics after completing the integration setup. We'll automatically import historical data and backfill your charts within a few weeks.
+    -   <!--NOTE Limitation from Bitbucket integration V1-->At the moment, we're only collecting new data, so you won’t see any metrics after completing the integration setup. We'll automatically import historical data and backfill your charts within a few weeks.
 
-Pulse integrates with Bitbucket Cloud to receive data about changes and deployments, necessary to calculate the metrics:
+<!--NOTE Limitation from Bitbucket integration V1-V2-->Pulse integrates with Bitbucket Cloud to receive data about changes and deployments, necessary to calculate the metrics:
 
 -   [Lead time for changes](../metrics/accelerate.md#lead-time-for-changes)
 
@@ -43,7 +43,7 @@ To set up the Bitbucket integration:
 ## Automatic deployment detection using merged pull requests {: id="deployment-detection-merged-pr"}
 
 !!! note
-    <!--NOTE Limitation from Bitbucket integration V1-->Pulse will use your merged pull requests to automatically detect your deployments. Other strategies to detect deployments will be available with a future version of Pulse.
+    <!--NOTE Limitation from Bitbucket integration V1-V2-->Pulse will use your merged pull requests to automatically detect your deployments. Other strategies to detect deployments will be available with a future version of Pulse.
 
 -   Pulse considers a deployment every merged pull request that **targets the default branch** of the repository.
 -   The deployment date is the timestamp when the corresponding pull request is merged.
