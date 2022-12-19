@@ -32,7 +32,7 @@ To set up the Bitbucket integration:
 
     If there was an error please [contact support](mailto:pulsesupport@codacy.com).
 
-1.  Choose the workspace that you want to connect the integration. You will only be able to select a workspace that you are the owner.
+1.  Choose the workspace that you want to connect the integration to. You can only select a workspace where you have owner permissions.
 
     ![Choosing the Bitbucket workspace](images/bb-workspace.png)
 
