@@ -38,7 +38,7 @@ To set up the Bitbucket integration:
 
 1.  Click **Complete setup**.
 
-    If there was an error please [contact support](mailto:pulsesupport@codacy.com).
+    If there is an error please [contact support](mailto:pulsesupport@codacy.com).
 
 ## Automatic deployment detection using merged pull requests {: id="deployment-detection-merged-pr"}
 
