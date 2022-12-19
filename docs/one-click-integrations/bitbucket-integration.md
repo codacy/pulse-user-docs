@@ -55,7 +55,7 @@ To set up the Bitbucket integration:
 The table below lists the data that the Bitbucket integration collects from your Bitbucket workspace, together with:
 
 -   The mapping between the data collected from Bitbucket and the [Pulse data model](https://ingestion.pulse.codacy.com/v1/api-docs#tocs_event)
--   The metrics that Pulse calculates from the data to display on the dashboards
+-   The metrics that Pulse displays on the dashboards, calculated using the collected data
 
 <table>
 <thead>
