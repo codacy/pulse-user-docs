@@ -43,7 +43,7 @@ To set up the Bitbucket integration:
 ## Automatic deployment detection using merged pull requests {: id="deployment-detection-merged-pr"}
 
 !!! note
-    <!--NOTE Limitation from Bitbucket integration V1-V2-->Pulse will use your merged pull requests to automatically detect your deployments. Other strategies to detect deployments will be available with a future version of Pulse.
+    <!--NOTE Limitation from Bitbucket integration V1-V2-->Pulse uses your merged pull requests to automatically detect your deployments. Other strategies to detect deployments will be available with a future version of Pulse.
 
 -   Pulse considers a deployment every merged pull request that **targets the default branch** of the repository.
 -   The deployment date is the timestamp when the corresponding pull request is merged.
