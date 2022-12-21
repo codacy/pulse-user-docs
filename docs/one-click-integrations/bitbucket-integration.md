@@ -83,7 +83,7 @@ The table below lists the data that the Bitbucket integration collects from your
     <td>
         <p>Deployments:</p>
         <ul>
-            <li><code>deploy_id</code>: pull request ID</li>
+            <li><code>deploy_id</code>: unique pull request identifier</li>
             <li><code>system</code>: repository name</li>
         </ul>
     </td>
