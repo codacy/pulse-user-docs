@@ -146,7 +146,7 @@ Pulse requests only the necessary [permissions/scopes from Bitbucket](https://de
         <li><code>pullrequest:unapproved</code>: deletion of pull requests approval</li>
         <li><code>pullrequest:changes_request_created</code>: pull requests change request</li>
         <li><code>pullrequest:changes_request_removed</code>: deletion of pull requests change request</li>
-        <li><code>repo:push</code>: pushes of commits to a repository</li>
+        <li><code>repo:push</code>: pushes of tags to a repository</li>
       </ul>
       Pulse creates webhooks subscribed to the following events as a trigger to historical data import:
       <ul>
