@@ -51,7 +51,7 @@ To set up the Bitbucket integration:
 -   Pulse associates all the Bitbucket user groups of the author of a merged pull request with the corresponding deployment, excluding the user groups with less than two members. Pulse only takes the changes to Bitbucket user groups into account on pull requests merged after those changes.
 
 !!! note
-    <!--NOTE Limitation from Bitbucket integration V1-V2-->If you use a [merge commit or a squash merge strategy](https://support.atlassian.com/bitbucket-cloud/docs/merge-a-pull-request/#Merge-strategies) when merging the pull request, Pulse may produce inaccurate accelerate metrics.
+    <!--NOTE Limitation from Bitbucket integration V1-V2-->If you use a [squash merge strategy](https://support.atlassian.com/bitbucket-cloud/docs/merge-a-pull-request/#Merge-strategies) when merging the pull request, Pulse may produce inaccurate accelerate metrics.
 
 ## Collected data
 
