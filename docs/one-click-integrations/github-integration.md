@@ -29,7 +29,7 @@ To set up the GitHub integration:
 
     ![Pulse GitHub integration set up successfully](images/ghi-ok.png)
 
-    If there was an error please [contact support](mailto:pulsesupport@codacy.com).
+    If there is an error please [contact support](mailto:pulsesupport@codacy.com).
 
 1.  Choose the strategy to detect deployments that best fits your workflows, or turn off the automatic deployment detection. See the section below for a detailed description of each option.
 
@@ -82,7 +82,7 @@ The following is a detailed description of how the Pulse GitHub integration auto
 The table below lists the data that the GitHub integration collects from your GitHub organization, together with:
 
 -   The mapping between the data collected from GitHub and the [Pulse data model](https://ingestion.pulse.codacy.com/v1/api-docs#tocs_event)
--   The metrics that Pulse calculates from the data to display on the dashboards
+-   The metrics that Pulse displays on the dashboards, calculated using the collected data
 
 <table>
 <thead>
@@ -137,7 +137,7 @@ The table below lists the data that the GitHub integration collects from your Gi
 
 <sup><span id="commit-author-date">1</span></sup>: Pulse uses the commit author's date since it is more accurate. The committer date can be changed (e.g.: rebases) and stop reflecting the real creation date of the change.
 
-<sup><span id="deployment-teams">2</span></sup>: Adding a new team or changing the composition of a team on GitHub only affects new data from that moment onwards and doesn't have an immediate impact on the dashboards. Also, deleted teams on GitHub will continue to show in Pulse.
+<sup><span id="deployment-teams">2</span></sup>: Adding a new team or changing the composition of a team on GitHub only affects new data from that moment onwards and doesn't have an immediate impact on the dashboards. Also, deleted teams on GitHub are still visible in Pulse.
 
 ## Which permissions does Pulse need from GitHub? {: id="gh-permissions"}
 
