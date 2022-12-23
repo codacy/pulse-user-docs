@@ -23,17 +23,17 @@ To set up the GitHub integration:
     !!! important
         You can only install the Pulse GitHub App on an organization and not on your personal account.
 
-    ![Installing the Pulse GitHub App](images/ghi-installing.png)
+    ![Installing the Pulse GitHub App](images/github-installing.png)
 
 1.  Wait until you get a confirmation that Pulse successfully created the integration and the webhook on GitHub.
 
-    ![Pulse GitHub integration set up successfully](images/ghi-ok.png)
+    ![Pulse GitHub integration set up successfully](images/github-ok.png)
 
     If there is an error please [contact support](mailto:pulsesupport@codacy.com).
 
 1.  Choose the strategy to detect deployments that best fits your workflows, or turn off the automatic deployment detection. See the section below for a detailed description of each option.
 
-    ![Choosing a deployment detection strategy](images/ghi-strategy.png)
+    ![Choosing a deployment detection strategy](images/github-strategy.png)
 
 ## Automatic deployment detection strategies {: id="deployment-detection-strategy"}
 
