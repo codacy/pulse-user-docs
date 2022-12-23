@@ -26,7 +26,7 @@ To set up the Bitbucket integration:
 
     ![Installing the Pulse Bitbucket App](images/bb-installing.png)
 
-1.  Choose the workspace that you want to connect the integration to and confirm with **Complete setup**. You can only select a workspace where you have owner permissions.
+1.  Choose the workspace that you want to connect the integration to and click **Complete setup** to confirm. You can only select a workspace where you have owner permissions.
 
     ![Choosing the Bitbucket workspace](images/bb-workspace.png)
 
