@@ -24,15 +24,15 @@ To set up the Bitbucket integration:
 
 1.  Click **Install Bitbucket App**.
 
-    ![Installing the Pulse Bitbucket App](images/bb-installing.png)
+    ![Installing the Pulse Bitbucket App](images/bitbucket-installing.png)
 
 1.  Choose the workspace that you want to connect the integration to and click **Complete setup** to confirm. You can only select a workspace where you have owner permissions.
 
-    ![Choosing the Bitbucket workspace](images/bb-workspace.png)
+    ![Choosing the Bitbucket workspace](images/bitbucket-workspace.png)
 
 1.  Wait until you get a confirmation that Pulse successfully connected the integration to Bitbucket.
 
-    ![Pulse Bitbucket integration set up successfully](images/bb-ok.png)
+    ![Pulse Bitbucket integration set up successfully](images/bitbucket-ok.png)
 
 If there is an error please [contact support](mailto:pulsesupport@codacy.com).
 
