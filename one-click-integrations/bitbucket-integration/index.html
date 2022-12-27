@@ -6,18 +6,18 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Pulse integrates with GitHub Cloud to receive data about changes and deployments, necessary to calculate the metrics:">
+        <meta name="description" content="Pulse integrates with Bitbucket Cloud to receive data about changes and deployments, necessary to calculate the metrics:">
       
       
       
-        <link rel="canonical" href="https://docs.pulse.codacy.com/one-click-integrations/github-integration/">
+        <link rel="canonical" href="https://docs.pulse.codacy.com/one-click-integrations/bitbucket-integration/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
     
     
       
-        <title>GitHub integration - Pulse documentation</title>
+        <title>Bitbucket integration - Pulse documentation</title>
       
     
     
@@ -92,7 +92,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#github-integration" class="md-skip">
+        <a href="#bitbucket-integration" class="md-skip">
           Skip to content
         </a>
       
@@ -124,7 +124,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GitHub integration
+              Bitbucket integration
             
           </span>
         </div>
@@ -366,6 +366,20 @@
               
   
   
+  
+    <li class="md-nav__item">
+      <a href="../github-integration/" class="md-nav__link">
+        GitHub integration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -378,12 +392,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          GitHub integration
+          Bitbucket integration
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        GitHub integration
+        Bitbucket integration
       </a>
       
         
@@ -402,43 +416,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#setting-up-the-github-integration" class="md-nav__link">
-    Setting up the GitHub integration
+  <a href="#setting-up-the-bitbucket-integration" class="md-nav__link">
+    Setting up the Bitbucket integration
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#deployment-detection-strategy" class="md-nav__link">
-    Automatic deployment detection strategies
+  <a href="#deployment-detection-merged-pr" class="md-nav__link">
+    Automatic deployment detection using merged pull requests
   </a>
-  
-    <nav class="md-nav" aria-label="Automatic deployment detection strategies">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#use-merged-pull-requests-default" class="md-nav__link">
-    Use merged pull requests (default)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#use-semantic-versioning-tags" class="md-nav__link">
-    Use semantic versioning tags
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#dont-detect-deployments-automatically" class="md-nav__link">
-    Don't detect deployments automatically
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -450,8 +437,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gh-permissions" class="md-nav__link">
-    Which permissions does Pulse need from GitHub?
+  <a href="#bb-permissions" class="md-nav__link">
+    Which permissions does Pulse need from Bitbucket?
   </a>
   
 </li>
@@ -467,20 +454,6 @@
   
 </nav>
       
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../bitbucket-integration/" class="md-nav__link">
-        Bitbucket integration
-      </a>
     </li>
   
 
@@ -612,104 +585,75 @@
                   
 
 
-<h1 id="github-integration">GitHub integration<a class="headerlink" href="#github-integration" title="Permanent link">&para;</a></h1>
-<p>Pulse integrates with GitHub Cloud to receive data about changes and deployments, necessary to calculate the metrics:</p>
+<h1 id="bitbucket-integration">Bitbucket integration<a class="headerlink" href="#bitbucket-integration" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Pulse's Bitbucket integration is new and still in Beta:</p>
 <ul>
-<li>
-<p><a href="../../metrics/accelerate/#lead-time-for-changes">Lead time for changes</a>, including the following drill-down metrics:</p>
-<ul>
-<li>
-<p><a href="../../metrics/accelerate-changes/#changes-metrics">Changes metrics</a></p>
-</li>
-<li>
-<p><a href="../../metrics/accelerate-changes/#reviews-metrics">Reviews metrics</a></p>
-</li>
-<li>
-<p><a href="../../metrics/accelerate-wip/">Work in progress metrics</a></p>
-</li>
+<li>For now, we only show the <a href="../../metrics/accelerate/">Accelerate metrics</a> using your merged pull requests to automatically detect deployments.</li>
+<li>At the moment, we're only collecting new data, so you won’t see any metrics after completing the integration setup. We'll automatically import historical data and backfill your charts within a few weeks.</li>
 </ul>
+</div>
+<p>Pulse integrates with Bitbucket Cloud to receive data about changes and deployments, necessary to calculate the metrics:</p>
+<ul>
+<li>
+<p><a href="../../metrics/accelerate/#lead-time-for-changes">Lead time for changes</a></p>
 </li>
 <li>
 <p><a href="../../metrics/accelerate/#deployment-frequency">Deployment frequency</a></p>
 </li>
 </ul>
-<h2 id="setting-up-the-github-integration">Setting up the GitHub integration<a class="headerlink" href="#setting-up-the-github-integration" title="Permanent link">&para;</a></h2>
-<p>To set up the GitHub integration:</p>
+<h2 id="setting-up-the-bitbucket-integration">Setting up the Bitbucket integration<a class="headerlink" href="#setting-up-the-bitbucket-integration" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>The Bitbucket integration connects to a specific <a href="https://support.atlassian.com/bitbucket-cloud/docs/what-is-a-workspace/">workspace</a>. You must be the <strong>owner</strong> of that Bitbucket workspace to proceed with the integration setup.</li>
+<li><a href="#bb-permissions">See below</a> the permissions that Pulse requires from your Bitbucket account.  </li>
+</ul>
+</div>
+<p>To set up the Bitbucket integration:</p>
 <ol>
 <li>
-<p>On Pulse, <a href="https://app.pulse.codacy.com/integrations/github" target="_blank">expand <strong>Integrations</strong> and select <strong>GitHub</strong></a>.</p>
+<p>On Pulse, <a href="https://app.pulse.codacy.com/integrations/bitbucket" target="_blank">expand <strong>Integrations</strong> and select <strong>Bitbucket</strong></a>.</p>
 </li>
 <li>
-<p>Click <strong>Install GitHub App</strong> and follow the instructions on the GitHub UI to install the app on your organization.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>You can only install the Pulse GitHub App on an organization and not on your personal account.</p>
-</div>
-<p><img alt="Installing the Pulse GitHub App" src="../images/ghi-installing.png" /></p>
+<p>Click <strong>Install Bitbucket App</strong>.</p>
+<p><img alt="Installing the Pulse Bitbucket App" src="../images/bitbucket-installing.png" /></p>
 </li>
 <li>
-<p>Wait until you get a confirmation that Pulse successfully created the integration and the webhook on GitHub.</p>
-<p><img alt="Pulse GitHub integration set up successfully" src="../images/ghi-ok.png" /></p>
-<p>If there is an error please <a href="mailto:pulsesupport@codacy.com">contact support</a>.</p>
+<p>Choose the workspace that you want to connect the integration to and click <strong>Complete setup</strong> to confirm. You can only select a workspace where you have owner permissions.</p>
+<p><img alt="Choosing the Bitbucket workspace" src="../images/bitbucket-workspace.png" /></p>
 </li>
 <li>
-<p>Choose the strategy to detect deployments that best fits your workflows, or turn off the automatic deployment detection. See the section below for a detailed description of each option.</p>
-<p><img alt="Choosing a deployment detection strategy" src="../images/ghi-strategy.png" /></p>
+<p>Wait until you get a confirmation that Pulse successfully connected the integration to Bitbucket.</p>
+<p><img alt="Pulse Bitbucket integration set up successfully" src="../images/bitbucket-ok.png" /></p>
 </li>
 </ol>
-<h2 id="deployment-detection-strategy">Automatic deployment detection strategies<a class="headerlink" href="#deployment-detection-strategy" title="Permanent link">&para;</a></h2>
-<p>The following is a detailed description of how the Pulse GitHub integration automatically detects deployment using each detection strategy:</p>
-<h3 id="use-merged-pull-requests-default">Use merged pull requests (default)<a class="headerlink" href="#use-merged-pull-requests-default" title="Permanent link">&para;</a></h3>
+<p>If there is an error please <a href="mailto:pulsesupport@codacy.com">contact support</a>.</p>
+<h2 id="deployment-detection-merged-pr">Automatic deployment detection using merged pull requests<a class="headerlink" href="#deployment-detection-merged-pr" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>Pulse uses your merged pull requests to automatically detect your deployments. Other strategies to detect deployments will be available with a future version of Pulse.</li>
+<li>If you use a <a href="https://support.atlassian.com/bitbucket-cloud/docs/merge-a-pull-request/#Merge-strategies">squash merge strategy</a> when merging the pull request, Pulse may produce inaccurate accelerate metrics.</li>
+</ul>
+</div>
 <ul>
 <li>Pulse considers a deployment every merged pull request that <strong>targets the default branch</strong> of the repository.</li>
 <li>The deployment date is the timestamp when the corresponding pull request is merged.</li>
-<li>The set of changes in a deployment is the list of commits in the corresponding pull request. Pulse correctly tracks your changes even if you <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github">squash or rebase the commits when merging the pull request</a>, since Pulse processes all the original commits before any changes to the Git history.</li>
-<li>Pulse associates all GitHub teams of the author of a merged pull request with the corresponding deployment, excluding teams with less than two members. Pulse only takes changes to GitHub teams into account on pull requests merged after those changes.</li>
-</ul>
-<h3 id="use-semantic-versioning-tags">Use semantic versioning tags<a class="headerlink" href="#use-semantic-versioning-tags" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<p>Pulse considers a deployment every Git tag that follows the <a href="https://semver.org">SemVer</a> convention, excluding pre-release versions but allowing release prefixes. For example, the following are valid tags: <code>1.0.0</code>, <code>v2.3.4</code>.</p>
-<p>To use this strategy, make sure that you're creating Git tags on your repositories for each successful deployment to production, or whenever you make a new release available to any user of your application:</p>
-<div class="highlight"><pre><span></span><code>git tag -a MAJOR.MINOR.PATCH -m <span class="s2">&quot;&lt;Deployment or release message&gt;&quot;</span>
-</code></pre></div>
-<p>Where <code>MAJOR.MINOR.PATCH</code> must be a valid SemVer version without pre-release information. <a href="https://regex101.com/r/NVAtiz/1">Check if your versioning syntax is valid</a>.</p>
-</li>
-<li>
-<p>The deployment date is either the creation date of <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging#_annotated_tags">annotated tags</a> or the timestamp when Pulse receives the webhook calls for <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging#_lightweight_tags">lightweight tags</a>.</p>
-<p>Keep in mind that since webhook calls can be delayed, the deployment date on Pulse could be imprecise and impact the metric <strong>Lead time for changes</strong>.</p>
-</li>
-<li>
-<p>The set of changes that belong to a deployment is the list of commits between the tag of that deployment and the previous tag. Because of this, Pulse discards:</p>
-<ul>
-<li>The first SemVer tag in the repository since there is no previous tag to compare with.</li>
-<li>Any tag that does not have a common ancestor (commit) with its previous tag, since Pulse cannot obtain the changes between them.</li>
-</ul>
-</li>
-<li>
-<p>Pulse associates all GitHub teams of the person who creates a Git tag with the corresponding deployment, excluding teams with less than two members. Pulse only takes changes to GitHub teams into account on Git tags created after those changes.</p>
-</li>
-</ul>
-<h3 id="dont-detect-deployments-automatically">Don't detect deployments automatically<a class="headerlink" href="#dont-detect-deployments-automatically" title="Permanent link">&para;</a></h3>
-<ul>
-<li>
-<p>If the option <strong>Detect deployments using GitHub</strong> is turned off, Pulse doesn't detect deployments automatically using GitHub events.</p>
-<p>This is useful if none of the automatic deployment detection strategies match your workflow and you must have control over the way Pulse tracks your deployments.</p>
-</li>
-<li>
-<p>In this case, you must send to Pulse the information about your <strong>deployments</strong> and the corresponding <strong>changes</strong> using the <a href="../../cli/cli/">Pulse CLI</a> or the <a href="https://ingestion.pulse.codacy.com/v1/api-docs">Ingestion API</a>.</p>
-</li>
+<li>The set of changes in a deployment is the list of commits in the corresponding pull request.</li>
+<li>Pulse associates all the Bitbucket user groups of the author of a merged pull request with the corresponding deployment, excluding the user groups with less than two members. Pulse only takes the changes to Bitbucket user groups into account on pull requests merged after those changes.</li>
 </ul>
 <h2 id="collected-data">Collected data<a class="headerlink" href="#collected-data" title="Permanent link">&para;</a></h2>
-<p>The table below lists the data that the GitHub integration collects from your GitHub organization, together with:</p>
+<p>The table below lists the data that the Bitbucket integration collects from your Bitbucket workspace, together with:</p>
 <ul>
-<li>The mapping between the data collected from GitHub and the <a href="https://ingestion.pulse.codacy.com/v1/api-docs#tocs_event">Pulse data model</a></li>
+<li>The mapping between the data collected from Bitbucket and the <a href="https://ingestion.pulse.codacy.com/v1/api-docs#tocs_event">Pulse data model</a></li>
 <li>The metrics that Pulse displays on the dashboards, calculated using the collected data</li>
 </ul>
 <table>
 <thead>
 <tr>
-<th><strong>Data collected from GitHub</strong></th>
+<th><strong>Data collected from Bitbucket</strong></th>
 <th><strong>Mapping to Pulse data model</strong></th>
 <th><strong>Used in</strong></th>
 </tr>
@@ -728,88 +672,77 @@
     <td>Lead time for changes on the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a></td>
 </tr>
 <tr>
-    <td>Pull requests, git tags, or none (<a href="#deployment-detection-strategy">configurable</a>)</td>
+    <td>Pull requests</td>
     <td>
         <p>Deployments:</p>
         <ul>
-            <li><code>deploy_id</code>: pull request ID</li>
+            <li><code>deploy_id</code>: unique pull request identifier</li>
             <li><code>system</code>: repository name</li>
         </ul>
     </td>
     <td>Deployment frequency and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a></td>
 </tr>
 <tr>
-    <td>Pull requests</td>
-    <td>
-        -
-    </td>
-    <td><a href="../../metrics/accelerate-changes/">Changes & Reviews dashboard</a>,<br/><a href="../../metrics/accelerate-wip/">Work in Progress dashboard</a></td>
-</tr>
-<tr>
-    <td>Teams</td>
+    <td>User groups</td>
     <td>
         <p>Deployments:</p>
         <ul>
-            <li><code>teams</code>: GitHub teams of the author of a deployment<sup><a href="#deployment-teams">2</a></sup></li>
+            <li><code>teams</code>: Bitbucket user groups of the author of a deployment<sup><a href="#deployment-teams">2</a></sup></li>
         </ul>
     </td>
-    <td>Filters the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a>, <a href="../../metrics/accelerate-changes/">Changes & Reviews dashboard</a>, and <a href="../../metrics/accelerate-wip/">Work in Progress dashboard</a> by the contributions made by the team</td>
+    <td>Filters the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a> by the contributions made by the team</td>
 </tr>
 </table>
 
-<p><sup><span id="commit-author-date">1</span></sup>: Pulse uses the commit author's date since it is more accurate. The committer date can be changed (e.g.: rebases) and stop reflecting the real creation date of the change.</p>
-<p><sup><span id="deployment-teams">2</span></sup>: Adding a new team or changing the composition of a team on GitHub only affects new data from that moment onwards and doesn't have an immediate impact on the dashboards. Also, deleted teams on GitHub are still visible in Pulse.</p>
-<h2 id="gh-permissions">Which permissions does Pulse need from GitHub?<a class="headerlink" href="#gh-permissions" title="Permanent link">&para;</a></h2>
-<p>Pulse requests only the necessary permissions from GitHub to collect changes and deployment data from the repositories in your organization and <a href="https://security.codacy.com/">keeps your information secure</a>. See below the detailed list of permissions.</p>
+<p><sup><span id="commit-author-date">1</span></sup>: Pulse uses the commit author's date since it is more accurate. The committer date can be changed (e.g.: fast-forward) and stop reflecting the real creation date of the change.</p>
+<p><sup><span id="deployment-teams">2</span></sup>: Adding a new user group or changing the composition of a user group on Bitbucket only affects new data from that moment onwards and doesn't have an immediate impact on the dashboards. Also, deleted user groups on Bitbucket are still visible in Pulse.</p>
+<h2 id="bb-permissions">Which permissions does Pulse need from Bitbucket?<a class="headerlink" href="#bb-permissions" title="Permanent link">&para;</a></h2>
+<p>Pulse requests only the necessary <a href="https://developer.atlassian.com/cloud/bitbucket/bitbucket-cloud-rest-api-scopes/">permissions/scopes from Bitbucket</a> to collect changes and deployment data from the repositories in your workspace and <a href="https://security.codacy.com/">keeps your information secure</a>. See below the detailed list of permissions.</p>
 <table>
   <colgroup>
-    <col width="20%"/>
-    <col width="20%"/>
-    <col width="60%"/>
+    <col width="25%"/>
+    <col width="75%"/>
   </colgroup>
   <thead>
     <tr>
-      <th>Scope</th>
-      <th>Permissions</th>
+      <th>Scope and permissions</th>
       <th>Description</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td colspan="3"><strong>Repository permissions:</strong></td>
+      <td><code>account</code></td>
+      <td>Pulse retrieves the email of the user installing the integration, the user's workspaces and its membership, and the user groups.</td>
     </tr>
     <tr>
-      <td>Pull requests</td>
-      <td>Read</td>
+      <td><code>repository</code></td>
+      <td>Pulse retrieves repository information to get the default branch and the list of commits.</td>
+    </tr>
+    <tr>
+      <td><code>pullrequest</code></td>
       <td>Pulse retrieves pull request information to calculate several metrics presented on the dashboards. <a href="#collected-data">See the details here.</a></td>
     </tr>
     <tr>
-      <td>Contents</td>
-      <td>Read</td>
-      <td>Pulse retrieves tag information to track deployments via semantic versioning tags. For this, the Pulse GitHub App requires read permission on the contents of files and directories, as it's the same permission that applies to tags.</td>
-    </tr>
-    <tr>
-      <td>Issues</td>
-      <td>Read</td>
-      <td>Pulse retrieves issue information to get the top-level comments of pull requests.</td>
-    </tr>
-    <tr>
-      <td colspan="3"><strong>Organization permissions:</strong></td>
-    </tr>
-    <tr>
-      <td>Webhooks</td>
-      <td>Read & Write</td>
-      <td>Pulse creates organization webhooks to track new or deleted repositories, and the status of the integration.<br/>Pulse also creates webhooks subscribed to the following repository events as a trigger to gather the corresponding data in real time:
+      <td><code>webhook</code></td>
+      <td>Pulse creates webhooks to track new or deleted workspaces.
+      <br/>Pulse creates webhooks subscribed to the following events as a trigger to gather the corresponding data in real time:
       <ul>
-        <li><code>create</code>: tags creation</li>
-        <li><code>pull_request</code>: pull requests creation, edition, and deletion</li>
-        <li><code>pull_request_review</code>: review creation, edition, and deletion</li>
-      </ul></td>
-    </tr>
-    <tr>
-      <td>Members</td>
-      <td>Read</td>
-      <td>Pulse retrieves information about members and teams of your organization to filter metrics and for billing purposes.</td>
+        <li><code>pullrequest:created</code>: pull requests creation</li>
+        <li><code>pullrequest:updated</code>: pull requests edition</li>
+        <li><code>pullrequest:fulfilled</code>: pull requests merge</li>
+        <li><code>pullrequest:rejected</code>: pull requests decline</li>
+        <li><code>pullrequest:approved</code>: pull requests approval</li>
+        <li><code>pullrequest:unapproved</code>: deletion of pull requests approval</li>
+        <li><code>pullrequest:changes_request_created</code>: pull requests change request</li>
+        <li><code>pullrequest:changes_request_removed</code>: deletion of pull requests change request</li>
+        <li><code>repo:push</code>: pushes of tags to a repository</li>
+      </ul>
+      Pulse creates webhooks subscribed to the following events as a trigger to historical data import:
+      <ul>
+        <li><code>repo:transfer</code>: repositories tranfer acceptance</li>
+        <li><code>repo:fork</code>: repositories fork</li>
+      </ul>
+      </td>
     </tr>
   </tbody>
 </table>
@@ -817,7 +750,6 @@
 <h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../../metrics/accelerate/">Accelerate metrics</a></li>
-<li><a href="../../metrics/accelerate-changes/">Changes and reviews metrics</a></li>
 </ul>
 
 
@@ -841,7 +773,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer" >
       
         
-        <a href="../../metrics/lead-cycle-time/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lead and cycle time metrics" rel="prev">
+        <a href="../github-integration/" class="md-footer__link md-footer__link--prev" aria-label="Previous: GitHub integration" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
           </div>
@@ -850,20 +782,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              Lead and cycle time metrics
+              GitHub integration
             </div>
           </div>
         </a>
       
       
         
-        <a href="../bitbucket-integration/" class="md-footer__link md-footer__link--next" aria-label="Next: Bitbucket integration" rel="next">
+        <a href="../pagerduty-integration/" class="md-footer__link md-footer__link--next" aria-label="Next: PagerDuty integration" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Bitbucket integration
+              PagerDuty integration
             </div>
           </div>
           <div class="md-footer__button md-icon">
