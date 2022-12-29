@@ -62,6 +62,7 @@ nav:
     - metrics/accelerate-changes.md
     - metrics/accelerate-wip.md
     - metrics/lead-cycle-time.md
+  - notes.md
   - "One-click integrations":
     - one-click-integrations/github-integration.md
     - one-click-integrations/bitbucket-integration.md
