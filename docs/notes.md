@@ -14,7 +14,7 @@ Pulse shows your organization notes across the different dashboards - [Accelerat
 
 ## Using notes
 
-Pulse dashboards show a vertical line when there are notes for that period. Hover over a line to display the notes icon below, near the dates axis. Click the notes icon to open the notes card and see all the notes for that period.
+Pulse dashboards show a vertical line when there are notes for that period. Hover over a line to display the notes icon below, near the date axis. Click the notes icon to open the notes card and see all the notes for that period.
 
 ![Pulse notes card](images/notes-card.png)
 
