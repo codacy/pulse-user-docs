@@ -20,8 +20,8 @@ Pulse dashboards show a vertical line when there are notes for that period. Hove
 
 On the notes card, you can add new notes for the same period and delete existing notes.
 
-![Add or delete Pulse notes](images/notes-add-delete.png)
+![Adding or deleting Pulse notes](images/notes-add-delete.png)
 
 To add a new note for a specific date period, hover the mouse below that period near the date axis and click the add icon.
 
-![Add a new note to Pulse](images/notes-add-new.png)
+![Adding a new note to Pulse](images/notes-add-new.png)
