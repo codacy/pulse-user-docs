@@ -12,8 +12,12 @@
       
         <link rel="canonical" href="https://docs.pulse.codacy.com/cli/examples/">
       
+      
+        <link rel="prev" href="../cli/">
+      
+      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-8.5.10">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.0">
     
     
       
@@ -21,15 +25,10 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.975780f9.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.f79797b0.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.2505c338.min.css">
-        
-          
-          
-          <meta name="theme-color" content="#009485">
-        
       
       
 
@@ -564,6 +563,7 @@
                   
 
 
+
 <h1 id="integration-examples">Integration examples<a class="headerlink" href="#integration-examples" title="Permanent link">&para;</a></h1>
 <p>This page includes examples of scripts that we used to quickly populate our own Pulse dashboard with historical data.</p>
 <p>You can use the examples to understand better how you can integrate the Pulse CLI with your existing workflows, or adapt these examples to populate your Pulse dashboard with historical data from your team.</p>
@@ -574,68 +574,68 @@
 
 <span class="c1">#!/usr/bin/env bash</span>
 
-<span class="nb">set</span> -e
+<span class="nb">set</span><span class="w"> </span>-e
 
 <span class="nv">CREDENTIALS</span><span class="o">=</span><span class="s2">&quot;xxx&quot;</span>
 
-<span class="nv">workdir</span><span class="o">=</span><span class="k">$(</span>mktemp -d -t website-dora-XXXXXXXXXX<span class="k">)</span>
+<span class="nv">workdir</span><span class="o">=</span><span class="k">$(</span>mktemp<span class="w"> </span>-d<span class="w"> </span>-t<span class="w"> </span>website-dora-XXXXXXXXXX<span class="k">)</span>
 
-<span class="k">function</span> clean <span class="o">{</span>
-    rm -rf <span class="si">${</span><span class="nv">workdir</span><span class="si">}</span>
+<span class="k">function</span><span class="w"> </span>clean<span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>rm<span class="w"> </span>-rf<span class="w"> </span><span class="si">${</span><span class="nv">workdir</span><span class="si">}</span>
 <span class="o">}</span>
-<span class="nb">trap</span> clean EXIT
+<span class="nb">trap</span><span class="w"> </span>clean<span class="w"> </span>EXIT
 
-git clone git@bitbucket.org:qamine/codacy-website <span class="s2">&quot;</span><span class="nv">$workdir</span><span class="s2">&quot;</span>
-<span class="nb">cd</span> <span class="si">${</span><span class="nv">workdir</span><span class="si">}</span>
-mapfile -t deployments &lt; &lt;<span class="o">(</span> git <span class="k">for</span>-each-ref --sort<span class="o">=</span>creatordate --format <span class="s1">&#39;%(refname) %(objectname)&#39;</span> refs/tags <span class="p">|</span> grep -E <span class="s1">&#39;^refs\/tags\/[0-9]+\.[0-9]+\.[0-9]+\s&#39;</span> <span class="p">|</span> awk -F<span class="s2">&quot;\/&quot;</span> <span class="s1">&#39;{print $3}&#39;</span> <span class="o">)</span>
+git<span class="w"> </span>clone<span class="w"> </span>git@bitbucket.org:qamine/codacy-website<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$workdir</span><span class="s2">&quot;</span>
+<span class="nb">cd</span><span class="w"> </span><span class="si">${</span><span class="nv">workdir</span><span class="si">}</span>
+mapfile<span class="w"> </span>-t<span class="w"> </span>deployments<span class="w"> </span>&lt;<span class="w"> </span>&lt;<span class="o">(</span><span class="w"> </span>git<span class="w"> </span><span class="k">for</span>-each-ref<span class="w"> </span>--sort<span class="o">=</span>creatordate<span class="w"> </span>--format<span class="w"> </span><span class="s1">&#39;%(refname) %(objectname)&#39;</span><span class="w"> </span>refs/tags<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span><span class="s1">&#39;^refs\/tags\/[0-9]+\.[0-9]+\.[0-9]+\s&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span>-F<span class="s2">&quot;\/&quot;</span><span class="w"> </span><span class="s1">&#39;{print $3}&#39;</span><span class="w"> </span><span class="o">)</span>
 <span class="nv">previous_deployment</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
 <span class="nv">current_deployment</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
-<span class="k">for</span> deployment <span class="k">in</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployments</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">for</span><span class="w"> </span>deployment<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployments</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="k">do</span>
-    <span class="nv">deployment_id</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployment</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">|</span> awk <span class="s1">&#39;{print $1}&#39;</span><span class="k">)</span>
-    <span class="nv">deployment_sha</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployment</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">|</span> awk <span class="s1">&#39;{print $2}&#39;</span><span class="k">)</span>
-    <span class="nv">deployment_date</span><span class="o">=</span><span class="k">$(</span>git log --format<span class="o">=</span><span class="s2">&quot;%at&quot;</span> <span class="si">${</span><span class="nv">deployment_sha</span><span class="si">}</span> <span class="p">|</span> head -n <span class="m">1</span><span class="k">)</span>
+<span class="w">    </span><span class="nv">deployment_id</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployment</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $1}&#39;</span><span class="k">)</span>
+<span class="w">    </span><span class="nv">deployment_sha</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployment</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">&#39;{print $2}&#39;</span><span class="k">)</span>
+<span class="w">    </span><span class="nv">deployment_date</span><span class="o">=</span><span class="k">$(</span>git<span class="w"> </span>log<span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;%at&quot;</span><span class="w"> </span><span class="si">${</span><span class="nv">deployment_sha</span><span class="si">}</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="k">)</span>
 
-    <span class="c1"># Skip deployments before date</span>
-    <span class="c1"># If you are on macOS you need to use $(date -jf &quot;%b %d %Y&quot; &quot;Oct 01 2020&quot; +%s) instead</span>
-    <span class="k">if</span> <span class="o">[</span> <span class="si">${</span><span class="nv">deployment_date</span><span class="si">}</span> -lt <span class="k">$(</span>date -d <span class="s2">&quot;Oct 01 2020&quot;</span> +%s<span class="k">)</span> <span class="o">]</span>
-    <span class="k">then</span>
-        <span class="k">continue</span>
-    <span class="k">fi</span>
+<span class="w">    </span><span class="c1"># Skip deployments before date</span>
+<span class="w">    </span><span class="c1"># If you are on macOS you need to use $(date -jf &quot;%b %d %Y&quot; &quot;Oct 01 2020&quot; +%s) instead</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="si">${</span><span class="nv">deployment_date</span><span class="si">}</span><span class="w"> </span>-lt<span class="w"> </span><span class="k">$(</span>date<span class="w"> </span>-d<span class="w"> </span><span class="s2">&quot;Oct 01 2020&quot;</span><span class="w"> </span>+%s<span class="k">)</span><span class="w"> </span><span class="o">]</span>
+<span class="w">    </span><span class="k">then</span>
+<span class="w">        </span><span class="k">continue</span>
+<span class="w">    </span><span class="k">fi</span>
 
-    <span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;</span><span class="si">${</span><span class="nv">previous_deployment</span><span class="si">}</span><span class="s2">&quot;</span> <span class="o">]</span>
-    <span class="k">then</span>
-        <span class="nv">previous_deployment</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployment_sha</span><span class="si">}</span><span class="s2">&quot;</span>
-        <span class="k">continue</span>
-    <span class="k">else</span>
-        <span class="nv">current_deployment</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployment_sha</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">previous_deployment</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">]</span>
+<span class="w">    </span><span class="k">then</span>
+<span class="w">        </span><span class="nv">previous_deployment</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployment_sha</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">        </span><span class="k">continue</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">        </span><span class="nv">current_deployment</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployment_sha</span><span class="si">}</span><span class="s2">&quot;</span>
 
-        <span class="nv">deployment_changes</span><span class="o">=()</span>
-        mapfile -t deployment_changes &lt; &lt;<span class="o">(</span> git log --format<span class="o">=</span><span class="s2">&quot;%H&quot;</span> <span class="si">${</span><span class="nv">previous_deployment</span><span class="si">}</span>...<span class="si">${</span><span class="nv">current_deployment</span><span class="si">}</span> <span class="o">)</span>
+<span class="w">        </span><span class="nv">deployment_changes</span><span class="o">=()</span>
+<span class="w">        </span>mapfile<span class="w"> </span>-t<span class="w"> </span>deployment_changes<span class="w"> </span>&lt;<span class="w"> </span>&lt;<span class="o">(</span><span class="w"> </span>git<span class="w"> </span>log<span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;%H&quot;</span><span class="w"> </span><span class="si">${</span><span class="nv">previous_deployment</span><span class="si">}</span>...<span class="si">${</span><span class="nv">current_deployment</span><span class="si">}</span><span class="w"> </span><span class="o">)</span>
 
-        <span class="k">if</span> <span class="o">[</span> <span class="si">${#</span><span class="nv">deployment_changes</span><span class="p">[@]</span><span class="si">}</span> -gt <span class="m">0</span> <span class="o">]</span>
-        <span class="k">then</span>
-            <span class="nb">echo</span> <span class="s2">&quot;Pushing deployment </span><span class="si">${</span><span class="nv">deployment_id</span><span class="si">}</span><span class="s2"> with changes [</span><span class="si">${</span><span class="nv">deployment_changes</span><span class="p">[@]</span><span class="si">}</span><span class="s2">]&quot;</span>
-            ./pulse-event-cli push deployment <span class="se">\</span>
-                --api-key <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CREDENTIALS</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
-                --identifier <span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployment_id</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
-                --timestamp <span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployment_date</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
-                <span class="si">${</span><span class="nv">deployment_changes</span><span class="p">[@]</span><span class="si">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="si">${#</span><span class="nv">deployment_changes</span><span class="p">[@]</span><span class="si">}</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="o">]</span>
+<span class="w">        </span><span class="k">then</span>
+<span class="w">            </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Pushing deployment </span><span class="si">${</span><span class="nv">deployment_id</span><span class="si">}</span><span class="s2"> with changes [</span><span class="si">${</span><span class="nv">deployment_changes</span><span class="p">[@]</span><span class="si">}</span><span class="s2">]&quot;</span>
+<span class="w">            </span>./pulse-event-cli<span class="w"> </span>push<span class="w"> </span>deployment<span class="w"> </span><span class="se">\</span>
+<span class="w">                </span>--api-key<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CREDENTIALS</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                </span>--identifier<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployment_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                </span>--timestamp<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployment_date</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                </span><span class="si">${</span><span class="nv">deployment_changes</span><span class="p">[@]</span><span class="si">}</span>
 
-            <span class="k">for</span> deployment_change <span class="k">in</span> <span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployment_changes</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
-            <span class="k">do</span>
-                <span class="nv">deployment_change_date</span><span class="o">=</span><span class="k">$(</span>git log --format<span class="o">=</span><span class="s2">&quot;%at&quot;</span> <span class="si">${</span><span class="nv">deployment_change</span><span class="si">}</span> --max-count<span class="o">=</span><span class="m">1</span><span class="k">)</span>
+<span class="w">            </span><span class="k">for</span><span class="w"> </span>deployment_change<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployment_changes</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">            </span><span class="k">do</span>
+<span class="w">                </span><span class="nv">deployment_change_date</span><span class="o">=</span><span class="k">$(</span>git<span class="w"> </span>log<span class="w"> </span>--format<span class="o">=</span><span class="s2">&quot;%at&quot;</span><span class="w"> </span><span class="si">${</span><span class="nv">deployment_change</span><span class="si">}</span><span class="w"> </span>--max-count<span class="o">=</span><span class="m">1</span><span class="k">)</span>
 
-                <span class="nb">echo</span> <span class="s2">&quot;Pushing changes </span><span class="si">${</span><span class="nv">deployment_change</span><span class="si">}</span><span class="s2"> with date </span><span class="si">${</span><span class="nv">deployment_change_date</span><span class="si">}</span><span class="s2">&quot;</span>
-                ./pulse-event-cli push change <span class="se">\</span>
-                    --api-key <span class="s2">&quot;</span><span class="si">${</span><span class="nv">CREDENTIALS</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
-                    --identifier <span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployment_change</span><span class="si">}</span><span class="s2">&quot;</span> <span class="se">\</span>
-                    --timestamp <span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployment_change_date</span><span class="si">}</span><span class="s2">&quot;</span>
-            <span class="k">done</span>
-        <span class="k">fi</span>
+<span class="w">                </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Pushing changes </span><span class="si">${</span><span class="nv">deployment_change</span><span class="si">}</span><span class="s2"> with date </span><span class="si">${</span><span class="nv">deployment_change_date</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">                </span>./pulse-event-cli<span class="w"> </span>push<span class="w"> </span>change<span class="w"> </span><span class="se">\</span>
+<span class="w">                    </span>--api-key<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">CREDENTIALS</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                    </span>--identifier<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployment_change</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                    </span>--timestamp<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployment_change_date</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">            </span><span class="k">done</span>
+<span class="w">        </span><span class="k">fi</span>
 
-        <span class="nv">previous_deployment</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployment_sha</span><span class="si">}</span><span class="s2">&quot;</span>
-    <span class="k">fi</span>
+<span class="w">        </span><span class="nv">previous_deployment</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">deployment_sha</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="k">fi</span>
 <span class="k">done</span>
 </code></pre></div>
 <h2 id="pushing-historic-incidents">Pushing historic incidents<a class="headerlink" href="#pushing-historic-incidents" title="Permanent link">&para;</a></h2>
@@ -692,27 +692,6 @@ mapfile -t deployments &lt; &lt;<span class="o">(</span> git <span class="k">for
       
         <footer class="md-footer">
   
-    
-    <nav class="md-footer__inner md-grid" aria-label="Footer" >
-      
-        
-        <a href="../cli/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Using the Pulse CLI" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Using the Pulse CLI
-            </div>
-          </div>
-        </a>
-      
-      
-    </nav>
-  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-copyright">
@@ -734,12 +713,11 @@ mapfile -t deployments &lt; &lt;<span class="o">(</span> git <span class="k">for
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate"], "search": "../../assets/javascripts/workers/search.12658920.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5cf534bf.min.js"></script>
       
-    
     
   </body>
 </html>
