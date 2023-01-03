@@ -10,7 +10,7 @@ Pulse shows your organization notes across the different dashboards - [Accelerat
 
 !!! note
     -   Notes are global to the organization. Any member can add or delete any note.
-    -   Pulse dashboards show the data for the maximum one year period, thus you won't be able to see notes older than that period.
+    -   Pulse dashboards show the latest 100 notes for the selected time range.
 
 ## Using notes
 
