@@ -1,8 +1,8 @@
 # Tracking the impact of changes
 
-Some changes in your organization, either internal or external to the environment, can impact your software delivery process. For example, changes in the team structure or membership, teams adopting new working processes, or major events affecting the system stability, might have a positive or negative impact on your teams' performance.
+Some changes in your organization, either internal or external to the environment, can impact your software delivery process. For example, changes in the team structure or membership, teams adopting new working processes, or major events affecting the system stability, might have a positive or negative impact on the performance of your teams.
 
-Pulse enables you to track and correlate the impact that specific changes might have on your teams' performance using **notes** to signal actions or events that took place on a specific date.
+Pulse enables you to track and correlate the impact that specific changes might have on the performance of your teams using **notes** to signal actions or events that took place on a specific date.
 
 ![Pulse notes](images/notes.png)
 
