@@ -1,10 +1,7 @@
 # Bitbucket integration
 
 !!! note
-    <!--NOTE Limitation from Bitbucket integration V1-V2-->Pulse's Bitbucket integration is new and still in Beta:
-
-    -   For now, we only show the [Accelerate metrics](../metrics/accelerate.md) using your merged pull requests to automatically detect deployments.
-    -   <!--NOTE Limitation from Bitbucket integration V1-->At the moment, we're only collecting new data, so you won’t see any metrics after completing the integration setup. We'll automatically import historical data and backfill your charts within a few weeks.
+    <!--NOTE Limitation from Bitbucket integration V1-V2-->Pulse's Bitbucket integration is new and still in **Beta**. For now, we only show the [Accelerate metrics](../metrics/accelerate.md) using your merged pull requests to automatically detect deployments.
 
 <!--NOTE Limitation from Bitbucket integration V1-V2-->Pulse integrates with Bitbucket Cloud to receive data about changes and deployments, necessary to calculate the metrics:
 
