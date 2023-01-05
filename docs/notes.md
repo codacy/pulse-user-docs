@@ -9,7 +9,7 @@ Pulse enables you to track and correlate the impact that specific changes might 
 Pulse shows your organization notes across the different dashboards - [Accelerate overview](metrics/accelerate.md), [Changes & Reviews](metrics/accelerate-changes.md), and [Lead & Cycle time](metrics/lead-cycle-time.md). This way you can compare each performance metric before and after a specific change.
 
 !!! note
-    -   Notes are global to the organization. Any member can add or delete any note.
+    -   Notes are **global to the organization**. Any member can view, add, or delete any note.
     -   Pulse dashboards show the latest 100 notes for the selected time range.
 
 ## Using notes
