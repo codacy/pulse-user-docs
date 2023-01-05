@@ -7,11 +7,9 @@ GitHub
 hostname
 hotfix
 Jira
-md
 namespace
 OAuth
 onboarding
 PagerDuty
 Pulse
-signup
 tooltip
