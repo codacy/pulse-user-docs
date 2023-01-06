@@ -1,0 +1,15 @@
+Bitbucket
+CLI
+Codacy
+config
+Ctrl
+GitHub
+hostname
+hotfix
+Jira
+namespace
+OAuth
+onboarding
+PagerDuty
+Pulse
+tooltip
