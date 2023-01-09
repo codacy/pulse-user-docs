@@ -1,5 +1,6 @@
 Page,Meta description
 https://docs.pulse.codacy.com/,Pulse displays the following metrics to provide insights into the current and historic performance of your software delivery process:
+https://docs.pulse.codacy.com/notes/,"Some changes in your organization, either internal or external to the environment, can impact your software delivery process. For example, changes in the team structure or membership, teams adopting new working processes, or major events affecting the system stability, might have a positive or negative impact on the performance of your teams."
 https://docs.pulse.codacy.com/cli/cli/,"Use the Pulse CLI to send information about changes, deployments, and incidents whenever they happen in the software delivery workflow of your primary application or service."
 https://docs.pulse.codacy.com/cli/examples/,This page includes examples of scripts that we used to quickly populate our own Pulse dashboard with historical data.
 https://docs.pulse.codacy.com/metrics/accelerate-changes/,Changes and reviews metrics provide an extra level of detail about the performance of your team workflows.
