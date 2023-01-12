@@ -2,12 +2,12 @@
 
 Monitoring you team's lead time and cycle time allows you to understand if you're improving the ability to deliver value to customers. These productivity metrics indicate how long it takes for work to flow through the software development process:
 
--   **[Lead time](#lead-time):** the time it takes to go from a customer making a request to the request being satisfied. Generally, you can use lead time as an indication of your organization’s time to market.
+-   **[Lead time](#lead-time):** the time it takes to go from a customer making a request to the request being satisfied. You can use lead time as an indication of your organization’s time to market.
 -   **[Cycle time](#cycle-time):** the time it takes for your team to complete work items once they begin actively working on them.
 
 ![Lead time versus cycle time](images/lead-cycle-time.png)
 
-Use these metrics to monitor the results of investing in DevOps practices and tackling technical debt, compare and quantify the performance of your teams, and objectively communicate to stakeholders how long your Engineering team takes to address customer requests or defects.
+Use these metrics to monitor the results of investing in DevOps practices and tackling technical debt, compare, and quantify the performance of your teams. These metrics enable you to objectively communicate to stakeholders how long your Engineering team takes to address customer requests or defects.
 
 Read more on [how you can improve your time to market](https://blog.codacy.com/how-lead-time-can-improve-your-time-to-market/){: target="_blank"}.
 

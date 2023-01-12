@@ -1,6 +1,7 @@
 Bitbucket
 CLI
 Codacy
+commit
 config
 Ctrl
 GitHub
