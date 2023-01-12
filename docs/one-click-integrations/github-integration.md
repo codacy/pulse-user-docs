@@ -23,17 +23,17 @@ To set up the GitHub integration:
     !!! important
         You can only install the Pulse GitHub App on an organization and not on your personal account.
 
-    ![Installing the Pulse GitHub App](images/ghi-installing.png)
+    ![Installing the Pulse GitHub App](images/github-installing.png)
 
 1.  Wait until you get a confirmation that Pulse successfully created the integration and the webhook on GitHub.
 
-    ![Pulse GitHub integration set up successfully](images/ghi-ok.png)
+    ![Pulse GitHub integration set up successfully](images/github-ok.png)
 
     If there is an error please [contact support](mailto:pulsesupport@codacy.com).
 
 1.  Choose the strategy to detect deployments that best fits your workflows, or turn off the automatic deployment detection. See the section below for a detailed description of each option.
 
-    ![Choosing a deployment detection strategy](images/ghi-strategy.png)
+    ![Choosing a deployment detection strategy](images/github-strategy.png)
 
 ## Automatic deployment detection strategies {: id="deployment-detection-strategy"}
 
@@ -65,7 +65,7 @@ The following is a detailed description of how the Pulse GitHub integration auto
 -   The set of changes that belong to a deployment is the list of commits between the tag of that deployment and the previous tag. Because of this, Pulse discards:
 
     -   The first SemVer tag in the repository since there is no previous tag to compare with.
-    -   Any tag that does not have a common ancestor (commit) with its previous tag, since Pulse cannot obtain the changes between them.
+    -   Any tag that doesn't have a common ancestor (commit) with its previous tag, since Pulse can't obtain the changes between them.
 
 -   Pulse associates all GitHub teams of the person who creates a Git tag with the corresponding deployment, excluding teams with less than two members. Pulse only takes changes to GitHub teams into account on Git tags created after those changes.
 
@@ -135,9 +135,9 @@ The table below lists the data that the GitHub integration collects from your Gi
 </tr>
 </table>
 
-<sup><span id="commit-author-date">1</span></sup>: Pulse uses the commit author's date since it is more accurate. The committer date can be changed (e.g.: rebases) and stop reflecting the real creation date of the change.
+<sup><span id="commit-author-date">1</span></sup>: Pulse uses the commit author's date since it's more accurate. The committer date can be changed (for example, with a rebase) and stop reflecting the real creation date of the change.
 
-<sup><span id="deployment-teams">2</span></sup>: Adding a new team or changing the composition of a team on GitHub only affects new data from that moment onwards and doesn't have an immediate impact on the dashboards. Also, deleted teams on GitHub are still visible in Pulse.
+<sup><span id="deployment-teams">2</span></sup>: Adding a new team or changing the composition of a team on GitHub only affects new data starting from that moment and doesn't have an immediate impact on the dashboards. Also, deleted teams on GitHub are still visible in Pulse.
 
 ## Which permissions does Pulse need from GitHub? {: id="gh-permissions"}
 
