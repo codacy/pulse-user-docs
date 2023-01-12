@@ -76,7 +76,7 @@ jobs:
       - name: Create robots.txt
         if: github.ref == 'refs/heads/master'
         run: |
-          echo -e "User-agent: *\nSitemap: https://${{ env.CUSTOM_DOMAIN }}/sitemap.xml" > "${GITHUB_WORKSPACE}/docs/robots.txt"
+          echo -e "User-agent: *\nSitemap: https://${{ env.CUSTOM_DOMAIN }}/sitemap.xml" > "./site/robots.txt"
 
       - name: Deploy docs
         uses: peaceiris/actions-gh-pages@v3
