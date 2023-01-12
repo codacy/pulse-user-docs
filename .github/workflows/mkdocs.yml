@@ -10,13 +10,15 @@ jobs:
         uses: actions/checkout@v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+          submodules: true
+          # git-revision-date-localized-plugin and mkdocs-rss-plugin need full git history depth
           fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.x"
-          cache: 'pip'
+          cache: "pip"
 
       - name: Install dependencies
         run: |
@@ -36,12 +38,13 @@ jobs:
         run: |
           docker run -v $(pwd):/test --rm wjdp/htmltest --conf .htmltest.yml
 
-      # On push to feature branch, deploy the docs to Netlify
+      # Deploy branch previews
       - name: Obtain Netlify alias from branch name
-        id: netlify-alias
-        if: github.ref != 'refs/heads/master' && !startsWith(github.ref, 'refs/heads/release/v')
-        run: |
-          echo "alias=$(echo ${GITHUB_REF#refs/heads/} | tr -c -s "[:alnum:]" "-" | tr "[:upper:]" "[:lower:]" | cut -c -35 | sed "s/-*$//")" >> $GITHUB_OUTPUT
+        id: branch
+        if: github.ref != 'refs/heads/master'
+        uses: common-fate/branch-name@v1.1.2
+        with:
+          max-length: 35
 
       - name: Deploy docs (branch preview)
         if: github.ref != 'refs/heads/master'
@@ -55,31 +58,34 @@ jobs:
           enable-commit-comment: false
           enable-commit-status: false
           overwrites-pull-request-comment: false
-          alias: ${{ steps.netlify-alias.outputs.alias }}
+          alias: ${{ steps.branch.outputs.name }}
           github-deployment-environment: Netlify
           github-deployment-description: Branch deployment preview
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_PERSONAL_ACCESS_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
-      # On push to master, deploy the docs to GitHub Pages
-      - name: Set up git author
+      # Deploy docs on push to master
+      - name: Set up environment variables
         if: github.ref == 'refs/heads/master'
         run: |
-          remote_repo="https://${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          git config --global user.name "${GITHUB_ACTOR}"
-          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
-          git remote rm origin
-          git remote add origin "${remote_repo}"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          echo "MKDOCS_VERSION=$(mkdocs --version | cut -d " " -f 3)" >> $GITHUB_ENV
+          echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-9`" >> $GITHUB_ENV
+          echo "CUSTOM_DOMAIN=docs.pulse.codacy.com" >> $GITHUB_ENV
+
+      - name: Create robots.txt
+        if: github.ref == 'refs/heads/master'
+        run: |
+          echo -e "User-agent: *\nSitemap: https://${{ env.CUSTOM_DOMAIN }}/sitemap.xml" > "./site/robots.txt"
 
       - name: Deploy docs
+        uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/master'
-        run: |
-          echo "${CUSTOM_DOMAIN}" > "${GITHUB_WORKSPACE}/docs/CNAME"
-          echo -e "User-agent: *\nSitemap: https://${CUSTOM_DOMAIN}/sitemap.xml" > "${GITHUB_WORKSPACE}/docs/robots.txt"
-          git fetch origin gh-pages --verbose
-          mkdocs -v gh-deploy --config-file "${GITHUB_WORKSPACE}/mkdocs.yml"
-        env:
-          CUSTOM_DOMAIN: docs.pulse.codacy.com
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./site
+          destination_dir: ./
+          keep_files: false
+          cname: ${{ env.CUSTOM_DOMAIN }}
+          allow_empty_commit: true
+          full_commit_message: Deployed ${{ env.SHORT_SHA }} to . with MkDocs ${{ env.MKDOCS_VERSION }}
