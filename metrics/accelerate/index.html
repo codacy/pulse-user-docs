@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Pulse calculates the four key Accelerate metrics using strictly changes, deployments, and incidents data for a rolling window of the last 90 days:">
+        <meta name="description" content="Pulse calculates the four key Accelerate metrics based on changes, deployments, and incidents data for a rolling window of the last 90 days:">
       
       
       
@@ -606,7 +606,7 @@
 
 
 <h1 id="accelerate-metrics">Accelerate metrics<a class="headerlink" href="#accelerate-metrics" title="Permanent link">&para;</a></h1>
-<p>Pulse calculates the four key Accelerate metrics using strictly <strong>changes</strong>, <strong>deployments</strong>, and <strong>incidents</strong> data for a rolling window of the last 90 days:</p>
+<p>Pulse calculates the four key Accelerate metrics based on <strong>changes</strong>, <strong>deployments</strong>, and <strong>incidents</strong> data for a rolling window of the last 90 days:</p>
 <ul>
 <li><a href="#deployment-frequency">Deployment frequency</a></li>
 <li><a href="#lead-time-for-changes">Lead time for changes</a></li>
@@ -687,7 +687,7 @@
 </tbody>
 </table>
 <h2 id="time-to-recover">Time to recover<a class="headerlink" href="#time-to-recover" title="Permanent link">&para;</a></h2>
-<p>How long it takes your organization to recover from a failure in production (e.g., service impairment or unplanned outage):</p>
+<p>How long it takes your organization to recover from a failure in production (for example, service impairment or unplanned outage):</p>
 <div class="highlight"><pre><span></span><code>average(incident resolved timestamp - incident created timestamp)
 </code></pre></div>
 <p>Pulse uses the maximum value over a period of time to display aggregate times to recover.</p>
@@ -724,7 +724,7 @@
 </tbody>
 </table>
 <h2 id="change-failure-rate">Change failure rate<a class="headerlink" href="#change-failure-rate" title="Permanent link">&para;</a></h2>
-<p>Percentage of deployments causing a failure in production (e.g., service impairment or unplanned outage) and that subsequently require remediation:</p>
+<p>Percentage of deployments causing a failure in production (for example, service impairment or unplanned outage) and that subsequently require remediation:</p>
 <div class="highlight"><pre><span></span><code>number of deployments that caused incidents / total number of deployments
 </code></pre></div>
 <p>Pulse uses the average value over a period of time to display aggregate change failure rates.</p>
