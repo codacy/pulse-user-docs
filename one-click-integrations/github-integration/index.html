@@ -665,16 +665,16 @@
 <p class="admonition-title">Important</p>
 <p>You can only install the Pulse GitHub App on an organization and not on your personal account.</p>
 </div>
-<p><img alt="Installing the Pulse GitHub App" src="../images/ghi-installing.png" /></p>
+<p><img alt="Installing the Pulse GitHub App" src="../images/github-installing.png" /></p>
 </li>
 <li>
 <p>Wait until you get a confirmation that Pulse successfully created the integration and the webhook on GitHub.</p>
-<p><img alt="Pulse GitHub integration set up successfully" src="../images/ghi-ok.png" /></p>
+<p><img alt="Pulse GitHub integration set up successfully" src="../images/github-ok.png" /></p>
 <p>If there is an error please <a href="mailto:pulsesupport@codacy.com">contact support</a>.</p>
 </li>
 <li>
 <p>Choose the strategy to detect deployments that best fits your workflows, or turn off the automatic deployment detection. See the section below for a detailed description of each option.</p>
-<p><img alt="Choosing a deployment detection strategy" src="../images/ghi-strategy.png" /></p>
+<p><img alt="Choosing a deployment detection strategy" src="../images/github-strategy.png" /></p>
 </li>
 </ol>
 <h2 id="deployment-detection-strategy">Automatic deployment detection strategies<a class="headerlink" href="#deployment-detection-strategy" title="Permanent link">&para;</a></h2>
@@ -703,7 +703,7 @@
 <p>The set of changes that belong to a deployment is the list of commits between the tag of that deployment and the previous tag. Because of this, Pulse discards:</p>
 <ul>
 <li>The first SemVer tag in the repository since there is no previous tag to compare with.</li>
-<li>Any tag that does not have a common ancestor (commit) with its previous tag, since Pulse cannot obtain the changes between them.</li>
+<li>Any tag that doesn't have a common ancestor (commit) with its previous tag, since Pulse can't obtain the changes between them.</li>
 </ul>
 </li>
 <li>
@@ -777,8 +777,8 @@
 </tr>
 </table>
 
-<p><sup><span id="commit-author-date">1</span></sup>: Pulse uses the commit author's date since it is more accurate. The committer date can be changed (e.g.: rebases) and stop reflecting the real creation date of the change.</p>
-<p><sup><span id="deployment-teams">2</span></sup>: Adding a new team or changing the composition of a team on GitHub only affects new data from that moment onwards and doesn't have an immediate impact on the dashboards. Also, deleted teams on GitHub are still visible in Pulse.</p>
+<p><sup><span id="commit-author-date">1</span></sup>: Pulse uses the commit author's date since it's more accurate. The committer date can be changed (for example, with a rebase) and stop reflecting the real creation date of the change.</p>
+<p><sup><span id="deployment-teams">2</span></sup>: Adding a new team or changing the composition of a team on GitHub only affects new data starting from that moment and doesn't have an immediate impact on the dashboards. Also, deleted teams on GitHub are still visible in Pulse.</p>
 <h2 id="gh-permissions">Which permissions does Pulse need from GitHub?<a class="headerlink" href="#gh-permissions" title="Permanent link">&para;</a></h2>
 <p>Pulse requests only the necessary permissions from GitHub to collect changes and deployment data from the repositories in your organization and <a href="https://security.codacy.com/">keeps your information secure</a>. See below the detailed list of permissions.</p>
 <table>
