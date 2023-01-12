@@ -95,7 +95,7 @@ The table below lists the data that the Bitbucket integration collects from your
 </tr>
 </table>
 
-<sup><span id="commit-author-date">1</span></sup>: Pulse uses the commit author's date since it's more accurate. The committer date can be changed (e.g.: fast-forward) and stop reflecting the real creation date of the change.
+<sup><span id="commit-author-date">1</span></sup>: Pulse uses the commit author's date since it's more accurate. The committer date can be changed (for example, with a fast-forward) and stop reflecting the real creation date of the change.
 
 <sup><span id="deployment-teams">2</span></sup>: Adding a new user group or changing the composition of a user group on Bitbucket only affects new data starting from that moment and doesn't have an immediate impact on the dashboards. Also, deleted user groups on Bitbucket are still visible in Pulse.
 
