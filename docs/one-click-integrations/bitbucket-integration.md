@@ -1,10 +1,7 @@
 # Bitbucket integration
 
 !!! note
-    <!--NOTE Limitation from Bitbucket integration V1-V2-->Pulse's Bitbucket integration is new and still in Beta:
-
-    -   For now, we only show the [Accelerate metrics](../metrics/accelerate.md) using your merged pull requests to automatically detect deployments.
-    -   <!--NOTE Limitation from Bitbucket integration V1-->At the moment, we're only collecting new data, so you won’t see any metrics after completing the integration setup. We'll automatically import historical data and backfill your charts within a few weeks.
+    <!--NOTE Limitation from Bitbucket integration V1-V2-->The Pulse Bitbucket integration is new and still in **Beta**. For now, we only show the [Accelerate metrics](../metrics/accelerate.md) using your merged pull requests to automatically detect deployments.
 
 <!--NOTE Limitation from Bitbucket integration V1-V2-->Pulse integrates with Bitbucket Cloud to receive data about changes and deployments, necessary to calculate the metrics:
 
@@ -98,9 +95,9 @@ The table below lists the data that the Bitbucket integration collects from your
 </tr>
 </table>
 
-<sup><span id="commit-author-date">1</span></sup>: Pulse uses the commit author's date since it is more accurate. The committer date can be changed (e.g.: fast-forward) and stop reflecting the real creation date of the change.
+<sup><span id="commit-author-date">1</span></sup>: Pulse uses the commit author's date since it's more accurate. The committer date can be changed (for example, with a fast-forward) and stop reflecting the real creation date of the change.
 
-<sup><span id="deployment-teams">2</span></sup>: Adding a new user group or changing the composition of a user group on Bitbucket only affects new data from that moment onwards and doesn't have an immediate impact on the dashboards. Also, deleted user groups on Bitbucket are still visible in Pulse.
+<sup><span id="deployment-teams">2</span></sup>: Adding a new user group or changing the composition of a user group on Bitbucket only affects new data starting from that moment and doesn't have an immediate impact on the dashboards. Also, deleted user groups on Bitbucket are still visible in Pulse.
 
 ## Which permissions does Pulse need from Bitbucket? {: id="bb-permissions"}
 
