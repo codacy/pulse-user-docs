@@ -1,6 +1,6 @@
 # Accelerate metrics
 
-Pulse calculates the four key Accelerate metrics using strictly **changes**, **deployments**, and **incidents** data for a rolling window of the last 90 days:
+Pulse calculates the four key Accelerate metrics based on **changes**, **deployments**, and **incidents** data for a rolling window of the last 90 days:
 
 -   [Deployment frequency](#deployment-frequency)
 -   [Lead time for changes](#lead-time-for-changes)
@@ -55,7 +55,7 @@ Pulse determines your performance level for this metric as follows:
 
 ## Time to recover
 
-How long it takes your organization to recover from a failure in production (e.g., service impairment or unplanned outage):
+How long it takes your organization to recover from a failure in production (for example, service impairment or unplanned outage):
 
 ```text
 average(incident resolved timestamp - incident created timestamp)
@@ -79,7 +79,7 @@ Pulse determines your performance level for this metric as follows:
 
 ## Change failure rate
 
-Percentage of deployments causing a failure in production (e.g., service impairment or unplanned outage) and that subsequently require remediation:
+Percentage of deployments causing a failure in production (for example, service impairment or unplanned outage) and that subsequently require remediation:
 
 ```text
 number of deployments that caused incidents / total number of deployments
