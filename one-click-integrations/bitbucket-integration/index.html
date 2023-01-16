@@ -608,11 +608,7 @@
 <h1 id="bitbucket-integration">Bitbucket integration<a class="headerlink" href="#bitbucket-integration" title="Permanent link">&para;</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Pulse's Bitbucket integration is new and still in Beta:</p>
-<ul>
-<li>For now, we only show the <a href="../../metrics/accelerate/">Accelerate metrics</a> using your merged pull requests to automatically detect deployments.</li>
-<li>At the moment, we're only collecting new data, so you won’t see any metrics after completing the integration setup. We'll automatically import historical data and backfill your charts within a few weeks.</li>
-</ul>
+<p>The Pulse Bitbucket integration is new and still in <strong>Beta</strong>. For now, we only show the <a href="../../metrics/accelerate/">Accelerate metrics</a> using your merged pull requests to automatically detect deployments.</p>
 </div>
 <p>Pulse integrates with Bitbucket Cloud to receive data about changes and deployments, necessary to calculate the metrics:</p>
 <ul>
@@ -714,8 +710,8 @@
 </tr>
 </table>
 
-<p><sup><span id="commit-author-date">1</span></sup>: Pulse uses the commit author's date since it is more accurate. The committer date can be changed (e.g.: fast-forward) and stop reflecting the real creation date of the change.</p>
-<p><sup><span id="deployment-teams">2</span></sup>: Adding a new user group or changing the composition of a user group on Bitbucket only affects new data from that moment onwards and doesn't have an immediate impact on the dashboards. Also, deleted user groups on Bitbucket are still visible in Pulse.</p>
+<p><sup><span id="commit-author-date">1</span></sup>: Pulse uses the commit author's date since it's more accurate. The committer date can be changed (for example, with a fast-forward) and stop reflecting the real creation date of the change.</p>
+<p><sup><span id="deployment-teams">2</span></sup>: Adding a new user group or changing the composition of a user group on Bitbucket only affects new data starting from that moment and doesn't have an immediate impact on the dashboards. Also, deleted user groups on Bitbucket are still visible in Pulse.</p>
 <h2 id="bb-permissions">Which permissions does Pulse need from Bitbucket?<a class="headerlink" href="#bb-permissions" title="Permanent link">&para;</a></h2>
 <p>Pulse requests only the necessary <a href="https://developer.atlassian.com/cloud/bitbucket/bitbucket-cloud-rest-api-scopes/">permissions/scopes from Bitbucket</a> to collect changes and deployment data from the repositories in your workspace and <a href="https://security.codacy.com/">keeps your information secure</a>. See below the detailed list of permissions.</p>
 <table>
