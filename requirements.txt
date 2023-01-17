@@ -3,7 +3,7 @@ markdown==3.3.7 # Temporarily pin version <3.4, see https://github.com/mkdocs/mk
 mkdocs-material==9.0.3
 
 # Markdown extensions
-pymdown-extensions==9.9
+pymdown-extensions==9.9.1
 
 # MkDocs plugins
 mkdocs-meta-descriptions-plugin==2.2.0
