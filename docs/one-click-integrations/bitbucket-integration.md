@@ -87,6 +87,13 @@ The table below lists the data that the Bitbucket integration collects from your
     <td>Deployment frequency and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a></td>
 </tr>
 <tr>
+    <td>Pull requests</td>
+    <td>
+        -
+    </td>
+    <td><a href="../../metrics/accelerate-changes/">Changes & Reviews dashboard</a>,<br/><a href="../../metrics/accelerate-wip/">Work in Progress dashboard</a></td>
+</tr>
+<tr>
     <td>User groups</td>
     <td>
         <p>Deployments:</p>
@@ -94,7 +101,7 @@ The table below lists the data that the Bitbucket integration collects from your
             <li><code>teams</code>: Bitbucket user groups of the author of a deployment<sup><a href="#deployment-teams">2</a></sup></li>
         </ul>
     </td>
-    <td>Filters the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a> by the contributions made by the team</td>
+    <td>Filters the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a>, <a href="../../metrics/accelerate-changes/">Changes & Reviews dashboard</a>, and <a href="../../metrics/accelerate-wip/">Work in Progress dashboard</a> by the contributions made by the team</td>
 </tr>
 </table>
 
