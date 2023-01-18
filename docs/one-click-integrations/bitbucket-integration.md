@@ -1,11 +1,14 @@
 # Bitbucket integration
 
-!!! note
-    <!--NOTE Limitation from Bitbucket integration V1-V2-->The Pulse Bitbucket integration is new and still in **Beta**. For now, we only show the [Accelerate metrics](../metrics/accelerate.md) using your merged pull requests to automatically detect deployments.
+Pulse integrates with Bitbucket Cloud to receive data about changes and deployments, necessary to calculate the metrics:
 
-<!--NOTE Limitation from Bitbucket integration V1-V2-->Pulse integrates with Bitbucket Cloud to receive data about changes and deployments, necessary to calculate the metrics:
+-   [Lead time for changes](../metrics/accelerate.md#lead-time-for-changes), including the following drill-down metrics:
 
--   [Lead time for changes](../metrics/accelerate.md#lead-time-for-changes)
+    -   [Changes metrics](../metrics/accelerate-changes.md#changes-metrics)
+
+    -   [Reviews metrics](../metrics/accelerate-changes.md#reviews-metrics)
+
+    -   [Work in progress metrics](../metrics/accelerate-wip.md)
 
 -   [Deployment frequency](../metrics/accelerate.md#deployment-frequency)
 
