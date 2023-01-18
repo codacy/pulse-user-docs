@@ -158,3 +158,5 @@ Pulse requests only the necessary [permissions/scopes from Bitbucket](https://de
 ## See also
 
 -   [Accelerate metrics](../metrics/accelerate.md)
+-   [Changes and reviews metrics](../metrics/accelerate-changes.md)
+-   [Work in progress metrics](../metrics/accelerate-wip.md)

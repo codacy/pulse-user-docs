@@ -26,4 +26,4 @@ The following metrics for each open pull request allow you to understand which w
 
 ## See also
 
--   Report data to Pulse using the [GitHub integration](../one-click-integrations/github-integration.md)
+-   Report data to Pulse using the [GitHub integration](../one-click-integrations/github-integration.md) or the [Bitbucket integration](../one-click-integrations/bitbucket-integration.md)

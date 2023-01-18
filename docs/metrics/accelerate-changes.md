@@ -97,6 +97,4 @@ Pulse displays the following details for each pull request in the chart **Review
 
 ## See also
 
-Report data to Pulse using the following integrations:
-
--   [GitHub integration](../one-click-integrations/github-integration.md)
+-   Report data to Pulse using the [GitHub integration](../one-click-integrations/github-integration.md) or the [Bitbucket integration](../one-click-integrations/bitbucket-integration.md)
