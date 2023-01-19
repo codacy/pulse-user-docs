@@ -7,6 +7,10 @@ Pulse displays the following metrics to provide insights into the current and hi
 -   [Work in progress metrics](metrics/accelerate-wip.md)
 -   [Lead time and cycle time](metrics/lead-cycle-time.md)
 
+Check out our product demo for an overview of Pulse's main features (recorded on January 16, 2023):
+
+<iframe src="[https://www.loom.com/embed/c1a408057e5c46eda4e3256eafae1f05](https://www.loom.com/embed/8f03ed75a55843149f8abc19ef3fe4be)" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+
 To calculate these metrics, you must complete these main steps to set up Pulse and to collect information from key events of your particular software development workflow:
 
 1.  **Creating your organization on Pulse**
