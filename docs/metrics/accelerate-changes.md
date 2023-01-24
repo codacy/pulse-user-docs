@@ -2,6 +2,9 @@
 
 Changes and reviews metrics provide an extra level of detail about the performance of your team workflows.
 
+!!! important
+    You must install the [GitHub integration](../one-click-integrations/github-integration.md) or the [Bitbucket integration](../one-click-integrations/bitbucket-integration.md) for Pulse to calculate the changes and reviews metrics.
+
 ## Changes metrics
 
 The following metrics directly influence **Lead time for changes**, and can help you track in more detail what needs to be improved in your workflow:
@@ -97,6 +100,4 @@ Pulse displays the following details for each pull request in the chart **Review
 
 ## See also
 
-Report data to Pulse using the following integrations:
-
--   [GitHub integration](../one-click-integrations/github-integration.md)
+-   Report data to Pulse using the [GitHub integration](../one-click-integrations/github-integration.md) or the [Bitbucket integration](../one-click-integrations/bitbucket-integration.md)

@@ -1,11 +1,14 @@
 # Bitbucket integration
 
-!!! note
-    <!--NOTE Limitation from Bitbucket integration V1-V2-->The Pulse Bitbucket integration is new and still in **Beta**. For now, we only show the [Accelerate metrics](../metrics/accelerate.md) using your merged pull requests to automatically detect deployments.
+Pulse integrates with Bitbucket Cloud to receive data about changes and deployments, necessary to calculate the metrics:
 
-<!--NOTE Limitation from Bitbucket integration V1-V2-->Pulse integrates with Bitbucket Cloud to receive data about changes and deployments, necessary to calculate the metrics:
+-   [Lead time for changes](../metrics/accelerate.md#lead-time-for-changes), including the following drill-down metrics:
 
--   [Lead time for changes](../metrics/accelerate.md#lead-time-for-changes)
+    -   [Changes metrics](../metrics/accelerate-changes.md#changes-metrics)
+
+    -   [Reviews metrics](../metrics/accelerate-changes.md#reviews-metrics)
+
+    -   [Work in progress metrics](../metrics/accelerate-wip.md)
 
 -   [Deployment frequency](../metrics/accelerate.md#deployment-frequency)
 
@@ -84,6 +87,13 @@ The table below lists the data that the Bitbucket integration collects from your
     <td>Deployment frequency and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a></td>
 </tr>
 <tr>
+    <td>Pull requests</td>
+    <td>
+        -
+    </td>
+    <td><a href="../../metrics/accelerate-changes/">Changes & Reviews dashboard</a>,<br/><a href="../../metrics/accelerate-wip/">Work in Progress dashboard</a></td>
+</tr>
+<tr>
     <td>User groups</td>
     <td>
         <p>Deployments:</p>
@@ -91,7 +101,7 @@ The table below lists the data that the Bitbucket integration collects from your
             <li><code>teams</code>: Bitbucket user groups of the author of a deployment<sup><a href="#deployment-teams">2</a></sup></li>
         </ul>
     </td>
-    <td>Filters the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a> by the contributions made by the team</td>
+    <td>Filters the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a>, <a href="../../metrics/accelerate-changes/">Changes & Reviews dashboard</a>, and <a href="../../metrics/accelerate-wip/">Work in Progress dashboard</a> by the contributions made by the team</td>
 </tr>
 </table>
 
@@ -155,3 +165,5 @@ Pulse requests only the necessary [permissions/scopes from Bitbucket](https://de
 ## See also
 
 -   [Accelerate metrics](../metrics/accelerate.md)
+-   [Changes and reviews metrics](../metrics/accelerate-changes.md)
+-   [Work in progress metrics](../metrics/accelerate-wip.md)

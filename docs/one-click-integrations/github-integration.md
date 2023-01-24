@@ -200,3 +200,4 @@ Pulse requests only the necessary permissions from GitHub to collect changes and
 
 -   [Accelerate metrics](../metrics/accelerate.md)
 -   [Changes and reviews metrics](../metrics/accelerate-changes.md)
+-   [Work in progress metrics](../metrics/accelerate-wip.md)
