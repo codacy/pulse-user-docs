@@ -606,14 +606,21 @@
 
 
 <h1 id="bitbucket-integration">Bitbucket integration<a class="headerlink" href="#bitbucket-integration" title="Permanent link">&para;</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The Pulse Bitbucket integration is new and still in <strong>Beta</strong>. For now, we only show the <a href="../../metrics/accelerate/">Accelerate metrics</a> using your merged pull requests to automatically detect deployments.</p>
-</div>
 <p>Pulse integrates with Bitbucket Cloud to receive data about changes and deployments, necessary to calculate the metrics:</p>
 <ul>
 <li>
-<p><a href="../../metrics/accelerate/#lead-time-for-changes">Lead time for changes</a></p>
+<p><a href="../../metrics/accelerate/#lead-time-for-changes">Lead time for changes</a>, including the following drill-down metrics:</p>
+<ul>
+<li>
+<p><a href="../../metrics/accelerate-changes/#changes-metrics">Changes metrics</a></p>
+</li>
+<li>
+<p><a href="../../metrics/accelerate-changes/#reviews-metrics">Reviews metrics</a></p>
+</li>
+<li>
+<p><a href="../../metrics/accelerate-wip/">Work in progress metrics</a></p>
+</li>
+</ul>
 </li>
 <li>
 <p><a href="../../metrics/accelerate/#deployment-frequency">Deployment frequency</a></p>
@@ -699,6 +706,13 @@
     <td>Deployment frequency and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a></td>
 </tr>
 <tr>
+    <td>Pull requests</td>
+    <td>
+        -
+    </td>
+    <td><a href="../../metrics/accelerate-changes/">Changes & Reviews dashboard</a>,<br/><a href="../../metrics/accelerate-wip/">Work in Progress dashboard</a></td>
+</tr>
+<tr>
     <td>User groups</td>
     <td>
         <p>Deployments:</p>
@@ -706,7 +720,7 @@
             <li><code>teams</code>: Bitbucket user groups of the author of a deployment<sup><a href="#deployment-teams">2</a></sup></li>
         </ul>
     </td>
-    <td>Filters the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a> by the contributions made by the team</td>
+    <td>Filters the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a>, <a href="../../metrics/accelerate-changes/">Changes & Reviews dashboard</a>, and <a href="../../metrics/accelerate-wip/">Work in Progress dashboard</a> by the contributions made by the team</td>
 </tr>
 </table>
 
@@ -766,6 +780,8 @@
 <h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../../metrics/accelerate/">Accelerate metrics</a></li>
+<li><a href="../../metrics/accelerate-changes/">Changes and reviews metrics</a></li>
+<li><a href="../../metrics/accelerate-wip/">Work in progress metrics</a></li>
 </ul>
 
 
