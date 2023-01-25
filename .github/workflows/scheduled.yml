@@ -1,8 +1,6 @@
 name: Scheduled jobs
 
-on:
-  schedule:
-   - cron: "15 5 * * 1"
+on: push
 
 jobs:
   check-broken-links:
