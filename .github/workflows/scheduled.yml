@@ -45,7 +45,6 @@ jobs:
         uses: calibreapp/image-actions@main
         with:
           githubToken: ${{ secrets.DEPLOYMENT_PERSONAL_ACCESS_TOKEN }}
-          ignorePaths: submodules/**
           compressOnly: true
 
       - name: Create pull request
