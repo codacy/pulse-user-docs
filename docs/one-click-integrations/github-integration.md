@@ -26,15 +26,13 @@ To set up the GitHub integration:
 
     ![Installing the Pulse GitHub App](images/github-installing.png)
 
-1.  Choose the strategy to detect deployments that best fits your workflows. See the [section below](#deployment-detection-strategy) for a detailed description of each option.
-<!--TODO: Update image-->
+1.  Choose the strategy to detect deployments that best fits your workflows. See the [section below](#deployment-detection-strategy) for a detailed description of each option.<!--TODO: Update image-->
 
     ![Choosing a deployment detection strategy](images/github-strategy.png)
 
 1.  Click **Complete setup**.
 
-1.  Wait until you get a confirmation that Pulse successfully created the integration and the webhook on GitHub.
-<!--TODO: Confirm message and update image-->
+1.  Wait until you get a confirmation that Pulse successfully created the integration and the webhook on GitHub.<!--TODO: Confirm message and update image-->
 
     ![Pulse GitHub integration set up successfully](images/github-ok.png)
 
