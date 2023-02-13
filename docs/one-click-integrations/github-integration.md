@@ -26,7 +26,7 @@ To set up the GitHub integration:
 
     ![Installing the Pulse GitHub App](images/github-installing.png)
 
-1.  Confirm that Pulse successfully created the integration and the webhook on GitHub. If there is an error please [contact support](mailto:pulsesupport@codacy.com).
+1.  Confirm that Pulse successfully [installed the GitHub app](https://docs.github.com/en/organizations/managing-programmatic-access-to-your-organization/reviewing-your-organizations-installed-integrations) and created the [webhook](https://docs.github.com/en/developers/webhooks-and-events/webhooks/about-webhooks) on GitHub. If there is an error please [contact support](mailto:pulsesupport@codacy.com).
 
     ![Pulse GitHub App installed successfully](images/github-installed-ok.png)
 
