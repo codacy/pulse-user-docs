@@ -11,9 +11,9 @@ Pulse calculates the four key Accelerate metrics based on **changes**, **deploym
 
 How often your organization completes a deployment to production or releases code to end-users of your primary application or service:
 
-```text
-number of deployments per day
-```
+$$
+f_d=\frac{deployments}{day}
+$$
 
 Pulse uses the average value over a period of time to display aggregate deployment frequencies.
 
@@ -35,9 +35,14 @@ Pulse determines your performance level for this metric as follows:
 
 How long it takes a commit to get into production on your primary application or service:
 
-```text
-median(deployment timestamp - changes timestamp)
-```
+$$
+t_l=median(T_D - t_C)
+$$
+
+where:
+
+-   $T_D$ is the timestamp at which the changes are deployed
+-   $t_C$ are the timestamps at which the changes are committed
 
 !!! note
     The changes timestamp is **when code is actually checked into a repository**.
@@ -57,9 +62,14 @@ Pulse determines your performance level for this metric as follows:
 
 How long it takes your organization to recover from a failure in production (for example, service impairment or unplanned outage):
 
-```text
-average(incident resolved timestamp - incident created timestamp)
-```
+$$
+t_r=average(t_R-t_C)
+$$
+
+where:
+
+-   $t_R$ are the timestamps at which the incidents are resolved
+-   $t_C$ are the timestamps at which the incidents are created
 
 Pulse uses the maximum value over a period of time to display aggregate times to recover.
 
@@ -81,9 +91,14 @@ Pulse determines your performance level for this metric as follows:
 
 Percentage of deployments causing a failure in production (for example, service impairment or unplanned outage) and that subsequently require remediation:
 
-```text
-number of deployments that caused incidents / total number of deployments
-```
+$$
+R_f=\frac{N_i}{N}
+$$
+
+where:
+
+-   $N_i$ is the number of deployments that caused incidents
+-   $N$ is the total number of deployments
 
 Pulse uses the average value over a period of time to display aggregate change failure rates.
 

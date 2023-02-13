@@ -26,13 +26,20 @@ Time between creating an issue in the backlog and completing the issue.
 
 Pulse calculates lead time for completed issues, taking into account that issues can transition from **Completed** back to another status.
 
-```text
-last issue completed timestamp - issue created timestamp
-```
+The time it takes for a change or feature to be reviewed:
+
+$$
+t_{rev}=T_{LC} - T_C
+$$
+
+where:
+
+-   $T_{LC}$ is the timestamp at which the issue is last marked as completed
+-   $T_C$ is the timestamp at which the issue is created
 
 ## Cycle time
 
-Time between commiting to work on an issue (such as at the start of a sprint) and completing the issue. Cycle time is a subpart of lead time.
+Time between committing to work on an issue (such as at the start of a sprint) and completing the issue. Cycle time is a subpart of lead time.
 
 Pulse calculates cycle time for completed issues, taking into account that issues can transition from **In progress** back to another status besides **Completed**.
 
@@ -42,9 +49,14 @@ Pulse calculates cycle time for completed issues, taking into account that issue
     -   Issues are in progress when they transition to any Jira status belonging to the **In Progress** status category (represented by the blue color in Jira).
     -   Issues that have a status belonging to the **To Do** status category (represented by the grey color in Jira) don't contribute to cycle time.
 
-```text
-sum all (issue exited in progress timestamp - issue entered in progress timestamp)
-```
+$$
+\sum_n T_{Xn}-T_{Nn}
+$$
+
+where:
+
+-   $T_{Xn}$ is the timestamp at which the issue exits the in progress status for the $n$-th time
+-   $T_{Nn}$ is the timestamp at which the issue enters the in progress status for the $n$-th time
 
 ## See also
 
