@@ -117,8 +117,10 @@ The table below lists the data that the Bitbucket integration collects from your
     <td>
         <p>Incidents:</p>
         <ul>
-            <li>??<code>deploy_id</code>: unique pull request identifier??</li>
-            <li>??<code>system</code>: repository name??</li>
+            <li><code>incident_id</code>: unique pull request identifier</li>
+            <li><code>timestamp_created</code>: reverted pull request merged date</li>
+            <li><code>timestamp_resolved</code>: pull request merged date</li>
+            <li><code>system</code>: repository name</li>
         </ul>
     </td>
     <td>Time to recover and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a></td>
