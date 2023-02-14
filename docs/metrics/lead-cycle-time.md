@@ -22,14 +22,12 @@ Read more on [how you can improve your time to market](https://blog.codacy.com/h
 
 ## Lead time
 
-Time between creating an issue in the backlog and completing the issue.
+The time $t_l$ between creating an issue in the backlog and completing the issue.
 
 Pulse calculates lead time for completed issues, taking into account that issues can transition from **Completed** back to another status.
 
-The time it takes for a change or feature to be reviewed:
-
 $$
-t_{rev}=T_{LC} - T_C
+t_l=T_{LC} - T_C
 $$
 
 where:
@@ -39,7 +37,7 @@ where:
 
 ## Cycle time
 
-Time between committing to work on an issue (such as at the start of a sprint) and completing the issue. Cycle time is a subpart of lead time.
+The time $t_c$ between committing to work on an issue (such as at the start of a sprint) and completing the issue. Cycle time is a subpart of lead time.
 
 Pulse calculates cycle time for completed issues, taking into account that issues can transition from **In progress** back to another status besides **Completed**.
 
@@ -50,7 +48,7 @@ Pulse calculates cycle time for completed issues, taking into account that issue
     -   Issues that have a status belonging to the **To Do** status category (represented by the grey color in Jira) don't contribute to cycle time.
 
 $$
-\sum_n T_{Xn}-T_{Nn}
+t_c=\sum_n T_{Xn}-T_{Nn}
 $$
 
 where:

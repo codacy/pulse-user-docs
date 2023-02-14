@@ -24,7 +24,7 @@ Pulse aggregates these metrics by week and presents values for the average and t
 
 ### Time to open
 
-An approximation of the time it takes for a change or feature to be developed:
+An estimate of the time $t_o$ it takes for a change or feature to be developed:
 
 $$
 t_o=T_O - T_{FC}
@@ -37,7 +37,7 @@ where:
 
 ### Time to merge
 
-The time it takes for a change or feature to be reviewed:
+The time $t_m$ it takes for a change or feature to be reviewed:
 
 $$
 t_m=T_M - T_O
@@ -67,7 +67,7 @@ The following metrics provide insights into the level of engagement and efficien
 
 ### Time to first review
 
-The time it takes for a pull request to receive the first review:
+The time $t_{fr}$ it takes for a pull request to receive the first review:
 
 $$
 t_{fr}=T_{FR} - T_O
@@ -80,7 +80,7 @@ where:
 
 ### Time to first approval
 
-The time it takes for a pull request to receive the first approval:
+The time $t_{fa}$ it takes for a pull request to receive the first approval:
 
 $$
 t_{fa}=T_{FA} - T_O
@@ -93,7 +93,7 @@ where:
 
 ### Time from first to last approval
 
-The time between the first and last approvals on a pull request:
+The time $t_{fla}$ between the first and last approvals on a pull request:
 
 $$
 t_{fla}=T_{LA} - T_{FA}
@@ -106,7 +106,7 @@ where:
 
 ### Time from last approval to merge
 
-The time it takes for a change or feature to be reviewed:
+The time $t_{lam}$ it takes for a change or feature to be reviewed:
 
 $$
 t_{lam}=T_M - T_{LA}

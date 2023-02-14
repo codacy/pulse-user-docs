@@ -33,16 +33,16 @@ Pulse determines your performance level for this metric as follows:
 
 ## Lead time for changes
 
-How long it takes a commit to get into production on your primary application or service:
+An estimate of the time $t_{lc}$ it takes for a commit to get into production on your primary application or service:
 
 $$
-t_l=median(T_D - t_C)
+t_{lc}=median(\{T_D-t_{1},...,T_D-t_{n}\})
 $$
 
 where:
 
 -   $T_D$ is the timestamp at which the changes are deployed
--   $t_C$ are the timestamps at which the changes are committed
+-   $t_{1},...,t_{n}$ are the timestamps of the individual commits
 
 !!! note
     The changes timestamp is **when code is actually checked into a repository**.
@@ -60,16 +60,16 @@ Pulse determines your performance level for this metric as follows:
 
 ## Time to recover
 
-How long it takes your organization to recover from a failure in production (for example, service impairment or unplanned outage):
+An estimate of the time $t_r$ it takes your organization to recover from a failure in production (for example, service impairment or unplanned outage):
 
 $$
-t_r=average(t_R-t_C)
+t_r=average(\{t_{R1}-t_{C1},...,t_{Rn}-t_{Cn}\})
 $$
 
 where:
 
--   $t_R$ are the timestamps at which the incidents are resolved
--   $t_C$ are the timestamps at which the incidents are created
+-   $t_{R1},...,t_{Rn}$ are the timestamps at which the incidents are resolved
+-   $t_{C1},...,t_{Cn}$ are the timestamps at which the incidents are created
 
 Pulse uses the maximum value over a period of time to display aggregate times to recover.
 
@@ -89,10 +89,10 @@ Pulse determines your performance level for this metric as follows:
 
 ## Change failure rate
 
-Percentage of deployments causing a failure in production (for example, service impairment or unplanned outage) and that subsequently require remediation:
+Percentage of deployments $R_f$ causing a failure in production (for example, service impairment or unplanned outage) and that subsequently require remediation:
 
 $$
-R_f=\frac{N_i}{N}
+R_f=100*\frac{N_i}{N}
 $$
 
 where:
