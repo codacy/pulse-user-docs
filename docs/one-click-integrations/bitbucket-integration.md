@@ -65,7 +65,7 @@ The following is a detailed description of how the Pulse Bitbucket integration a
 
 -   Pulse considers an incident a reverted pull request that **targets the default branch** of the repository when the revert operation was executed through the Bitbucket UI originating a branch which name starts with `revert-`.
 -   The incident creation date is the timestamp when the reverted pull request was initially merged.
--   Pulse associates all the Bitbucket user groups of the author of a revert pull request with the corresponding incident, excluding the user groups with less than two members.
+-   Pulse associates incidents to the system matching the repository name.
 
 ### Don't detect incidents via Bitbucket
 
