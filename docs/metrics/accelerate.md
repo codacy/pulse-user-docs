@@ -64,9 +64,11 @@ average(incident resolved timestamp - incident created timestamp)
 Pulse uses the maximum value over a period of time to display aggregate times to recover.
 
 !!! note
-    **Pulse first calculates the performance metrics per [system](../cli/cli.md#before-you-begin)**, and later aggregates the metrics by time interval when displaying them.
+    If you are reporting incidents to Pulse using the [PagerDuty integration](../one-click-integrations/pagerduty-integration.md), the [Pulse CLI](../cli/cli.md), or the [Pulse Ingestion API](https://ingestion.pulse.codacy.com/v1/api-docs):
 
-    This means that you must report both deployments and incidents associated with the correct systems for Pulse to calculate the metrics correctly. Otherwise, even if you're reporting incident events, the charts will be empty.
+    -   **Pulse first calculates the performance metrics per [system](../cli/cli.md#before-you-begin)**, and later aggregates the metrics by time interval when displaying them.
+
+        This means that you must report both deployments and incidents associated with the correct systems for Pulse to calculate the metrics correctly. Otherwise, even if you're reporting incident events, the charts will be empty.
 
 Pulse determines your performance level for this metric as follows:
 
@@ -88,6 +90,8 @@ number of deployments that caused incidents / total number of deployments
 Pulse uses the average value over a period of time to display aggregate change failure rates.
 
 !!! note
+    If you are reporting incidents to Pulse using the [PagerDuty integration](../one-click-integrations/pagerduty-integration.md), the [Pulse CLI](../cli/cli.md), or the [Pulse Ingestion API](https://ingestion.pulse.codacy.com/v1/api-docs):
+
     -   **Pulse first calculates the performance metrics per [system](../cli/cli.md#before-you-begin)**, and later aggregates the metrics by time interval when displaying them.
 
         This means that you must report both deployments and incidents associated with the correct systems for Pulse to calculate the metrics correctly. Otherwise, even if you're reporting incident events, the charts will be empty.

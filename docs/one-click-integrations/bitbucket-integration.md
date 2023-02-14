@@ -1,6 +1,8 @@
 # Bitbucket integration
 
-Pulse integrates with Bitbucket Cloud to receive data about changes and deployments, necessary to calculate the metrics:
+Pulse integrates with Bitbucket Cloud to receive data about changes, deployments, and incidents, necessary to calculate the Accelerate metrics:
+
+-   [Deployment frequency](../metrics/accelerate.md#deployment-frequency)
 
 -   [Lead time for changes](../metrics/accelerate.md#lead-time-for-changes), including the following drill-down metrics:
 
@@ -10,7 +12,9 @@ Pulse integrates with Bitbucket Cloud to receive data about changes and deployme
 
     -   [Work in progress metrics](../metrics/accelerate-wip.md)
 
--   [Deployment frequency](../metrics/accelerate.md#deployment-frequency)
+-   [Time to recover](../metrics/accelerate.md#time-to-recover)
+
+-   [Change failure rate](../metrics/accelerate.md#change-failure-rate)
 
 ## Setting up the Bitbucket integration
 
@@ -26,15 +30,21 @@ To set up the Bitbucket integration:
 
     ![Installing the Pulse Bitbucket App](images/bitbucket-installing.png)
 
-1.  Choose the workspace that you want to connect the integration to and click **Complete setup** to confirm. You can only select a workspace where you have owner permissions.
+1.  Choose the workspace that you want to connect the integration. You can only select a workspace where you have owner permissions.
 
     ![Choosing the Bitbucket workspace](images/bitbucket-workspace.png)
 
-1.  Wait until you get a confirmation that Pulse successfully connected the integration to Bitbucket.
+1.  Choose the strategy to detect incidents that best fits your workflows. See the [section below](#incident-detection-strategy) for a detailed description of each option.
+
+    ![Configuring the incident detection strategy](images/bitbucket-ok.png)<!--TODO: Update screenshot to bitbucket-incident-strategy.png-->
+
+1.  Click **Complete setup**.
+
+1.  Wait until you get a confirmation that Pulse successfully connected the integration to Bitbucket. If there is an error please [contact support](mailto:pulsesupport@codacy.com).
 
     ![Pulse Bitbucket integration set up successfully](images/bitbucket-ok.png)
 
-If there is an error please [contact support](mailto:pulsesupport@codacy.com).
+Your Bitbucket integration is now complete. Pulse will start loading your data for the last 90 days.
 
 ## Automatic deployment detection using merged pull requests {: id="deployment-detection-merged-pr"}
 
@@ -46,6 +56,22 @@ If there is an error please [contact support](mailto:pulsesupport@codacy.com).
 -   The deployment date is the timestamp when the corresponding pull request is merged.
 -   The set of changes in a deployment is the list of commits in the corresponding pull request.
 -   Pulse associates all the Bitbucket user groups of the author of a merged pull request with the corresponding deployment, excluding the user groups with less than two members. Pulse only takes the changes to Bitbucket user groups into account on pull requests merged after those changes.
+
+## Automatic incident detection strategies {: id="incident-detection-strategy"}
+
+The following is a detailed description of how the Pulse Bitbucket integration automatically detects incidents:
+
+### Use pull request reverts (based on default branch)
+
+-   Pulse considers an incident a reverted pull request that **targets the default branch** of the repository when the revert operation was executed through the Bitbucket UI originating a branch which name starts with `revert-`.
+-   The incident creation date is the timestamp when the reverted pull request was initially merged.
+-   Pulse associates all the Bitbucket user groups of the author of a revert pull request with the corresponding incident, excluding the user groups with less than two members.
+
+### Don't detect incidents via Bitbucket
+
+-   Pulse doesn't detect incidents automatically using Bitbucket events.
+
+    Choose this option if you want to send to Pulse the information about your **incidents** using another Pulse integration - [PagerDuty one-click integration](pagerduty-integration.md), [Pulse CLI](../cli/cli.md), or [Ingestion API](https://ingestion.pulse.codacy.com/v1/api-docs) - or if you simply don't want Pulse to track incidents data.
 
 ## Collected data
 
@@ -85,6 +111,17 @@ The table below lists the data that the Bitbucket integration collects from your
         </ul>
     </td>
     <td>Deployment frequency and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a></td>
+</tr>
+<tr>
+    <td>Pull requests</td>
+    <td>
+        <p>Incidents:</p>
+        <ul>
+            <li>??<code>deploy_id</code>: unique pull request identifier??</li>
+            <li>??<code>system</code>: repository name??</li>
+        </ul>
+    </td>
+    <td>Time to recover and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a></td>
 </tr>
 <tr>
     <td>Pull requests</td>
