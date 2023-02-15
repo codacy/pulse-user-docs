@@ -30,21 +30,23 @@ To set up the Bitbucket integration:
 
     ![Installing the Pulse Bitbucket App](images/bitbucket-installing.png)
 
+1.  Confirm that Pulse successfully connected the integration to Bitbucket. If there is an error please [contact support](mailto:pulsesupport@codacy.com).
+
+    ![Pulse GitHub App installed successfully](images/bitbucket-installed-ok.png)
+
 1.  Choose the workspace that you want to connect the integration. You can only select a workspace where you have owner permissions.
 
     ![Choosing the Bitbucket workspace](images/bitbucket-workspace.png)
 
 1.  Choose the strategy to detect incidents that best fits your workflows. See the [section below](#incident-detection-strategy) for a detailed description of each option.
 
-    ![Configuring the incident detection strategy](images/bitbucket-ok.png)<!--TODO: Update screenshot to bitbucket-incident-strategy.png-->
+    ![Configuring the incident detection strategy](images/bitbucket-incident-strategy.png)
 
 1.  Click **Complete setup**.
 
-1.  Wait until you get a confirmation that Pulse successfully connected the integration to Bitbucket. If there is an error please [contact support](mailto:pulsesupport@codacy.com).
-
-    ![Pulse Bitbucket integration set up successfully](images/bitbucket-ok.png)
-
 Your Bitbucket integration is now complete. Pulse will start loading your data for the last 90 days.
+
+![Pulse Bitbucket integration set up successfully](images/bitbucket-ok.png)
 
 ## Automatic deployment detection using merged pull requests {: id="deployment-detection-merged-pr"}
 
