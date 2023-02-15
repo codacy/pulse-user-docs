@@ -435,8 +435,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#use-merged-pull-requests-default" class="md-nav__link">
-    Use merged pull requests (default)
+  <a href="#use-merged-pull-requests" class="md-nav__link">
+    Use merged pull requests
   </a>
   
 </li>
@@ -449,8 +449,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#dont-detect-deployments-automatically" class="md-nav__link">
-    Don't detect deployments automatically
+  <a href="#use-the-cli-or-api" class="md-nav__link">
+    Use the CLI or API
   </a>
   
 </li>
@@ -654,32 +654,39 @@
 </li>
 </ul>
 <h2 id="setting-up-the-github-integration">Setting up the GitHub integration<a class="headerlink" href="#setting-up-the-github-integration" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>You can only install the Pulse GitHub App on an <strong>organization</strong> and not on your personal account.</li>
+<li><a href="#gh-permissions">See below</a> the permissions that Pulse requires from your GitHub account.</li>
+</ul>
+</div>
 <p>To set up the GitHub integration:</p>
 <ol>
 <li>
 <p>On Pulse, <a href="https://app.pulse.codacy.com/integrations/github" target="_blank">expand <strong>Integrations</strong> and select <strong>GitHub</strong></a>.</p>
 </li>
 <li>
-<p>Click <strong>Install GitHub App</strong> and follow the instructions on the GitHub UI to install the app on your organization.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>You can only install the Pulse GitHub App on an organization and not on your personal account.</p>
-</div>
+<p>Click <strong>Install GitHub App</strong> and follow the instructions on the GitHub UI to install the app on your <strong>organization</strong>.</p>
 <p><img alt="Installing the Pulse GitHub App" src="../images/github-installing.png" /></p>
 </li>
 <li>
-<p>Wait until you get a confirmation that Pulse successfully created the integration and the webhook on GitHub.</p>
-<p><img alt="Pulse GitHub integration set up successfully" src="../images/github-ok.png" /></p>
-<p>If there is an error please <a href="mailto:pulsesupport@codacy.com">contact support</a>.</p>
+<p>Confirm that Pulse successfully <a href="https://docs.github.com/en/organizations/managing-programmatic-access-to-your-organization/reviewing-your-organizations-installed-integrations">installed the GitHub app</a> and created the <a href="https://docs.github.com/en/developers/webhooks-and-events/webhooks/about-webhooks">webhook</a> on GitHub. If there is an error please <a href="mailto:pulsesupport@codacy.com">contact support</a>.</p>
+<p><img alt="Pulse GitHub App installed successfully" src="../images/github-installed-ok.png" /></p>
 </li>
 <li>
-<p>Choose the strategy to detect deployments that best fits your workflows, or turn off the automatic deployment detection. See the section below for a detailed description of each option.</p>
+<p>Choose the strategy to detect deployments that best fits your workflows. See the <a href="#deployment-detection-strategy">section below</a> for a detailed description of each option.</p>
 <p><img alt="Choosing a deployment detection strategy" src="../images/github-strategy.png" /></p>
 </li>
+<li>
+<p>Click <strong>Complete setup</strong>.</p>
+</li>
 </ol>
+<p>Your GitHub integration is now complete. Pulse will start loading your data for the last 90 days.</p>
+<p><img alt="Pulse GitHub integration set up successfully" src="../images/github-ok.png" /></p>
 <h2 id="deployment-detection-strategy">Automatic deployment detection strategies<a class="headerlink" href="#deployment-detection-strategy" title="Permanent link">&para;</a></h2>
 <p>The following is a detailed description of how the Pulse GitHub integration automatically detects deployment using each detection strategy:</p>
-<h3 id="use-merged-pull-requests-default">Use merged pull requests (default)<a class="headerlink" href="#use-merged-pull-requests-default" title="Permanent link">&para;</a></h3>
+<h3 id="use-merged-pull-requests">Use merged pull requests<a class="headerlink" href="#use-merged-pull-requests" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Pulse considers a deployment every merged pull request that <strong>targets the default branch</strong> of the repository.</li>
 <li>The deployment date is the timestamp when the corresponding pull request is merged.</li>
@@ -710,10 +717,10 @@
 <p>Pulse associates all GitHub teams of the person who creates a Git tag with the corresponding deployment, excluding teams with less than two members. Pulse only takes changes to GitHub teams into account on Git tags created after those changes.</p>
 </li>
 </ul>
-<h3 id="dont-detect-deployments-automatically">Don't detect deployments automatically<a class="headerlink" href="#dont-detect-deployments-automatically" title="Permanent link">&para;</a></h3>
+<h3 id="use-the-cli-or-api">Use the CLI or API<a class="headerlink" href="#use-the-cli-or-api" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p>If the option <strong>Detect deployments using GitHub</strong> is turned off, Pulse doesn't detect deployments automatically using GitHub events.</p>
+<p>Pulse doesn't detect deployments automatically using GitHub events.</p>
 <p>This is useful if none of the automatic deployment detection strategies match your workflow and you must have control over the way Pulse tracks your deployments.</p>
 </li>
 <li>
