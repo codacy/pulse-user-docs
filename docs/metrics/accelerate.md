@@ -35,14 +35,16 @@ Pulse determines your performance level for this metric as follows:
 
 An estimate of the time $t_{lc}$ it takes for a commit to get into production on your primary application or service:
 
+<!-- vale off -->
 $$
 t_{lc}=median(\{T_D-t_{1},...,T_D-t_{n}\})
 $$
+<!-- vale on -->
 
 where:
 
 -   $T_D$ is the timestamp at which the changes are deployed
--   $t_{1},...,t_{n}$ are the timestamps of the individual commits
+-   <span class="skip-vale">$t_{1},...,t_{n}$</span> are the timestamps of the individual changes
 
 !!! note
     The changes timestamp is **when code is actually checked into a repository**.
@@ -62,14 +64,16 @@ Pulse determines your performance level for this metric as follows:
 
 An estimate of the time $t_r$ it takes your organization to recover from a failure in production (for example, service impairment or unplanned outage):
 
+<!-- vale off -->
 $$
 t_r=average(\{t_{R1}-t_{C1},...,t_{Rn}-t_{Cn}\})
 $$
+<!-- vale on -->
 
 where:
 
--   $t_{R1},...,t_{Rn}$ are the timestamps at which the incidents are resolved
--   $t_{C1},...,t_{Cn}$ are the timestamps at which the incidents are created
+-   <span class="skip-vale">$t_{R1},...,t_{Rn}$</span> are the timestamps at which the incidents are resolved
+-   <span class="skip-vale">$t_{C1},...,t_{Cn}$</span> are the timestamps at which the incidents are created
 
 Pulse uses the maximum value over a period of time to display aggregate times to recover.
 
