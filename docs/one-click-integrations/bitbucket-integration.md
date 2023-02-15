@@ -63,8 +63,9 @@ The following is a detailed description of how the Pulse Bitbucket integration a
 
 ### Use pull request reverts (based on default branch)
 
--   Pulse considers an incident a reverted pull request that **targets the default branch** of the repository when the revert operation was executed through the Bitbucket UI originating a branch which name starts with `revert-`.
--   The incident creation date is the timestamp when the reverted pull request was initially merged.
+-   Pulse bases incident detection on [pull request reverts](https://support.atlassian.com/bitbucket-cloud/docs/merge-a-pull-request/#Revert-a-merged-pull-request).
+-   Pulse considers an incident any pull request that **targets the default branch** of the repository merged from a branch which name starts with `revert-pr-`, getting the number of the reverted pull request from the branch name, `revert-pr-<pull request number>`. If you change the name of the branch created by Bitbucket when you revert a pull request, Pulse may not be able to obtain the incident data correctly.
+-   The incident creation date is the timestamp when the reverted pull request was initially merged. If Pulse can't get the reverted pull request number from the branch name, the incident creation date is the timestamp of the first commit to the incident pull request.
 -   Pulse associates incidents to the system matching the repository name.
 
 ### Don't detect incidents via Bitbucket
@@ -107,6 +108,7 @@ The table below lists the data that the Bitbucket integration collects from your
         <p>Deployments:</p>
         <ul>
             <li><code>deploy_id</code>: unique pull request identifier</li>
+            <li><code>timestamp_created</code>: pull request merged date</li>
             <li><code>system</code>: repository name</li>
         </ul>
     </td>
@@ -117,7 +119,7 @@ The table below lists the data that the Bitbucket integration collects from your
     <td>
         <p>Incidents:</p>
         <ul>
-            <li><code>incident_id</code>: unique pull request identifier</li>
+            <li><code>incident_id</code>: pull request number</li>
             <li><code>timestamp_created</code>: reverted pull request merged date</li>
             <li><code>timestamp_resolved</code>: pull request merged date</li>
             <li><code>system</code>: repository name</li>
