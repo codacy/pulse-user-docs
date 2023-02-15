@@ -40,7 +40,7 @@ To set up the GitHub integration:
 
 1.  Choose the strategy to detect **incidents** that best fits your workflows. See the [section below](#incident-detection-strategy) for a detailed description of each option.
 
-    ![Configuring the incident detection strategy](images/github-ok.png)<!--TODO: Update screenshot to github-incident-strategy.png-->
+    ![Configuring the incident detection strategy](images/github-incident-strategy.png)
 
 1.  Click **Complete setup**.
 
