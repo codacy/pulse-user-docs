@@ -14,32 +14,37 @@ Pulse integrates with GitHub Cloud to receive data about changes and deployments
 
 ## Setting up the GitHub integration
 
+!!! note
+    -   You can only install the Pulse GitHub App on an **organization** and not on your personal account.
+    -   [See below](#gh-permissions) the permissions that Pulse requires from your GitHub account.
+
 To set up the GitHub integration:
 
 1.  On Pulse, [expand **Integrations** and select **GitHub**](https://app.pulse.codacy.com/integrations/github){: target="_blank"}.
 
-1.  Click **Install GitHub App** and follow the instructions on the GitHub UI to install the app on your organization.
-
-    !!! important
-        You can only install the Pulse GitHub App on an organization and not on your personal account.
+1.  Click **Install GitHub App** and follow the instructions on the GitHub UI to install the app on your **organization**.
 
     ![Installing the Pulse GitHub App](images/github-installing.png)
 
-1.  Wait until you get a confirmation that Pulse successfully created the integration and the webhook on GitHub.
+1.  Confirm that Pulse successfully [installed the GitHub app](https://docs.github.com/en/organizations/managing-programmatic-access-to-your-organization/reviewing-your-organizations-installed-integrations) and created the [webhook](https://docs.github.com/en/developers/webhooks-and-events/webhooks/about-webhooks) on GitHub. If there is an error please [contact support](mailto:pulsesupport@codacy.com).
 
-    ![Pulse GitHub integration set up successfully](images/github-ok.png)
+    ![Pulse GitHub App installed successfully](images/github-installed-ok.png)
 
-    If there is an error please [contact support](mailto:pulsesupport@codacy.com).
-
-1.  Choose the strategy to detect deployments that best fits your workflows, or turn off the automatic deployment detection. See the section below for a detailed description of each option.
+1.  Choose the strategy to detect deployments that best fits your workflows. See the [section below](#deployment-detection-strategy) for a detailed description of each option.
 
     ![Choosing a deployment detection strategy](images/github-strategy.png)
+
+1.  Click **Complete setup**.
+
+Your GitHub integration is now complete. Pulse will start loading your data for the last 90 days.
+
+![Pulse GitHub integration set up successfully](images/github-ok.png)
 
 ## Automatic deployment detection strategies {: id="deployment-detection-strategy"}
 
 The following is a detailed description of how the Pulse GitHub integration automatically detects deployment using each detection strategy:
 
-### Use merged pull requests (default)
+### Use merged pull requests
 
 -   Pulse considers a deployment every merged pull request that **targets the default branch** of the repository.
 -   The deployment date is the timestamp when the corresponding pull request is merged.
@@ -69,9 +74,9 @@ The following is a detailed description of how the Pulse GitHub integration auto
 
 -   Pulse associates all GitHub teams of the person who creates a Git tag with the corresponding deployment, excluding teams with less than two members. Pulse only takes changes to GitHub teams into account on Git tags created after those changes.
 
-### Don't detect deployments automatically
+### Use the CLI or API
 
--   If the option **Detect deployments using GitHub** is turned off, Pulse doesn't detect deployments automatically using GitHub events.
+-   Pulse doesn't detect deployments automatically using GitHub events.
 
     This is useful if none of the automatic deployment detection strategies match your workflow and you must have control over the way Pulse tracks your deployments.
 
