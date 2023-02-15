@@ -24,29 +24,29 @@ Pulse aggregates these metrics by week and presents values for the average and t
 
 ### Time to open
 
-An estimate of the time $t_o$ it takes for a change or feature to be developed:
+An estimate of the time it takes for a change or feature to be developed:
 
 $$
-t_o=T_O - T_{FC}
+T_{open} - T_{firstCommit}
 $$
 
 where:
 
--   $T_{O}$ is the timestamp at which the pull request is open
--   $T_{FC}$ is the timestamp of the first commit to the pull request branch
+-   $T_{open}$ is the timestamp at which the pull request is open
+-   $T_{firstCommit}$ is the timestamp of the first commit to the pull request branch
 
 ### Time to merge
 
-The time $t_m$ it takes for a change or feature to be reviewed:
+The time it takes for a change or feature to be reviewed:
 
 $$
-t_m=T_M - T_O
+T_{merge} - T_{open}
 $$
 
 where:
 
--   $T_{M}$ is the timestamp at which the pull request is merged
--   $T_{O}$ is the timestamp at which the pull request is open
+-   $T_{merge}$ is the timestamp at which the pull request is merged
+-   $T_{open}$ is the timestamp at which the pull request is open
 
 ## Reviews metrics
 
@@ -67,55 +67,55 @@ The following metrics provide insights into the level of engagement and efficien
 
 ### Time to first review
 
-The time $t_{fr}$ it takes for a pull request to receive the first review:
+The time it takes for a pull request to receive the first review:
 
 $$
-t_{fr}=T_{FR} - T_O
+T_{firstReview} - T_{open}
 $$
 
 where:
 
--   $T_{FR}$ is the timestamp of the first review
--   $T_{O}$ is the timestamp at which the pull request is open
+-   $T_{firstReview}$ is the timestamp of the first review
+-   $T_{open}$ is the timestamp at which the pull request is open
 
 ### Time to first approval
 
-The time $t_{fa}$ it takes for a pull request to receive the first approval:
+The time it takes for a pull request to receive the first approval:
 
 $$
-t_{fa}=T_{FA} - T_O
+T_{firstApproval} - T_{open}
 $$
 
 where:
 
--   $T_{FA}$ is the timestamp of the first approval
--   $T_{O}$ is the timestamp at which the pull request is open
+-   $T_{firstApproval}$ is the timestamp of the first approval
+-   $T_{open}$ is the timestamp at which the pull request is open
 
 ### Time from first to last approval
 
-The time $t_{fla}$ between the first and last approvals on a pull request:
+The time between the first and last approvals on a pull request:
 
 $$
-t_{fla}=T_{LA} - T_{FA}
+T_{lastApproval} - T_{firstApproval}
 $$
 
 where:
 
--   $T_{LA}$ is the timestamp of the last approval
--   $T_{FA}$ is the timestamp of the first approval
+-   $T_{lastApproval}$ is the timestamp of the last approval
+-   $T_{firstApproval}$ is the timestamp of the first approval
 
 ### Time from last approval to merge
 
-The time $t_{lam}$ it takes for a change or feature to be reviewed:
+The time it takes for a change or feature to be reviewed:
 
 $$
-t_{lam}=T_M - T_{LA}
+T_{merge} - T_{lastApproval}
 $$
 
 where:
 
--   $T_{M}$ is the timestamp at which the pull request is merged
--   $T_{LA}$ is the timestamp of the last approval
+-   $T_{merge}$ is the timestamp at which the pull request is merged
+-   $T_{lastApproval}$ is the timestamp of the last approval
 
 ### Outlier review details
 

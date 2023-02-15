@@ -12,7 +12,7 @@ Pulse calculates the four key Accelerate metrics based on **changes**, **deploym
 How often your organization completes a deployment to production or releases code to end-users of your primary application or service:
 
 $$
-f_d=\frac{deployments}{day}
+\frac{deployments}{day}
 $$
 
 Pulse uses the average value over a period of time to display aggregate deployment frequencies.
@@ -33,18 +33,16 @@ Pulse determines your performance level for this metric as follows:
 
 ## Lead time for changes
 
-An estimate of the time $t_{lc}$ it takes for a commit to get into production on your primary application or service:
+An estimate of the time it takes for a commit to get into production on your primary application or service:
 
-<!-- vale off -->
 $$
-t_{lc}=median(\{T_D-t_{1},...,T_D-t_{n}\})
+median(T_{deploy}-t_{change})
 $$
-<!-- vale on -->
 
 where:
 
--   $T_D$ is the timestamp at which the changes are deployed
--   <span class="skip-vale">$t_{1},...,t_{n}$</span> are the timestamps of the individual changes
+-   $T_{deploy}$ is the timestamp at which the changes are deployed
+-   $t_{change}$ are the timestamps of the individual changes
 
 !!! note
     The changes timestamp is **when code is actually checked into a repository**.
@@ -62,18 +60,16 @@ Pulse determines your performance level for this metric as follows:
 
 ## Time to recover
 
-An estimate of the time $t_r$ it takes your organization to recover from a failure in production (for example, service impairment or unplanned outage):
+An estimate of the time it takes your organization to recover from a failure in production (for example, service impairment or unplanned outage):
 
-<!-- vale off -->
 $$
-t_r=average(\{t_{R1}-t_{C1},...,t_{Rn}-t_{Cn}\})
+average(t_{resolved}-t_{created})
 $$
-<!-- vale on -->
 
 where:
 
--   <span class="skip-vale">$t_{R1},...,t_{Rn}$</span> are the timestamps at which the incidents are resolved
--   <span class="skip-vale">$t_{C1},...,t_{Cn}$</span> are the timestamps at which the incidents are created
+-   $t_{resolved}$ are the timestamps at which the incidents are resolved
+-   $t_{created}$ are the timestamps at which the incidents are created
 
 Pulse uses the maximum value over a period of time to display aggregate times to recover.
 
@@ -93,16 +89,16 @@ Pulse determines your performance level for this metric as follows:
 
 ## Change failure rate
 
-Percentage of deployments $R_f$ causing a failure in production (for example, service impairment or unplanned outage) and that subsequently require remediation:
+Percentage of deployments causing a failure in production (for example, service impairment or unplanned outage) and that subsequently require remediation:
 
 $$
-R_f=100*\frac{N_i}{N}
+100*\frac{d_{incident}}{d}
 $$
 
 where:
 
--   $N_i$ is the number of deployments that caused incidents
--   $N$ is the total number of deployments
+-   $d_{incident}$ is the number of deployments that caused incidents
+-   $d$ is the total number of deployments
 
 Pulse uses the average value over a period of time to display aggregate change failure rates.
 

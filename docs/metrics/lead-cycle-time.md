@@ -22,22 +22,22 @@ Read more on [how you can improve your time to market](https://blog.codacy.com/h
 
 ## Lead time
 
-The time $t_l$ between creating an issue in the backlog and completing the issue.
+The time between creating an issue in the backlog and completing the issue.
 
 Pulse calculates lead time for completed issues, taking into account that issues can transition from **Completed** back to another status.
 
 $$
-t_l=T_{LC} - T_C
+T_{lastCompleted} - T_{created}
 $$
 
 where:
 
--   $T_{LC}$ is the timestamp at which the issue is last marked as completed
--   $T_C$ is the timestamp at which the issue is created
+-   $T_{lastCompleted}$ is the timestamp at which the issue is last marked as completed
+-   $T_{created}$ is the timestamp at which the issue is created
 
 ## Cycle time
 
-The time $t_c$ between committing to work on an issue (such as at the start of a sprint) and completing the issue. Cycle time is a subpart of lead time.
+The time between committing to work on an issue (such as at the start of a sprint) and completing the issue. Cycle time is a subpart of lead time.
 
 Pulse calculates cycle time for completed issues, taking into account that issues can transition from **In progress** back to another status besides **Completed**.
 
@@ -48,13 +48,13 @@ Pulse calculates cycle time for completed issues, taking into account that issue
     -   Issues that have a status belonging to the **To Do** status category (represented by the grey color in Jira) don't contribute to cycle time.
 
 $$
-t_c=\sum_n T_{Xn}-T_{Nn}
+\sum(t_{noProgress}-t_{inProgress})
 $$
 
 where:
 
--   $T_{Xn}$ is the timestamp at which the issue exits the in progress status for the $n$-th time
--   $T_{Nn}$ is the timestamp at which the issue enters the in progress status for the $n$-th time
+-   $t_{noProgress}$ are the timestamps at which the issue exits the in progress status
+-   $t_{inProgress}$ are the timestamps at which the issue enters the in progress status
 
 ## See also
 
