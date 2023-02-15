@@ -52,7 +52,7 @@ Your GitHub integration is now complete. Pulse will start loading your data for 
 
 The following is a detailed description of how the Pulse GitHub integration automatically detects deployment using each detection strategy:
 
-### Use merged pull requests
+### Use merged pull requests (based on default branch)
 
 -   Pulse considers a deployment every merged pull request that **targets the default branch** of the repository.
 -   The deployment date is the timestamp when the corresponding pull request is merged.
@@ -82,7 +82,7 @@ The following is a detailed description of how the Pulse GitHub integration auto
 
 -   Pulse associates all GitHub teams of the person who creates a Git tag with the corresponding deployment, excluding teams with less than two members. Pulse only takes changes to GitHub teams into account on Git tags created after those changes.
 
-### Use the CLI or API
+### Use the CLI or API (don't detect deployments automatically)
 
 -   Pulse doesn't detect deployments automatically using GitHub events.
 
