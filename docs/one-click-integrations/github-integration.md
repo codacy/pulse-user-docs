@@ -1,6 +1,8 @@
 # GitHub integration
 
-Pulse integrates with GitHub Cloud to receive data about changes and deployments, necessary to calculate the metrics:
+Pulse integrates with GitHub Cloud to receive data about changes, deployments, and incidents, necessary to calculate the metrics:
+
+-   [Deployment frequency](../metrics/accelerate.md#deployment-frequency)
 
 -   [Lead time for changes](../metrics/accelerate.md#lead-time-for-changes), including the following drill-down metrics:
 
@@ -10,7 +12,9 @@ Pulse integrates with GitHub Cloud to receive data about changes and deployments
 
     -   [Work in progress metrics](../metrics/accelerate-wip.md)
 
--   [Deployment frequency](../metrics/accelerate.md#deployment-frequency)
+-   [Time to recover](../metrics/accelerate.md#time-to-recover)
+
+-   [Change failure rate](../metrics/accelerate.md#change-failure-rate)
 
 ## Setting up the GitHub integration
 
@@ -30,9 +34,13 @@ To set up the GitHub integration:
 
     ![Pulse GitHub App installed successfully](images/github-installed-ok.png)
 
-1.  Choose the strategy to detect deployments that best fits your workflows. See the [section below](#deployment-detection-strategy) for a detailed description of each option.
+1.  Choose the strategy to detect **deployments** that best fits your workflows. See the [section below](#deployment-detection-strategy) for a detailed description of each option.
 
     ![Choosing a deployment detection strategy](images/github-strategy.png)
+
+1.  Choose the strategy to detect **incidents** that best fits your workflows. See the [section below](#incident-detection-strategy) for a detailed description of each option.
+
+    ![Configuring the incident detection strategy](images/github-ok.png)<!--TODO: Update screenshot to github-incident-strategy.png-->
 
 1.  Click **Complete setup**.
 
@@ -82,6 +90,22 @@ The following is a detailed description of how the Pulse GitHub integration auto
 
 -   In this case, you must send to Pulse the information about your **deployments** and the corresponding **changes** using the [Pulse CLI](../cli/cli.md) or the [Ingestion API](https://ingestion.pulse.codacy.com/v1/api-docs).
 
+## Automatic incident detection strategies {: id="incident-detection-strategy"}
+
+The following is a detailed description of how the Pulse GitHub integration automatically detects incidents:
+
+### Use pull request reverts (based on default branch)
+
+-   Pulse considers an incident a reverted pull request that **targets the default branch** of the repository when the revert operation was executed through the GitHub UI originating a branch which name starts with `revert-`.
+-   The incident creation date is the timestamp when the reverted pull request was initially merged.
+-   Pulse associates incidents to the system matching the repository name.
+
+### Don't detect incidents via GitHub
+
+-   Pulse doesn't detect incidents automatically using GitHub events.
+
+    Choose this option if you want to send to Pulse the information about your **incidents** using another Pulse integration - [PagerDuty one-click integration](pagerduty-integration.md), [Pulse CLI](../cli/cli.md), or [Ingestion API](https://ingestion.pulse.codacy.com/v1/api-docs) - or if you don't want Pulse to track incidents data.
+
 ## Collected data
 
 The table below lists the data that the GitHub integration collects from your GitHub organization, together with:
@@ -120,6 +144,19 @@ The table below lists the data that the GitHub integration collects from your Gi
         </ul>
     </td>
     <td>Deployment frequency and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a></td>
+</tr>
+<tr>
+<td>Pull requests</td>
+    <td>
+        <p>Incidents:</p>
+        <ul>
+            <li><code>incident_id</code>: unique pull request identifier</li>
+            <li><code>timestamp_created</code>: reverted pull request merged date</li>
+            <li><code>timestamp_resolved</code>: pull request merged date</li>
+            <li><code>system</code>: repository name</li>
+        </ul>
+    </td>
+    <td>Time to recover and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a></td>
 </tr>
 <tr>
     <td>Pull requests</td>
