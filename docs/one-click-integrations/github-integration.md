@@ -152,7 +152,7 @@ The table below lists the data that the GitHub integration collects from your Gi
     <td>
         <p>Incidents:</p>
         <ul>
-            <li><code>incident_id</code>: pull request number</li>
+            <li><code>incident_id</code>: pull request identifier</li>
             <li><code>timestamp_created</code>: reverted pull request merged date</li>
             <li><code>timestamp_resolved</code>: pull request merged date</li>
             <li><code>system</code>: repository name</li>
