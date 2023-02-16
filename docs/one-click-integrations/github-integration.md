@@ -141,7 +141,7 @@ The table below lists the data that the GitHub integration collects from your Gi
         <p>Deployments:</p>
         <ul>
             <li><code>deploy_id</code>: pull request identifier</li>
-            <li><code>timestamp_created</code>: pull request merged date</li>
+            <li><code>timestamp_created</code>: merge date of the pull request</li>
             <li><code>system</code>: repository name</li>
         </ul>
     </td>
