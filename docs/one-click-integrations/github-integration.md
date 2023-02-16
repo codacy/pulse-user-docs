@@ -97,7 +97,7 @@ The following is a detailed description of how the Pulse GitHub integration auto
 ### Use pull request reverts (based on default branch)
 
 -   Pulse bases incident detection on [pull request reverts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request).
--   Pulse considers an incident any pull request that **targets the default branch** of the repository merged from a branch which name starts with `revert-`, getting the number of the reverted pull request from the branch name, `revert-<pull request number>`. If you change the name of the branch created by GitHub when you revert a pull request, Pulse may not be able to obtain the incident data correctly.
+-   Pulse considers an incident any pull request that **targets the default branch** of the repository merged from a branch whose name starts with `revert-`, getting the number of the reverted pull request from the branch name, `revert-<pull request number>`. If you change the name of the branch created by GitHub when you revert a pull request, Pulse may not be able to obtain the incident data correctly.
 -   The incident creation date is the timestamp when the reverted pull request was initially merged. If Pulse can't get the reverted pull request number from the branch name, the incident creation date is the timestamp of the first commit to the incident pull request.
 -   Pulse associates incidents to the system matching the repository name.
 
