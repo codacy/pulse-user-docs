@@ -34,7 +34,7 @@ To set up the Bitbucket integration:
 
     ![Pulse GitHub App installed successfully](images/bitbucket-installed-ok.png)
 
-1.  Choose the workspace that you want to connect the integration. You can only select a workspace where you have owner permissions.
+1.  Choose the workspace that you want to connect the integration to. You can only select a workspace where you have owner permissions.
 
     ![Choosing the Bitbucket workspace](images/bitbucket-workspace.png)
 
