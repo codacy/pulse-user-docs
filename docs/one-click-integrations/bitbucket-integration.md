@@ -110,7 +110,7 @@ The table below lists the data that the Bitbucket integration collects from your
         <p>Deployments:</p>
         <ul>
             <li><code>deploy_id</code>: unique pull request identifier</li>
-            <li><code>timestamp_created</code>: pull request merged date</li>
+            <li><code>timestamp_created</code>: merge date of the pull request</li>
             <li><code>system</code>: repository name</li>
         </ul>
     </td>
@@ -122,8 +122,8 @@ The table below lists the data that the Bitbucket integration collects from your
         <p>Incidents:</p>
         <ul>
             <li><code>incident_id</code>: pull request number</li>
-            <li><code>timestamp_created</code>: reverted pull request merged date</li>
-            <li><code>timestamp_resolved</code>: pull request merged date</li>
+            <li><code>timestamp_created</code>: merge date of the reverted pull request</li>
+            <li><code>timestamp_resolved</code>: merge date of the pull request</li>
             <li><code>system</code>: repository name</li>
         </ul>
     </td>
