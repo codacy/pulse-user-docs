@@ -40,6 +40,9 @@ To set up the GitHub integration:
 
 1.  Choose the strategy to detect **incidents** that best fits your workflows. See the [section below](#incident-detection-strategy) for a detailed description of each option.
 
+    !!! note
+        Pulse can only detect incidents automatically if you configured the **deployment detection strategy** to use [merged pull requests](#gh-deploy-merged-pr).
+
     ![Configuring the incident detection strategy](images/github-incident-strategy.png)
 
 1.  Click **Complete setup**.
@@ -98,6 +101,9 @@ You can also choose not to detect deployment automatically via GitHub and send y
 ## Automatic incident detection strategies {: id="incident-detection-strategy"}
 
 The Pulse GitHub integration detects incidents automatically using [pull request reverts](#gh-incident-pr-revert). You can also choose [not to detect incidents via GitHub](#gh-incident-not-detect).
+
+!!! note
+    Pulse incident detection mechanism bases on pull request. Thus, Pulse can only detect incidents automatically if you configured the deployment detection strategy to use [merged pull requests](#gh-deploy-merged-pr).
 
 ### Use pull request reverts (based on default branch) {: id="gh-incident-pr-revert"}
 
