@@ -50,16 +50,21 @@ Your GitHub integration is now complete. Pulse will start loading your data for 
 
 ## Automatic deployment detection strategies {: id="deployment-detection-strategy"}
 
-The following is a detailed description of how the Pulse GitHub integration automatically detects deployment using each detection strategy:
+The Pulse GitHub integration can detect deployments automatically using the following strategies:
 
-### Use merged pull requests (based on default branch)
+-   [Merged pull requests](#gh-deploy-merged-pr)
+-   [Semantic versioning tags](#gh-deploy-semver)
+
+You can also choose not to detect deployment automatically via GitHub and send your data to Pulse [using the CLI or the API](#gh-deploy-cli-api).
+
+### Use merged pull requests (based on default branch) {: id="gh-deploy-merged-pr"}
 
 -   Pulse considers a deployment every merged pull request that **targets the default branch** of the repository.
 -   The deployment date is the timestamp when the corresponding pull request is merged.
 -   The set of changes in a deployment is the list of commits in the corresponding pull request. Pulse correctly tracks your changes even if you [squash or rebase the commits when merging the pull request](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github), since Pulse processes all the original commits before any changes to the Git history.
 -   Pulse associates all GitHub teams of the author of a merged pull request with the corresponding deployment, excluding teams with less than two members. Pulse only takes changes to GitHub teams into account on pull requests merged after those changes.
 
-### Use semantic versioning tags
+### Use semantic versioning tags {: id="gh-deploy-semver"}
 
 -   Pulse considers a deployment every Git tag that follows the [SemVer](https://semver.org) convention, excluding pre-release versions but allowing release prefixes. For example, the following are valid tags: `1.0.0`, `v2.3.4`.
 
@@ -82,7 +87,7 @@ The following is a detailed description of how the Pulse GitHub integration auto
 
 -   Pulse associates all GitHub teams of the person who creates a Git tag with the corresponding deployment, excluding teams with less than two members. Pulse only takes changes to GitHub teams into account on Git tags created after those changes.
 
-### Use the CLI or API (don't detect deployments automatically)
+### Use the CLI or API (don't detect deployments automatically) {: id="gh-deploy-cli-api"}
 
 -   Pulse doesn't detect deployments automatically using GitHub events.
 
@@ -92,16 +97,16 @@ The following is a detailed description of how the Pulse GitHub integration auto
 
 ## Automatic incident detection strategies {: id="incident-detection-strategy"}
 
-The following is a detailed description of how the Pulse GitHub integration automatically detects incidents:
+The Pulse GitHub integration detects incidents automatically using [pull request reverts](#gh-incident-pr-revert). You can also choose [not to detect incidents via GitHub](#gh-incident-not-detect).
 
-### Use pull request reverts (based on default branch)
+### Use pull request reverts (based on default branch) {: id="gh-incident-pr-revert"}
 
 -   Pulse bases incident detection on [pull request reverts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request).
 -   Pulse considers an incident any pull request that **targets the default branch** of the repository merged from a branch whose name starts with `revert-`, getting the number of the reverted pull request from the branch name, `revert-<pull request number>`. If you change the name of the branch created by GitHub when you revert a pull request, Pulse may not be able to obtain the incident data correctly.
 -   The incident creation date is the timestamp when the reverted pull request was initially merged. If Pulse can't get the reverted pull request number from the branch name, the incident creation date is the timestamp of the first commit to the incident pull request.
 -   Pulse associates incidents to the system matching the repository name.
 
-### Don't detect incidents via GitHub
+### Don't detect incidents via GitHub {: id="gh-incident-not-detect"}
 
 -   Pulse doesn't detect incidents automatically using GitHub events.
 
