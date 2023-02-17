@@ -61,7 +61,7 @@ Your Bitbucket integration is now complete. Pulse will start loading your data f
 
 ## Automatic incident detection strategies {: id="incident-detection-strategy"}
 
-The Pulse Bitbucket integration detects incidents using [pull request reverts](#bb-incident-pr-revert). You can also choose [not to detect incidents via Bitbucket](#bb-incident-not-detect).
+The Pulse Bitbucket integration detects incidents automatically using [pull request reverts](#bb-incident-pr-revert). You can also choose [not to detect incidents via Bitbucket](#bb-incident-not-detect).
 
 ### Use pull request reverts (based on default branch) {: id="bb-incident-pr-revert"}
 
