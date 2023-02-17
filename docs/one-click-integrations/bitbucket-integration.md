@@ -61,16 +61,16 @@ Your Bitbucket integration is now complete. Pulse will start loading your data f
 
 ## Automatic incident detection strategies {: id="incident-detection-strategy"}
 
-The following is a detailed description of how the Pulse Bitbucket integration automatically detects incidents:
+The Pulse Bitbucket integration detects incidents using [pull request reverts](#bb-incident-pr-revert). You can also choose [not to detect incidents via Bitbucket](#bb-incident-not-detect).
 
-### Use pull request reverts (based on default branch)
+### Use pull request reverts (based on default branch) {: id="bb-incident-pr-revert"}
 
 -   Pulse bases incident detection on [pull request reverts](https://support.atlassian.com/bitbucket-cloud/docs/merge-a-pull-request/#Revert-a-merged-pull-request).
 -   Pulse considers an incident any pull request that **targets the default branch** of the repository merged from a branch whose name starts with `revert-pr-`, getting the number of the reverted pull request from the branch name, `revert-pr-<pull request number>`. If you change the name of the branch created by Bitbucket when you revert a pull request, Pulse may not be able to obtain the incident data correctly.
 -   The incident creation date is the timestamp when the reverted pull request was initially merged. If Pulse can't get the reverted pull request number from the branch name, the incident creation date is the timestamp of the first commit to the incident pull request.
 -   Pulse associates incidents to the system matching the repository name.
 
-### Don't detect incidents via Bitbucket
+### Don't detect incidents via Bitbucket {: id="bb-incident-not-detect"}
 
 -   Pulse doesn't detect incidents automatically using Bitbucket events.
 
