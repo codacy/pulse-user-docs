@@ -36,13 +36,13 @@ Pulse determines your performance level for this metric as follows:
 An estimate of the time it takes for a commit to get into production on your primary application or service:
 
 $$
-median(T_{deploy}-t_{change})
+median(t_{deploy}-t_{change})
 $$
 
 where:
 
--   $T_{deploy}$ is the timestamp at which the changes are deployed
--   $t_{change}$ are the timestamps of the individual changes
+-   $t_{deploy}$ is the timestamp at which the changes are deployed
+-   $t_{change}$ is the timestamp of the individual change
 
 !!! note
     The changes timestamp is **when code is actually checked into a repository**.
@@ -68,8 +68,8 @@ $$
 
 where:
 
--   $t_{resolved}$ are the timestamps at which the incidents are resolved
--   $t_{created}$ are the timestamps at which the incidents are created
+-   $t_{resolved}$ is the timestamp at which each incident is resolved
+-   $t_{created}$ is the timestamp at which each incident is created
 
 Pulse uses the maximum value over a period of time to display aggregate times to recover.
 
@@ -92,7 +92,7 @@ Pulse determines your performance level for this metric as follows:
 Percentage of deployments causing a failure in production (for example, service impairment or unplanned outage) and that subsequently require remediation:
 
 $$
-100*\frac{d_{incident}}{d}
+\frac{d_{incident}}{d}
 $$
 
 where:

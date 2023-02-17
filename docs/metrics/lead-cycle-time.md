@@ -27,13 +27,13 @@ The time between creating an issue in the backlog and completing the issue.
 Pulse calculates lead time for completed issues, taking into account that issues can transition from **Completed** back to another status.
 
 $$
-T_{lastCompleted} - T_{created}
+t_{lastCompleted} - t_{created}
 $$
 
 where:
 
--   $T_{lastCompleted}$ is the timestamp at which the issue is last marked as completed
--   $T_{created}$ is the timestamp at which the issue is created
+-   $t_{lastCompleted}$ is the timestamp at which the issue is last marked as completed
+-   $t_{created}$ is the timestamp at which the issue is created
 
 ## Cycle time
 
@@ -48,13 +48,13 @@ Pulse calculates cycle time for completed issues, taking into account that issue
     -   Issues that have a status belonging to the **To Do** status category (represented by the grey color in Jira) don't contribute to cycle time.
 
 $$
-\sum(t_{noProgress}-t_{inProgress})
+\sum(t_{progressOut}-t_{progressIn})
 $$
 
 where:
 
--   $t_{noProgress}$ are the timestamps at which the issue exits the in progress status
--   $t_{inProgress}$ are the timestamps at which the issue enters the in progress status
+-   $t_{progressOut}$ are the timestamps at which the issue exits the in progress status
+-   $t_{progressIn}$ are the timestamps at which the issue enters the in progress status
 
 ## See also
 
