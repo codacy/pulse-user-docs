@@ -64,9 +64,11 @@ average(incident resolved timestamp - incident created timestamp)
 Pulse uses the maximum value over a period of time to display aggregate times to recover.
 
 !!! note
-    **Pulse first calculates the performance metrics per [system](../cli/cli.md#before-you-begin)**, and later aggregates the metrics by time interval when displaying them.
+    -   **Pulse first calculates the performance metrics per [system](../cli/cli.md#before-you-begin)**, and later aggregates the metrics by time interval when displaying them.
 
-    This means that you must report both deployments and incidents associated with the correct systems for Pulse to calculate the metrics correctly. Otherwise, even if you're reporting incident events, the charts will be empty.
+        This means that you must report **deployments** and **incidents** associated with the correct systems for Pulse to calculate the metrics correctly. Otherwise, even if you're reporting incident events, the charts will be empty.
+
+        If you are reporting incidents using [GitHub](../one-click-integrations/github-integration.md) or [Bitbucket](../one-click-integrations/bitbucket-integration.md) integrations, Pulse automatically associates your deployments and incidents with the correct systems.
 
 Pulse determines your performance level for this metric as follows:
 
@@ -90,7 +92,9 @@ Pulse uses the average value over a period of time to display aggregate change f
 !!! note
     -   **Pulse first calculates the performance metrics per [system](../cli/cli.md#before-you-begin)**, and later aggregates the metrics by time interval when displaying them.
 
-        This means that you must report both deployments and incidents associated with the correct systems for Pulse to calculate the metrics correctly. Otherwise, even if you're reporting incident events, the charts will be empty.
+        This means that you must report **deployments** and **incidents** associated with the correct systems for Pulse to calculate the metrics correctly. Otherwise, even if you're reporting incident events, the charts will be empty.
+
+        If you are reporting incidents using [GitHub](../one-click-integrations/github-integration.md) or [Bitbucket](../one-click-integrations/bitbucket-integration.md) integrations, Pulse automatically associates your deployments and incidents with the correct systems.
 
     -   Pulse considers that **the deployment causing each incident is the last deployment before the incident**, within the same system. The same deployment may be associated with multiple incidents.
 
