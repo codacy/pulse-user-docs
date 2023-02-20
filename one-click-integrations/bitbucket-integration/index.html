@@ -6,7 +6,7 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Pulse integrates with Bitbucket Cloud to receive data about changes and deployments, necessary to calculate the metrics:">
+        <meta name="description" content="Pulse integrates with Bitbucket Cloud to receive data about changes, deployments, and incidents, necessary to calculate the Accelerate metrics:">
       
       
       
@@ -448,6 +448,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#incident-detection-strategy" class="md-nav__link">
+    Automatic incident detection strategies
+  </a>
+  
+    <nav class="md-nav" aria-label="Automatic incident detection strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bb-incident-pr-revert" class="md-nav__link">
+    Use pull request reverts (based on default branch)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bb-incident-not-detect" class="md-nav__link">
+    Don't detect incidents via Bitbucket
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#collected-data" class="md-nav__link">
     Collected data
   </a>
@@ -606,8 +633,11 @@
 
 
 <h1 id="bitbucket-integration">Bitbucket integration<a class="headerlink" href="#bitbucket-integration" title="Permanent link">&para;</a></h1>
-<p>Pulse integrates with Bitbucket Cloud to receive data about changes and deployments, necessary to calculate the metrics:</p>
+<p>Pulse integrates with Bitbucket Cloud to receive data about changes, deployments, and incidents, necessary to calculate the Accelerate metrics:</p>
 <ul>
+<li>
+<p><a href="../../metrics/accelerate/#deployment-frequency">Deployment frequency</a></p>
+</li>
 <li>
 <p><a href="../../metrics/accelerate/#lead-time-for-changes">Lead time for changes</a>, including the following drill-down metrics:</p>
 <ul>
@@ -623,7 +653,10 @@
 </ul>
 </li>
 <li>
-<p><a href="../../metrics/accelerate/#deployment-frequency">Deployment frequency</a></p>
+<p><a href="../../metrics/accelerate/#time-to-recover">Time to recover</a></p>
+</li>
+<li>
+<p><a href="../../metrics/accelerate/#change-failure-rate">Change failure rate</a></p>
 </li>
 </ul>
 <h2 id="setting-up-the-bitbucket-integration">Setting up the Bitbucket integration<a class="headerlink" href="#setting-up-the-bitbucket-integration" title="Permanent link">&para;</a></h2>
@@ -644,15 +677,23 @@
 <p><img alt="Installing the Pulse Bitbucket App" src="../images/bitbucket-installing.png" /></p>
 </li>
 <li>
-<p>Choose the workspace that you want to connect the integration to and click <strong>Complete setup</strong> to confirm. You can only select a workspace where you have owner permissions.</p>
+<p>Confirm that Pulse successfully connected the integration to Bitbucket. If there is an error please <a href="mailto:pulsesupport@codacy.com">contact support</a>.</p>
+<p><img alt="Pulse GitHub App installed successfully" src="../images/bitbucket-installed-ok.png" /></p>
+</li>
+<li>
+<p>Choose the workspace that you want to connect the integration to. You can only select a workspace where you have owner permissions.</p>
 <p><img alt="Choosing the Bitbucket workspace" src="../images/bitbucket-workspace.png" /></p>
 </li>
 <li>
-<p>Wait until you get a confirmation that Pulse successfully connected the integration to Bitbucket.</p>
-<p><img alt="Pulse Bitbucket integration set up successfully" src="../images/bitbucket-ok.png" /></p>
+<p>Choose the strategy to detect incidents that best fits your workflows. See the <a href="#incident-detection-strategy">section below</a> for a detailed description of each option.</p>
+<p><img alt="Configuring the incident detection strategy" src="../images/bitbucket-incident-strategy.png" /></p>
+</li>
+<li>
+<p>Click <strong>Complete setup</strong>.</p>
 </li>
 </ol>
-<p>If there is an error please <a href="mailto:pulsesupport@codacy.com">contact support</a>.</p>
+<p>Your Bitbucket integration is now complete. Pulse will start loading your data for the last 90 days.</p>
+<p><img alt="Pulse Bitbucket integration set up successfully" src="../images/bitbucket-ok.png" /></p>
 <h2 id="deployment-detection-merged-pr">Automatic deployment detection using merged pull requests<a class="headerlink" href="#deployment-detection-merged-pr" title="Permanent link">&para;</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -666,6 +707,22 @@
 <li>The deployment date is the timestamp when the corresponding pull request is merged.</li>
 <li>The set of changes in a deployment is the list of commits in the corresponding pull request.</li>
 <li>Pulse associates all the Bitbucket user groups of the author of a merged pull request with the corresponding deployment, excluding the user groups with less than two members. Pulse only takes the changes to Bitbucket user groups into account on pull requests merged after those changes.</li>
+</ul>
+<h2 id="incident-detection-strategy">Automatic incident detection strategies<a class="headerlink" href="#incident-detection-strategy" title="Permanent link">&para;</a></h2>
+<p>The Pulse Bitbucket integration detects incidents automatically using <a href="#bb-incident-pr-revert">pull request reverts</a>. You can also choose <a href="#bb-incident-not-detect">not to detect incidents via Bitbucket</a>.</p>
+<h3 id="bb-incident-pr-revert">Use pull request reverts (based on default branch)<a class="headerlink" href="#bb-incident-pr-revert" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Pulse bases incident detection on <a href="https://support.atlassian.com/bitbucket-cloud/docs/merge-a-pull-request/#Revert-a-merged-pull-request">pull request reverts</a>.</li>
+<li>Pulse considers an incident any pull request that <strong>targets the default branch</strong> of the repository merged from a branch whose name starts with <code>revert-pr-</code>, getting the number of the reverted pull request from the branch name, <code>revert-pr-&lt;pull request number&gt;</code>. If you change the name of the branch created by Bitbucket when you revert a pull request, Pulse may not be able to obtain the incident data correctly.</li>
+<li>The incident creation date is the timestamp when the reverted pull request was initially merged. If Pulse can't get the reverted pull request number from the branch name, the incident creation date is the timestamp of the first commit to the incident pull request.</li>
+<li>Pulse associates incidents to the system matching the repository name.</li>
+</ul>
+<h3 id="bb-incident-not-detect">Don't detect incidents via Bitbucket<a class="headerlink" href="#bb-incident-not-detect" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Pulse doesn't detect incidents automatically using Bitbucket events.</p>
+<p>Choose this option if you want to send to Pulse the information about your <strong>incidents</strong> using another Pulse integration - <a href="../pagerduty-integration/">PagerDuty one-click integration</a>, <a href="../../cli/cli/">Pulse CLI</a>, or <a href="https://ingestion.pulse.codacy.com/v1/api-docs">Ingestion API</a> - or if you don't want Pulse to track incidents data.</p>
+</li>
 </ul>
 <h2 id="collected-data">Collected data<a class="headerlink" href="#collected-data" title="Permanent link">&para;</a></h2>
 <p>The table below lists the data that the Bitbucket integration collects from your Bitbucket workspace, together with:</p>
@@ -700,10 +757,24 @@
         <p>Deployments:</p>
         <ul>
             <li><code>deploy_id</code>: unique pull request identifier</li>
+            <li><code>timestamp_created</code>: merge date of the pull request</li>
             <li><code>system</code>: repository name</li>
         </ul>
     </td>
     <td>Deployment frequency and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a></td>
+</tr>
+<tr>
+    <td>Pull requests</td>
+    <td>
+        <p>Incidents:</p>
+        <ul>
+            <li><code>incident_id</code>: pull request number</li>
+            <li><code>timestamp_created</code>: merge date of the reverted pull request</li>
+            <li><code>timestamp_resolved</code>: merge date of the pull request</li>
+            <li><code>system</code>: repository name</li>
+        </ul>
+    </td>
+    <td>Time to recover and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a></td>
 </tr>
 <tr>
     <td>Pull requests</td>

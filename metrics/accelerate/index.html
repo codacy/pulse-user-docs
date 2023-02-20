@@ -693,8 +693,13 @@
 <p>Pulse uses the maximum value over a period of time to display aggregate times to recover.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
+<ul>
+<li>
 <p><strong>Pulse first calculates the performance metrics per <a href="../../cli/cli/#before-you-begin">system</a></strong>, and later aggregates the metrics by time interval when displaying them.</p>
-<p>This means that you must report both deployments and incidents associated with the correct systems for Pulse to calculate the metrics correctly. Otherwise, even if you're reporting incident events, the charts will be empty.</p>
+<p>This means that you must report <strong>deployments</strong> and <strong>incidents</strong> associated with the correct systems for Pulse to calculate the metrics correctly. Otherwise, even if you're reporting incident events, the charts will be empty.</p>
+<p>If you are reporting incidents using <a href="../../one-click-integrations/github-integration/">GitHub</a> or <a href="../../one-click-integrations/bitbucket-integration/">Bitbucket</a> integrations, Pulse automatically associates your deployments and incidents with the correct systems.</p>
+</li>
+</ul>
 </div>
 <p>Pulse determines your performance level for this metric as follows:</p>
 <table>
@@ -733,7 +738,8 @@
 <ul>
 <li>
 <p><strong>Pulse first calculates the performance metrics per <a href="../../cli/cli/#before-you-begin">system</a></strong>, and later aggregates the metrics by time interval when displaying them.</p>
-<p>This means that you must report both deployments and incidents associated with the correct systems for Pulse to calculate the metrics correctly. Otherwise, even if you're reporting incident events, the charts will be empty.</p>
+<p>This means that you must report <strong>deployments</strong> and <strong>incidents</strong> associated with the correct systems for Pulse to calculate the metrics correctly. Otherwise, even if you're reporting incident events, the charts will be empty.</p>
+<p>If you are reporting incidents using <a href="../../one-click-integrations/github-integration/">GitHub</a> or <a href="../../one-click-integrations/bitbucket-integration/">Bitbucket</a> integrations, Pulse automatically associates your deployments and incidents with the correct systems.</p>
 </li>
 <li>
 <p>Pulse considers that <strong>the deployment causing each incident is the last deployment before the incident</strong>, within the same system. The same deployment may be associated with multiple incidents.</p>
