@@ -1,6 +1,8 @@
 # GitHub integration
 
-Pulse integrates with GitHub Cloud to receive data about changes and deployments, necessary to calculate the metrics:
+Pulse integrates with GitHub Cloud to receive data about changes, deployments, and incidents, necessary to calculate the metrics:
+
+-   [Deployment frequency](../metrics/accelerate.md#deployment-frequency)
 
 -   [Lead time for changes](../metrics/accelerate.md#lead-time-for-changes), including the following drill-down metrics:
 
@@ -10,7 +12,9 @@ Pulse integrates with GitHub Cloud to receive data about changes and deployments
 
     -   [Work in progress metrics](../metrics/accelerate-wip.md)
 
--   [Deployment frequency](../metrics/accelerate.md#deployment-frequency)
+-   [Time to recover](../metrics/accelerate.md#time-to-recover)
+
+-   [Change failure rate](../metrics/accelerate.md#change-failure-rate)
 
 ## Setting up the GitHub integration
 
@@ -30,9 +34,16 @@ To set up the GitHub integration:
 
     ![Pulse GitHub App installed successfully](images/github-installed-ok.png)
 
-1.  Choose the strategy to detect deployments that best fits your workflows. See the [section below](#deployment-detection-strategy) for a detailed description of each option.
+1.  Choose the strategy to detect **deployments** that best fits your workflows. See the [section below](#deployment-detection-strategy) for a detailed description of each option.
 
     ![Choosing a deployment detection strategy](images/github-strategy.png)
+
+1.  Choose the strategy to detect **incidents** that best fits your workflows. See the [section below](#incident-detection-strategy) for a detailed description of each option.
+
+    !!! note
+        Pulse can only detect incidents automatically if you configured the **deployment detection strategy** to use [merged pull requests](#gh-deploy-merged-pr).
+
+    ![Configuring the incident detection strategy](images/github-incident-strategy.png)
 
 1.  Click **Complete setup**.
 
@@ -42,16 +53,21 @@ Your GitHub integration is now complete. Pulse will start loading your data for 
 
 ## Automatic deployment detection strategies {: id="deployment-detection-strategy"}
 
-The following is a detailed description of how the Pulse GitHub integration automatically detects deployment using each detection strategy:
+The Pulse GitHub integration can detect deployments automatically using the following strategies:
 
-### Use merged pull requests
+-   [Merged pull requests](#gh-deploy-merged-pr)
+-   [Semantic versioning tags](#gh-deploy-semver)
+
+You can also choose not to detect deployment automatically via GitHub and send your data to Pulse [using the CLI or the API](#gh-deploy-cli-api).
+
+### Use merged pull requests (based on default branch) {: id="gh-deploy-merged-pr"}
 
 -   Pulse considers a deployment every merged pull request that **targets the default branch** of the repository.
 -   The deployment date is the timestamp when the corresponding pull request is merged.
 -   The set of changes in a deployment is the list of commits in the corresponding pull request. Pulse correctly tracks your changes even if you [squash or rebase the commits when merging the pull request](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github), since Pulse processes all the original commits before any changes to the Git history.
 -   Pulse associates all GitHub teams of the author of a merged pull request with the corresponding deployment, excluding teams with less than two members. Pulse only takes changes to GitHub teams into account on pull requests merged after those changes.
 
-### Use semantic versioning tags
+### Use semantic versioning tags {: id="gh-deploy-semver"}
 
 -   Pulse considers a deployment every Git tag that follows the [SemVer](https://semver.org) convention, excluding pre-release versions but allowing release prefixes. For example, the following are valid tags: `1.0.0`, `v2.3.4`.
 
@@ -74,13 +90,33 @@ The following is a detailed description of how the Pulse GitHub integration auto
 
 -   Pulse associates all GitHub teams of the person who creates a Git tag with the corresponding deployment, excluding teams with less than two members. Pulse only takes changes to GitHub teams into account on Git tags created after those changes.
 
-### Use the CLI or API
+### Use the CLI or API (don't detect deployments automatically) {: id="gh-deploy-cli-api"}
 
 -   Pulse doesn't detect deployments automatically using GitHub events.
 
     This is useful if none of the automatic deployment detection strategies match your workflow and you must have control over the way Pulse tracks your deployments.
 
 -   In this case, you must send to Pulse the information about your **deployments** and the corresponding **changes** using the [Pulse CLI](../cli/cli.md) or the [Ingestion API](https://ingestion.pulse.codacy.com/v1/api-docs).
+
+## Automatic incident detection strategies {: id="incident-detection-strategy"}
+
+The Pulse GitHub integration detects incidents automatically using [pull request reverts](#gh-incident-pr-revert). You can also choose [not to detect incidents via GitHub](#gh-incident-not-detect).
+
+!!! note
+    Pulse incident detection mechanism bases on pull request. Thus, Pulse can only detect incidents automatically if you configured the deployment detection strategy to use [merged pull requests](#gh-deploy-merged-pr).
+
+### Use pull request reverts (based on default branch) {: id="gh-incident-pr-revert"}
+
+-   Pulse bases incident detection on [pull request reverts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request).
+-   Pulse considers an incident any pull request that **targets the default branch** of the repository merged from a branch whose name starts with `revert-`, getting the number of the reverted pull request from the branch name, `revert-<pull request number>`. If you change the name of the branch created by GitHub when you revert a pull request, Pulse may not be able to obtain the incident data correctly.
+-   The incident creation date is the timestamp when the reverted pull request was initially merged. If Pulse can't get the reverted pull request number from the branch name, the incident creation date is the timestamp of the first commit to the incident pull request.
+-   Pulse associates incidents to the system matching the repository name.
+
+### Don't detect incidents via GitHub {: id="gh-incident-not-detect"}
+
+-   Pulse doesn't detect incidents automatically using GitHub events.
+
+    Choose this option if you want to send to Pulse the information about your **incidents** using another Pulse integration - [PagerDuty one-click integration](pagerduty-integration.md), [Pulse CLI](../cli/cli.md), or [Ingestion API](https://ingestion.pulse.codacy.com/v1/api-docs) - or if you don't want Pulse to track incidents data.
 
 ## Collected data
 
@@ -115,11 +151,25 @@ The table below lists the data that the GitHub integration collects from your Gi
     <td>
         <p>Deployments:</p>
         <ul>
-            <li><code>deploy_id</code>: pull request ID</li>
+            <li><code>deploy_id</code>: pull request identifier</li>
+            <li><code>timestamp_created</code>: merge date of the pull request</li>
             <li><code>system</code>: repository name</li>
         </ul>
     </td>
     <td>Deployment frequency and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a></td>
+</tr>
+<tr>
+<td>Pull requests</td>
+    <td>
+        <p>Incidents:</p>
+        <ul>
+            <li><code>incident_id</code>: pull request identifier</li>
+            <li><code>timestamp_created</code>: merge date of the reverted pull request</li>
+            <li><code>timestamp_resolved</code>: merge date of the pull request</li>
+            <li><code>system</code>: repository name</li>
+        </ul>
+    </td>
+    <td>Time to recover and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a></td>
 </tr>
 <tr>
     <td>Pull requests</td>
