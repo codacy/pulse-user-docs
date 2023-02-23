@@ -61,7 +61,12 @@ Your Bitbucket integration is now complete. Pulse will start loading your data f
 
 ## Automatic incident detection strategies {: id="incident-detection-strategy"}
 
-The Pulse Bitbucket integration detects incidents automatically using [pull request reverts](#bb-incident-pr-revert). You can also choose [not to detect incidents via Bitbucket](#bb-incident-not-detect).
+The Pulse Bitbucket integration can detect **incidents** automatically using the following strategies:
+
+-   [Pull request reverts](#bb-incident-pr-revert)
+-   [Pull request naming convention](#bb-incident-naming)
+
+You can also choose [not to detect incidents via Bitbucket](#bb-incident-not-detect).
 
 ### Use pull request reverts (based on default branch) {: id="bb-incident-pr-revert"}
 
@@ -69,6 +74,14 @@ The Pulse Bitbucket integration detects incidents automatically using [pull requ
 -   Pulse considers an incident any pull request that **targets the default branch** of the repository merged from a branch whose name starts with `revert-pr-`, getting the number of the reverted pull request from the branch name, `revert-pr-<pull request number>`. If you change the name of the branch created by Bitbucket when you revert a pull request, Pulse may not be able to obtain the incident data correctly.
 -   The incident creation date is the timestamp when the reverted pull request was initially merged. If Pulse can't get the reverted pull request number from the branch name, the incident creation date is the timestamp of the first commit to the incident pull request.
 -   Pulse associates incidents to the system matching the repository name.
+
+### Use pull request naming convention (based on default branch) {: id="bb-incident-naming"}
+
+-   Pulse executes the same incident detection mechanism based on [pull request reverts](#bb-incident-pr-revert) using the naming convention you define instead of the default branch prefix `revert-pr-`.
+
+-   You can define the prefix for the branch name or the pull request title to match the naming convention on your workflow.
+
+    ![Pulse custom incident detection](images/bitbucket-incident-naming-convention.png)
 
 ### Don't detect incidents via Bitbucket {: id="bb-incident-not-detect"}
 
