@@ -108,7 +108,7 @@ The Pulse GitHub integration can detect **incidents** automatically using the fo
 You can also choose [not to detect incidents via GitHub](#gh-incident-not-detect).
 
 !!! note
-    Pulse incident detection mechanism bases on pull requests. Thus, Pulse can only detect incidents automatically from GitHub if you configured the deployment detection strategy to use [merged pull requests](#gh-deploy-merged-pr).
+    Pulse uses pull requests to detect incidents. Thus, Pulse can only detect incidents automatically from GitHub if you configured the deployment detection strategy to use [merged pull requests](#gh-deploy-merged-pr).
 
 ### Use pull request reverts (based on default branch) {: id="gh-incident-pr-revert"}
 
