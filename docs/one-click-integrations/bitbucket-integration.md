@@ -55,8 +55,11 @@ Your Bitbucket integration is now complete. Pulse will start loading your data f
     -   <!--NOTE Limitation from Bitbucket integration V1-V2-->If you use a [squash merge strategy](https://support.atlassian.com/bitbucket-cloud/docs/merge-a-pull-request/#Merge-strategies) when merging the pull request, Pulse may produce inaccurate accelerate metrics.
 
 -   Pulse considers a deployment every merged pull request that **targets the default branch** of the repository.
+
 -   The deployment date is the timestamp when the corresponding pull request is merged.
+
 -   The set of changes in a deployment is the list of commits in the corresponding pull request.
+
 -   Pulse associates all the Bitbucket user groups of the author of a merged pull request with the corresponding deployment, excluding the user groups with less than two members. Pulse only takes the changes to Bitbucket user groups into account on pull requests merged after those changes.
 
 ## Automatic incident detection strategies {: id="incident-detection-strategy"}
@@ -71,19 +74,19 @@ You can also choose [not to detect incidents via Bitbucket](#bb-incident-not-det
 ### Use pull request reverts (based on default branch) {: id="bb-incident-pr-revert"}
 
 -   Pulse bases incident detection on [pull request reverts](https://support.atlassian.com/bitbucket-cloud/docs/merge-a-pull-request/#Revert-a-merged-pull-request).
+
 -   Pulse considers an incident any pull request that **targets the default branch** of the repository merged from a branch whose name starts with `revert-pr-`, getting the number of the reverted pull request from the branch name, `revert-pr-<pull request number>`. If you change the name of the branch created by Bitbucket when you revert a pull request, Pulse may not be able to obtain the incident data correctly.
+
 -   The incident creation date is the timestamp when the reverted pull request was initially merged. If Pulse can't get the reverted pull request number from the branch name, the incident creation date is the timestamp of the first commit to the incident pull request.
 -   Pulse associates incidents to the system matching the repository name.
 
 ### Use pull request naming convention (based on default branch) {: id="bb-incident-naming"}
 
--   Pulse executes the same incident detection mechanism based on [pull request reverts](#bb-incident-pr-revert) using the naming convention you define instead of the default branch prefix `revert-pr-`.
-
--   You can define the prefix for the **branch name** or the **pull request title** to match the naming convention of your workflow.
+-   Pulse applies the same mechanism to detect incidents used for the [pull request reverts](#bb-incident-pr-revert) strategy. However, instead of considering branches whose name starts with `revert-pr-`, you can define the prefix for the **branch name** or the **pull request title** to match the naming convention of your workflow.
 
     ![Pulse custom incident detection](images/bitbucket-incident-naming-convention.png)
 
--   Your prefix must have 2 to 50 characters. For **branch name**, your prefix can't contain spaces or special characters, such as `~`, `^`, `:`, `?`, `*`, `[`, `]`. See the [Git reference](https://git-scm.com/docs/git-check-ref-format) for further details.
+-   Your prefix must have 2 to 50 characters. For a **branch name**, your prefix can't contain spaces or special characters, such as `~`, `^`, `:`, `?`, `*`, `[`, `]`. See the [Git reference](https://git-scm.com/docs/git-check-ref-format) for further details.
 
 ### Don't detect incidents via Bitbucket {: id="bb-incident-not-detect"}
 

@@ -63,8 +63,11 @@ You can also choose not to detect deployment automatically via GitHub and send y
 ### Use merged pull requests (based on default branch) {: id="gh-deploy-merged-pr"}
 
 -   Pulse considers a deployment every merged pull request that **targets the default branch** of the repository.
+
 -   The deployment date is the timestamp when the corresponding pull request is merged.
+
 -   The set of changes in a deployment is the list of commits in the corresponding pull request. Pulse correctly tracks your changes even if you [squash or rebase the commits when merging the pull request](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github), since Pulse processes all the original commits before any changes to the Git history.
+
 -   Pulse associates all GitHub teams of the author of a merged pull request with the corresponding deployment, excluding teams with less than two members. Pulse only takes changes to GitHub teams into account on pull requests merged after those changes.
 
 ### Use semantic versioning tags {: id="gh-deploy-semver"}
@@ -113,19 +116,20 @@ You can also choose [not to detect incidents via GitHub](#gh-incident-not-detect
 ### Use pull request reverts (based on default branch) {: id="gh-incident-pr-revert"}
 
 -   Pulse bases incident detection on [pull request reverts](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request).
+
 -   Pulse considers an incident any pull request that **targets the default branch** of the repository merged from a branch whose name starts with `revert-`, getting the number of the reverted pull request from the branch name, `revert-<pull request number>`. If you change the name of the branch created by GitHub when you revert a pull request, Pulse may not be able to obtain the incident data correctly.
+
 -   The incident creation date is the timestamp when the reverted pull request was initially merged. If Pulse can't get the reverted pull request number from the branch name, the incident creation date is the timestamp of the first commit to the incident pull request.
+
 -   Pulse associates incidents to the system matching the repository name.
 
 ### Use pull request naming convention (based on default branch) {: id="gh-incident-naming"}
 
--   Pulse executes the same incident detection mechanism based on [pull request reverts](#gh-incident-pr-revert) using the naming convention you define instead of the default branch prefix `revert-`.
-
--   You can define the prefix for the **branch name** or the **pull request title** to match the naming convention of your workflow.
+-   Pulse applies the same mechanism to detect incidents used for the [pull request reverts](#gh-incident-pr-revert) strategy. However, instead of considering branches whose name starts with `revert-`, you can define the prefix for the **branch name** or the **pull request title** to match the naming convention of your workflow.
 
     ![Pulse custom incident detection](images/github-incident-naming-convention.png)
 
--   Your prefix must have 2 to 50 characters. For **branch name**, your prefix can't contain spaces or special characters, such as `~`, `^`, `:`, `?`, `*`, `[`, `]`. See the [Git reference](https://git-scm.com/docs/git-check-ref-format) for further details.
+-   Your prefix must have 2 to 50 characters. For a **branch name**, your prefix can't contain spaces or special characters, such as `~`, `^`, `:`, `?`, `*`, `[`, `]`. See the [Git reference](https://git-scm.com/docs/git-check-ref-format) for further details.
 
 ### Don't detect incidents via GitHub {: id="gh-incident-not-detect"}
 
