@@ -87,7 +87,7 @@ You can also choose [not to detect incidents via Bitbucket](#bb-incident-not-det
 
     ![Pulse custom incident detection](images/bitbucket-incident-naming-convention.png)
 
--   Your prefix must have 2 to 50 characters. For a **branch name**, your prefix can't contain spaces or special characters, such as `~`, `^`, `:`, `?`, `*`, `[`, `]`. See the [Git reference](https://git-scm.com/docs/git-check-ref-format) for further details.
+-   Your prefix must have 2 to 50 characters. For a **branch name**, your prefix can't contain spaces or special characters, such as `~ ^ : ? * [ ]`. See the [Git reference](https://git-scm.com/docs/git-check-ref-format) for further details.
 
 ### Don't detect incidents via Bitbucket {: id="bb-incident-not-detect"}
 
