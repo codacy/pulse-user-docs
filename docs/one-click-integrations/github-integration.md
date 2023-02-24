@@ -121,7 +121,7 @@ You can also choose [not to detect incidents via GitHub](#gh-incident-not-detect
 
 -   Pulse executes the same incident detection mechanism based on [pull request reverts](#gh-incident-pr-revert) using the naming convention you define instead of the default branch prefix `revert-`.
 
--   You can define the prefix for the branch name or the pull request title to match the naming convention on your workflow.
+-   You can define the prefix for the branch name or the pull request title to match the naming convention of your workflow.
 
     ![Pulse custom incident detection](images/github-incident-naming-convention.png)
 
