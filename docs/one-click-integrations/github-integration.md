@@ -129,7 +129,7 @@ You can also choose [not to detect incidents via GitHub](#gh-incident-not-detect
 
     ![Pulse custom incident detection](images/github-incident-naming-convention.png)
 
--   Your prefix must have 2 to 50 characters. For a **branch name**, your prefix can't contain spaces or special characters, such as `~`, `^`, `:`, `?`, `*`, `[`, `]`. See the [Git reference](https://git-scm.com/docs/git-check-ref-format) for further details.
+-   Your prefix must have 2 to 50 characters. For a **branch name**, your prefix can't contain spaces or special characters, such as `~ ^ : ? * [ ]`. See the [Git reference](https://git-scm.com/docs/git-check-ref-format) for further details.
 
 ### Don't detect incidents via GitHub {: id="gh-incident-not-detect"}
 
