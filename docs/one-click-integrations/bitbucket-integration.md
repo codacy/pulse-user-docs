@@ -79,9 +79,11 @@ You can also choose [not to detect incidents via Bitbucket](#bb-incident-not-det
 
 -   Pulse executes the same incident detection mechanism based on [pull request reverts](#bb-incident-pr-revert) using the naming convention you define instead of the default branch prefix `revert-pr-`.
 
--   You can define the prefix for the branch name or the pull request title to match the naming convention of your workflow.
+-   You can define the prefix for the **branch name** or the **pull request title** to match the naming convention of your workflow.
 
     ![Pulse custom incident detection](images/bitbucket-incident-naming-convention.png)
+
+-   Your prefix must have 2 to 50 characters. For **branch name**, your prefix can't contain spaces or special characters, such as `~`, `^`, `:`, `?`, `*`, `[`, `]`. See the [Git reference](https://git-scm.com/docs/git-check-ref-format) for further details.
 
 ### Don't detect incidents via Bitbucket {: id="bb-incident-not-detect"}
 

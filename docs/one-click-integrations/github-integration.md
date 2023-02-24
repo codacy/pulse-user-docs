@@ -108,7 +108,7 @@ The Pulse GitHub integration can detect **incidents** automatically using the fo
 You can also choose [not to detect incidents via GitHub](#gh-incident-not-detect).
 
 !!! note
-    Pulse uses pull requests to detect incidents. Thus, Pulse can only detect incidents automatically from GitHub if you configured the deployment detection strategy to use [merged pull requests](#gh-deploy-merged-pr).
+    Pulse uses pull requests to detect incidents. Thus, Pulse can only detect incidents automatically from GitHub if you configure the deployment detection strategy to use [merged pull requests](#gh-deploy-merged-pr).
 
 ### Use pull request reverts (based on default branch) {: id="gh-incident-pr-revert"}
 
@@ -121,9 +121,11 @@ You can also choose [not to detect incidents via GitHub](#gh-incident-not-detect
 
 -   Pulse executes the same incident detection mechanism based on [pull request reverts](#gh-incident-pr-revert) using the naming convention you define instead of the default branch prefix `revert-`.
 
--   You can define the prefix for the branch name or the pull request title to match the naming convention of your workflow.
+-   You can define the prefix for the **branch name** or the **pull request title** to match the naming convention of your workflow.
 
     ![Pulse custom incident detection](images/github-incident-naming-convention.png)
+
+-   Your prefix must have 2 to 50 characters. For **branch name**, your prefix can't contain spaces or special characters, such as `~`, `^`, `:`, `?`, `*`, `[`, `]`. See the [Git reference](https://git-scm.com/docs/git-check-ref-format) for further details.
 
 ### Don't detect incidents via GitHub {: id="gh-incident-not-detect"}
 
