@@ -82,7 +82,7 @@ You can also choose [not to detect incidents via Bitbucket](#bb-incident-not-det
 
 ### Use pull request naming convention (based on default branch) {: id="bb-incident-naming"}
 
--   Pulse applies the same mechanism to detect incidents used for the [pull request reverts](#bb-incident-pr-revert) strategy. However, instead of considering branches whose name starts with `revert-pr-`, you can define the prefix for the **branch name** or the **pull request title** to match the naming convention of your workflow.
+-   Pulse applies the same mechanism to detect incidents used for the [pull request reverts](#bb-incident-pr-revert) strategy. However, instead of considering branches whose name starts with `revert-pr-`, Pulse uses the prefix that you define for the **branch name** or the **pull request title** to match the naming convention of your workflow.
 
     ![Pulse custom incident detection](images/bitbucket-incident-naming-convention.png)
 
