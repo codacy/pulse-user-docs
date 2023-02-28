@@ -476,6 +476,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#gh-incident-naming" class="md-nav__link">
+    Use pull request naming convention (based on default branch)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#gh-incident-not-detect" class="md-nav__link">
     Don't detect incidents via GitHub
   </a>
@@ -714,7 +721,7 @@
 <p>Choose the strategy to detect <strong>incidents</strong> that best fits your workflows. See the <a href="#incident-detection-strategy">section below</a> for a detailed description of each option.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Pulse can only detect incidents automatically if you configured the <strong>deployment detection strategy</strong> to use <a href="#gh-deploy-merged-pr">merged pull requests</a>.</p>
+<p>Pulse can only detect incidents automatically from GitHub if you configure the <strong>deployment detection strategy</strong> to use <a href="#gh-deploy-merged-pr">merged pull requests</a>.</p>
 </div>
 <p><img alt="Configuring the incident detection strategy" src="../images/github-incident-strategy.png" /></p>
 </li>
@@ -725,7 +732,7 @@
 <p>Your GitHub integration is now complete. Pulse will start loading your data for the last 90 days.</p>
 <p><img alt="Pulse GitHub integration set up successfully" src="../images/github-ok.png" /></p>
 <h2 id="deployment-detection-strategy">Automatic deployment detection strategies<a class="headerlink" href="#deployment-detection-strategy" title="Permanent link">&para;</a></h2>
-<p>The Pulse GitHub integration can detect deployments automatically using the following strategies:</p>
+<p>The Pulse GitHub integration can detect <strong>deployments</strong> automatically using the following strategies:</p>
 <ul>
 <li><a href="#gh-deploy-merged-pr">Merged pull requests</a></li>
 <li><a href="#gh-deploy-semver">Semantic versioning tags</a></li>
@@ -733,10 +740,18 @@
 <p>You can also choose not to detect deployment automatically via GitHub and send your data to Pulse <a href="#gh-deploy-cli-api">using the CLI or the API</a>.</p>
 <h3 id="gh-deploy-merged-pr">Use merged pull requests (based on default branch)<a class="headerlink" href="#gh-deploy-merged-pr" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Pulse considers a deployment every merged pull request that <strong>targets the default branch</strong> of the repository.</li>
-<li>The deployment date is the timestamp when the corresponding pull request is merged.</li>
-<li>The set of changes in a deployment is the list of commits in the corresponding pull request. Pulse correctly tracks your changes even if you <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github">squash or rebase the commits when merging the pull request</a>, since Pulse processes all the original commits before any changes to the Git history.</li>
-<li>Pulse associates all GitHub teams of the author of a merged pull request with the corresponding deployment, excluding teams with less than two members. Pulse only takes changes to GitHub teams into account on pull requests merged after those changes.</li>
+<li>
+<p>Pulse considers a deployment every merged pull request that <strong>targets the default branch</strong> of the repository.</p>
+</li>
+<li>
+<p>The deployment date is the timestamp when the corresponding pull request is merged.</p>
+</li>
+<li>
+<p>The set of changes in a deployment is the list of commits in the corresponding pull request. Pulse correctly tracks your changes even if you <a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github">squash or rebase the commits when merging the pull request</a>, since Pulse processes all the original commits before any changes to the Git history.</p>
+</li>
+<li>
+<p>Pulse associates all GitHub teams of the author of a merged pull request with the corresponding deployment, excluding teams with less than two members. Pulse only takes changes to GitHub teams into account on pull requests merged after those changes.</p>
+</li>
 </ul>
 <h3 id="gh-deploy-semver">Use semantic versioning tags<a class="headerlink" href="#gh-deploy-semver" title="Permanent link">&para;</a></h3>
 <ul>
@@ -773,17 +788,40 @@
 </li>
 </ul>
 <h2 id="incident-detection-strategy">Automatic incident detection strategies<a class="headerlink" href="#incident-detection-strategy" title="Permanent link">&para;</a></h2>
-<p>The Pulse GitHub integration detects incidents automatically using <a href="#gh-incident-pr-revert">pull request reverts</a>. You can also choose <a href="#gh-incident-not-detect">not to detect incidents via GitHub</a>.</p>
+<p>The Pulse GitHub integration can detect <strong>incidents</strong> automatically using the following strategies:</p>
+<ul>
+<li><a href="#gh-incident-pr-revert">Pull request reverts</a></li>
+<li><a href="#gh-incident-naming">Pull request naming convention</a></li>
+</ul>
+<p>You can also choose <a href="#gh-incident-not-detect">not to detect incidents via GitHub</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Pulse incident detection mechanism bases on pull request. Thus, Pulse can only detect incidents automatically if you configured the deployment detection strategy to use <a href="#gh-deploy-merged-pr">merged pull requests</a>.</p>
+<p>Pulse uses pull requests to detect incidents. Thus, Pulse can only detect incidents automatically from GitHub if you configure the deployment detection strategy to use <a href="#gh-deploy-merged-pr">merged pull requests</a>.</p>
 </div>
 <h3 id="gh-incident-pr-revert">Use pull request reverts (based on default branch)<a class="headerlink" href="#gh-incident-pr-revert" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Pulse bases incident detection on <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request">pull request reverts</a>.</li>
-<li>Pulse considers an incident any pull request that <strong>targets the default branch</strong> of the repository merged from a branch whose name starts with <code>revert-</code>, getting the number of the reverted pull request from the branch name, <code>revert-&lt;pull request number&gt;</code>. If you change the name of the branch created by GitHub when you revert a pull request, Pulse may not be able to obtain the incident data correctly.</li>
-<li>The incident creation date is the timestamp when the reverted pull request was initially merged. If Pulse can't get the reverted pull request number from the branch name, the incident creation date is the timestamp of the first commit to the incident pull request.</li>
-<li>Pulse associates incidents to the system matching the repository name.</li>
+<li>
+<p>Pulse bases incident detection on <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/reverting-a-pull-request">pull request reverts</a>.</p>
+</li>
+<li>
+<p>Pulse considers an incident any pull request that <strong>targets the default branch</strong> of the repository merged from a branch whose name starts with <code>revert-</code>, getting the number of the reverted pull request from the branch name, <code>revert-&lt;pull request number&gt;</code>. If you change the name of the branch created by GitHub when you revert a pull request, Pulse may not be able to obtain the incident data correctly.</p>
+</li>
+<li>
+<p>The incident creation date is the timestamp when the reverted pull request was initially merged. If Pulse can't get the reverted pull request number from the branch name, the incident creation date is the timestamp of the first commit to the incident pull request.</p>
+</li>
+<li>
+<p>Pulse associates incidents to the system matching the repository name.</p>
+</li>
+</ul>
+<h3 id="gh-incident-naming">Use pull request naming convention (based on default branch)<a class="headerlink" href="#gh-incident-naming" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Pulse applies the same mechanism to detect incidents used for the <a href="#gh-incident-pr-revert">pull request reverts</a> strategy. However, instead of considering branches whose name starts with <code>revert-</code>, Pulse uses the prefix that you define for the <strong>branch name</strong> or the <strong>pull request title</strong> to match the naming convention of your workflow.</p>
+<p><img alt="Pulse custom incident detection" src="../images/github-incident-naming-convention.png" /></p>
+</li>
+<li>
+<p>Your prefix must have 2 to 50 characters. For a <strong>branch name</strong>, your prefix can't contain spaces or special characters, such as <code>~ ^ : ? * [</code>. See the <a href="https://git-scm.com/docs/git-check-ref-format">Git reference</a> for further details.</p>
+</li>
 </ul>
 <h3 id="gh-incident-not-detect">Don't detect incidents via GitHub<a class="headerlink" href="#gh-incident-not-detect" title="Permanent link">&para;</a></h3>
 <ul>
