@@ -93,7 +93,7 @@ You can also choose [not to detect incidents via Bitbucket](#bb-incident-not-det
 
 -   Pulse doesn't detect incidents automatically using Bitbucket events.
 
-    Choose this option if you want to send to Pulse the information about your **incidents** using another Pulse integration - [PagerDuty one-click integration](pagerduty-integration.md), [Pulse CLI](../cli/cli.md), or [Ingestion API](https://ingestion.pulse.codacy.com/v1/api-docs) - or if you don't want Pulse to track incidents data.
+    Choose this option if you want to send to Pulse the information about your **incidents** using another Pulse integration - [Jira one-click integration](jira-integration.md), [PagerDuty one-click integration](pagerduty-integration.md), [Pulse CLI](../cli/cli.md), or [Ingestion API](https://ingestion.pulse.codacy.com/v1/api-docs) - or if you don't want Pulse to track incidents data.
 
 ## Collected data
 
