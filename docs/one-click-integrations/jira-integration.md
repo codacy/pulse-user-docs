@@ -43,7 +43,7 @@ You can also choose [not to detect incidents via Jira](#jira-incident-not-detect
 
 ### Use issues assigned with the label "Incident" {: id="jira-incident-label"}
 
--   Pulse considers an incident every issue in a `Done` **status** assigned with the **label** `Incident` (case-insensitive). `Done` status in Jira are all the issue status under the [Done category](https://support.atlassian.com/jira-work-management/docs/workflows-and-statuses-for-the-board/) (represented by the green color in Jira). Some examples are `DONE`, `CLOSED`, or `DECLINED`, but other values can be defined.
+-   Pulse considers an incident every issue in a `Done` **status** assigned with the **label** `Incident` (case-insensitive). `Done` status in Jira are all the status of an issue under the [Done category](https://support.atlassian.com/jira-work-management/docs/workflows-and-statuses-for-the-board/) (represented by the green color in Jira). Some examples are `DONE`, `CLOSED`, or `DECLINED`, but other values can be defined.
 
 -   Pulse associates an incident to the systems, one or more, matching the values in the `Component(s)` field of the Jira issue (case-sensitive).
 
@@ -77,7 +77,7 @@ You can also choose [not to detect incidents via Jira](#jira-incident-not-detect
 
 -   Pulse doesn't detect incidents automatically using Jira events.
 
-    Choose this option if you want to send to Pulse the information about your **incidents** using another Pulse integration - GitHub or Bitbucket integration, [PagerDuty one-click integration](pagerduty-integration.md), [Pulse CLI](../cli/cli.md), or [Ingestion API](https://ingestion.pulse.codacy.com/v1/api-docs) - or if you don't want Pulse to track incidents data.
+    Choose this option if you want to send to Pulse the information about your **incidents** using another Pulse integration - [GitHub one-click integration](github-integration.md) or [Bitbucket one-click integration](bitbucket-integration.md), [PagerDuty one-click integration](pagerduty-integration.md), [Pulse CLI](../cli/cli.md), or [Ingestion API](https://ingestion.pulse.codacy.com/v1/api-docs) - or if you don't want Pulse to track incidents data.
 
 ## Collected data
 
@@ -97,7 +97,7 @@ The table below lists the data that the Jira integration collects from your Jira
         <td>
             Issue data includes all issue status transitions.
         </td>
-        <td>Lead time and Cycle time metrics on the <a href="../../metrics/lead-cycle-time/">Lead & Cycle time dashboard</a></td>
+        <td>Lead time and Cycle time on the <a href="../../metrics/lead-cycle-time/">Lead & Cycle time dashboard</a></td>
     </tr>
     <tr>
         <td>Projects</td>
@@ -125,9 +125,40 @@ The table below lists the data that the Jira integration collects from your Jira
 
 ## Which permissions does Pulse need from Jira? {: id="jira-permissions"}
 
-Pulse requests only the necessary permissions from Jira to collect issues data from your Jira instance and [keeps your information secure](https://security.codacy.com/). See below the detailed list of permissions.
+Pulse requests only the necessary [permissions/scopes from your Atlassian account](https://developer.atlassian.com/cloud/jira/platform/scopes-for-oauth-2-3LO-and-forge-apps/) to collect issues data from your Jira instance and [keeps your information secure](https://security.codacy.com/). See below the detailed list of permissions.
 
-<!--TODO Add permissions table-->
+<table>
+  <colgroup>
+    <col width="25%"/>
+    <col width="75%"/>
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Classic scope</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>read:me</code></td>
+      <td>Pulse retrieves the email of the user installing the integration.</td>
+    </tr>
+    <tr>
+      <td><code>read:jira-work</code></td>
+      <td>Pulse requires this scope to perform the following actions:
+      <ul>
+        <li>List all issue statuses associated with the active workflows to identify the transitions of the issue status, required to detect when an issue is closed or re-opened.</li>
+        <li>Get the details of an issue for real-time processing.</li>
+        <li>List projects to use on dashboard filters.</li>
+        <li>List the closed issues of a project for historical data loading.</li>
+      </ul>
+    </tr>
+    <tr>
+      <td><code>manage:jira-webhook</code></td>
+      <td>Pulse uses Jira webhooks to retrieve data in real time. </td>
+    </tr>
+  </tbody>
+</table>
 
 ## See also
 
