@@ -54,17 +54,17 @@ You can also choose [not to detect incidents via Jira](#jira-incident-not-detect
 
     -   If the Jira issue is set with more than one component, Pulse creates an incident for each existing system that matches a component name, ignoring the remaining components that don't exist in Pulse as a system.
 
-    -   If the `Component(s)` field in the Jira issue is empty, or none of the components exist in Pulse as a system, Pulse creates an incident and associates it with the system `_unknown_`.
+    -   If the **Component(s)** field in the Jira issue is empty, or none of the components exist in Pulse as a system, Pulse creates an incident and associates it with the system `_unknown_`.
 
--   The incident creation date is the timestamp when the Jira issue was created, while the incident resolution date is the timestamp when the Jira issue was last updated to a `Done` status.
+-   The incident creation date is the timestamp when the Jira issue was created, while the incident resolution date is the timestamp when the Jira issue was last updated to a **Done** status.
 
 -   Pulse creates new incidents when the following updates are performed in Jira:
 
-    -   The status of an issue assigned with the label `Incident` is updated to a `Done` status. Pulse creates one or more incidents, depending on the values in the `Component(s)` field.
+    -   The status of an issue assigned with the label `Incident` is updated to a **Done** status. Pulse creates one or more incidents, depending on the values in the **Component(s)** field.
 
-    -   An issue in a `Done` status is assigned with the label `Incident`. Pulse creates one or more incidents, depending on the values in the `Component(s)` field.
+    -   An issue in a **Done** status is assigned with the label `Incident`. Pulse creates one or more incidents, depending on the values in the **Component(s)** field.
 
-    -   A new component that matches an existing system is added to an issue in a `Done` status assigned with the label `Incident`. Pulse creates a new incident associated with the matching system.
+    -   A new component that matches an existing system is added to an issue in a **Done** status assigned with the label `Incident`. Pulse creates a new incident associated with the matching system.
 
 -   Pulse deletes an existing incident when the following updates are performed in Jira:
 
@@ -78,7 +78,7 @@ You can also choose [not to detect incidents via Jira](#jira-incident-not-detect
 
 !!! important
     After completing the Jira integration setup, Pulse starts loading your incident data for the last 90 days. Therefore, **before you perform the integration setup**, make sure the corresponding Jira issues follow the rules described above, so Pulse can load your historical data correctly.
-    Pulse will only create incidents for the Jira issues in a `Done` status that are assigned with the label `Incident`, and associates them with the systems matching the values in the `Component(s)` field as described above.
+    Pulse will only create incidents for the Jira issues in a **Done** status that are assigned with the label `Incident`, and associates them with the systems matching the values in the **Component(s)** field as described above.
 
 ### Don't detect incidents via Jira {: id="jira-incident-not-detect"}
 
