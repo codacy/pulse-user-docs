@@ -25,9 +25,13 @@ To set up the Jira integration:
 
     ![Installing the Pulse Jira app](images/jira-installing.png)
 
-1.  Confirm that Pulse successfully created the integration on Jira. If there is an error please [contact support](mailto:pulsesupport@codacy.com).<!--TODO Add screenshot for successful installation-->
+1.  Confirm that Pulse successfully connected the integration to Jira. If there is an error please [contact support](mailto:pulsesupport@codacy.com).
 
-1.  Choose the strategy to detect incidents that best fits your workflows. See the [section below](#incident-detection-strategy) for a detailed description of each option.<!--TODO Add screenshot for incident strategy-->
+    ![Pulse Jira App installed successfully](images/jira-installed-ok.png)
+
+1.  Choose the strategy to detect incidents that best fits your workflows. See the [section below](#incident-detection-strategy) for a detailed description of each option.
+
+    ![Configuring the incident detection strategy](images/jira-incident-strategy.png)
 
 1.  Click **Complete setup**.
 
