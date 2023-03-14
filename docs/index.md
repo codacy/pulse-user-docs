@@ -37,13 +37,49 @@ To add more organizations, click the name of the current organization on the top
 
 Pulse provides push-based integrations with your workflow using the following alternatives:
 
--   **One-click integrations**<!--NOTE We might need to rethink the way we present these integrations and corresponding data/metrics-->
+-   **One-click integrations**
 
-    Pulse currently supports the following "one-click" integrations that simplify the process of setting up your workflows to send data to Pulse:
+    Pulse currently supports the "one-click" integrations listed in the table below that simplify the process of setting up your workflows to send data to Pulse.
 
-    -   **[GitHub integration](one-click-integrations/github-integration.md) or [Bitbucket integration](one-click-integrations/bitbucket-integration.md):** reports changes, deployments, and incidents
-    -   **[Jira integration](one-click-integrations/jira-integration.md) or [PagerDuty integration](one-click-integrations/pagerduty-integration.md):** reports incidents
-    -   **[Jira integration](one-click-integrations/jira-integration.md):** reports lead and cycle time
+    <table>
+        <colgroup>
+            <col width="30%"/>
+            <col width="10%"/>
+            <col width="60%"/>
+        </colgroup>
+        <thead>
+            <tr>
+                <th>Use this one-click integration...</th>
+                <th>to report...</th>
+                <th>necessary to calculate...</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2"><a href="one-click-integrations/github-integration">GitHub integration</a> or <a href="one-click-integrations/bitbucket-integration">Bitbucket integration</a></td>
+                <td>changes and deployments</td>
+                <td>the Accelerate metrics <a href="#collected-data">deployment frequency</a> and <a href="metrics/accelerate#change-failure-rate">lead time for changes</a>, including the drill-down metrics <a href="metrics/accelerate-changes">changes and reviews</a>, and <a href="metrics/accelerate-wip">work in progress</a></td>
+            </tr>
+            <tr>
+                <td>incidents</td>
+                <td>the Accelerate metrics <a href="metrics/accelerate#time-to-recover">time to recover</a> and <a href="metrics/accelerate#change-failure-rate">change failure rate</a></td>
+            </tr>
+            <tr>
+                <td rowspan="2"><a href="one-click-integrations/jira-integration">Jira integration</a></td>
+                <td>issues</td>
+                <td><a href="metrics/lead-cycle-time.md">lead and cycle time</a> metrics</td>
+            </tr>
+            <tr>
+                <td>incidents</td>
+                <td>the Accelerate metrics <a href="metrics/accelerate#time-to-recover">time to recover</a> and <a href="metrics/accelerate#change-failure-rate">change failure rate</a></td>
+            </tr>
+            <tr>
+                <td><a href="one-click-integrations/pagerduty-integration">PagerDuty integration</a></td>
+                <td>incidents</td>
+                <td>the Accelerate metrics <a href="metrics/accelerate#time-to-recover">Time to recover</a> and <a href="metrics/accelerate#change-failure-rate">Change failure rate</a></td>
+            </tr>
+        </tbody>
+    </table>
 
     !!! note
         We recommend that whenever possible you use the integrations that match your stack because they're faster to set up. We plan to continue developing integrations for the most popular Git providers, CI/CD platforms, and incident management tools.
