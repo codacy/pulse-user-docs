@@ -56,9 +56,7 @@ You can also choose [not to detect incidents via Jira](#jira-incident-not-detect
 
     -   If the `Component(s)` field in the Jira issue is empty, or none of the components exist in Pulse as a system, Pulse creates an incident and associates it with the system `_unknown_`.
 
--   The incident creation date is the timestamp when the Jira issue was created.
-
--   The incident resolution date is the timestamp when the Jira issue was last updated to a `Done` status.
+-   The incident creation date is the timestamp when the Jira issue was created, while the incident resolution date is the timestamp when the Jira issue was last updated to a `Done` status.
 
 -   Pulse creates new incidents when the following updates are performed in Jira:
 
