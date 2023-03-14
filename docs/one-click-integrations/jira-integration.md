@@ -38,7 +38,7 @@ To set up the Jira integration:
 
 Your Jira integration is now complete. Pulse will start loading your data for the last 90 days.
 
-<!--TODO Add screenshot for setup ok-->
+![Pulse Jira integration set up successfully](images/jira-ok.png)
 
 ## Automatic incident detection strategies {: id="incident-detection-strategy"}
 
