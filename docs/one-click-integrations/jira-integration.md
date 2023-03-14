@@ -42,7 +42,7 @@ Your Jira integration is now complete. Pulse will start loading your data for th
 
 ## Automatic incident detection strategies {: id="incident-detection-strategy"}
 
-The Pulse Jira integration can detect **incidents** automatically using the [issues assigned with the label **Incident**](#jira-incident-label).
+The Pulse Jira integration can detect **incidents** automatically using the [issues assigned with the label `Incident`](#jira-incident-label).
 
 You can also choose [not to detect incidents via Jira](#jira-incident-not-detect).
 
