@@ -15,6 +15,7 @@ Pulse integrates with Jira Cloud to receive data about:
 !!! note
     -   The Jira integration must be set up by a **Jira administrator**, as Pulse will only have access to Jira resources that the user setting up the integration has access to.
     -   You can only integrate one Pulse organization with each Jira instance.
+    -   If you want to report incidents using Jira, check the [details of the incident detection strategy](#incident-detection-strategy) before you proceed with the integration setup.
     -   [See below](#jira-permissions) the permissions that Pulse requires from your Jira instance.
 
 To set up the Jira integration:
@@ -47,7 +48,7 @@ You can also choose [not to detect incidents via Jira](#jira-incident-not-detect
 
 ### Use issues assigned with the label "Incident" {: id="jira-incident-label"}
 
--   Pulse considers an incident every issue in a `Done` **status** assigned with the **label** `Incident` (case-insensitive). `Done` status in Jira are all the status of an issue under the [Done category](https://support.atlassian.com/jira-work-management/docs/workflows-and-statuses-for-the-board/) (represented by the green color in Jira). Some examples are `DONE`, `CLOSED`, or `DECLINED`, but other values can be defined.
+-   Pulse considers an incident every Jira issue in a `Done` **status** assigned with the **label** `Incident` (case-insensitive). `Done` status in Jira are all the status of an issue under the [Done category](https://support.atlassian.com/jira-work-management/docs/workflows-and-statuses-for-the-board/) (represented by the green color in Jira). Some examples are `DONE`, `CLOSED`, or `DECLINED`, but other values can be defined.
 
 -   Pulse associates an incident to the systems, one or more, matching the values in the `Component(s)` field of the Jira issue (case-sensitive).
 
@@ -76,6 +77,11 @@ You can also choose [not to detect incidents via Jira](#jira-incident-not-detect
     -   A component that matches an existing system is removed from the corresponding issue. Pulse deletes the incident for that system.
 
     -   The corresponding issue is deleted.
+
+!!! important
+    After completing the Jira integration setup, Pulse starts loading your incident data for the last 90 days. Therefore, **before you perform the integration setup**, make sure the corresponding Jira issues follow the rules described above, so Pulse can load your historical data correctly.
+    
+    Pulse will only create incidents for the Jira issues in a `Done` status that are assigned with the label `Incident`, and associates them with the systems matching the values in the `Component(s)` field as described above.
 
 ### Don't detect incidents via Jira {: id="jira-incident-not-detect"}
 
