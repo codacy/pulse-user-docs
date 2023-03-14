@@ -80,7 +80,6 @@ You can also choose [not to detect incidents via Jira](#jira-incident-not-detect
 
 !!! important
     After completing the Jira integration setup, Pulse starts loading your incident data for the last 90 days. Therefore, **before you perform the integration setup**, make sure the corresponding Jira issues follow the rules described above, so Pulse can load your historical data correctly.
-    
     Pulse will only create incidents for the Jira issues in a `Done` status that are assigned with the label `Incident`, and associates them with the systems matching the values in the `Component(s)` field as described above.
 
 ### Don't detect incidents via Jira {: id="jira-incident-not-detect"}
