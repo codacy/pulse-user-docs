@@ -13,7 +13,7 @@ Pulse integrates with Jira Cloud to receive data about:
 ## Setting up the Jira integration
 
 !!! note
-    -   The Jira integration must be set up by a **Jira administrator**, as Pulse will only have access to Jira resources that the user setting up the integration has access to.
+    -   A **Jira administrator** must set up the integration, as Pulse will only have access to Jira resources that the user setting up the integration has access to.
     -   You can only integrate one Pulse organization with each Jira instance.
     -   If you want to report incidents using Jira, check the [details of the incident detection strategy](#incident-detection-strategy) before you proceed with the integration setup.
     -   [See below](#jira-permissions) the permissions that Pulse requires from your Jira instance.
