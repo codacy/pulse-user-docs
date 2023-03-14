@@ -50,7 +50,7 @@ You can also choose [not to detect incidents via Jira](#jira-incident-not-detect
 
 -   Pulse considers an incident every Jira issue in a **Done** status assigned with the label `Incident` (case-insensitive). **Done** status in Jira are all the status of an issue under the [Done category](https://support.atlassian.com/jira-work-management/docs/workflows-and-statuses-for-the-board/) (represented by the green color in Jira). Some examples are **DONE**, **CLOSED**, or **DECLINED**, but other values can be defined.
 
--   Pulse associates an incident to the systems, one or more, matching the values in the `Component(s)` field of the Jira issue (case-sensitive).
+-   Pulse associates an incident to one or more systems matching the values in the **Component(s)** field of the Jira issue (case-sensitive).
 
     -   If the Jira issue is set with more than one component, Pulse creates an incident for each existing system that matches a component name, ignoring the remaining components that don't exist in Pulse as a system.
 
