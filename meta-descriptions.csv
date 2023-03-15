@@ -9,5 +9,5 @@ https://docs.pulse.codacy.com/metrics/accelerate/,"Pulse calculates the four key
 https://docs.pulse.codacy.com/metrics/lead-cycle-time/,Monitoring you team's lead time and cycle time allows you to understand if you're improving the ability to deliver value to customers. These productivity metrics indicate how long it takes for work to flow through the software development process:
 https://docs.pulse.codacy.com/one-click-integrations/bitbucket-integration/,"Pulse integrates with Bitbucket Cloud to receive data about changes, deployments, and incidents, necessary to calculate the Accelerate metrics:"
 https://docs.pulse.codacy.com/one-click-integrations/github-integration/,"Pulse integrates with GitHub Cloud to receive data about changes, deployments, and incidents, necessary to calculate the metrics:"
-https://docs.pulse.codacy.com/one-click-integrations/jira-integration/,"Pulse integrates with Jira Cloud to receive data about issues, necessary to calculate the metrics Lead time and Cycle time."
+https://docs.pulse.codacy.com/one-click-integrations/jira-integration/,Pulse integrates with Jira Cloud to receive data about:
 https://docs.pulse.codacy.com/one-click-integrations/pagerduty-integration/,"Pulse integrates with PagerDuty to receive data about incidents, necessary to calculate the metrics Time to recover and Change failure rate."

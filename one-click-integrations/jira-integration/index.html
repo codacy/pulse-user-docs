@@ -6,17 +6,17 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Pulse integrates with Jira Cloud to receive data about issues, necessary to calculate the metrics Lead time and Cycle time.">
+        <meta name="description" content="Pulse integrates with Jira Cloud to receive data about:">
       
       
       
         <link rel="canonical" href="https://docs.pulse.codacy.com/one-click-integrations/jira-integration/">
       
       
-        <link rel="prev" href="../pagerduty-integration/">
+        <link rel="prev" href="../bitbucket-integration/">
       
       
-        <link rel="next" href="../../cli/cli/">
+        <link rel="next" href="../pagerduty-integration/">
       
       <link rel="icon" href="../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.1">
@@ -414,20 +414,6 @@
               
   
   
-  
-    <li class="md-nav__item">
-      <a href="../pagerduty-integration/" class="md-nav__link">
-        PagerDuty integration
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
     
   
   
@@ -471,8 +457,42 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#incident-detection-strategy" class="md-nav__link">
+    Automatic incident detection strategies
+  </a>
+  
+    <nav class="md-nav" aria-label="Automatic incident detection strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jira-incident-label" class="md-nav__link">
+    Use issues assigned with the label "Incident"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jira-incident-not-detect" class="md-nav__link">
+    Don't detect incidents via Jira
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#collected-data" class="md-nav__link">
     Collected data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jira-permissions" class="md-nav__link">
+    Which permissions does Pulse need from Jira?
   </a>
   
 </li>
@@ -488,6 +508,20 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pagerduty-integration/" class="md-nav__link">
+        PagerDuty integration
+      </a>
     </li>
   
 
@@ -593,29 +627,124 @@
 
 
 <h1 id="jira-integration">Jira integration<a class="headerlink" href="#jira-integration" title="Permanent link">&para;</a></h1>
-<p>Pulse integrates with Jira Cloud to receive data about issues, necessary to calculate the metrics <a href="../../metrics/lead-cycle-time/">Lead time and Cycle time</a>.</p>
+<p>Pulse integrates with Jira Cloud to receive data about:</p>
+<ul>
+<li>
+<p><strong>Issues</strong> - necessary to calculate <a href="../../metrics/lead-cycle-time/">Lead time and Cycle time</a>.</p>
+</li>
+<li>
+<p><strong>Incidents</strong> - necessary to calculate the following Accelerate metrics:</p>
+<ul>
+<li>
+<p><a href="../../metrics/accelerate/#time-to-recover">Time to recover</a></p>
+</li>
+<li>
+<p><a href="../../metrics/accelerate/#change-failure-rate">Change failure rate</a></p>
+</li>
+</ul>
+</li>
+</ul>
 <h2 id="setting-up-the-jira-integration">Setting up the Jira integration<a class="headerlink" href="#setting-up-the-jira-integration" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul>
+<li>A <strong>Jira administrator</strong> must set up the integration, as Pulse will only have access to Jira resources that the user setting up the integration has access to.</li>
+<li>You can only integrate one Pulse organization with each Jira instance.</li>
+<li>If you want to report incidents using Jira, <a href="#incident-detection-strategy">review the details of the incident detection strategy</a> before you proceed with the integration setup.</li>
+<li><a href="#jira-permissions">See below</a> the permissions that Pulse requires from your Jira instance.</li>
+</ul>
+</div>
 <p>To set up the Jira integration:</p>
 <ol>
 <li>
 <p>On Pulse, <a href="https://app.pulse.codacy.com/integrations/jira" target="_blank">expand <strong>Integrations</strong> and select <strong>Jira</strong></a>.</p>
 </li>
 <li>
-<p>Click <strong>Install Jira</strong> and follow the instructions on the Jira UI to install the app.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>This step should be performed by a Jira administrator, since Pulse will only have access to Jira resources that the user setting up the integration has access to.</p>
-<p>You can only integrate one Pulse organization with each Jira instance.</p>
-</div>
+<p>Click <strong>Install Jira App</strong> and follow the instructions on the Jira UI to install the app. You must be a Jira administrator to proceed with this step.</p>
 <p><img alt="Installing the Pulse Jira app" src="../images/jira-installing.png" /></p>
 </li>
 <li>
-<p>Wait until you get a confirmation that Pulse successfully created the integration and the necessary webhooks on Jira.</p>
-<p>If there was an error please <a href="mailto:pulsesupport@codacy.com">contact support</a>.</p>
+<p>Confirm that Pulse successfully connected the integration to Jira. If there is an error please <a href="mailto:pulsesupport@codacy.com">contact support</a>.</p>
+<p><img alt="Pulse Jira App installed successfully" src="../images/jira-installed-ok.png" /></p>
+</li>
+<li>
+<p>Choose the strategy to detect incidents that best fits your workflows. See the <a href="#incident-detection-strategy">section below</a> for a detailed description of each option.</p>
+<p><img alt="Configuring the incident detection strategy" src="../images/jira-incident-strategy.png" /></p>
+</li>
+<li>
+<p>Click <strong>Complete setup</strong>.</p>
 </li>
 </ol>
+<p>Your Jira integration is now complete. Pulse will start loading your data for the last 90 days.</p>
+<p><img alt="Pulse Jira integration set up successfully" src="../images/jira-ok.png" /></p>
+<h2 id="incident-detection-strategy">Automatic incident detection strategies<a class="headerlink" href="#incident-detection-strategy" title="Permanent link">&para;</a></h2>
+<p>The Pulse Jira integration can detect <strong>incidents</strong> automatically using the <a href="#jira-incident-label">issues assigned with the label <code>Incident</code></a>.</p>
+<p>You can also choose <a href="#jira-incident-not-detect">not to detect incidents via Jira</a>.</p>
+<h3 id="jira-incident-label">Use issues assigned with the label "Incident"<a class="headerlink" href="#jira-incident-label" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Pulse considers an incident every Jira issue in a <strong>Done</strong> status assigned with the label <code>Incident</code> (case-insensitive). <strong>Done</strong> status in Jira are all the status of an issue under the <a href="https://support.atlassian.com/jira-work-management/docs/workflows-and-statuses-for-the-board/">Done category</a> (represented by the green color in Jira). Some examples are <strong>DONE</strong>, <strong>CLOSED</strong>, or <strong>DECLINED</strong>, but other values can be defined.</p>
+</li>
+<li>
+<p>Pulse associates an incident to one or more systems matching the values in the <strong>Component(s)</strong> field of the Jira issue (case-sensitive).</p>
+<ul>
+<li>
+<p>If the Jira issue is set with more than one component, Pulse creates an incident for each existing system that matches a component name, ignoring the remaining components that don't exist in Pulse as a system.</p>
+</li>
+<li>
+<p>If the <strong>Component(s)</strong> field in the Jira issue is empty, or none of the components exist in Pulse as a system, Pulse creates an incident and associates it with the system <code>_unknown_</code>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>The incident creation date is the timestamp when the Jira issue was created, while the incident resolution date is the timestamp when the Jira issue was last updated to a <strong>Done</strong> status.</p>
+</li>
+<li>
+<p>Pulse creates new incidents when the following updates are performed in Jira:</p>
+<ul>
+<li>
+<p>The status of an issue assigned with the label <code>Incident</code> is updated to a <strong>Done</strong> status. Pulse creates one or more incidents, depending on the values in the <strong>Component(s)</strong> field.</p>
+</li>
+<li>
+<p>An issue in a <strong>Done</strong> status is assigned with the label <code>Incident</code>. Pulse creates one or more incidents, depending on the values in the <strong>Component(s)</strong> field.</p>
+</li>
+<li>
+<p>A new component that matches an existing system is added to an issue in a <strong>Done</strong> status assigned with the label <code>Incident</code>. Pulse creates a new incident associated with the matching system.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Pulse deletes an existing incident when the following updates are performed in Jira:</p>
+<ul>
+<li>
+<p>The corresponding issue is re-opened.</p>
+</li>
+<li>
+<p>The label <code>Incident</code> is removed from the corresponding issue.</p>
+</li>
+<li>
+<p>A component that matches an existing system is removed from the corresponding issue. Pulse deletes the incident for that system.</p>
+</li>
+<li>
+<p>The corresponding issue is deleted.</p>
+</li>
+</ul>
+</li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>After completing the Jira integration setup, Pulse starts loading your incident data for the last 90 days. Therefore, <strong>before you perform the integration setup</strong>, make sure the corresponding Jira issues follow the rules described above, so Pulse can load your historical data correctly.
+Pulse will only create incidents for the Jira issues in a <strong>Done</strong> status that are assigned with the label <code>Incident</code>, and associates them with the systems matching the values in the <strong>Component(s)</strong> field as described above.</p>
+</div>
+<h3 id="jira-incident-not-detect">Don't detect incidents via Jira<a class="headerlink" href="#jira-incident-not-detect" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Pulse doesn't detect incidents automatically using Jira events.</p>
+<p>Choose this option if you want to send to Pulse the information about your <strong>incidents</strong> using another Pulse integration - <a href="../github-integration/">GitHub one-click integration</a> or <a href="../bitbucket-integration/">Bitbucket one-click integration</a>, <a href="../pagerduty-integration/">PagerDuty one-click integration</a>, <a href="../../cli/cli/">Pulse CLI</a>, or <a href="https://ingestion.pulse.codacy.com/v1/api-docs">Ingestion API</a> - or if you don't want Pulse to track incidents data.</p>
+</li>
+</ul>
 <h2 id="collected-data">Collected data<a class="headerlink" href="#collected-data" title="Permanent link">&para;</a></h2>
-<p>The table below lists the data that the Jira integration collects from your Jira issues, together with the metrics that Pulse calculates from the data to display on the dashboards.</p>
+<p>The table below lists the data that the Jira integration collects from your Jira instance and the metrics that Pulse displays on the dashboards, calculated using the collected data.</p>
 <table>
 <thead>
 <tr>
@@ -630,7 +759,7 @@
         <td>
             Issue data includes all issue status transitions.
         </td>
-        <td>Lead time and Cycle time metrics on the <a href="../../metrics/lead-cycle-time/">Lead & Cycle time dashboard</a></td>
+        <td>Lead time and Cycle time on the <a href="../../metrics/lead-cycle-time/">Lead & Cycle time dashboard</a></td>
     </tr>
     <tr>
         <td>Projects</td>
@@ -647,11 +776,55 @@
         </td>
         <td>Filters on the <a href="../../metrics/lead-cycle-time/">Lead & Cycle time dashboard</a></td>
     </tr>
+    <tr>
+        <td>Issues</td>
+        <td>
+            Pulse detects <strong>incidents</strong> from issue data according to the <a href="#incident-detection-strategy">defined strategy</a>.
+        </td>
+        <td>Time to recover and Change failure rate on the <a href="../../metrics/accelerate/">Accelerate Overview dashboard</a></td>
+    </tr>
+</table>
+
+<h2 id="jira-permissions">Which permissions does Pulse need from Jira?<a class="headerlink" href="#jira-permissions" title="Permanent link">&para;</a></h2>
+<p>Pulse requests only the necessary <a href="https://developer.atlassian.com/cloud/jira/platform/scopes-for-oauth-2-3LO-and-forge-apps/">permissions/scopes from your Atlassian account</a> to collect issues data from your Jira instance and <a href="https://security.codacy.com/">keeps your information secure</a>. See below the detailed list of permissions.</p>
+<table>
+  <colgroup>
+    <col width="25%"/>
+    <col width="75%"/>
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Classic scope</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>read:me</code></td>
+      <td>Pulse retrieves the email of the user installing the integration.</td>
+    </tr>
+    <tr>
+      <td><code>read:jira-work</code></td>
+      <td>Pulse requires this scope to perform the following actions:
+      <ul>
+        <li>List all issue statuses associated with the active workflows to identify the transitions of the issue status, required to detect when an issue is closed or re-opened.</li>
+        <li>Get the details of an issue for real-time processing.</li>
+        <li>List projects to use on dashboard filters.</li>
+        <li>List the closed issues of a project for historical data loading.</li>
+      </ul>
+    </tr>
+    <tr>
+      <td><code>manage:jira-webhook</code></td>
+      <td>Pulse uses Jira webhooks to retrieve data in real time. </td>
+    </tr>
+  </tbody>
 </table>
 
 <h2 id="see-also">See also<a class="headerlink" href="#see-also" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="../../metrics/lead-cycle-time/">Lead and Cycle time metrics</a></li>
+<li><a href="../../metrics/accelerate/#time-to-recover">Time to recover</a></li>
+<li><a href="../../metrics/accelerate/#change-failure-rate">Change failure rate</a></li>
 </ul>
 
 

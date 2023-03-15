@@ -467,8 +467,8 @@
   
   
     <li class="md-nav__item">
-      <a href="one-click-integrations/pagerduty-integration/" class="md-nav__link">
-        PagerDuty integration
+      <a href="one-click-integrations/jira-integration/" class="md-nav__link">
+        Jira integration
       </a>
     </li>
   
@@ -481,8 +481,8 @@
   
   
     <li class="md-nav__item">
-      <a href="one-click-integrations/jira-integration/" class="md-nav__link">
-        Jira integration
+      <a href="one-click-integrations/pagerduty-integration/" class="md-nav__link">
+        PagerDuty integration
       </a>
     </li>
   
@@ -623,12 +623,46 @@
 <ul>
 <li>
 <p><strong>One-click integrations</strong></p>
-<p>Pulse currently supports the following "one-click" integrations that simplify the process of setting up your workflows to send data to Pulse:</p>
-<ul>
-<li><strong><a href="one-click-integrations/github-integration/">GitHub integration</a> or <a href="one-click-integrations/bitbucket-integration/">Bitbucket integration</a>:</strong> reports changes, deployments, and incidents</li>
-<li><strong><a href="one-click-integrations/pagerduty-integration/">PagerDuty integration</a>:</strong> reports incidents</li>
-<li><strong><a href="one-click-integrations/jira-integration/">Jira integration</a>:</strong> reports lead and cycle time</li>
-</ul>
+<p>Pulse currently supports the "one-click" integrations listed in the table below that simplify the process of setting up your workflows to send data to Pulse.</p>
+<p><table>
+    <colgroup>
+        <col width="30%"/>
+        <col width="10%"/>
+        <col width="60%"/>
+    </colgroup>
+    <thead>
+        <tr>
+            <th>Use this one-click integration...</th>
+            <th>to report...</th>
+            <th>necessary to calculate...</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="2"><a href="one-click-integrations/github-integration">GitHub integration</a> or <a href="one-click-integrations/bitbucket-integration">Bitbucket integration</a></td>
+            <td>changes and deployments</td>
+            <td>the Accelerate metrics <a href="metrics/accelerate#deployment-frequency">deployment frequency</a> and <a href="metrics/accelerate#lead-time-for-changes">lead time for changes</a>, including the drill-down metrics <a href="metrics/accelerate-changes">changes and reviews</a>, and <a href="metrics/accelerate-wip">work in progress</a></td>
+        </tr>
+        <tr>
+            <td>incidents</td>
+            <td>the Accelerate metrics <a href="metrics/accelerate#time-to-recover">time to recover</a> and <a href="metrics/accelerate#change-failure-rate">change failure rate</a></td>
+        </tr>
+        <tr>
+            <td rowspan="2"><a href="one-click-integrations/jira-integration">Jira integration</a></td>
+            <td>issues</td>
+            <td><a href="metrics/lead-cycle-time">lead and cycle time</a> metrics</td>
+        </tr>
+        <tr>
+            <td>incidents</td>
+            <td>the Accelerate metrics <a href="metrics/accelerate#time-to-recover">time to recover</a> and <a href="metrics/accelerate#change-failure-rate">change failure rate</a></td>
+        </tr>
+        <tr>
+            <td><a href="one-click-integrations/pagerduty-integration">PagerDuty integration</a></td>
+            <td>incidents</td>
+            <td>the Accelerate metrics <a href="metrics/accelerate#time-to-recover">time to recover</a> and <a href="metrics/accelerate#change-failure-rate">change failure rate</a></td>
+        </tr>
+    </tbody>
+</table></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>We recommend that whenever possible you use the integrations that match your stack because they're faster to set up. We plan to continue developing integrations for the most popular Git providers, CI/CD platforms, and incident management tools.</p>
