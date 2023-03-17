@@ -105,7 +105,7 @@ The table below lists the data that the Jira integration collects from your Jira
             Issue data includes all issue status transitions.<br/><br/>
             To detect the state of an issue, Pulse considers all the statuses under each <a href="https://support.atlassian.com/jira-work-management/docs/workflows-and-statuses-for-the-board/">Jira status category</a>:
             <ul>
-                <li>An issue is <strong>not being worked on</strong> when its status maps to the <strong>To-do status category</strong>, represented by the grey color in Jira. For example, <strong>BACKLOG</strong>, <strong>WAITING FOR APPROVAL</strong>, or any other custom value.</li>
+                <li>An issue is <strong>not in progress</strong> when its status maps to the <strong>To-do status category</strong>, represented by the grey color in Jira. For example, <strong>BACKLOG</strong>, <strong>WAITING FOR APPROVAL</strong>, or any other custom value.</li>
                 <li>An issue is <strong>in progress</strong> when its status maps to the <strong>In-progress status category</strong>, represented by the blue color in Jira. For example, <strong>IN PROGRESS</strong>, <strong>DEVELOPING</strong>, <strong>IN REVIEW</strong>, or any other custom value.</li>
                 <li>An issue is <strong>completed</strong> when its status maps to the <strong>Done status category</strong>, represented by the grey color in Jira. For example, <strong>DONE</strong>, <strong>CLOSED</strong>, <strong>DECLINED</strong>, or any other custom value.</li>
             </ul>

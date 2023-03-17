@@ -40,9 +40,9 @@ Time between commiting to work on an issue (such as at the start of a sprint) an
 Pulse calculates cycle time for completed issues, taking into account that issues can transition from **in progress** back to another state besides **completed**.
 
 !!! note
-    Issues that aren't being worked on don't contribute to the cycle time.
+    Open issues that aren't in progress don't contribute to the cycle time.
 
-    In Jira, issues aren't being worked on when its status maps to the **To-do status category**. [See here](../one-click-integrations/jira-integration.md#collected-data) how Pulse collects issue status data from Jira.
+    [See here](../one-click-integrations/jira-integration.md#collected-data) how Pulse collects issue status data from Jira.
 
 ```text
 sum all (issue exited in progress timestamp - issue entered in progress timestamp)
