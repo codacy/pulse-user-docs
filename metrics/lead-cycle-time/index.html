@@ -595,15 +595,19 @@
 <h1 id="lead-and-cycle-time-metrics">Lead and cycle time metrics<a class="headerlink" href="#lead-and-cycle-time-metrics" title="Permanent link">&para;</a></h1>
 <p>Monitoring you team's lead time and cycle time allows you to understand if you're improving the ability to deliver value to customers. These productivity metrics indicate how long it takes for work to flow through the software development process:</p>
 <ul>
-<li><strong><a href="#lead-time">Lead time</a>:</strong> the time it takes to go from a customer making a request to the request being satisfied. You can use lead time as an indication of your organization’s time to market.</li>
-<li><strong><a href="#cycle-time">Cycle time</a>:</strong> the time it takes for your team to complete work items once they begin actively working on them.</li>
+<li>
+<p><strong><a href="#lead-time">Lead time</a>:</strong> the time it takes to go from a customer making a request to the request being satisfied. You can use lead time as an indication of your organization’s time to market.</p>
+</li>
+<li>
+<p><strong><a href="#cycle-time">Cycle time</a>:</strong> the time it takes for your team to complete work items once they begin actively working on them.</p>
+</li>
 </ul>
 <p><img alt="Lead time versus cycle time" src="../images/lead-cycle-time.png" /></p>
 <p>Use these metrics to monitor the results of investing in DevOps practices and tackling technical debt, compare, and quantify the performance of your teams. These metrics enable you to objectively communicate to stakeholders how long your Engineering team takes to address customer requests or defects.</p>
 <p>Read more on <a href="https://blog.codacy.com/how-lead-time-can-improve-your-time-to-market/" target="_blank">how you can improve your time to market</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Pulse calculates lead time and cycle time based on the state changes of issues <strong>that are already closed</strong> in Jira, independently of the resolution. This means that:</p>
+<p>Pulse calculates lead time and cycle time based on the state changes of issues <strong>that are already completed</strong> in your issue tracking system. This means that:</p>
 <ul>
 <li>
 <p><strong>If you reopen</strong> a completed issue, Pulse stops considering the issue while calculating the metrics. If the issue is completed again, Pulse takes into account the last completed timestamp.</p>
@@ -613,22 +617,20 @@
 <p>Note that this change doesn't affect the overall calculation of the lead time or cycle time metrics.</p>
 </li>
 </ul>
+<p><a href="../../one-click-integrations/jira-integration/#collected-data">See here</a> how Pulse collects issue status data from Jira.</p>
 </div>
 <h2 id="lead-time">Lead time<a class="headerlink" href="#lead-time" title="Permanent link">&para;</a></h2>
 <p>Time between creating an issue in the backlog and completing the issue.</p>
-<p>Pulse calculates lead time for completed issues, taking into account that issues can transition from <strong>Completed</strong> back to another status.</p>
+<p>Pulse calculates lead time for completed issues, taking into account that issues can transition from <strong>completed</strong> back to another state.</p>
 <div class="highlight"><pre><span></span><code>last issue completed timestamp - issue created timestamp
 </code></pre></div>
 <h2 id="cycle-time">Cycle time<a class="headerlink" href="#cycle-time" title="Permanent link">&para;</a></h2>
 <p>Time between commiting to work on an issue (such as at the start of a sprint) and completing the issue. Cycle time is a subpart of lead time.</p>
-<p>Pulse calculates cycle time for completed issues, taking into account that issues can transition from <strong>In progress</strong> back to another status besides <strong>Completed</strong>.</p>
+<p>Pulse calculates cycle time for completed issues, taking into account that issues can transition from <strong>in progress</strong> back to another state besides <strong>completed</strong>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>When calculating cycle time, Pulse considers that:</p>
-<ul>
-<li>Issues are in progress when they transition to any Jira status belonging to the <strong>In Progress</strong> status category (represented by the blue color in Jira).</li>
-<li>Issues that have a status belonging to the <strong>To Do</strong> status category (represented by the grey color in Jira) don't contribute to cycle time.</li>
-</ul>
+<p>Open issues that aren't in progress don't contribute to the cycle time.</p>
+<p><a href="../../one-click-integrations/jira-integration/#collected-data">See here</a> how Pulse collects issue status data from Jira.</p>
 </div>
 <div class="highlight"><pre><span></span><code>sum all (issue exited in progress timestamp - issue entered in progress timestamp)
 </code></pre></div>

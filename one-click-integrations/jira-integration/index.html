@@ -683,7 +683,7 @@
 <h3 id="jira-incident-label">Use issues assigned with the label "Incident"<a class="headerlink" href="#jira-incident-label" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
-<p>Pulse considers an incident every Jira issue in a <strong>Done</strong> status assigned with the label <code>Incident</code> (case-insensitive). <strong>Done</strong> status in Jira are all the status of an issue under the <a href="https://support.atlassian.com/jira-work-management/docs/workflows-and-statuses-for-the-board/">Done category</a> (represented by the green color in Jira). Some examples are <strong>DONE</strong>, <strong>CLOSED</strong>, or <strong>DECLINED</strong>, but other values can be defined.</p>
+<p>Pulse considers an incident every completed Jira issue assigned with the label <code>Incident</code> (case-insensitive). An issue is completed when its status maps to the <strong>Done status category</strong> in Jira. <a href="#collected-data">See below</a> how Pulse collects issue status data from Jira.</p>
 </li>
 <li>
 <p>Pulse associates an incident to one or more systems matching the values in the <strong>Component(s)</strong> field of the Jira issue (case-sensitive).</p>
@@ -697,19 +697,19 @@
 </ul>
 </li>
 <li>
-<p>The incident creation date is the timestamp when the Jira issue was created, while the incident resolution date is the timestamp when the Jira issue was last updated to a <strong>Done</strong> status.</p>
+<p>The incident creation date is the timestamp when the Jira issue was created, while the incident resolution date is the timestamp when the Jira issue was last completed.</p>
 </li>
 <li>
 <p>Pulse creates new incidents when the following updates are performed in Jira:</p>
 <ul>
 <li>
-<p>The status of an issue assigned with the label <code>Incident</code> is updated to a <strong>Done</strong> status. Pulse creates one or more incidents, depending on the values in the <strong>Component(s)</strong> field.</p>
+<p>An issue assigned with the label <code>Incident</code> is completed. Pulse creates one or more incidents, depending on the values in the <strong>Component(s)</strong> field.</p>
 </li>
 <li>
-<p>An issue in a <strong>Done</strong> status is assigned with the label <code>Incident</code>. Pulse creates one or more incidents, depending on the values in the <strong>Component(s)</strong> field.</p>
+<p>A completed issue is assigned with the label <code>Incident</code>. Pulse creates one or more incidents, depending on the values in the <strong>Component(s)</strong> field.</p>
 </li>
 <li>
-<p>A new component that matches an existing system is added to an issue in a <strong>Done</strong> status assigned with the label <code>Incident</code>. Pulse creates a new incident associated with the matching system.</p>
+<p>A new component that matches an existing system is added to a completed issue assigned with the label <code>Incident</code>. Pulse creates a new incident associated with the matching system.</p>
 </li>
 </ul>
 </li>
@@ -734,7 +734,7 @@
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>After completing the Jira integration setup, Pulse starts loading your incident data for the last 90 days. Therefore, <strong>before you perform the integration setup</strong>, make sure the corresponding Jira issues follow the rules described above, so Pulse can load your historical data correctly.
-Pulse will only create incidents for the Jira issues in a <strong>Done</strong> status that are assigned with the label <code>Incident</code>, and associates them with the systems matching the values in the <strong>Component(s)</strong> field as described above.</p>
+Pulse will only create incidents for the completed Jira issues that are assigned with the label <code>Incident</code>, and associates them with the systems matching the values in the <strong>Component(s)</strong> field as described above.</p>
 </div>
 <h3 id="jira-incident-not-detect">Don't detect incidents via Jira<a class="headerlink" href="#jira-incident-not-detect" title="Permanent link">&para;</a></h3>
 <ul>
@@ -757,7 +757,13 @@ Pulse will only create incidents for the Jira issues in a <strong>Done</strong> 
     <tr>
         <td>Issues</td>
         <td>
-            Issue data includes all issue status transitions.
+            Issue data includes all issue status transitions.<br/><br/>
+            To detect the state of an issue, Pulse considers all the statuses under each <a href="https://support.atlassian.com/jira-work-management/docs/workflows-and-statuses-for-the-board/">Jira status category</a>:
+            <ul>
+                <li>An issue is <strong>not in progress</strong> when its status maps to the <strong>To-do status category</strong>, represented by the grey color in Jira. For example, <strong>BACKLOG</strong>, <strong>WAITING FOR APPROVAL</strong>, or any other custom value.</li>
+                <li>An issue is <strong>in progress</strong> when its status maps to the <strong>In-progress status category</strong>, represented by the blue color in Jira. For example, <strong>IN PROGRESS</strong>, <strong>DEVELOPING</strong>, <strong>IN REVIEW</strong>, or any other custom value.</li>
+                <li>An issue is <strong>completed</strong> when its status maps to the <strong>Done status category</strong>, represented by the grey color in Jira. For example, <strong>DONE</strong>, <strong>CLOSED</strong>, <strong>DECLINED</strong>, or any other custom value.</li>
+            </ul>
         </td>
         <td>Lead time and Cycle time on the <a href="../../metrics/lead-cycle-time/">Lead & Cycle time dashboard</a></td>
     </tr>
