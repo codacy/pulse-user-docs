@@ -70,6 +70,10 @@ Pulse uses the maximum value over a period of time to display aggregate times to
 
         If you are reporting incidents using [GitHub](../one-click-integrations/github-integration.md) or [Bitbucket](../one-click-integrations/bitbucket-integration.md) integrations, Pulse automatically associates your deployments and incidents with the correct systems.
 
+    -   Pulse associates an incident to **the last deployment before the incident**, within the same system. If you report an incident and there is no previous deployment for the same system, Pulse doesn't consider it. The same deployment may be associated with multiple incidents.
+
+        This simplification reduces the complexity of the integration because it doesn't require any information about deployments or changes when reporting incidents, which could originate from a different data source.
+
 Pulse determines your performance level for this metric as follows:
 
 | Performance level[^1] | Time to recover              |
