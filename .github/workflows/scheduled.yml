@@ -10,9 +10,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.DEPLOYMENT_PERSONAL_ACCESS_TOKEN }}
-          submodules: true
 
       - name: Check for broken links
         id: lychee
@@ -21,7 +18,7 @@ jobs:
           args: --verbose ./docs/**/*.md
           jobSummary: true
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create issue
         if: env.lychee_exit_code != 0
@@ -36,15 +33,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          token: ${{ secrets.DEPLOYMENT_PERSONAL_ACCESS_TOKEN }}
-          submodules: true
 
       - name: Compress images
         id: calibre
         uses: calibreapp/image-actions@main
         with:
-          githubToken: ${{ secrets.DEPLOYMENT_PERSONAL_ACCESS_TOKEN }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
           compressOnly: true
 
       - name: Create pull request
@@ -55,5 +49,3 @@ jobs:
           branch-suffix: timestamp
           commit-message: "clean: Compress images"
           body: ${{ steps.calibre.outputs.markdown }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.DEPLOYMENT_PERSONAL_ACCESS_TOKEN }}
