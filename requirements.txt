@@ -1,6 +1,6 @@
 mkdocs==1.5.1
 markdown==3.3.7 # Temporarily pin version <3.4, see https://github.com/mkdocs/mkdocs/pull/2893
-mkdocs-material==9.1.19
+mkdocs-material==9.1.21
 
 # Markdown extensions
 pymdown-extensions==10.1
