@@ -1,6 +1,6 @@
 mkdocs==1.5.3
 markdown==3.4.4
-mkdocs-material==9.4.3
+mkdocs-material==9.4.4
 
 # Markdown extensions
 pymdown-extensions==10.3
