@@ -6,4 +6,4 @@ mkdocs-material==9.4.14
 pymdown-extensions==10.5
 
 # MkDocs plugins
-mkdocs-meta-descriptions-plugin==2.3.0
+mkdocs-meta-descriptions-plugin==3.0.0
