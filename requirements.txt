@@ -3,7 +3,7 @@ markdown==3.8.1
 mkdocs-material==9.5.44
 
 # Markdown extensions
-pymdown-extensions==10.9
+pymdown-extensions==10.12
 
 # MkDocs plugins
 mkdocs-meta-descriptions-plugin==3.0.0
