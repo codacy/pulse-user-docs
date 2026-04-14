@@ -1,5 +1,5 @@
 mkdocs==1.6.1
-markdown==3.8.1
+markdown==3.10.2
 mkdocs-material==9.7.6
 
 # Markdown extensions
