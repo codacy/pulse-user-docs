@@ -36,7 +36,7 @@ jobs:
 
       - name: Compress images
         id: calibre
-        uses: calibreapp/image-actions@e2cc8db5d49c849e00844dfebf01438318e96fa2 # main
+        uses: calibreapp/image-actions@e9858fbe00fd2463e64f4501a7fc8fa521bb0c53 # main
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
           compressOnly: true
